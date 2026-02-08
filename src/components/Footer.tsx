@@ -1,0 +1,39 @@
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export function Footer() {
+  const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="border-t border-border">
+      <div className="container mx-auto px-6 md:px-12 py-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          {/* Logo & Copyright */}
+          <div className="text-center md:text-left">
+            <p className="font-serif text-xl mb-2">Jovana Kokor</p>
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} {t('footer.rights')}
+            </p>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex items-center gap-6 text-sm">
+            <a
+              href="#impressum"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t('footer.impressum')}
+            </a>
+            <span className="text-border">|</span>
+            <a
+              href="#datenschutz"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t('footer.datenschutz')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
