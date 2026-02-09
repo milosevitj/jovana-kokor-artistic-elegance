@@ -5,28 +5,589 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jovana Kokor – Performance & Musik | Professionelle Performerin in Deutschland</title>
     <meta name="description" content="Jovana Kokor ist eine professionelle Performerin und Musikerin in Deutschland. Erleben Sie unvergessliche Live-Auftritte voller Energie, Leidenschaft und künstlerischer Tiefe. Booking Anfragen willkommen." />
-    <meta name="keywords" content="Jovana Kokor, Performerin, Musikerin, Deutschland, Live-Auftritte, Gesang, Theater, Booking" />
+    <meta name="keywords" content="Jovana Kokor, Performerin, Musikerin, Deutschland, Live-Auftritte, Gesang, Theater, Booking, München, Berlin, Frankfurt" />
     <meta name="author" content="Jovana Kokor" />
     <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="DE" />
+    <meta name="geo.placename" content="Germany" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Jovana Kokor – Performance & Musik" />
-    <meta property="og:description" content="Professionelle Performerin und Musikerin in Deutschland. Booking Anfragen willkommen." />
+    <meta property="og:description" content="Professionelle Performerin und Musikerin in Deutschland. Die Bühne ist mein Zuhause – mit Leidenschaft, Energie und einer Prise Wahnsinn bringe ich Emotionen zum Leben." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jovanakokor.de" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Jovana Kokor" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Jovana Kokor – Performance & Musik" />
-    <meta name="twitter:description" content="Professionelle Performerin und Musikerin in Deutschland." />
+    <meta name="twitter:description" content="Professionelle Performerin und Musikerin in Deutschland. Booking Anfragen willkommen." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <link rel="canonical" href="https://jovanakokor.de" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jovanakokor.de/#person",
+          "name": "Jovana Kokor",
+          "url": "https://jovanakokor.de",
+          "image": "https://jovanakokor.de/jovana-portrait.jpg",
+          "description": "Professionelle Performerin und Musikerin in Deutschland. Die Bühne ist mein Zuhause – mit Leidenschaft, Energie und einer Prise Wahnsinn bringe ich Emotionen zum Leben.",
+          "jobTitle": "Performerin & Musikerin",
+          "knowsAbout": ["Performance", "Musik", "Gesang", "Theater", "Live-Auftritte"],
+          "sameAs": [
+            "https://instagram.com/joywannasworld",
+            "https://facebook.com"
+          ],
+          "email": "kontakt@jovanakokor.de",
+          "nationality": {
+            "@type": "Country",
+            "name": "Germany"
+          },
+          "workLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "DE"
+            }
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jovanakokor.de/#website",
+          "url": "https://jovanakokor.de",
+          "name": "Jovana Kokor – Performance & Musik",
+          "description": "Offizielle Website von Jovana Kokor - Professionelle Performerin und Musikerin in Deutschland",
+          "publisher": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "inLanguage": ["de-DE", "en-US"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://jovanakokor.de/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://jovanakokor.de/#webpage",
+          "url": "https://jovanakokor.de",
+          "name": "Jovana Kokor – Performance & Musik | Professionelle Performerin in Deutschland",
+          "isPartOf": {
+            "@id": "https://jovanakokor.de/#website"
+          },
+          "about": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "description": "Jovana Kokor ist eine professionelle Performerin und Musikerin in Deutschland. Erleben Sie unvergessliche Live-Auftritte voller Energie, Leidenschaft und künstlerischer Tiefe.",
+          "inLanguage": "de-DE",
+          "datePublished": "2024-01-01",
+          "dateModified": "2025-01-01"
+        },
+        {
+          "@type": "PerformingGroup",
+          "@id": "https://jovanakokor.de/#performinggroup",
+          "name": "Jovana Kokor",
+          "description": "Professionelle Performerin und Musikerin für Live-Auftritte, Festivals und exklusive Veranstaltungen",
+          "member": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "genre": ["Performance", "Musik", "Theater"],
+          "foundingLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "DE"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://jovanakokor.de/#service",
+          "name": "Live Performance & Booking",
+          "description": "Professionelle Live-Auftritte für Festivals, Kulturzentren und exklusive Veranstaltungen. Booking Anfragen willkommen.",
+          "provider": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "serviceType": ["Live Performance", "Konzert", "Gesang", "Theater"],
+          "areaServed": {
+            "@type": "Country",
+            "name": "Germany"
+          }
+        },
+        {
+          "@type": "Event",
+          "name": "Passionskonzert",
+          "startDate": "2026-03-15T20:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Kulturzentrum am Gasteig",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "München",
+              "addressCountry": "DE"
+            }
+          },
+          "performer": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+        },
+        {
+          "@type": "Event",
+          "name": "Frühlingsmelodien",
+          "startDate": "2026-04-22T19:30:00+02:00",
+          "location": {
+            "@type": "Place",
+            "name": "Philharmonie",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Berlin",
+              "addressCountry": "DE"
+            }
+          },
+          "performer": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+        },
+        {
+          "@type": "Event",
+          "name": "Sommernachtsträume",
+          "startDate": "2026-05-10T21:00:00+02:00",
+          "location": {
+            "@type": "Place",
+            "name": "Alte Oper",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Frankfurt",
+              "addressCountry": "DE"
+            }
+          },
+          "performer": {
+            "@id": "https://jovanakokor.de/#person"
+          },
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Start",
+              "item": "https://jovanakokor.de/#home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Auftritte",
+              "item": "https://jovanakokor.de/#gigs"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Über mich",
+              "item": "https://jovanakokor.de/#about"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Galerie",
+              "item": "https://jovanakokor.de/#gallery"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Kontakt",
+              "item": "https://jovanakokor.de/#contact"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static HTML Fallback for SEO - Content before React hydrates -->
+      <div class="min-h-screen bg-background text-foreground">
+        
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+          <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between h-16 md:h-20">
+              <a href="#home" class="font-serif text-xl md:text-2xl font-medium">
+                Jovana Kokor
+              </a>
+              <nav aria-label="Hauptnavigation">
+                <ul class="hidden md:flex items-center gap-8">
+                  <li><a href="#home" class="text-sm uppercase tracking-wider hover:text-primary transition-colors">Start</a></li>
+                  <li><a href="#gigs" class="text-sm uppercase tracking-wider hover:text-primary transition-colors">Auftritte</a></li>
+                  <li><a href="#about" class="text-sm uppercase tracking-wider hover:text-primary transition-colors">Über mich</a></li>
+                  <li><a href="#gallery" class="text-sm uppercase tracking-wider hover:text-primary transition-colors">Galerie</a></li>
+                  <li><a href="#contact" class="text-sm uppercase tracking-wider hover:text-primary transition-colors">Kontakt</a></li>
+                </ul>
+              </nav>
+              <div class="flex items-center gap-2">
+                <button type="button" aria-label="Deutsch" class="text-sm font-medium px-2 py-1">DE</button>
+                <span class="text-muted-foreground">|</span>
+                <button type="button" aria-label="English" class="text-sm font-medium px-2 py-1 text-muted-foreground">EN</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <!-- Hero Section -->
+          <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="relative z-10 container mx-auto px-6 md:px-12 lg:px-20">
+              <div class="max-w-3xl">
+                <div class="w-16 h-px bg-primary mb-8"></div>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4">
+                  Jovana Kokor
+                </h1>
+                <p class="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-8">
+                  Performance & Musik
+                </p>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed">
+                  Die Bühne ist mein Zuhause – mit Leidenschaft, Energie und einer Prise Wahnsinn bringe ich Emotionen zum Leben.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#contact" class="btn-hero inline-flex items-center justify-center">
+                    Booking Anfragen
+                  </a>
+                  <a href="#about" class="btn-outline-hero inline-flex items-center justify-center">
+                    Mehr erfahren
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Gigs Section -->
+          <section id="gigs" class="section-padding bg-card">
+            <div class="container mx-auto">
+              <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
+                  Kommende Auftritte
+                </h2>
+                <p class="text-muted-foreground text-lg max-w-xl mx-auto">
+                  Erleben Sie Jovana live auf der Bühne
+                </p>
+                <div class="w-20 h-px bg-primary mx-auto mt-8"></div>
+              </div>
+
+              <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Gig 1 -->
+                <article class="group bg-background border border-border rounded-sm p-6 md:p-8">
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="flex items-start gap-4 md:w-1/4">
+                      <div>
+                        <p class="font-medium">15. März 2026</p>
+                        <p class="text-muted-foreground text-sm">20:00</p>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-serif text-xl md:text-2xl mb-2">Passionskonzert</h3>
+                      <p class="text-muted-foreground">Kulturzentrum am Gasteig, München</p>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+                      Tickets
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Gig 2 -->
+                <article class="group bg-background border border-border rounded-sm p-6 md:p-8">
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="flex items-start gap-4 md:w-1/4">
+                      <div>
+                        <p class="font-medium">22. April 2026</p>
+                        <p class="text-muted-foreground text-sm">19:30</p>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-serif text-xl md:text-2xl mb-2">Frühlingsmelodien</h3>
+                      <p class="text-muted-foreground">Philharmonie, Berlin</p>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+                      Tickets
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Gig 3 -->
+                <article class="group bg-background border border-border rounded-sm p-6 md:p-8">
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="flex items-start gap-4 md:w-1/4">
+                      <div>
+                        <p class="font-medium">10. Mai 2026</p>
+                        <p class="text-muted-foreground text-sm">21:00</p>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-serif text-xl md:text-2xl mb-2">Sommernachtsträume</h3>
+                      <p class="text-muted-foreground">Alte Oper, Frankfurt</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- About Section -->
+          <section id="about" class="section-padding">
+            <div class="container mx-auto">
+              <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                  <img
+                    src="/placeholder.svg"
+                    alt="Jovana Kokor - Performerin und Musikerin"
+                    class="w-full h-auto object-cover aspect-[3/4]"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="order-1 lg:order-2">
+                  <div class="max-w-lg">
+                    <p class="text-primary font-medium tracking-wider uppercase text-sm mb-4">
+                      Leidenschaft trifft Bühne
+                    </p>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-8">
+                      Die Performerin
+                    </h2>
+                    <div class="w-16 h-px bg-primary mb-8"></div>
+                    <div class="space-y-6 text-muted-foreground leading-relaxed">
+                      <p>
+                        Als professionelle Performerin und Musikerin verbinde ich Gesang, Bewegung und Theater zu einem einzigartigen Erlebnis. Meine Auftritte sind geprägt von Energie, Emotionen und einer unverwechselbaren Präsenz.
+                      </p>
+                      <p>
+                        Ob auf großen Festivalbühnen, in intimen Kulturzentren oder bei exklusiven Veranstaltungen – ich bringe Leidenschaft und Professionalität in jede Performance. Mein Ziel ist es, das Publikum zu berühren, zu bewegen und unvergessliche Momente zu schaffen.
+                      </p>
+                      <p>
+                        Mit einem Hintergrund in klassischem Gesang und zeitgenössischem Theater bringe ich Vielseitigkeit und künstlerische Tiefe auf jede Bühne.
+                      </p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
+                      <div>
+                        <p class="font-serif text-3xl md:text-4xl text-primary">10+</p>
+                        <p class="text-sm text-muted-foreground mt-1">Jahre</p>
+                      </div>
+                      <div>
+                        <p class="font-serif text-3xl md:text-4xl text-primary">100+</p>
+                        <p class="text-sm text-muted-foreground mt-1">Auftritte</p>
+                      </div>
+                      <div>
+                        <p class="font-serif text-3xl md:text-4xl text-primary">∞</p>
+                        <p class="text-sm text-muted-foreground mt-1">Leidenschaft</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Gallery Section -->
+          <section id="gallery" class="section-padding bg-card">
+            <div class="container mx-auto">
+              <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
+                  Galerie
+                </h2>
+                <p class="text-muted-foreground text-lg max-w-xl mx-auto">
+                  Momente auf der Bühne
+                </p>
+                <div class="w-20 h-px bg-primary mx-auto mt-8"></div>
+              </div>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="aspect-square bg-muted rounded-sm"></div>
+                <div class="aspect-square bg-muted rounded-sm"></div>
+                <div class="aspect-square bg-muted rounded-sm"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact Section -->
+          <section id="contact" class="section-padding">
+            <div class="container mx-auto">
+              <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+                <div>
+                  <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
+                    Booking & Kontakt
+                  </h2>
+                  <p class="text-muted-foreground text-lg mb-8 max-w-md">
+                    Für Anfragen zu Auftritten, Kooperationen oder allgemeine Fragen
+                  </p>
+                  <div class="w-16 h-px bg-primary mb-12"></div>
+
+                  <address class="not-italic mb-8">
+                    <p class="text-muted-foreground mb-2">
+                      <strong>E-Mail:</strong> 
+                      <a href="mailto:kontakt@jovanakokor.de" class="hover:text-primary transition-colors">kontakt@jovanakokor.de</a>
+                    </p>
+                    <p class="text-muted-foreground">
+                      <strong>Standort:</strong> Deutschland
+                    </p>
+                  </address>
+
+                  <div>
+                    <p class="text-sm text-muted-foreground uppercase tracking-wider mb-4">
+                      Folgen Sie mir
+                    </p>
+                    <div class="flex gap-4">
+                      <a
+                        href="https://instagram.com/joywannasworld"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+                        aria-label="Instagram"
+                      >
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                      </a>
+                      <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+                        aria-label="Facebook"
+                      >
+                        <span class="sr-only">Facebook</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                      </a>
+                      <a
+                        href="mailto:kontakt@jovanakokor.de"
+                        class="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+                        aria-label="E-Mail"
+                      >
+                        <span class="sr-only">E-Mail</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <form action="#" method="post" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                      <div>
+                        <label for="name" class="block text-sm font-medium mb-2">Name *</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          class="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label for="email" class="block text-sm font-medium mb-2">E-Mail *</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          class="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label for="subject" class="block text-sm font-medium mb-2">Betreff *</label>
+                      <select
+                        id="subject"
+                        name="subject"
+                        required
+                        class="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none"
+                      >
+                        <option value="">—</option>
+                        <option value="booking">Booking Anfrage</option>
+                        <option value="collaboration">Zusammenarbeit</option>
+                        <option value="press">Presse & Medien</option>
+                        <option value="other">Sonstiges</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="message" class="block text-sm font-medium mb-2">Nachricht *</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows="5"
+                        class="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none resize-none"
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn-hero inline-flex items-center justify-center"
+                    >
+                      Nachricht senden
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-border">
+          <div class="container mx-auto px-6 md:px-12 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div class="text-center md:text-left">
+                <p class="font-serif text-xl mb-2">Jovana Kokor</p>
+                <p class="text-sm text-muted-foreground">
+                  © 2026 Alle Rechte vorbehalten
+                </p>
+              </div>
+              <nav aria-label="Rechtliche Links">
+                <ul class="flex items-center gap-6 text-sm">
+                  <li>
+                    <a href="#impressum" class="text-muted-foreground hover:text-foreground transition-colors">
+                      Impressum
+                    </a>
+                  </li>
+                  <li>
+                    <span class="text-border">|</span>
+                  </li>
+                  <li>
+                    <a href="#datenschutz" class="text-muted-foreground hover:text-foreground transition-colors">
+                      Datenschutz
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- End Static HTML Fallback -->
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
