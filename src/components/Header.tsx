@@ -19,6 +19,7 @@ export function Header() {
     { href: '#home', label: t('nav.home') },
     { href: '#gigs', label: t('nav.gigs') },
     { href: '#about', label: t('nav.about') },
+    { href: '#lessons', label: t('nav.lessons') },
     { href: '#gallery', label: t('nav.gallery') },
     { href: '#contact', label: t('nav.contact') },
   ];

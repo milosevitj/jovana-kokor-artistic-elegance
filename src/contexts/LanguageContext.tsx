@@ -58,6 +58,20 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.subject.press': 'Presse & Medien',
     'contact.subject.other': 'Sonstiges',
     
+    // Lessons
+    'nav.lessons': 'Unterricht',
+    'lessons.tagline': 'Maßgeschneiderter Unterricht für jedes Niveau',
+    'lessons.title': 'Klavierunterricht',
+    'lessons.beginners': 'Anfänger',
+    'lessons.beginners.desc': 'Starten Sie Ihre musikalische Reise mit einem soliden Fundament. Lernen Sie die richtige Technik, Grundlagen der Musiktheorie und entdecken Sie die Freude am Spielen Ihrer ersten Stücke.',
+    'lessons.advanced': 'Fortgeschrittene',
+    'lessons.advanced.desc': 'Verfeinern Sie Ihre Kunstfertigkeit und meistern Sie anspruchsvolles Repertoire. Fokus auf Ausdruck, Interpretation und Vorbereitung auf Auftritte.',
+    'lessons.allages': 'Alle Altersgruppen',
+    'lessons.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meine Lehrmethoden an Ihren Lernstil und Ihre Ziele an.',
+    'lessons.feature.schedule': 'Flexible Termine',
+    'lessons.feature.online': 'Online & Vor Ort',
+    'lessons.feature.curriculum': 'Individueller Lehrplan',
+
     // Footer
     'footer.rights': 'Alle Rechte vorbehalten',
     'footer.impressum': 'Impressum',
@@ -113,6 +127,20 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.subject.press': 'Press & Media',
     'contact.subject.other': 'Other',
     
+    // Lessons
+    'nav.lessons': 'Lessons',
+    'lessons.tagline': 'Tailored Instruction for Every Level',
+    'lessons.title': 'Piano Lessons',
+    'lessons.beginners': 'Beginners',
+    'lessons.beginners.desc': 'Start your musical journey with a solid foundation. Learn proper technique, music theory basics, and discover the joy of playing your first pieces.',
+    'lessons.advanced': 'Advanced',
+    'lessons.advanced.desc': 'Refine your artistry and tackle challenging repertoire. Focus on expression, interpretation, and performance preparation.',
+    'lessons.allages': 'All Ages',
+    'lessons.allages.desc': "Music has no age limit. Whether you're 7 or 70, I adapt my teaching methods to your learning style and goals.",
+    'lessons.feature.schedule': 'Flexible Schedule',
+    'lessons.feature.online': 'Online & In-Person',
+    'lessons.feature.curriculum': 'Personalized Curriculum',
+
     // Footer
     'footer.rights': 'All rights reserved',
     'footer.impressum': 'Imprint',
