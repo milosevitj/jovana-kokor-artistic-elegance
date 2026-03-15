@@ -70,20 +70,15 @@ export function GallerySection() {
           </h3>
           
           {/* Video Placeholder */}
-          <div className="relative aspect-video bg-secondary rounded-sm overflow-hidden group cursor-pointer">
-            <img
-              src={heroImage}
-              alt="Video thumbnail"
-              className="w-full h-full object-cover opacity-60"
+          <div className="relative aspect-video rounded-sm overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/KlXXMuKU3wE"
+              title="Jovana Kokor – Live Performance"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full border-0"
+              loading="lazy"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-[var(--shadow-ruby)]">
-                <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
-              </div>
-            </div>
-            <p className="absolute bottom-4 left-4 text-sm text-muted-foreground">
-              YouTube / Vimeo Embed Placeholder
-            </p>
           </div>
         </div>
       </div>
