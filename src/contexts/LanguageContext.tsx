@@ -127,6 +127,20 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.subject.press': 'Press & Media',
     'contact.subject.other': 'Other',
     
+    // Lessons
+    'nav.lessons': 'Lessons',
+    'lessons.tagline': 'Tailored Instruction for Every Level',
+    'lessons.title': 'Piano Lessons',
+    'lessons.beginners': 'Beginners',
+    'lessons.beginners.desc': 'Start your musical journey with a solid foundation. Learn proper technique, music theory basics, and discover the joy of playing your first pieces.',
+    'lessons.advanced': 'Advanced',
+    'lessons.advanced.desc': 'Refine your artistry and tackle challenging repertoire. Focus on expression, interpretation, and performance preparation.',
+    'lessons.allages': 'All Ages',
+    'lessons.allages.desc': "Music has no age limit. Whether you're 7 or 70, I adapt my teaching methods to your learning style and goals.",
+    'lessons.feature.schedule': 'Flexible Schedule',
+    'lessons.feature.online': 'Online & In-Person',
+    'lessons.feature.curriculum': 'Personalized Curriculum',
+
     // Footer
     'footer.rights': 'All rights reserved',
     'footer.impressum': 'Imprint',
