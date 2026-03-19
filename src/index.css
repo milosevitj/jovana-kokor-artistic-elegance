@@ -173,3 +173,14 @@
     @apply text-primary;
   }
 }
+
+/* Hero background image - Desktop: original position, Mobile: crop to center the person */
+.hero-bg-image {
+  object-position: center;
+}
+
+@media (max-width: 767px) {
+  .hero-bg-image {
+    object-position: 75% center;
+  }
+}
