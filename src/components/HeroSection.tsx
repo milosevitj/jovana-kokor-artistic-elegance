@@ -7,27 +7,40 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
       style={{
         background: 'var(--gradient-hero)',
       }}
     >
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      {/* Mobile: full-screen cropped background image */}
+      <div className="absolute inset-0 md:hidden">
         <img
           src={heroImage}
           alt="Jovana Kokor - Professional Performer and Musician"
-          className="w-full h-full object-cover object-center opacity-60"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: '75% center' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+      </div>
+
+      {/* Desktop: split layout with image on right */}
+      <div className="absolute inset-0 hidden md:block">
+        <div className="absolute inset-y-0 right-0 w-1/2">
+          <img
+            src={heroImage}
+            alt="Jovana Kokor - Professional Performer and Musician"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent w-[60%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl md:max-w-xl lg:max-w-2xl mt-24 md:mt-0 text-center md:text-left">
           {/* Decorative line */}
-          <div className="w-16 h-px bg-primary mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <div className="w-16 h-px bg-primary mb-8 animate-fade-in mx-auto md:mx-0" style={{ animationDelay: '0.2s' }} />
 
           {/* Headline */}
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -40,12 +53,12 @@ export function HeroSection() {
           </p>
 
           {/* Tagline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed animate-fade-in mx-auto md:mx-0" style={{ animationDelay: '0.5s' }}>
             {t('hero.tagline')}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in justify-center md:justify-start" style={{ animationDelay: '0.6s' }}>
             <a href="#contact" className="btn-hero">
               {t('hero.cta')}
             </a>
