@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -25,12 +26,12 @@ export function Footer() {
               {t('footer.impressum')}
             </a>
             <span className="text-border">|</span>
-            <a
-              href="#datenschutz"
+            <Link
+              to="/privacy"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.datenschutz')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
