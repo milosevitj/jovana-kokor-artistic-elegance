@@ -79,66 +79,41 @@ function ImpressumEN() {
   return (
     <div className="prose prose-neutral dark:prose-invert max-w-none space-y-6">
       <section>
-        <h2 className="font-serif text-xl mb-3">Information pursuant to § 5 TMG</h2>
+        <h2 className="font-serif text-xl mb-3">Information according to applicable laws</h2>
         <p className="text-muted-foreground leading-relaxed">
           Jovana Kokor<br />
-          Artist / Performer<br />
+          Artist / Performer
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
           Email: kontakt@jovanakokor.com
         </p>
       </section>
 
       <section>
-        <h2 className="font-serif text-xl mb-3">Contact</h2>
+        <h2 className="font-serif text-xl mb-3">Responsible for Content</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Email: kontakt@jovanakokor.com
-        </p>
-      </section>
-
-      <section>
-        <h2 className="font-serif text-xl mb-3">Responsible for Content pursuant to § 55 Abs. 2 RStV</h2>
-        <p className="text-muted-foreground leading-relaxed">
-          Jovana Kokor<br />
-          (Address as above)
+          Jovana Kokor
         </p>
       </section>
 
       <section>
         <h2 className="font-serif text-xl mb-3">Liability for Content</h2>
         <p className="text-muted-foreground leading-relaxed">
-          As a service provider, we are responsible for our own content on these pages in accordance with general laws pursuant to § 7 Para. 1 TMG. However, according to §§ 8 to 10 TMG, we are not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
-        </p>
-        <p className="text-muted-foreground leading-relaxed">
-          Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific legal violation. Upon becoming aware of corresponding legal violations, we will remove this content immediately.
+          The contents of this website have been created with the greatest care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content.
         </p>
       </section>
 
       <section>
         <h2 className="font-serif text-xl mb-3">Liability for Links</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Our offer contains links to external websites of third parties, over whose content we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking.
+          This website may contain links to external websites. We have no control over the content of those websites and therefore cannot accept any liability for them. The respective provider or operator is always responsible for their content.
         </p>
       </section>
 
       <section>
         <h2 className="font-serif text-xl mb-3">Copyright</h2>
         <p className="text-muted-foreground leading-relaxed">
-          The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation beyond the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="font-serif text-xl mb-3">Dispute Resolution</h2>
-        <p className="text-muted-foreground leading-relaxed">
-          The European Commission provides a platform for online dispute resolution (OS):{' '}
-          <a
-            href="https://ec.europa.eu/consumers/odr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline hover:text-primary transition-colors"
-          >
-            https://ec.europa.eu/consumers/odr/
-          </a>
-          . We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
+          All content on this website is subject to applicable copyright laws. Any reproduction, distribution, or use requires prior written consent.
         </p>
       </section>
     </div>
