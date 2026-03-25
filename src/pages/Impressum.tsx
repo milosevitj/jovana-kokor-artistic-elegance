@@ -83,7 +83,8 @@ function ImpressumEN() {
         <h2 className="font-serif text-xl mb-3">Information according to applicable laws</h2>
         <p className="text-muted-foreground leading-relaxed">
           Jovana Kokor<br />
-          Artist / Performer
+          Artist / Performer<br />
+          Oldenburg, Germany
         </p>
         <p className="text-muted-foreground leading-relaxed">
           Email: kontakt@jovanakokor.com
