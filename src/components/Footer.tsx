@@ -19,12 +19,12 @@ export function Footer() {
 
           {/* Legal Links */}
           <div className="flex items-center gap-6 text-sm">
-            <a
-              href="#impressum"
+            <Link
+              to="/impressum"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.impressum')}
-            </a>
+            </Link>
             <span className="text-border">|</span>
             <Link
               to="/privacy"
