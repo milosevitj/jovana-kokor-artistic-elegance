@@ -34,10 +34,9 @@ function PrivacyDE() {
   return (
     <div className="prose prose-neutral dark:prose-invert max-w-none space-y-6">
       <section>
-        <h2 className="font-serif text-xl mb-3">1. Datenschutz auf einen Blick</h2>
-        <h3 className="text-lg font-medium mb-2">Allgemeine Hinweise</h3>
+        <h2 className="font-serif text-xl mb-3">1. Allgemeine Informationen</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+          Diese Datenschutzerklärung erläutert, wie personenbezogene Daten beim Besuch dieser Website erhoben und verarbeitet werden. Personenbezogene Daten sind alle Informationen, die dazu verwendet werden können, Sie zu identifizieren.
         </p>
       </section>
 
@@ -56,14 +55,17 @@ function PrivacyDE() {
         <h2 className="font-serif text-xl mb-3">3. Datenerfassung auf dieser Website</h2>
         <h3 className="text-lg font-medium mb-2">Kontaktformular</h3>
         <p className="text-muted-foreground leading-relaxed">
-          Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+          Wenn Sie uns über das Kontaktformular kontaktieren, werden die von Ihnen angegebenen Daten (wie Name, E-Mail-Adresse und Nachricht) zum Zweck der Bearbeitung Ihrer Anfrage und für mögliche Rückfragen gespeichert.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          Wir geben diese Daten nicht ohne Ihre Einwilligung weiter.
         </p>
       </section>
 
       <section>
         <h2 className="font-serif text-xl mb-3">4. Hosting</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.
+          Diese Website wird von einem externen Dienstleister gehostet. Die auf dieser Website erhobenen personenbezogenen Daten können auf den Servern des Hosting-Anbieters gespeichert werden. Dies kann IP-Adressen, Kontaktanfragen und andere durch die Nutzung der Website erzeugte Daten umfassen.
         </p>
       </section>
 
@@ -71,21 +73,52 @@ function PrivacyDE() {
         <h2 className="font-serif text-xl mb-3">5. Eingebettete Inhalte</h2>
         <h3 className="text-lg font-medium mb-2">YouTube</h3>
         <p className="text-muted-foreground leading-relaxed">
-          Diese Website nutzt Plugins der von Google betriebenen Seite YouTube. Betreiber der Seiten ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Wenn Sie eine unserer mit einem YouTube-Plugin ausgestatteten Seiten besuchen, wird eine Verbindung zu den Servern von YouTube hergestellt. Dabei wird dem YouTube-Server mitgeteilt, welche unserer Seiten Sie besucht haben.
+          Diese Website verwendet eingebettete Videos von YouTube, einem Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          Wenn Sie eine Seite mit einem eingebetteten YouTube-Video besuchen, wird eine Verbindung zu den Servern von YouTube hergestellt. Dabei kann YouTube Informationen über Ihren Besuch auf dieser Website erhalten.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          YouTube kann auch Cookies auf Ihrem Gerät speichern und Nutzungsdaten erheben.
         </p>
       </section>
 
       <section>
-        <h2 className="font-serif text-xl mb-3">6. Ihre Rechte</h2>
+        <h2 className="font-serif text-xl mb-3">6. Rechtsgrundlage der Verarbeitung</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
+          Die Verarbeitung Ihrer personenbezogenen Daten erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und/oder unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO), z. B. zur Beantwortung Ihrer Anfragen.
         </p>
       </section>
 
       <section>
-        <h2 className="font-serif text-xl mb-3">7. SSL- bzw. TLS-Verschlüsselung</h2>
+        <h2 className="font-serif text-xl mb-3">7. Datenspeicherung</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+          Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die Bearbeitung Ihrer Anfrage oder die Erfüllung des Zwecks, für den sie erhoben wurden, erforderlich ist.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-xl mb-3">8. Ihre Rechte</h2>
+        <p className="text-muted-foreground leading-relaxed">Sie haben das Recht:</p>
+        <ul className="text-muted-foreground leading-relaxed list-disc pl-6">
+          <li>Auskunft über Ihre gespeicherten personenbezogenen Daten zu verlangen</li>
+          <li>die Berichtigung oder Löschung Ihrer Daten zu verlangen</li>
+          <li>Ihre Einwilligung jederzeit zu widerrufen</li>
+          <li>unter bestimmten Umständen die Einschränkung der Verarbeitung zu verlangen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-xl mb-3">9. Beschwerderecht</h2>
+        <p className="text-muted-foreground leading-relaxed">
+          Sie haben das Recht, sich bei einer zuständigen Datenschutzbehörde zu beschweren, wenn Sie der Ansicht sind, dass Ihre Daten unrechtmäßig verarbeitet werden.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-xl mb-3">10. SSL-/TLS-Verschlüsselung</h2>
+        <p className="text-muted-foreground leading-relaxed">
+          Diese Website nutzt SSL-/TLS-Verschlüsselung zum Schutz der Übertragung vertraulicher Daten. Eine verschlüsselte Verbindung erkennen Sie an dem „https://" in der Adresszeile Ihres Browsers.
         </p>
       </section>
     </div>
@@ -96,10 +129,9 @@ function PrivacyEN() {
   return (
     <div className="prose prose-neutral dark:prose-invert max-w-none space-y-6">
       <section>
-        <h2 className="font-serif text-xl mb-3">1. Privacy at a Glance</h2>
-        <h3 className="text-lg font-medium mb-2">General Information</h3>
+        <h2 className="font-serif text-xl mb-3">1. General Information</h2>
         <p className="text-muted-foreground leading-relaxed">
-          The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to personally identify you.
+          This Privacy Policy explains how personal data is collected and processed when you visit this website. Personal data refers to any information that can be used to identify you.
         </p>
       </section>
 
@@ -118,14 +150,17 @@ function PrivacyEN() {
         <h2 className="font-serif text-xl mb-3">3. Data Collection on This Website</h2>
         <h3 className="text-lg font-medium mb-2">Contact Form</h3>
         <p className="text-muted-foreground leading-relaxed">
-          When you send us inquiries via the contact form, your details from the inquiry form, including the contact data you provided there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent.
+          If you contact us via the contact form, the information you provide (such as your name, email address, and message) will be stored for the purpose of processing your inquiry and for possible follow-up questions.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          We do not share this data without your consent.
         </p>
       </section>
 
       <section>
         <h2 className="font-serif text-xl mb-3">4. Hosting</h2>
         <p className="text-muted-foreground leading-relaxed">
-          This website is hosted externally. The personal data collected on this website is stored on the host's servers. This may include IP addresses, contact requests, meta and communication data, contract data, contact details, names, website access, and other data generated through a website.
+          This website is hosted by an external service provider. Personal data collected on this website may be stored on the servers of the hosting provider. This may include IP addresses, contact requests, and other data generated through website usage.
         </p>
       </section>
 
@@ -133,21 +168,52 @@ function PrivacyEN() {
         <h2 className="font-serif text-xl mb-3">5. Embedded Content</h2>
         <h3 className="text-lg font-medium mb-2">YouTube</h3>
         <p className="text-muted-foreground leading-relaxed">
-          This website uses plugins from the Google-operated site YouTube. The operator of the pages is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. When you visit one of our pages equipped with a YouTube plugin, a connection to the YouTube servers is established. The YouTube server is informed which of our pages you have visited.
+          This website uses embedded videos from YouTube, a service provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          When you visit a page with an embedded YouTube video, a connection to YouTube's servers is established. In doing so, YouTube may receive information about your visit to this website.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          YouTube may also store cookies on your device and collect usage data.
         </p>
       </section>
 
       <section>
-        <h2 className="font-serif text-xl mb-3">6. Your Rights</h2>
+        <h2 className="font-serif text-xl mb-3">6. Legal Basis for Processing</h2>
         <p className="text-muted-foreground leading-relaxed">
-          You have the right at any time to receive free information about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction or deletion of this data. If you have given consent to data processing, you can revoke this consent at any time for the future. You also have the right, under certain circumstances, to request the restriction of the processing of your personal data.
+          The processing of your personal data is based on your consent (Art. 6(1)(a) GDPR) and/or our legitimate interest (Art. 6(1)(f) GDPR), such as responding to your inquiries.
         </p>
       </section>
 
       <section>
-        <h2 className="font-serif text-xl mb-3">7. SSL/TLS Encryption</h2>
+        <h2 className="font-serif text-xl mb-3">7. Data Retention</h2>
         <p className="text-muted-foreground leading-relaxed">
-          This site uses SSL or TLS encryption for security reasons and to protect the transmission of confidential content. You can recognize an encrypted connection by the fact that the address line of the browser changes from "http://" to "https://" and by the lock symbol in your browser line.
+          We store your personal data only for as long as necessary to process your request or fulfill the purpose for which it was collected.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-xl mb-3">8. Your Rights</h2>
+        <p className="text-muted-foreground leading-relaxed">You have the right to:</p>
+        <ul className="text-muted-foreground leading-relaxed list-disc pl-6">
+          <li>request information about your stored personal data</li>
+          <li>request correction or deletion of your data</li>
+          <li>withdraw your consent at any time</li>
+          <li>request restriction of processing under certain circumstances</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-xl mb-3">9. Right to Lodge a Complaint</h2>
+        <p className="text-muted-foreground leading-relaxed">
+          You have the right to lodge a complaint with a competent data protection authority if you believe that your data is being processed unlawfully.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-xl mb-3">10. SSL/TLS Encryption</h2>
+        <p className="text-muted-foreground leading-relaxed">
+          This website uses SSL/TLS encryption to protect the transmission of confidential data. You can recognize an encrypted connection by the "https://" in your browser's address bar.
         </p>
       </section>
     </div>
