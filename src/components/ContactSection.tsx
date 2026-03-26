@@ -49,7 +49,7 @@ export function ContactSection() {
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://instagram.com/joywannasworld"
+                  href="https://www.instagram.com/joywannasworld/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
@@ -58,7 +58,7 @@ export function ContactSection() {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/JovanaKokor"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
@@ -67,7 +67,7 @@ export function ContactSection() {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="mailto:kontakt@jovanakokor.de"
+                  href="mailto:jovanakokor8@gmail.com"
                   className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
                   aria-label="Email"
                 >

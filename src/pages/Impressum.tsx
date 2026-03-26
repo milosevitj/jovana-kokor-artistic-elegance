@@ -41,7 +41,7 @@ function ImpressumDE() {
           Oldenburg, Deutschland
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          E-Mail: kontakt@jovanakokor.com
+          E-Mail: jovanakokor8@gmail.com
         </p>
       </section>
 
@@ -87,7 +87,7 @@ function ImpressumEN() {
           Oldenburg, Germany
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          Email: kontakt@jovanakokor.com
+          Email: jovanakokor8@gmail.com
         </p>
       </section>
 
