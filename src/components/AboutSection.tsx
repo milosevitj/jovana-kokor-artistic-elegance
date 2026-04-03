@@ -13,8 +13,9 @@ export function AboutSection() {
             <div className="relative overflow-hidden rounded-sm">
               <img
                 src={portraitImage}
-                alt="Jovana Kokor - Performerin und Musikerin"
+                alt={t('about.img.alt')}
                 className="w-full h-auto object-cover aspect-[3/4]"
+                loading="lazy"
               />
               {/* Decorative overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
@@ -51,19 +52,19 @@ export function AboutSection() {
                 <div>
                   <p className="font-serif text-3xl md:text-4xl text-primary">10+</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    {t('about.title') === 'The Performer' ? 'Years' : 'Jahre'}
+                    {t('about.stat.years')}
                   </p>
                 </div>
                 <div>
                   <p className="font-serif text-3xl md:text-4xl text-primary">100+</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    {t('about.title') === 'The Performer' ? 'Shows' : 'Auftritte'}
+                    {t('about.stat.shows')}
                   </p>
                 </div>
                 <div>
                   <p className="font-serif text-3xl md:text-4xl text-primary">∞</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    {t('about.title') === 'The Performer' ? 'Passion' : 'Leidenschaft'}
+                    {t('about.stat.passion')}
                   </p>
                 </div>
               </div>

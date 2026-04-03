@@ -19,8 +19,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.headline': 'Jovana Kokor',
-    'hero.subheadline': 'Performance & Musik',
-    'hero.tagline': 'Die Bühne ist mein Zuhause – mit Leidenschaft, Energie und einer Prise Wahnsinn bringe ich Emotionen zum Leben.',
+    'hero.subheadline': 'Pianistin, Sängerin & Pädagogin',
+    'hero.tagline': 'Klassisch ausgebildete Pianistin und Vokalkünstlerin aus Belgrad – mit Leidenschaft, Können und künstlerischer Tiefe bringe ich Emotionen zum Klingen.',
     'hero.cta': 'Booking Anfragen',
     'hero.cta.secondary': 'Mehr erfahren',
     
@@ -32,11 +32,15 @@ const translations: Record<Language, Record<string, string>> = {
     'gigs.details': 'Details',
     
     // About
-    'about.title': 'Die Performerin',
-    'about.subtitle': 'Leidenschaft trifft Bühne',
-    'about.p1': 'Als professionelle Performerin und Musikerin verbinde ich Gesang, Bewegung und Theater zu einem einzigartigen Erlebnis. Meine Auftritte sind geprägt von Energie, Emotionen und einer unverwechselbaren Präsenz.',
-    'about.p2': 'Ob auf großen Festivalbühnen, in intimen Kulturzentren oder bei exklusiven Veranstaltungen – ich bringe Leidenschaft und Professionalität in jede Performance. Mein Ziel ist es, das Publikum zu berühren, zu bewegen und unvergessliche Momente zu schaffen.',
-    'about.p3': 'Mit einem Hintergrund in klassischem Gesang und zeitgenössischem Theater bringe ich Vielseitigkeit und künstlerische Tiefe auf jede Bühne.',
+    'about.title': 'Die Künstlerin',
+    'about.subtitle': 'Leidenschaft trifft Können',
+    'about.p1': 'Jovana Kokor ist eine klassisch ausgebildete Pianistin und Vokalkünstlerin, die ihren Abschluss an der Musikakademie in Klassischer Musik und Gesang erworben hat. Mit über einem Jahrzehnt professioneller Bühnenerfahrung verbindet sie technische Meisterschaft mit emotionaler Tiefe.',
+    'about.p2': 'Ihr Repertoire umfasst klassisches Klavier, Kunstlied (Lieder), Opernarien und zeitgenössische Vokalwerke. Ob auf großen Konzertbühnen, bei exklusiven Firmenevents oder intimen Privatveranstaltungen – Jovana bringt Professionalität und künstlerische Leidenschaft in jeden Auftritt.',
+    'about.p3': 'Als engagierte Musikpädagogin gibt sie ihr Wissen in privatem Klavier- und Gesangsunterricht weiter – für alle Altersgruppen und Niveaus, in Belgrad und online.',
+    'about.img.alt': 'Jovana Kokor – klassisch ausgebildete Pianistin und Vokalkünstlerin, Porträtfoto',
+    'about.stat.years': 'Jahre',
+    'about.stat.shows': 'Auftritte',
+    'about.stat.passion': 'Leidenschaft',
     
     // Gallery
     'gallery.title': 'Galerie',
@@ -45,7 +49,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact
     'contact.title': 'Booking & Kontakt',
-    'contact.subtitle': 'Für Anfragen zu Auftritten, Kooperationen oder allgemeine Fragen',
+    'contact.subtitle': 'Für Anfragen zu Konzerten, Firmenevents, Hochzeiten oder Privatunterricht',
     'contact.name': 'Name',
     'contact.email': 'E-Mail',
     'contact.subject': 'Betreff',
@@ -72,6 +76,20 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.feature.online': 'Online & Vor Ort',
     'lessons.feature.curriculum': 'Individueller Lehrplan',
 
+    // FAQ
+    'faq.title': 'Häufige Fragen',
+    'faq.subtitle': 'Alles Wichtige auf einen Blick',
+    'faq.q1': 'Welchen musikalischen Hintergrund hat Jovana Kokor?',
+    'faq.a1': 'Jovana Kokor ist eine klassisch ausgebildete Pianistin und Vokalkünstlerin, die ihren Abschluss an der Musikakademie in Klassischer Musik und Gesang gemacht hat. Mit über 10 Jahren Berufserfahrung hat sie an bedeutenden Konzerthäusern und Festivals in Serbien und Deutschland aufgetreten.',
+    'faq.q2': 'Welches Repertoire spielt Jovana Kokor?',
+    'faq.a2': 'Jovana Kokor interpretiert ein vielfältiges Repertoire von klassischem Klavier über Kunstlied (Lieder) und Opernarien bis hin zu zeitgenössischen Vokalwerken. Ihre Programme reichen von intimen Recitals bis zu großen Konzertauftritten, individuell abgestimmt auf den Anlass.',
+    'faq.q3': 'Bietet Jovana Kokor privaten Klavierunterricht an?',
+    'faq.a3': 'Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an – von Anfängern bis Fortgeschrittenen. Der Unterricht ist online und persönlich in Belgrad verfügbar, mit flexiblen Terminen und individuellem Lehrplan.',
+    'faq.q4': 'Wie kann ich Jovana Kokor für ein Konzert oder Event buchen?',
+    'faq.a4': 'Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen buchen, indem Sie das Kontaktformular auf dieser Website nutzen oder eine E-Mail an jovanakokor8@gmail.com senden.',
+    'faq.q5': 'Wo ist Jovana Kokor verfügbar?',
+    'faq.a5': 'Jovana ist in Belgrad, Serbien ansässig und tritt regelmäßig in ganz Deutschland auf – darunter in Städten wie Berlin, München und Frankfurt. Online-Unterricht ist weltweit verfügbar.',
+
     // Footer
     'footer.rights': 'Alle Rechte vorbehalten',
     'footer.impressum': 'Impressum',
@@ -88,8 +106,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.headline': 'Jovana Kokor',
-    'hero.subheadline': 'Performance & Music',
-    'hero.tagline': 'The stage is my home – with passion, energy, and a touch of madness, I bring emotions to life.',
+    'hero.subheadline': 'Pianist, Vocalist & Educator',
+    'hero.tagline': 'Classically trained pianist and vocal artist from Belgrade – bringing emotions to life through passion, skill, and artistic depth.',
     'hero.cta': 'Book for Event',
     'hero.cta.secondary': 'Learn More',
     
@@ -101,11 +119,15 @@ const translations: Record<Language, Record<string, string>> = {
     'gigs.details': 'Details',
     
     // About
-    'about.title': 'The Performer',
-    'about.subtitle': 'Passion Meets Stage',
-    'about.p1': 'As a professional performer and musician, I combine singing, movement, and theater into a unique experience. My performances are characterized by energy, emotion, and an unmistakable presence.',
-    'about.p2': 'Whether on large festival stages, in intimate cultural centers, or at exclusive events – I bring passion and professionalism to every performance. My goal is to touch the audience, move them, and create unforgettable moments.',
-    'about.p3': 'With a background in classical voice and contemporary theater, I bring versatility and artistic depth to every stage.',
+    'about.title': 'The Artist',
+    'about.subtitle': 'Passion Meets Mastery',
+    'about.p1': 'Jovana Kokor is a classically trained pianist and vocal artist who graduated from the Academy of Music with a degree in Classical Music and Vocal Performance. With over a decade of professional stage experience, she combines technical mastery with emotional depth.',
+    'about.p2': 'Her repertoire spans classical piano, art song (Lieder), opera arias, and contemporary vocal works. Whether performing at major concert venues, exclusive corporate events, or intimate private gatherings, Jovana brings professionalism and artistic passion to every performance.',
+    'about.p3': 'As a dedicated music educator, she shares her expertise through private piano and vocal instruction – for all ages and skill levels, in Belgrade and online.',
+    'about.img.alt': 'Jovana Kokor – classically trained pianist and vocal artist, portrait photo',
+    'about.stat.years': 'Years',
+    'about.stat.shows': 'Shows',
+    'about.stat.passion': 'Passion',
     
     // Gallery
     'gallery.title': 'Gallery',
@@ -114,7 +136,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact
     'contact.title': 'Booking & Contact',
-    'contact.subtitle': 'For inquiries about performances, collaborations, or general questions',
+    'contact.subtitle': 'For inquiries about concerts, corporate events, weddings, or private lessons',
     'contact.name': 'Name',
     'contact.email': 'Email',
     'contact.subject': 'Subject',
@@ -140,6 +162,20 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.feature.schedule': 'Flexible Schedule',
     'lessons.feature.online': 'Online & In-Person',
     'lessons.feature.curriculum': 'Personalized Curriculum',
+
+    // FAQ
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Everything you need to know',
+    'faq.q1': 'What is Jovana Kokor\'s musical background?',
+    'faq.a1': 'Jovana Kokor is a classically trained pianist and vocal artist who graduated from the Academy of Music with a degree in Classical Music and Vocal Performance. With over 10 years of professional experience, she has performed at major concert halls and festivals across Serbia and Germany.',
+    'faq.q2': 'What repertoire does Jovana Kokor perform?',
+    'faq.a2': 'Jovana Kokor performs a diverse repertoire spanning classical piano, art song (Lieder), opera arias, and contemporary vocal works. Her programs range from intimate recitals to full concert performances, tailored to the occasion.',
+    'faq.q3': 'Does Jovana Kokor offer private piano lessons?',
+    'faq.a3': 'Yes, Jovana offers private piano and vocal instruction for all ages and skill levels — from beginners to advanced students. Lessons are available both online and in-person in Belgrade, with flexible scheduling and a personalized curriculum.',
+    'faq.q4': 'How can I book Jovana Kokor for a concert or event?',
+    'faq.a4': 'You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by using the contact form on this website or emailing jovanakokor8@gmail.com.',
+    'faq.q5': 'Where is Jovana Kokor available?',
+    'faq.a5': 'Jovana is based in Belgrade, Serbia and performs regularly across Germany — including cities like Berlin, Munich, and Frankfurt. Online lessons are available worldwide.',
 
     // Footer
     'footer.rights': 'All rights reserved',

@@ -1,34 +1,40 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Play } from 'lucide-react';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 
-// Gallery images - these would typically be different performance shots
-const galleryImages = [
-  {
-    src: heroImage,
-    alt: 'Jovana Kokor live performance',
-    aspectRatio: 'aspect-video',
-  },
-  {
-    src: portraitImage,
-    alt: 'Jovana Kokor portrait',
-    aspectRatio: 'aspect-[3/4]',
-  },
-  {
-    src: heroImage,
-    alt: 'Jovana Kokor on stage',
-    aspectRatio: 'aspect-square',
-  },
-  {
-    src: portraitImage,
-    alt: 'Jovana Kokor expressive performance',
-    aspectRatio: 'aspect-[4/5]',
-  },
-];
-
 export function GallerySection() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+
+  const galleryImages = [
+    {
+      src: heroImage,
+      alt: language === 'de'
+        ? 'Jovana Kokor professioneller Klavierauftritt auf der Bühne'
+        : 'Jovana Kokor professional piano performance on stage',
+      aspectRatio: 'aspect-video',
+    },
+    {
+      src: portraitImage,
+      alt: language === 'de'
+        ? 'Jovana Kokor Porträt – klassisch ausgebildete Pianistin und Vokalkünstlerin'
+        : 'Jovana Kokor portrait – classically trained pianist and vocal artist',
+      aspectRatio: 'aspect-[3/4]',
+    },
+    {
+      src: heroImage,
+      alt: language === 'de'
+        ? 'Jovana Kokor Live-Konzert Gesangsperformance'
+        : 'Jovana Kokor live concert vocal performance',
+      aspectRatio: 'aspect-square',
+    },
+    {
+      src: portraitImage,
+      alt: language === 'de'
+        ? 'Jovana Kokor Klavierunterricht und Musikpädagogik Belgrad'
+        : 'Jovana Kokor piano instruction and music education Belgrade',
+      aspectRatio: 'aspect-[4/5]',
+    },
+  ];
 
   return (
     <section id="gallery" className="section-padding bg-card">
@@ -56,6 +62,7 @@ export function GallerySection() {
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-colors duration-300" />
               </div>
@@ -69,11 +76,12 @@ export function GallerySection() {
             {t('gallery.video.title')}
           </h3>
           
-          {/* Video Placeholder */}
           <div className="relative aspect-video rounded-sm overflow-hidden">
             <iframe
               src="https://www.youtube.com/embed/KlXXMuKU3wE"
-              title="Jovana Kokor – Live Performance"
+              title={language === 'de'
+                ? 'Jovana Kokor – Live Klavier- und Gesangsperformance'
+                : 'Jovana Kokor – Live Piano and Vocal Performance'}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="w-full h-full border-0"

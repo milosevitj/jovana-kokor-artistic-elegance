@@ -16,8 +16,9 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Jovana Kokor - Professional Performer and Musician"
+          alt="Jovana Kokor performing live – classically trained pianist and vocal artist on stage"
           className="hero-bg-image w-full h-full object-cover"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
@@ -29,7 +30,7 @@ export function HeroSection() {
           {/* Decorative line */}
           <div className="w-16 h-px bg-primary mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
 
-          {/* Headline */}
+          {/* Headline - Single H1 for the entire page */}
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             {t('hero.headline')}
           </h1>

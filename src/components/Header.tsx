@@ -15,6 +15,11 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Update html lang attribute when language changes
+  useEffect(() => {
+    document.documentElement.lang = language === 'de' ? 'de' : 'en';
+  }, [language]);
+
   const navLinks = [
     { href: '#home', label: t('nav.home') },
     { href: '#gigs', label: t('nav.gigs') },
@@ -33,11 +38,12 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-20" aria-label="Main navigation">
           {/* Logo */}
           <a
             href="#home"
             className="font-serif text-2xl font-medium tracking-tight hover:text-primary transition-colors"
+            aria-label="Jovana Kokor – Home"
           >
             JK
           </a>
@@ -57,19 +63,21 @@ export function Header() {
 
           {/* Language Toggle & Mobile Menu Button */}
           <div className="flex items-center gap-4">
-            <div className="lang-toggle">
+            <div className="lang-toggle" role="group" aria-label="Language selection">
               <button
                 onClick={() => setLanguage('de')}
                 className={language === 'de' ? 'active' : ''}
-                aria-label="Deutsch"
+                aria-label="Sprache: Deutsch"
+                aria-pressed={language === 'de'}
               >
                 DE
               </button>
-              <span className="text-border">|</span>
+              <span className="text-border" aria-hidden="true">|</span>
               <button
                 onClick={() => setLanguage('en')}
                 className={language === 'en' ? 'active' : ''}
-                aria-label="English"
+                aria-label="Language: English"
+                aria-pressed={language === 'en'}
               >
                 EN
               </button>
@@ -79,7 +87,8 @@ export function Header() {
             <button
               className="md:hidden p-2 text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
