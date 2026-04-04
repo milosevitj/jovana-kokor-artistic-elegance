@@ -146,7 +146,7 @@ export function ContactSection() {
                     required
                     rows={5}
                     maxLength={1000}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
                   />
                 </div>
 

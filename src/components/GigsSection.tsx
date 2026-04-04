@@ -74,7 +74,7 @@ export function GigsSection() {
             {upcomingGigs.map((gig, index) => (
               <article
                 key={gig.id}
-                className="group bg-background border border-border rounded-sm p-6 md:p-8 card-hover"
+                className="group bg-background border border-border/60 rounded-sm p-6 md:p-8 card-hover"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
