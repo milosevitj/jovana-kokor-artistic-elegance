@@ -99,7 +99,7 @@ export function ContactSection() {
                       name="name"
                       required
                       maxLength={100}
-                      className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                     />
                   </div>
                   <div>
@@ -112,7 +112,7 @@ export function ContactSection() {
                       name="email"
                       required
                       maxLength={255}
-                      className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                     />
                   </div>
                 </div>
