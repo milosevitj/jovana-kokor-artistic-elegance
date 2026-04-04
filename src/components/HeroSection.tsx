@@ -20,8 +20,19 @@ export function HeroSection() {
           className="hero-bg-image w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+        {/* Dark overlays – explicit dark tones to keep hero cinematic */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, hsl(var(--hero-bg)), hsl(var(--hero-bg) / 0.8), transparent)',
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to top, hsl(var(--hero-bg)), transparent, hsl(var(--hero-bg) / 0.5))',
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -30,18 +41,27 @@ export function HeroSection() {
           {/* Decorative line */}
           <div className="w-16 h-px bg-primary mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
 
-          {/* Headline - Single H1 for the entire page */}
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          {/* Headline */}
+          <h1
+            className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in"
+            style={{ animationDelay: '0.3s', color: 'hsl(var(--hero-text))' }}
+          >
             {t('hero.headline')}
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p
+            className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-8 animate-fade-in"
+            style={{ animationDelay: '0.4s' }}
+          >
             {t('hero.subheadline')}
           </p>
 
           {/* Tagline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <p
+            className="text-lg md:text-xl max-w-xl mb-12 leading-relaxed animate-fade-in"
+            style={{ animationDelay: '0.5s', color: 'hsl(var(--hero-muted))' }}
+          >
             {t('hero.tagline')}
           </p>
 
@@ -59,7 +79,12 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <div className="w-px h-12 bg-gradient-to-b from-transparent via-muted-foreground to-transparent" />
+        <div
+          className="w-px h-12"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, hsl(var(--hero-muted)), transparent)',
+          }}
+        />
       </div>
     </section>
   );
