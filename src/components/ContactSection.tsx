@@ -125,7 +125,7 @@ export function ContactSection() {
                     id="subject"
                     name="subject"
                     required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer"
                   >
                     <option value="">—</option>
                     {subjects.map((subject) => (
