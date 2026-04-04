@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jovana Kokor – Pianistin, Sängerin & Pädagogin | Belgrad & Deutschland</title>
-    <meta name="description" content="Jovana Kokor ist eine klassisch ausgebildete Pianistin, Vokalkünstlerin und Musikpädagogin aus Belgrad. Buchungen für Konzerte, Firmenevents und Privatunterricht in Klavier und Gesang." />
-    <meta name="keywords" content="Jovana Kokor, Pianistin, Sängerin, Klavierunterricht, Belgrad, Serbien, Deutschland, Berlin, klassische Musik, Gesang, Vokalkünstlerin, Musikpädagogin, Konzerte, Firmenevents" />
+    <title>Jovana Kokor – Pianistin, Sängerin & Pädagogin | Deutschland</title>
+    <meta name="description" content="Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin, Vokalkünstlerin und Musikpädagogin. Buchungen für Konzerte, Firmenevents und privaten Klavier- & Gesangsunterricht." />
+    <meta name="keywords" content="Jovana Kokor, Pianistin, Sängerin, Klavierunterricht, Deutschland, Oldenburg, klassische Musik, Gesang, Vokalkünstlerin, Musikpädagogin, Konzerte, Firmenevents" />
     <meta name="author" content="Jovana Kokor" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <meta name="geo.region" content="RS" />
-    <meta name="geo.placename" content="Belgrade, Serbia" />
-    <meta name="geo.position" content="44.7866;20.4489" />
-    <meta name="ICBM" content="44.7866, 20.4489" />
+    <meta name="geo.region" content="DE" />
+    <meta name="geo.placename" content="Oldenburg, Germany" />
+    <meta name="geo.position" content="53.1435;8.2146" />
+    <meta name="ICBM" content="53.1435, 8.2146" />
 
     <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="de" href="https://jovanakokor.de/" />
@@ -19,8 +19,8 @@
     <link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Jovana Kokor – Pianistin, Sängerin & Pädagogin" />
-    <meta property="og:description" content="Klassisch ausgebildete Pianistin und Vokalkünstlerin aus Belgrad. Buchungen für Konzerte, Firmenevents und privaten Klavierunterricht." />
+    <meta property="og:title" content="Jovana Kokor – Pianistin, Sängerin & Pädagogin | Deutschland" />
+    <meta property="og:description" content="In Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin. Buchungen für Konzerte, Firmenevents und privaten Klavierunterricht." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jovanakokor.de" />
     <meta property="og:locale" content="de_DE" />
@@ -32,8 +32,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Jovana Kokor – Pianist, Vocalist & Educator" />
-    <meta name="twitter:description" content="Classically trained pianist and vocal artist based in Belgrade. Available for concerts, corporate events, and private piano instruction." />
+    <meta name="twitter:title" content="Jovana Kokor – Pianist, Vocalist & Educator | Germany" />
+    <meta name="twitter:description" content="Germany-based classical pianist and vocal artist. Available for concerts, corporate events, and private piano & vocal instruction across Germany and Europe." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <link rel="canonical" href="https://jovanakokor.de" />
@@ -49,21 +49,22 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": ["Person", "MusicGroup"],
+          "@type": ["Person", "Musician"],
           "@id": "https://jovanakokor.de/#person",
           "name": "Jovana Kokor",
           "url": "https://jovanakokor.de",
           "image": "https://jovanakokor.de/jovana-portrait.jpg",
-          "description": "Classically trained pianist, vocal artist, and music educator based in Belgrade, Serbia. Graduate of the Academy of Music with expertise in classical piano, vocal performance, and piano pedagogy.",
+          "description": "Germany-based classical pianist, vocal artist, and music educator with classical training from Serbia. Graduate of the Academy of Music with expertise in piano performance, vocal artistry, and music pedagogy.",
           "jobTitle": ["Pianist", "Vocal Artist", "Music Educator", "Pianistin", "Vokalkünstlerin", "Musikpädagogin"],
+          "knowsLanguage": ["en", "de", "sr"],
           "hasOccupation": [
             {
               "@type": "Occupation",
               "name": "Pianist & Vocal Artist",
-              "occupationLocation": [
-                { "@type": "City", "name": "Belgrade", "containedInPlace": { "@type": "Country", "name": "Serbia" } },
-                { "@type": "Country", "name": "Germany" }
-              ]
+              "occupationLocation": {
+                "@type": "Country",
+                "name": "Germany"
+              }
             }
           ],
           "alumniOf": {
@@ -84,43 +85,47 @@
             "Klavierunterricht",
             "Gesangsunterricht"
           ],
-          "performerIn": "Concert, Corporate Event, Festival, Private Event",
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Germany",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "DE"
+            }
+          },
+          "workLocation": {
+            "@type": "Place",
+            "name": "Germany",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "DE"
+            }
+          },
+          "nationality": {
+            "@type": "Country",
+            "name": "Serbia"
+          },
           "sameAs": [
             "https://www.instagram.com/joywannasworld/",
             "https://www.facebook.com/JovanaKokor"
           ],
           "email": "jovanakokor8@gmail.com",
-          "nationality": {
-            "@type": "Country",
-            "name": "Serbia"
-          },
-          "workLocation": [
-            {
-              "@type": "Place",
-              "name": "Belgrade, Serbia",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Belgrade",
-                "addressCountry": "RS"
-              }
-            },
-            {
-              "@type": "Place",
-              "name": "Germany",
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "DE"
-              }
-            }
+          "genre": ["Classical Music", "Vocal Performance", "Contemporary Theater"],
+          "subjectOf": [
+            { "@id": "https://jovanakokor.de/#webpage-de" },
+            { "@id": "https://jovanakokor.de/#webpage-en" }
           ],
-          "genre": ["Classical Music", "Vocal Performance", "Contemporary Theater"]
+          "makesOffer": [
+            { "@id": "https://jovanakokor.de/#lessons" },
+            { "@id": "https://jovanakokor.de/#performance" }
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://jovanakokor.de/#website",
           "url": "https://jovanakokor.de",
           "name": "Jovana Kokor – Pianist, Vocalist & Educator",
-          "description": "Official website of Jovana Kokor – classically trained pianist, vocal artist, and music educator based in Belgrade, Serbia",
+          "description": "Official website of Jovana Kokor – Germany-based classical pianist, vocal artist, and music educator",
           "publisher": { "@id": "https://jovanakokor.de/#person" },
           "inLanguage": ["de-DE", "en-US"]
         },
@@ -128,40 +133,39 @@
           "@type": "WebPage",
           "@id": "https://jovanakokor.de/#webpage-de",
           "url": "https://jovanakokor.de/",
-          "name": "Jovana Kokor – Pianistin, Sängerin & Pädagogin | Belgrad & Deutschland",
+          "name": "Jovana Kokor – Pianistin, Sängerin & Pädagogin | Deutschland",
           "isPartOf": { "@id": "https://jovanakokor.de/#website" },
           "about": { "@id": "https://jovanakokor.de/#person" },
-          "description": "Jovana Kokor ist eine klassisch ausgebildete Pianistin und Vokalkünstlerin. Buchungen für Konzerte, Firmenevents und privaten Klavierunterricht.",
+          "description": "Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin. Buchungen für Konzerte, Firmenevents und privaten Klavierunterricht.",
           "inLanguage": "de-DE",
           "translationOfWork": { "@id": "https://jovanakokor.de/#webpage-en" },
           "datePublished": "2024-01-01",
-          "dateModified": "2026-04-03"
+          "dateModified": "2026-04-04"
         },
         {
           "@type": "WebPage",
           "@id": "https://jovanakokor.de/#webpage-en",
           "url": "https://jovanakokor.de/?lang=en",
-          "name": "Jovana Kokor – Pianist, Vocalist & Educator | Belgrade & Germany",
+          "name": "Jovana Kokor – Pianist, Vocalist & Educator | Germany",
           "isPartOf": { "@id": "https://jovanakokor.de/#website" },
           "about": { "@id": "https://jovanakokor.de/#person" },
-          "description": "Jovana Kokor is a classically trained pianist and vocal artist. Available for concerts, corporate events, and private piano instruction.",
+          "description": "Germany-based classical pianist and vocal artist. Available for concerts, corporate events, and private piano & vocal instruction across Germany and Europe.",
           "inLanguage": "en-US",
           "translationOfWork": { "@id": "https://jovanakokor.de/#webpage-de" },
           "datePublished": "2024-01-01",
-          "dateModified": "2026-04-03"
+          "dateModified": "2026-04-04"
         },
         {
           "@type": "Service",
           "@id": "https://jovanakokor.de/#lessons",
           "name": "Private Piano & Vocal Lessons",
           "alternateName": "Privater Klavier- & Gesangsunterricht",
-          "description": "Private piano and vocal instruction for all ages and skill levels. Flexible scheduling, available online and in-person in Belgrade.",
+          "description": "Private piano and vocal instruction for all ages and skill levels. Available online and in-person in Germany. Personalized curriculum from beginner to advanced.",
           "provider": { "@id": "https://jovanakokor.de/#person" },
           "serviceType": ["Piano Lessons", "Vocal Coaching", "Music Education", "Klavierunterricht", "Gesangsunterricht"],
           "areaServed": [
-            { "@type": "City", "name": "Belgrade" },
-            { "@type": "Country", "name": "Serbia" },
-            { "@type": "Country", "name": "Germany" }
+            { "@type": "Country", "name": "Germany" },
+            { "@type": "Continent", "name": "Europe" }
           ],
           "availableChannel": {
             "@type": "ServiceChannel",
@@ -173,64 +177,25 @@
           "@id": "https://jovanakokor.de/#performance",
           "name": "Live Performance & Booking",
           "alternateName": "Live-Auftritte & Booking",
-          "description": "Professional pianist and vocal artist available for concerts, festivals, corporate events, weddings, and private gatherings.",
+          "description": "Professional pianist and vocal artist available for concerts, festivals, corporate events, weddings, and private gatherings across Germany and Europe.",
           "provider": { "@id": "https://jovanakokor.de/#person" },
           "serviceType": ["Live Performance", "Concert", "Corporate Entertainment", "Wedding Music"],
           "areaServed": [
-            { "@type": "City", "name": "Belgrade" },
-            { "@type": "Country", "name": "Serbia" },
-            { "@type": "Country", "name": "Germany" }
+            { "@type": "Country", "name": "Germany" },
+            { "@type": "Continent", "name": "Europe" }
           ]
         },
         {
-          "@type": "Event",
-          "name": "Passionskonzert",
-          "startDate": "2026-03-15T20:00:00+01:00",
-          "location": {
-            "@type": "Place",
-            "name": "Kulturzentrum am Gasteig",
-            "address": { "@type": "PostalAddress", "addressLocality": "München", "addressCountry": "DE" }
-          },
-          "performer": { "@id": "https://jovanakokor.de/#person" },
-          "eventStatus": "https://schema.org/EventScheduled",
-          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-        },
-        {
-          "@type": "Event",
-          "name": "Frühlingsmelodien",
-          "startDate": "2026-04-22T19:30:00+02:00",
-          "location": {
-            "@type": "Place",
-            "name": "Philharmonie",
-            "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" }
-          },
-          "performer": { "@id": "https://jovanakokor.de/#person" },
-          "eventStatus": "https://schema.org/EventScheduled",
-          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-        },
-        {
-          "@type": "Event",
-          "name": "Sommernachtsträume",
-          "startDate": "2026-05-10T21:00:00+02:00",
-          "location": {
-            "@type": "Place",
-            "name": "Alte Oper",
-            "address": { "@type": "PostalAddress", "addressLocality": "Frankfurt", "addressCountry": "DE" }
-          },
-          "performer": { "@id": "https://jovanakokor.de/#person" },
-          "eventStatus": "https://schema.org/EventScheduled",
-          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-        },
-        {
           "@type": "FAQPage",
-          "@id": "https://jovanakokor.de/#faq",
+          "@id": "https://jovanakokor.de/#faq-en",
+          "inLanguage": "en-US",
           "mainEntity": [
             {
               "@type": "Question",
               "name": "What is Jovana Kokor's musical background?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor is a classically trained pianist and vocal artist who graduated from the Academy of Music with a degree in Classical Music and Vocal Performance. With over 10 years of professional experience, she has performed at major concert halls and festivals across Serbia and Germany."
+                "text": "Jovana Kokor is a Germany-based classical pianist and vocal artist with over 10 years of professional experience. She holds a degree in Classical Music and Vocal Performance from the Academy of Music in Serbia and has performed at concert halls and festivals across Germany and Europe."
               }
             },
             {
@@ -238,23 +203,54 @@
               "name": "What repertoire does Jovana Kokor perform?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor performs a diverse repertoire spanning classical piano, art song (Lieder), opera arias, and contemporary vocal works. Her programs range from intimate recitals to full concert performances, tailored to the occasion."
+                "text": "Jovana Kokor performs a wide repertoire spanning classical piano works, art song (Lieder), opera arias, and contemporary vocal pieces. She tailors her programs to each event — from intimate solo recitals and chamber music to full concert performances at festivals and corporate events."
               }
             },
             {
               "@type": "Question",
-              "name": "Does Jovana Kokor offer private piano lessons?",
+              "name": "Does Jovana Kokor offer private piano and vocal lessons?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Jovana offers private piano and vocal instruction for all ages and skill levels — from beginners to advanced students. Lessons are available both online and in-person in Belgrade, with flexible scheduling and a personalized curriculum."
+                "text": "Yes. Jovana offers private piano and vocal instruction for all ages and skill levels, from beginners to advanced conservatory-track students. Lessons are available online and in-person in Germany, with a personalized curriculum and flexible scheduling."
               }
             },
+            {
+              "@type": "Question",
+              "name": "How can I book Jovana Kokor for a concert or event in Germany?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings across Germany and Europe by using the contact form on jovanakokor.de or emailing jovanakokor8@gmail.com."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is Jovana Kokor based?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jovana Kokor is based in Germany. Originally from Serbia, where she received her classical training at the Academy of Music, she now performs and teaches across Germany and Europe."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://jovanakokor.de/#faq-de",
+          "inLanguage": "de-DE",
+          "mainEntity": [
             {
               "@type": "Question",
               "name": "Welchen musikalischen Hintergrund hat Jovana Kokor?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor ist eine klassisch ausgebildete Pianistin und Vokalkünstlerin, die ihren Abschluss an der Musikakademie in Klassischer Musik und Gesang gemacht hat. Mit über 10 Jahren Berufserfahrung hat sie an großen Konzerthäusern und Festivals in Serbien und Deutschland aufgetreten."
+                "text": "Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin mit über 10 Jahren Berufserfahrung. Sie hat ihren Abschluss in Klassischer Musik und Gesang an der Musikakademie in Serbien erworben und tritt an Konzerthäusern und Festivals in Deutschland und Europa auf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welches Repertoire spielt Jovana Kokor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jovana Kokor bietet ein vielfältiges Repertoire von klassischen Klavierwerken über Kunstlied (Lieder) und Opernarien bis hin zu zeitgenössischen Vokalwerken. Ihre Programme werden individuell auf jeden Anlass abgestimmt — von intimen Solorezitals bis hin zu großen Konzertauftritten."
               }
             },
             {
@@ -262,15 +258,23 @@
               "name": "Bietet Jovana Kokor privaten Klavierunterricht an?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an — von Anfängern bis Fortgeschrittenen. Der Unterricht ist online und persönlich in Belgrad verfügbar, mit flexiblen Terminen und individuellem Lehrplan."
+                "text": "Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an — von Anfängern bis zu fortgeschrittenen Konservatoriumsstudenten. Der Unterricht ist online und persönlich in Deutschland verfügbar, mit individuellem Lehrplan und flexibler Termingestaltung."
               }
             },
             {
               "@type": "Question",
-              "name": "How can I book Jovana Kokor for a concert or event?",
+              "name": "Wie kann ich Jovana Kokor für ein Konzert oder Event buchen?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by contacting her via the contact form on this website or by emailing jovanakokor8@gmail.com."
+                "text": "Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen in Deutschland und Europa über das Kontaktformular auf jovanakokor.de oder per E-Mail an jovanakokor8@gmail.com buchen."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wo ist Jovana Kokor ansässig?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jovana Kokor lebt und arbeitet in Deutschland. Ursprünglich aus Serbien, wo sie ihre klassische Ausbildung an der Musikakademie absolvierte, tritt sie heute in ganz Deutschland und Europa auf und gibt Unterricht."
               }
             }
           ]
