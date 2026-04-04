@@ -18,7 +18,7 @@ export function AboutSection() {
                 loading="lazy"
               />
               {/* Decorative overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-primary rounded-sm -z-10" />

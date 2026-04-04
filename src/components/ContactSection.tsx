@@ -99,7 +99,7 @@ export function ContactSection() {
                       name="name"
                       required
                       maxLength={100}
-                      className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                     />
                   </div>
                   <div>
@@ -112,7 +112,7 @@ export function ContactSection() {
                       name="email"
                       required
                       maxLength={255}
-                      className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                     />
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export function ContactSection() {
                     id="subject"
                     name="subject"
                     required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer"
                   >
                     <option value="">—</option>
                     {subjects.map((subject) => (
@@ -146,7 +146,7 @@ export function ContactSection() {
                     required
                     rows={5}
                     maxLength={1000}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
                   />
                 </div>
 

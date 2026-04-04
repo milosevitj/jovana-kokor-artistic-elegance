@@ -33,8 +33,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border/50'
-          : 'bg-transparent'
+          ? 'bg-background/95 backdrop-blur-md border-b border-border/50 text-foreground'
+          : 'text-white'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12">
@@ -54,7 +54,11 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground link-underline hover:text-foreground transition-colors"
+                className={`text-sm font-medium link-underline transition-colors ${
+                  isScrolled
+                    ? 'text-muted-foreground hover:text-foreground'
+                    : 'text-white/70 hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
@@ -72,7 +76,7 @@ export function Header() {
               >
                 DE
               </button>
-              <span className="text-border" aria-hidden="true">|</span>
+              <span className={isScrolled ? 'text-border' : 'text-white/30'} aria-hidden="true">|</span>
               <button
                 onClick={() => setLanguage('en')}
                 className={language === 'en' ? 'active' : ''}
@@ -85,7 +89,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
@@ -104,7 +108,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                  className="text-lg font-medium py-2 text-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
                 </a>
