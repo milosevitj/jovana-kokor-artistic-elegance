@@ -6,18 +6,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer
-      style={{
-        backgroundColor: 'hsl(var(--footer-bg))',
-        color: 'hsl(var(--footer-text))',
-      }}
-    >
+    <footer className="border-t border-border">
       <div className="container mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <p className="font-serif text-xl mb-2">Jovana Kokor</p>
-            <p className="text-sm" style={{ color: 'hsl(var(--footer-muted))' }}>
+            <p className="text-sm text-muted-foreground">
               © {currentYear} {t('footer.rights')}
             </p>
           </div>
@@ -26,16 +21,14 @@ export function Footer() {
           <div className="flex items-center gap-6 text-sm">
             <Link
               to="/impressum"
-              className="transition-colors hover:text-white"
-              style={{ color: 'hsl(var(--footer-muted))' }}
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.impressum')}
             </Link>
-            <span style={{ color: 'hsl(var(--footer-muted) / 0.3)' }}>|</span>
+            <span className="text-border">|</span>
             <Link
               to="/privacy"
-              className="transition-colors hover:text-white"
-              style={{ color: 'hsl(var(--footer-muted))' }}
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.datenschutz')}
             </Link>
