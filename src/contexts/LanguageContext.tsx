@@ -90,6 +90,11 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Wo ist Jovana Kokor verfügbar?',
     'faq.a5': 'Jovana ist in Belgrad, Serbien ansässig und tritt regelmäßig in ganz Deutschland auf – darunter in Städten wie Berlin, München und Frankfurt. Online-Unterricht ist weltweit verfügbar.',
 
+    // Instagram
+    'instagram.title': 'Meine Welt',
+    'instagram.subtitle': 'Einblicke hinter die Kulissen und auf die Bühne',
+    'instagram.follow': 'Auf Instagram folgen',
+
     // Footer
     'footer.rights': 'Alle Rechte vorbehalten',
     'footer.impressum': 'Impressum',
@@ -176,6 +181,11 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.a4': 'You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by using the contact form on this website or emailing jovanakokor8@gmail.com.',
     'faq.q5': 'Where is Jovana Kokor available?',
     'faq.a5': 'Jovana is based in Belgrade, Serbia and performs regularly across Germany — including cities like Berlin, Munich, and Frankfurt. Online lessons are available worldwide.',
+
+    // Instagram
+    'instagram.title': 'Follow My Journey',
+    'instagram.subtitle': 'Behind the scenes and on stage — glimpses of my musical world',
+    'instagram.follow': 'Follow on Instagram',
 
     // Footer
     'footer.rights': 'All rights reserved',
