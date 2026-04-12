@@ -81,7 +81,7 @@ export function GallerySection() {
               { id: 'KlXXMuKU3wE', title: 'Live Piano and Vocal Performance' },
               { id: 'HG521HIhxZ4', title: 'Performance Highlight 1' },
               { id: 'sQ5XZkarZWQ', title: 'Performance Highlight 2' },
-              { id: 'HG521HIhxZ4', title: 'Performance Highlight 3' },
+              { id: 'iDhF5EpRBhw', title: 'Performance Highlight 3' },
             ].map((video, index) => (
               <div key={index} className="relative aspect-video rounded-sm overflow-hidden">
                 <iframe
