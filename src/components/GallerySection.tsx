@@ -71,22 +71,29 @@ export function GallerySection() {
         </div>
 
         {/* Video Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h3 className="font-serif text-2xl md:text-3xl text-center mb-8">
             {t('gallery.video.title')}
           </h3>
           
-          <div className="relative aspect-video rounded-sm overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/KlXXMuKU3wE"
-              title={language === 'de'
-                ? 'Jovana Kokor – Live Klavier- und Gesangsperformance'
-                : 'Jovana Kokor – Live Piano and Vocal Performance'}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full border-0"
-              loading="lazy"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {[
+              { id: 'KlXXMuKU3wE', title: 'Live Piano and Vocal Performance' },
+              { id: 'HG521HIhxZ4', title: 'Performance Highlight 1' },
+              { id: 'sQ5XZkarZWQ', title: 'Performance Highlight 2' },
+              { id: 'HG521HIhxZ4', title: 'Performance Highlight 3' },
+            ].map((video, index) => (
+              <div key={index} className="relative aspect-video rounded-sm overflow-hidden">
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={`Jovana Kokor – ${video.title}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
