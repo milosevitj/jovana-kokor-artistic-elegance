@@ -64,14 +64,27 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Lessons
     'nav.lessons': 'Unterricht',
-    'lessons.tagline': 'Maßgeschneiderter Unterricht für jedes Niveau',
-    'lessons.title': 'Klavierunterricht',
-    'lessons.beginners': 'Anfänger',
-    'lessons.beginners.desc': 'Starten Sie Ihre musikalische Reise mit einem soliden Fundament. Lernen Sie die richtige Technik, Grundlagen der Musiktheorie und entdecken Sie die Freude am Spielen Ihrer ersten Stücke.',
-    'lessons.advanced': 'Fortgeschrittene',
-    'lessons.advanced.desc': 'Verfeinern Sie Ihre Kunstfertigkeit und meistern Sie anspruchsvolles Repertoire. Fokus auf Ausdruck, Interpretation und Vorbereitung auf Auftritte.',
-    'lessons.allages': 'Alle Altersgruppen',
-    'lessons.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meine Lehrmethoden an Ihren Lernstil und Ihre Ziele an.',
+    'lessons.title': 'Vocal Coaching',
+    'lessons.subtitle': 'Individuelles Coaching für Stimme & Ausdruck',
+    
+    // Vocal Coaching cards
+    'lessons.vocal.individual': 'Individuelle Begleitung',
+    'lessons.vocal.individual.desc': 'Jede Stimme ist einzigartig. Deshalb gestalte ich jede Einheit individuell – abgestimmt auf dein Tempo, deine Bedürfnisse und deinen persönlichen Weg.',
+    'lessons.vocal.expression': 'Stimme, Ausdruck & Gefühl',
+    'lessons.vocal.expression.desc': 'Es geht nicht nur um Technik, sondern um Ausdruck. Gemeinsam entdecken wir deine Stimme als kraftvollen Raum für Emotion und Persönlichkeit.',
+    'lessons.vocal.allages': 'Alle Altersgruppen',
+    'lessons.vocal.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meinen Unterricht an deinen Lernstil und deine Ziele an.',
+    
+    // Piano section
+    'lessons.piano.tagline': 'Maßgeschneiderter Unterricht für jedes Niveau',
+    'lessons.piano.title': 'Klavierunterricht',
+    'lessons.piano.beginners': 'Anfänger',
+    'lessons.piano.beginners.desc': 'Starten Sie Ihre musikalische Reise mit einem soliden Fundament. Lernen Sie die richtige Technik, Grundlagen der Musiktheorie und entdecken Sie die Freude am Spielen Ihrer ersten Stücke.',
+    'lessons.piano.advanced': 'Fortgeschrittene',
+    'lessons.piano.advanced.desc': 'Verfeinern Sie Ihre Kunstfertigkeit und meistern Sie anspruchsvolles Repertoire. Fokus auf Ausdruck, Interpretation und Vorbereitung auf Auftritte.',
+    'lessons.piano.allages': 'Alle Altersgruppen',
+    'lessons.piano.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meine Lehrmethoden an Ihren Lernstil und Ihre Ziele an.',
+    
     'lessons.feature.schedule': 'Flexible Termine',
     'lessons.feature.online': 'Online & Vor Ort',
     'lessons.feature.curriculum': 'Individueller Lehrplan',
@@ -156,14 +169,25 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Lessons
     'nav.lessons': 'Lessons',
-    'lessons.tagline': 'Tailored Instruction for Every Level',
-    'lessons.title': 'Piano Lessons',
-    'lessons.beginners': 'Beginners',
-    'lessons.beginners.desc': 'Start your musical journey with a solid foundation. Learn proper technique, music theory basics, and discover the joy of playing your first pieces.',
-    'lessons.advanced': 'Advanced',
-    'lessons.advanced.desc': 'Refine your artistry and tackle challenging repertoire. Focus on expression, interpretation, and performance preparation.',
-    'lessons.allages': 'All Ages',
-    'lessons.allages.desc': "Music has no age limit. Whether you're 7 or 70, I adapt my teaching methods to your learning style and goals.",
+    'lessons.title': 'Vocal Coaching',
+    'lessons.subtitle': 'Individual Coaching for Voice & Expression',
+    
+    'lessons.vocal.individual': 'Individual Guidance',
+    'lessons.vocal.individual.desc': 'Every voice is unique. That\'s why I design each session individually – tailored to your pace, your needs, and your personal journey.',
+    'lessons.vocal.expression': 'Voice, Expression & Emotion',
+    'lessons.vocal.expression.desc': 'It\'s not just about technique – it\'s about expression. Together we discover your voice as a powerful space for emotion and personality.',
+    'lessons.vocal.allages': 'All Age Groups',
+    'lessons.vocal.allages.desc': 'Music knows no age limit. Whether 7 or 70 – I adapt my teaching to your learning style and goals.',
+    
+    'lessons.piano.tagline': 'Tailored Instruction for Every Level',
+    'lessons.piano.title': 'Piano Lessons',
+    'lessons.piano.beginners': 'Beginners',
+    'lessons.piano.beginners.desc': 'Start your musical journey with a solid foundation. Learn proper technique, music theory basics, and discover the joy of playing your first pieces.',
+    'lessons.piano.advanced': 'Advanced',
+    'lessons.piano.advanced.desc': 'Refine your artistry and tackle challenging repertoire. Focus on expression, interpretation, and performance preparation.',
+    'lessons.piano.allages': 'All Ages',
+    'lessons.piano.allages.desc': 'Music has no age limit. Whether you\'re 7 or 70, I adapt my teaching methods to your learning style and goals.',
+    
     'lessons.feature.schedule': 'Flexible Schedule',
     'lessons.feature.online': 'Online & In-Person',
     'lessons.feature.curriculum': 'Personalized Curriculum',
