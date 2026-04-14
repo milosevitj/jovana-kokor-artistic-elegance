@@ -16,12 +16,13 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Jovana Kokor performing live – classically trained pianist and vocal artist on stage"
-          className="hero-bg-image w-full h-full object-cover"
+          alt="JoyWanna – Music & Performance, live on stage"
+          className="hero-bg-image w-full h-full object-cover object-[70%_center]"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
       </div>
 
       {/* Content */}
