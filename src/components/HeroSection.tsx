@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import heroImage from '@/assets/jovana-hero.jpeg';
+import heroImage from '@/assets/joywanna-hero.webp';
 
 export function HeroSection() {
   const { t } = useLanguage();
