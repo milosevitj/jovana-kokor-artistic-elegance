@@ -18,9 +18,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Kontakt',
     
     // Hero
-    'hero.headline': 'Jovana Kokor',
-    'hero.subheadline': 'Pianistin, Sängerin & Pädagogin',
-    'hero.tagline': 'Klassisch ausgebildete Pianistin und Vokalkünstlerin aus Belgrad – mit Leidenschaft, Können und künstlerischer Tiefe bringe ich Emotionen zum Klingen.',
+    'hero.headline': 'JoyWanna',
+    'hero.subheadline': 'Music & Performance',
+    'hero.tagline': 'Musik ist mein Raum, um ganz ich selbst zu sein – voller Leidenschaft und Energie, eine Einladung, diesen Moment mit Hingabe und in Verbundenheit zu teilen.',
     'hero.cta': 'Booking Anfragen',
     'hero.cta.secondary': 'Mehr erfahren',
     
@@ -126,9 +126,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.headline': 'Jovana Kokor',
-    'hero.subheadline': 'Pianist, Vocalist & Educator',
-    'hero.tagline': 'Classically trained pianist and vocal artist from Belgrade – bringing emotions to life through passion, skill, and artistic depth.',
+    'hero.headline': 'JoyWanna',
+    'hero.subheadline': 'Music & Performance',
+    'hero.tagline': 'Music is my space to fully be myself – full of passion and energy, an invitation to share this moment with presence and connection.',
     'hero.cta': 'Book for Event',
     'hero.cta.secondary': 'Learn More',
     
