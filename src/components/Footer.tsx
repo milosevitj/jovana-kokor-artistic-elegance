@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <p className="font-serif text-xl mb-2">Jovana Kokor</p>
+            <p className="font-serif text-xl mb-2">JoyWanna</p>
             <p className="text-sm text-muted-foreground">
               © {currentYear} {t('footer.rights')}
             </p>

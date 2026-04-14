@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Send, Instagram, Facebook, Mail } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -10,15 +12,35 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+
+    const formData = new FormData(e.currentTarget);
+    const name = (formData.get('name') as string)?.trim();
+    const email = (formData.get('email') as string)?.trim();
+    const subject = formData.get('subject') as string;
+    const message = (formData.get('message') as string)?.trim();
+
+    if (!name || !email || !subject || !message) {
+      toast.error(t('contact.error.required'));
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: { name, email, subject, message },
+      });
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      (e.target as HTMLFormElement).reset();
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      console.error('Contact form error:', err);
+      toast.error(t('contact.error.send'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const subjects = [
