@@ -41,7 +41,17 @@ export function AboutSection() {
               <div className="space-y-5 text-muted-foreground leading-relaxed text-[0.95rem]">
                 <p>{t('about.p1')}</p>
                 <p>{t('about.p2')}</p>
-                <p>{t('about.p3')}</p>
+                <p>
+                  {t('about.p3.before')}
+                  <button
+                    type="button"
+                    onClick={() => setBandModalOpen(true)}
+                    className="text-foreground font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                  >
+                    {t('about.p3.band')}
+                  </button>
+                  {t('about.p3.after')}
+                </p>
                 <p>{t('about.p4')}</p>
                 <p>{t('about.p5')}</p>
                 <p>{t('about.p6')}</p>
