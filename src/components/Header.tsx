@@ -39,7 +39,7 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12">
-        <nav className="flex items-center justify-between h-28 md:h-36 gap-6" aria-label="Main navigation">
+        <nav className="flex items-center justify-between h-32 md:h-44 gap-6" aria-label="Main navigation">
           {/* Logo */}
           <a
             href="#home"
@@ -49,7 +49,7 @@ export function Header() {
             <img
               src={joyWannaLogo}
               alt="JoyWanna Official Logo"
-              className="h-16 md:h-24 w-auto object-contain"
+              className="h-20 md:h-32 w-auto object-contain"
             />
           </a>
 
@@ -102,7 +102,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-28 left-0 right-0 bg-background/98 backdrop-blur-lg border-b border-border animate-fade-in">
+          <div className="md:hidden absolute top-32 left-0 right-0 bg-background/98 backdrop-blur-lg border-b border-border animate-fade-in">
             <div className="flex flex-col py-6 px-6 gap-4">
               {navLinks.map((link) => (
                 <a
