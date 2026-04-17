@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 
 export function AboutSection() {
   const { t } = useLanguage();
+  const [bandModalOpen, setBandModalOpen] = useState(false);
 
   return (
     <section id="about" className="section-padding">
