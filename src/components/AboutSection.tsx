@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 import bandImage from '@/assets/joywanna-spicy-jam.jpg';
+import joywannaLogo from '@/assets/joywanna-logo.jpeg';
 
 export function AboutSection() {
   const { t } = useLanguage();
@@ -79,10 +80,17 @@ export function AboutSection() {
 
       <Dialog open={bandModalOpen} onOpenChange={setBandModalOpen}>
         <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto p-0 gap-0">
+          <div className="flex justify-center pt-8 pb-6 bg-background">
+            <img
+              src={joywannaLogo}
+              alt="JoyWanna Official Logo"
+              className="max-h-[70px] w-auto object-contain"
+            />
+          </div>
           <img
             src={bandImage}
             alt="JoyWanna & The Spicy Jam"
-            className="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg"
+            className="w-full h-[250px] md:h-[300px] object-cover"
             loading="lazy"
           />
           <div className="p-6">
