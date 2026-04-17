@@ -1,1 +1,4 @@
 project_id = "fkcutqrobejbjcnabqch"
+
+[functions.instagram-feed]
+verify_jwt = false

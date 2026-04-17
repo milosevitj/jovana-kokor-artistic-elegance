@@ -1,18 +1,9 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { InstagramLiveFeed } from '@/components/InstagramLiveFeed';
 
 const INSTAGRAM_URL = 'https://www.instagram.com/joywannasworld/';
-
-// Placeholder images — swap these out with actual JoyWanna performance photos later.
-const INSTAGRAM_POSTS = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1501612780327-45045538702b?w=600&h=600&fit=crop' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1485579149621-3123dd979885?w=600&h=600&fit=crop' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=600&fit=crop' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1499415479124-43c32433a620?w=600&h=600&fit=crop' },
-];
 
 export function InstagramSection() {
   const { t } = useLanguage();
