@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
+import bandImage from '@/assets/joywanna-spicy-jam.jpg';
 
 export function AboutSection() {
   const { t } = useLanguage();
@@ -77,17 +78,25 @@ export function AboutSection() {
       </div>
 
       <Dialog open={bandModalOpen} onOpenChange={setBandModalOpen}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="font-serif text-2xl md:text-3xl text-left">
-              {t('band.modal.title')}
-            </DialogTitle>
-          </DialogHeader>
-          <div className="w-12 h-px bg-primary mt-2 mb-4" />
-          <div className="space-y-4 text-muted-foreground leading-relaxed text-[0.95rem]">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto p-0 gap-0">
+          <img
+            src={bandImage}
+            alt="JoyWanna & The Spicy Jam"
+            className="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg"
+            loading="lazy"
+          />
+          <div className="p-6">
+            <DialogHeader>
+              <DialogTitle className="font-serif text-2xl md:text-3xl text-left">
+                {t('band.modal.title')}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="w-12 h-px bg-primary mt-2 mb-4" />
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-[0.95rem]">
             <p>{t('band.modal.p1')}</p>
             <p>{t('band.modal.p2')}</p>
             <p>{t('band.modal.p3')}</p>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
