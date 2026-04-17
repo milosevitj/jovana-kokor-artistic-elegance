@@ -87,12 +87,6 @@ export function AboutSection() {
             loading="lazy"
           />
           <div className="flex justify-center pt-6 pb-4 bg-background">
-            <img
-              src={joywannaLogo}
-              alt="JoyWanna Official Logo"
-              className="max-h-[60px] w-auto object-contain"
-              loading="lazy"
-            />
           </div>
           <div className="p-6">
             <DialogHeader>
