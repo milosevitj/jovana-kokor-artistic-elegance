@@ -75,6 +75,22 @@ export function AboutSection() {
           </div>
         </div>
       </div>
+
+      <Dialog open={bandModalOpen} onOpenChange={setBandModalOpen}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="font-serif text-2xl md:text-3xl text-left">
+              {t('band.modal.title')}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="w-12 h-px bg-primary mt-2 mb-4" />
+          <div className="space-y-4 text-muted-foreground leading-relaxed text-[0.95rem]">
+            <p>{t('band.modal.p1')}</p>
+            <p>{t('band.modal.p2')}</p>
+            <p>{t('band.modal.p3')}</p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
