@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
-import joywannaLogo from '@/assets/joywanna-logo.jpeg';
+
 
 export function AboutSection() {
   const { t } = useLanguage();
@@ -86,8 +86,6 @@ export function AboutSection() {
             className="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg"
             loading="lazy"
           />
-          <div className="flex justify-center pt-6 pb-4 bg-background">
-          </div>
           <div className="p-6">
             <DialogHeader>
               <DialogTitle className="font-serif text-2xl md:text-3xl text-left">
