@@ -96,6 +96,7 @@ export function AboutSection() {
             <p>{t('band.modal.p1')}</p>
             <p>{t('band.modal.p2')}</p>
             <p>{t('band.modal.p3')}</p>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
