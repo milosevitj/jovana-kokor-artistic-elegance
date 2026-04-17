@@ -22,32 +22,9 @@ export function InstagramSection() {
           <div className="w-20 h-px bg-primary mx-auto mt-8" />
         </div>
 
-        {/* Instagram Gallery Grid */}
-        <div className="max-w-5xl mx-auto mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {INSTAGRAM_POSTS.map((post) => (
-            <a
-              key={post.id}
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block aspect-square overflow-hidden rounded-md bg-muted"
-              aria-label="View JoyWanna's world on Instagram"
-            >
-              <img
-                src={post.src}
-                alt="JoyWanna's world on Instagram"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <Instagram className="w-8 h-8 text-primary" />
-                <span className="font-sans text-sm tracking-wide text-foreground">
-                  View on Instagram
-                </span>
-              </div>
-            </a>
-          ))}
+        {/* Live Instagram Feed */}
+        <div className="max-w-5xl mx-auto mb-12">
+          <InstagramLiveFeed />
         </div>
 
         {/* Follow Button */}
