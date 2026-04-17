@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const SECTION_IDS = ['home', 'gigs', 'about', 'lessons', 'gallery', 'instagram', 'contact'];
+const SECTION_IDS = ['home', 'gigs', 'about', 'lessons', 'gallery', 'contact'];
 
 export function useHashNavigation() {
   const isClickScrolling = useRef(false);
