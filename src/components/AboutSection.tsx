@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
-import bandImage from '@/assets/joywanna-spicy-jam.jpg';
+import bandImage from '@/assets/joywanna-spicy-jam.webp';
 import joywannaLogo from '@/assets/joywanna-logo.jpeg';
 
 export function AboutSection() {
@@ -80,19 +80,20 @@ export function AboutSection() {
 
       <Dialog open={bandModalOpen} onOpenChange={setBandModalOpen}>
         <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto p-0 gap-0">
-          <div className="flex justify-center pt-8 pb-6 bg-background">
+          <img
+            src={bandImage}
+            alt="JoyWanna & The Spicy Jam - Jazz, Soul and Pop Band"
+            className="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg"
+            loading="lazy"
+          />
+          <div className="flex justify-center pt-6 pb-4 bg-background">
             <img
               src={joywannaLogo}
               alt="JoyWanna Official Logo"
-              className="max-h-[70px] w-auto object-contain"
+              className="max-h-[60px] w-auto object-contain"
+              loading="lazy"
             />
           </div>
-          <img
-            src={bandImage}
-            alt="JoyWanna & The Spicy Jam"
-            className="w-full h-[250px] md:h-[300px] object-cover"
-            loading="lazy"
-          />
           <div className="p-6">
             <DialogHeader>
               <DialogTitle className="font-serif text-2xl md:text-3xl text-left">
