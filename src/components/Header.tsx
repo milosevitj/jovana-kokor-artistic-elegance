@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
+import joyWannaLogo from '@/assets/joywanna-logo.jpeg';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -38,14 +39,18 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12">
-        <nav className="flex items-center justify-between h-20" aria-label="Main navigation">
+        <nav className="flex items-center justify-between h-24 md:h-28 gap-6" aria-label="Main navigation">
           {/* Logo */}
           <a
             href="#home"
-            className="font-serif text-2xl font-medium tracking-tight hover:text-primary transition-colors"
-            aria-label="Jovana Kokor – Home"
+            className="flex items-center shrink-0 hover:opacity-80 transition-opacity"
+            aria-label="JoyWanna – Home"
           >
-            JK
+            <img
+              src={joyWannaLogo}
+              alt="JoyWanna Official Logo"
+              className="h-10 md:h-14 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
