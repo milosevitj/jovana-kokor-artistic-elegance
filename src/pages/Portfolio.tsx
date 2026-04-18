@@ -1,11 +1,10 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage, LanguageProvider } from '@/contexts/LanguageContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ContactSection } from '@/components/ContactSection';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Play, ArrowLeft } from 'lucide-react';
+import { Play } from 'lucide-react';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
