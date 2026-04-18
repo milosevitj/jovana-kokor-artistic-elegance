@@ -63,7 +63,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.back': 'Zurück zur Startseite',
     'portfolio.page.eyebrow': 'Portfolio',
     'portfolio.page.title': 'Stimme. Klang. Gefühl.',
-    'portfolio.page.subtitle': 'Über 15 Jahre Bühnenerfahrung, mehr als 1000 Shows – Live-Performances, Bandprojekte und neu interpretierte Sessions an einem Ort.',
+    'portfolio.page.subtitle': 'Entdecke die vielfältigen musikalischen Landschaften von JoyWanna – eine Reise durch Jazz, NeoSoul und lateinamerikanische Rhythmen auf Bühnen rund um die Welt. Von sechs Jahren internationaler Tourneen bis hin zu intimen „Reimagined"-Sessions – erlebe die kreative Spannung und die ehrlichen Momente, die meinen Sound prägen.',
     'portfolio.filter.all': 'Alle',
     'portfolio.filter.live': 'Live Shows',
     'portfolio.filter.band': 'The Spicy Jam',
