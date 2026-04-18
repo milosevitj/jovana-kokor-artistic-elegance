@@ -14,7 +14,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.home': 'Start',
     'nav.gigs': 'Auftritte',
     'nav.about': 'Über mich',
-    'nav.gallery': 'Galerie',
+    'nav.gallery': 'Portfolio',
     'nav.contact': 'Kontakt',
     
     // Hero
@@ -52,10 +52,25 @@ const translations: Record<Language, Record<string, string>> = {
     'about.stat.shows': 'Shows',
     'about.stat.passion': 'Leidenschaft',
     
-    // Gallery
-    'gallery.title': 'Galerie',
+    // Portfolio (teaser on landing page)
+    'gallery.title': 'Portfolio',
     'gallery.subtitle': 'Momente auf der Bühne',
     'gallery.video.title': 'Live Performance',
+    'portfolio.eyebrow': 'Portfolio',
+    'portfolio.heading': 'Momente auf der Bühne',
+    'portfolio.subtitle': 'Eine kuratierte Auswahl aus Live-Auftritten, Bandprojekten und Studio-Sessions.',
+    'portfolio.cta': 'Vollständiges Portfolio & Projekte ansehen',
+    'portfolio.back': 'Zurück zur Startseite',
+    'portfolio.page.eyebrow': 'Portfolio',
+    'portfolio.page.title': 'Stimme. Klang. Gefühl.',
+    'portfolio.page.subtitle': 'Über 15 Jahre Bühnenerfahrung, mehr als 1000 Shows – Live-Performances, Bandprojekte und neu interpretierte Sessions an einem Ort.',
+    'portfolio.filter.all': 'Alle',
+    'portfolio.filter.live': 'Live Shows',
+    'portfolio.filter.band': 'The Spicy Jam',
+    'portfolio.filter.reimagined': '"Reimagined" Sessions',
+    'portfolio.empty': 'Keine Inhalte in dieser Kategorie.',
+    'portfolio.footerCta.title': 'Für ein Event buchen',
+    'portfolio.footerCta.subtitle': 'Lassen Sie uns gemeinsam einen unvergesslichen Abend gestalten.',
     
     // Contact
     'contact.title': 'Booking & Kontakt',
@@ -126,7 +141,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.home': 'Home',
     'nav.gigs': 'Shows',
     'nav.about': 'About',
-    'nav.gallery': 'Gallery',
+    'nav.gallery': 'Portfolio',
     'nav.contact': 'Contact',
     
     // Hero
@@ -164,10 +179,25 @@ const translations: Record<Language, Record<string, string>> = {
     'about.stat.shows': 'Shows',
     'about.stat.passion': 'Passion',
     
-    // Gallery
-    'gallery.title': 'Gallery',
+    // Portfolio (teaser on landing page)
+    'gallery.title': 'Portfolio',
     'gallery.subtitle': 'Moments on Stage',
     'gallery.video.title': 'Live Performance',
+    'portfolio.eyebrow': 'Portfolio',
+    'portfolio.heading': 'Moments on Stage',
+    'portfolio.subtitle': 'A curated selection of live performances, band projects and studio sessions.',
+    'portfolio.cta': 'View Full Portfolio & Projects',
+    'portfolio.back': 'Back to Home',
+    'portfolio.page.eyebrow': 'Portfolio',
+    'portfolio.page.title': 'Voice. Sound. Emotion.',
+    'portfolio.page.subtitle': 'Over 15 years of stage experience, 1000+ shows — live performances, band projects and reimagined sessions in one place.',
+    'portfolio.filter.all': 'All',
+    'portfolio.filter.live': 'Live Shows',
+    'portfolio.filter.band': 'The Spicy Jam',
+    'portfolio.filter.reimagined': '"Reimagined" Sessions',
+    'portfolio.empty': 'No content in this category yet.',
+    'portfolio.footerCta.title': 'Book for an Event',
+    'portfolio.footerCta.subtitle': 'Let\'s create an unforgettable evening together.',
     
     // Contact
     'contact.title': 'Booking & Contact',
