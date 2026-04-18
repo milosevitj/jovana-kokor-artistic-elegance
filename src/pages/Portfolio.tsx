@@ -1,11 +1,10 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage, LanguageProvider } from '@/contexts/LanguageContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ContactSection } from '@/components/ContactSection';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Play, ArrowLeft } from 'lucide-react';
+import { Play } from 'lucide-react';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
@@ -155,13 +154,6 @@ function PortfolioContent() {
         {/* Hero */}
         <section className="section-padding pb-12 text-center">
           <div className="container mx-auto max-w-3xl">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
-            >
-              <ArrowLeft size={16} />
-              {t('portfolio.back')}
-            </Link>
             <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4">
               {t('portfolio.page.eyebrow')}
             </p>
@@ -277,19 +269,8 @@ function PortfolioContent() {
           </div>
         </section>
 
-        {/* Booking CTA + Contact form (same as landing page) */}
-        <section className="bg-card">
-          <div className="container mx-auto max-w-3xl text-center pt-20 md:pt-32 px-6 md:px-12 lg:px-20">
-            <h2 className="font-serif text-3xl md:text-4xl mb-4">
-              {t('portfolio.footerCta.title')}
-            </h2>
-            <p className="text-muted-foreground">
-              {t('portfolio.footerCta.subtitle')}
-            </p>
-            <div className="w-16 h-px bg-primary mx-auto mt-8" />
-          </div>
-          <ContactSection />
-        </section>
+        {/* Contact form (same as landing page) */}
+        <ContactSection />
       </main>
 
       <Footer />
