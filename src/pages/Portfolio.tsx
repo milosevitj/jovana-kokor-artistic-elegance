@@ -176,6 +176,15 @@ const items: PortfolioItem[] = [
       en: 'Jovana Kokor portrait',
     },
   },
+  ...galleryPhotos.map((p, idx) => ({
+    id: `gallery-${idx + 1}`,
+    type: 'image' as const,
+    source: p.src,
+    category: p.category,
+    title: p.title,
+    description: p.alt,
+    alt: p.alt,
+  })),
 ];
 
 function PortfolioContent() {
