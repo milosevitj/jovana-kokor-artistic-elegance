@@ -1,74 +1,31 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Play, ArrowRight } from 'lucide-react';
-import heroImage from '@/assets/jovana-hero.jpeg';
-import portraitImage from '@/assets/jovana-portrait.jpeg';
-import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
-type TeaserItem =
-  | {
-      type: 'video';
-      id: string;
-      caption: { de: string; en: string };
-      span: string;
-    }
-  | {
-      type: 'image';
-      src: string;
-      alt: { de: string; en: string };
-      caption: { de: string; en: string };
-      span: string;
-    };
+interface VideoItem {
+  id: string;
+  caption: { de: string; en: string };
+}
 
 export function PortfolioSection() {
   const { language, t } = useLanguage();
 
-  // Curated asymmetric grid (8 cells on a 4-col layout)
-  const items: TeaserItem[] = [
+  const videos: VideoItem[] = [
     {
-      type: 'video',
       id: 'KlXXMuKU3wE',
-      caption: {
-        de: 'Live – Stimme & Klavier',
-        en: 'Live – Voice & Piano',
-      },
-      span: 'md:col-span-2 md:row-span-2',
+      caption: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
     },
     {
-      type: 'image',
-      src: heroImage,
-      alt: {
-        de: 'Jovana Kokor live auf der Bühne',
-        en: 'Jovana Kokor live on stage',
-      },
-      caption: { de: 'Bühnenmoment', en: 'Stage Moment' },
-      span: 'md:col-span-2',
-    },
-    {
-      type: 'image',
-      src: bandImage,
-      alt: {
-        de: 'JoyWanna & The Spicy Jam Band',
-        en: 'JoyWanna & The Spicy Jam Band',
-      },
-      caption: { de: 'The Spicy Jam', en: 'The Spicy Jam' },
-      span: 'md:col-span-1',
-    },
-    {
-      type: 'video',
       id: 'HG521HIhxZ4',
-      caption: { de: 'Live Performance', en: 'Live Performance' },
-      span: 'md:col-span-1',
+      caption: { de: 'Live Highlight I', en: 'Live Highlight I' },
     },
     {
-      type: 'image',
-      src: portraitImage,
-      alt: {
-        de: 'Jovana Kokor Porträt',
-        en: 'Jovana Kokor portrait',
-      },
-      caption: { de: 'Porträt', en: 'Portrait' },
-      span: 'md:col-span-2',
+      id: 'sQ5XZkarZWQ',
+      caption: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
+    },
+    {
+      id: 'iDhF5EpRBhw',
+      caption: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
     },
   ];
 
