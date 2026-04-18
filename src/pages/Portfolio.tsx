@@ -150,9 +150,9 @@ function PortfolioContent() {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
 
-      <main className="flex-1 pt-24 md:pt-32">
+      <main className="flex-1 pt-16 md:pt-20">
         {/* Hero */}
-        <section className="section-padding pb-12 text-center">
+        <section className="px-6 md:px-12 lg:px-20 pt-6 md:pt-8 pb-12 text-center">
           <div className="container mx-auto max-w-3xl">
             <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4">
               {t('portfolio.page.eyebrow')}
