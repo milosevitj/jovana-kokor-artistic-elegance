@@ -173,7 +173,7 @@ function PortfolioContent() {
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
               {t('portfolio.page.title')}
             </h1>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4 max-w-3xl mx-auto leading-tight">
+            <h2 className="text-muted-foreground leading-relaxed text-[0.95rem] font-normal max-w-2xl mx-auto">
               {t('portfolio.page.subtitle')}
             </h2>
 

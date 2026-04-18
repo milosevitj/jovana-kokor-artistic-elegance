@@ -40,8 +40,10 @@ export function AboutSection() {
 
               <div className="w-16 h-px bg-primary mb-8" />
 
+              <h2 className="text-muted-foreground leading-relaxed text-[0.95rem] font-normal mb-5">
+                {t('about.p1')}
+              </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed text-[0.95rem]">
-                <p>{t('about.p1')}</p>
                 <p>{t('about.p2')}</p>
                 <p>
                   {t('about.p3.before')}
