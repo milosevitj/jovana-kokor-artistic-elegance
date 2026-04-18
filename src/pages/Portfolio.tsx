@@ -222,7 +222,7 @@ function PortfolioContent() {
         </section>
 
         {/* Masonry Grid */}
-        <section className="section-padding pt-0">
+        <section className="section-padding pt-8 md:pt-12">
           <div className="container mx-auto max-w-6xl">
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
               {filtered.map((item) => (
