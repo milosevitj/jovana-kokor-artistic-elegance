@@ -1,74 +1,31 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Play, ArrowRight } from 'lucide-react';
-import heroImage from '@/assets/jovana-hero.jpeg';
-import portraitImage from '@/assets/jovana-portrait.jpeg';
-import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
-type TeaserItem =
-  | {
-      type: 'video';
-      id: string;
-      caption: { de: string; en: string };
-      span: string;
-    }
-  | {
-      type: 'image';
-      src: string;
-      alt: { de: string; en: string };
-      caption: { de: string; en: string };
-      span: string;
-    };
+interface VideoItem {
+  id: string;
+  caption: { de: string; en: string };
+}
 
 export function PortfolioSection() {
   const { language, t } = useLanguage();
 
-  // Curated asymmetric grid (8 cells on a 4-col layout)
-  const items: TeaserItem[] = [
+  const videos: VideoItem[] = [
     {
-      type: 'video',
       id: 'KlXXMuKU3wE',
-      caption: {
-        de: 'Live – Stimme & Klavier',
-        en: 'Live – Voice & Piano',
-      },
-      span: 'md:col-span-2 md:row-span-2',
+      caption: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
     },
     {
-      type: 'image',
-      src: heroImage,
-      alt: {
-        de: 'Jovana Kokor live auf der Bühne',
-        en: 'Jovana Kokor live on stage',
-      },
-      caption: { de: 'Bühnenmoment', en: 'Stage Moment' },
-      span: 'md:col-span-2',
-    },
-    {
-      type: 'image',
-      src: bandImage,
-      alt: {
-        de: 'JoyWanna & The Spicy Jam Band',
-        en: 'JoyWanna & The Spicy Jam Band',
-      },
-      caption: { de: 'The Spicy Jam', en: 'The Spicy Jam' },
-      span: 'md:col-span-1',
-    },
-    {
-      type: 'video',
       id: 'HG521HIhxZ4',
-      caption: { de: 'Live Performance', en: 'Live Performance' },
-      span: 'md:col-span-1',
+      caption: { de: 'Live Highlight I', en: 'Live Highlight I' },
     },
     {
-      type: 'image',
-      src: portraitImage,
-      alt: {
-        de: 'Jovana Kokor Porträt',
-        en: 'Jovana Kokor portrait',
-      },
-      caption: { de: 'Porträt', en: 'Portrait' },
-      span: 'md:col-span-2',
+      id: 'sQ5XZkarZWQ',
+      caption: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
+    },
+    {
+      id: 'iDhF5EpRBhw',
+      caption: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
     },
   ];
 
@@ -89,48 +46,39 @@ export function PortfolioSection() {
           <div className="w-20 h-px bg-primary mx-auto mt-8" />
         </div>
 
-        {/* Asymmetric Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-4 max-w-6xl mx-auto">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`group relative overflow-hidden rounded-sm bg-background ${item.span}`}
+        {/* Video Grid – 4 live performance videos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          {videos.map((video) => (
+            <Link
+              key={video.id}
+              to="/portfolio"
+              className="group relative aspect-video overflow-hidden rounded-sm bg-background block"
+              aria-label={language === 'de' ? video.caption.de : video.caption.en}
             >
-              {item.type === 'video' ? (
-                <>
-                  <img
-                    src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
-                    alt={
-                      language === 'de'
-                        ? `Live Performance Vorschau – ${item.caption.de}`
-                        : `Live performance preview – ${item.caption.en}`
-                    }
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <Play size={22} className="text-primary-foreground ml-1" fill="currentColor" />
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <img
-                  src={item.src}
-                  alt={language === 'de' ? item.alt.de : item.alt.en}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              )}
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                alt={
+                  language === 'de'
+                    ? `Live Performance Vorschau – ${video.caption.de}`
+                    : `Live performance preview – ${video.caption.en}`
+                }
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <Play size={22} className="text-primary-foreground ml-1" fill="currentColor" />
+                </div>
+              </div>
 
               {/* Hover overlay with caption */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <p className="font-serif text-lg text-foreground">
-                  {language === 'de' ? item.caption.de : item.caption.en}
+                  {language === 'de' ? video.caption.de : video.caption.en}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
