@@ -117,21 +117,6 @@ const items: PortfolioItem[] = [
     },
   },
   {
-    id: 'i-hero',
-    type: 'image',
-    source: heroImage,
-    category: 'live',
-    title: { de: 'Bühnenmoment', en: 'Stage Moment' },
-    description: {
-      de: 'Live auf der Bühne – Hingabe und Energie im Augenblick.',
-      en: 'Live on stage – devotion and energy in the moment.',
-    },
-    alt: {
-      de: 'Jovana Kokor live auf der Bühne',
-      en: 'Jovana Kokor live on stage',
-    },
-  },
-  {
     id: 'i-band',
     type: 'image',
     source: bandImage,
@@ -144,36 +129,6 @@ const items: PortfolioItem[] = [
     alt: {
       de: 'JoyWanna & The Spicy Jam – Jazz, Soul und Pop Band',
       en: 'JoyWanna & The Spicy Jam – Jazz, Soul and Pop band',
-    },
-  },
-  {
-    id: 'i-portrait',
-    type: 'image',
-    source: portraitImage,
-    category: 'reimagined',
-    title: { de: 'Studio Porträt', en: 'Studio Portrait' },
-    description: {
-      de: 'Studio & Akustik – der Kern von „Reimagined".',
-      en: 'Studio & acoustic – the heart of "Reimagined".',
-    },
-    alt: {
-      de: 'Jovana Kokor Porträt im Studio',
-      en: 'Jovana Kokor portrait in the studio',
-    },
-  },
-  {
-    id: 'i-portrait-2',
-    type: 'image',
-    source: portraitImage,
-    category: 'live',
-    title: { de: 'Im Rampenlicht', en: 'In the Spotlight' },
-    description: {
-      de: 'Ein stiller Moment vor dem Auftritt.',
-      en: 'A quiet moment before the show.',
-    },
-    alt: {
-      de: 'Jovana Kokor Porträt',
-      en: 'Jovana Kokor portrait',
     },
   },
   ...galleryPhotos.map((p, idx) => ({
