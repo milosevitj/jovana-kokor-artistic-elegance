@@ -40,7 +40,7 @@ export function AboutSection() {
 
               <div className="w-16 h-px bg-primary mb-8" />
 
-              <h2 className="text-muted-foreground leading-relaxed text-[0.95rem] font-normal mb-5">
+              <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight mb-8">
                 {t('about.p1')}
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed text-[0.95rem]">
