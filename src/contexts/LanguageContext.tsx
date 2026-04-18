@@ -190,7 +190,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.back': 'Back to Home',
     'portfolio.page.eyebrow': 'Portfolio',
     'portfolio.page.title': 'Voice. Sound. Emotion.',
-    'portfolio.page.subtitle': 'Over 15 years of stage experience, 1000+ shows — live performances, band projects and reimagined sessions in one place.',
+    'portfolio.page.subtitle': "Explore the diverse musical landscapes of JoyWanna—a journey spanning Jazz, NeoSoul, and Latin rhythms across global stages. From six years of international tours to intimate 'Reimagined' sessions, experience the creative tension and honest moments that define my sound.",
     'portfolio.filter.all': 'All',
     'portfolio.filter.live': 'Live Shows',
     'portfolio.filter.band': 'The Spicy Jam',
