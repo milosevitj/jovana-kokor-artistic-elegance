@@ -44,8 +44,8 @@ export function Header() {
       <div className="container mx-auto px-6 md:px-12">
         <nav className="flex items-center justify-between h-16 md:h-20 gap-6" aria-label="Main navigation">
           {/* Logo */}
-          <a
-            href="#home"
+          <Link
+            to={isHome ? '#home' : '/'}
             className="flex items-center shrink-0 hover:opacity-80 transition-opacity"
             aria-label="JoyWanna – Home"
           >
@@ -54,18 +54,18 @@ export function Header() {
               alt="JoyWanna Official Logo"
               className="h-20 md:h-32 w-auto object-contain -my-6 md:-my-10"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
                 className="text-sm font-medium text-muted-foreground link-underline hover:text-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -108,14 +108,14 @@ export function Header() {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-background/98 backdrop-blur-lg border-b border-border animate-fade-in">
             <div className="flex flex-col py-6 px-6 gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <Link
+                  key={link.to}
+                  to={link.to}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-lg font-medium py-2 hover:text-primary transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
