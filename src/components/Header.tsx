@@ -24,13 +24,13 @@ export function Header() {
     document.documentElement.lang = language === 'de' ? 'de' : 'en';
   }, [language]);
 
-  const navLinks = [
-    { href: '#home', label: t('nav.home') },
-    { href: '#gigs', label: t('nav.gigs') },
-    { href: '#about', label: t('nav.about') },
-    { href: '#lessons', label: t('nav.lessons') },
-    { href: '#gallery', label: t('nav.gallery') },
-    { href: '#contact', label: t('nav.contact') },
+  const navLinks: { to: string; label: string }[] = [
+    { to: isHome ? '#home' : '/#home', label: t('nav.home') },
+    { to: isHome ? '#gigs' : '/#gigs', label: t('nav.gigs') },
+    { to: isHome ? '#about' : '/#about', label: t('nav.about') },
+    { to: isHome ? '#lessons' : '/#lessons', label: t('nav.lessons') },
+    { to: '/portfolio', label: t('nav.gallery') },
+    { to: isHome ? '#contact' : '/#contact', label: t('nav.contact') },
   ];
 
   return (
