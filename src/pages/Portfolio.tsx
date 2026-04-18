@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage, LanguageProvider } from '@/contexts/LanguageContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { ContactSection } from '@/components/ContactSection';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Play, ArrowLeft } from 'lucide-react';
 import heroImage from '@/assets/jovana-hero.jpeg';
@@ -276,19 +277,18 @@ function PortfolioContent() {
           </div>
         </section>
 
-        {/* Footer CTA */}
-        <section className="section-padding bg-card text-center">
-          <div className="container mx-auto max-w-2xl">
+        {/* Booking CTA + Contact form (same as landing page) */}
+        <section className="bg-card">
+          <div className="container mx-auto max-w-3xl text-center pt-20 md:pt-32 px-6 md:px-12 lg:px-20">
             <h2 className="font-serif text-3xl md:text-4xl mb-4">
               {t('portfolio.footerCta.title')}
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground">
               {t('portfolio.footerCta.subtitle')}
             </p>
-            <Link to="/#contact" className="btn-hero">
-              {t('hero.cta')}
-            </Link>
+            <div className="w-16 h-px bg-primary mx-auto mt-8" />
           </div>
+          <ContactSection />
         </section>
       </main>
 
