@@ -47,7 +47,7 @@ export function PortfolioSection() {
         </div>
 
         {/* Video Grid – 4 live performance videos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {videos.map((video) => (
             <Link
               key={video.id}
