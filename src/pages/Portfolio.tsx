@@ -9,6 +9,55 @@ import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
+// Portfolio photo gallery (WebP optimized)
+import jw01 from '@/assets/portfolio/joywanna-01.webp';
+import jw02 from '@/assets/portfolio/joywanna-02.webp';
+import jw03 from '@/assets/portfolio/joywanna-03.webp';
+import jw04 from '@/assets/portfolio/joywanna-04.webp';
+import jw05 from '@/assets/portfolio/joywanna-05.webp';
+import jw06 from '@/assets/portfolio/joywanna-06.webp';
+import jw07 from '@/assets/portfolio/joywanna-07.webp';
+import jw08 from '@/assets/portfolio/joywanna-08.webp';
+import jw09 from '@/assets/portfolio/joywanna-09.webp';
+import jw10 from '@/assets/portfolio/joywanna-10.webp';
+import jw11 from '@/assets/portfolio/joywanna-11.webp';
+import jw12 from '@/assets/portfolio/joywanna-12.webp';
+import jw13 from '@/assets/portfolio/joywanna-13.webp';
+import jw14 from '@/assets/portfolio/joywanna-14.webp';
+import jw15 from '@/assets/portfolio/joywanna-15.webp';
+import jw16 from '@/assets/portfolio/joywanna-16.webp';
+import jw17 from '@/assets/portfolio/joywanna-17.webp';
+import jw18 from '@/assets/portfolio/joywanna-18.webp';
+import jw19 from '@/assets/portfolio/joywanna-19.webp';
+import jw20 from '@/assets/portfolio/joywanna-20.webp';
+import jw21 from '@/assets/portfolio/joywanna-21.webp';
+import jw22 from '@/assets/portfolio/joywanna-22.webp';
+
+const galleryPhotos: { src: string; category: 'live' | 'band' | 'reimagined'; alt: { de: string; en: string }; title: { de: string; en: string } }[] = [
+  { src: jw01, category: 'live', alt: { de: 'JoyWanna live auf der Bühne in Oldenburg', en: 'JoyWanna performing live on stage in Oldenburg' }, title: { de: 'Live auf der Bühne', en: 'Live on Stage' } },
+  { src: jw02, category: 'band', alt: { de: 'Jovana Kokor mit JoyWanna & The Spicy Jam Band', en: 'Jovana Kokor with JoyWanna & The Spicy Jam band' }, title: { de: 'Mit der Band', en: 'With the Band' } },
+  { src: jw03, category: 'reimagined', alt: { de: 'Jovana Kokor Studio Porträt – Reimagined Session', en: 'Jovana Kokor studio portrait – Reimagined session' }, title: { de: 'Studio Porträt', en: 'Studio Portrait' } },
+  { src: jw04, category: 'live', alt: { de: 'JoyWanna singt live – Jazz und Soul Performance', en: 'JoyWanna singing live – Jazz and Soul performance' }, title: { de: 'Stimme & Emotion', en: 'Voice & Emotion' } },
+  { src: jw05, category: 'live', alt: { de: 'JoyWanna mit Mikrofon im Bühnenlicht', en: 'JoyWanna with microphone in stage light' }, title: { de: 'Im Rampenlicht', en: 'In the Spotlight' } },
+  { src: jw06, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam – Live Konzert', en: 'JoyWanna & The Spicy Jam – live concert' }, title: { de: 'The Spicy Jam', en: 'The Spicy Jam' } },
+  { src: jw07, category: 'reimagined', alt: { de: 'Jovana Kokor am Klavier – akustische Session', en: 'Jovana Kokor at the piano – acoustic session' }, title: { de: 'Stimme & Klavier', en: 'Voice & Piano' } },
+  { src: jw08, category: 'live', alt: { de: 'JoyWanna Live Auftritt – elegantes Bühnenoutfit', en: 'JoyWanna live performance – elegant stage outfit' }, title: { de: 'Eleganz auf der Bühne', en: 'Elegance on Stage' } },
+  { src: jw09, category: 'reimagined', alt: { de: 'Jovana Kokor Künstlerporträt in Schwarz-Weiß', en: 'Jovana Kokor artist portrait in black and white' }, title: { de: 'Künstlerporträt', en: 'Artist Portrait' } },
+  { src: jw10, category: 'live', alt: { de: 'JoyWanna live – intimer Konzertmoment', en: 'JoyWanna live – intimate concert moment' }, title: { de: 'Intimer Moment', en: 'Intimate Moment' } },
+  { src: jw11, category: 'band', alt: { de: 'Bandfoto JoyWanna & The Spicy Jam', en: 'Band photo of JoyWanna & The Spicy Jam' }, title: { de: 'Bandfoto', en: 'Band Photo' } },
+  { src: jw12, category: 'live', alt: { de: 'JoyWanna Live Performance bei Event', en: 'JoyWanna live performance at event' }, title: { de: 'Event Performance', en: 'Event Performance' } },
+  { src: jw13, category: 'reimagined', alt: { de: 'Jovana Kokor Studio Aufnahme', en: 'Jovana Kokor studio session' }, title: { de: 'Studio Session', en: 'Studio Session' } },
+  { src: jw14, category: 'live', alt: { de: 'JoyWanna mit Band live in Aktion', en: 'JoyWanna with band live in action' }, title: { de: 'Live in Aktion', en: 'Live in Action' } },
+  { src: jw15, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam beim Soundcheck', en: 'JoyWanna & The Spicy Jam during soundcheck' }, title: { de: 'Soundcheck', en: 'Soundcheck' } },
+  { src: jw16, category: 'live', alt: { de: 'JoyWanna singt mit Hingabe auf der Bühne', en: 'JoyWanna singing with passion on stage' }, title: { de: 'Hingabe', en: 'Passion' } },
+  { src: jw17, category: 'reimagined', alt: { de: 'Jovana Kokor – Reimagined akustisches Set', en: 'Jovana Kokor – Reimagined acoustic set' }, title: { de: 'Reimagined Set', en: 'Reimagined Set' } },
+  { src: jw18, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam Crossover Sound', en: 'JoyWanna & The Spicy Jam crossover sound' }, title: { de: 'Crossover Sound', en: 'Crossover Sound' } },
+  { src: jw19, category: 'live', alt: { de: 'JoyWanna Live Konzert – Jazz, Latin und Soul', en: 'JoyWanna live concert – Jazz, Latin and Soul' }, title: { de: 'Jazz & Soul', en: 'Jazz & Soul' } },
+  { src: jw20, category: 'reimagined', alt: { de: 'Jovana Kokor Porträt – elegante Atmosphäre', en: 'Jovana Kokor portrait – elegant atmosphere' }, title: { de: 'Elegante Atmosphäre', en: 'Elegant Atmosphere' } },
+  { src: jw21, category: 'live', alt: { de: 'JoyWanna Bühnenmoment – Energie und Ausdruck', en: 'JoyWanna stage moment – energy and expression' }, title: { de: 'Bühnenenergie', en: 'Stage Energy' } },
+  { src: jw22, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam – Live Highlight', en: 'JoyWanna & The Spicy Jam – live highlight' }, title: { de: 'Live Highlight', en: 'Live Highlight' } },
+];
+
 type Category = 'all' | 'live' | 'band' | 'reimagined';
 
 interface PortfolioItem {
