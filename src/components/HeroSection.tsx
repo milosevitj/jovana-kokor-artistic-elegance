@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[95svh] md:min-h-[100svh] flex items-start md:items-center justify-center overflow-hidden pt-[55vh] md:pt-0"
+      className="relative min-h-[100svh] flex flex-col justify-end md:justify-center items-stretch md:items-center overflow-hidden pb-12 md:pb-0"
       style={{
         background: 'var(--gradient-hero)',
       }}
@@ -26,7 +26,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 w-full">
         <div className="max-w-3xl">
           <div className="inline-block max-w-2xl rounded-sm bg-gradient-to-t from-black/60 via-black/30 to-transparent px-5 py-6 md:max-w-3xl md:bg-none md:px-0 md:py-0">
             {/* Decorative line */}
