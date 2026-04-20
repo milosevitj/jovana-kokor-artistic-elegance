@@ -1,4 +1,5 @@
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
+import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
@@ -124,6 +125,7 @@ function ImpressumEN() {
 
 const Impressum = () => (
   <LanguageProvider>
+    <SEOManager />
     <ImpressumContent />
   </LanguageProvider>
 );
