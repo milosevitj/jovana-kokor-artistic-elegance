@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[95svh] md:min-h-[100svh] flex items-center justify-center overflow-hidden"
       style={{
         background: 'var(--gradient-hero)',
       }}
