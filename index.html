@@ -1,20 +1,13 @@
 <!doctype html>
 <html lang="de">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Early hints: connect to font CDNs ASAP to shorten the critical request chain -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-    <!-- Preload the two LCP-critical, self-hosted WOFF2 weights (Inter 400 body + Playfair 500 H1) -->
-    <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/playfair-500-latin.woff2" as="font" type="font/woff2" crossorigin />
-
-    <!-- Async-load the full Google Fonts stylesheet for remaining weights / italics -->
+    <!-- Preload + apply Google Fonts stylesheet (font-display:swap is already in the URL) -->
     <link
       rel="preload"
       as="style"
@@ -33,21 +26,16 @@
       />
     </noscript>
 
-    <!-- Critical CSS: paint a fully-styled hero before the main stylesheet arrives.
-         Includes self-hosted @font-face for the two LCP-critical weights with font-display:swap. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Critical CSS: minimum needed to paint the hero immediately while the main stylesheet loads -->
     <style>
-      @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/inter-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/playfair-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
       html,body{margin:0;padding:0;background:#0a0a0a;color:#fafafa;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
       #root{min-height:100vh;background:#0a0a0a}
-      /* Hero baseline so the LCP element renders styled before main CSS arrives */
-      #home{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;overflow:hidden;padding-bottom:3rem;background:linear-gradient(135deg,#000 0%,#0f0f0f 50%,#1a0d10 100%)}
-      @media(min-width:768px){#home{justify-content:center;align-items:center;padding-bottom:0}}
-      #home h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:3rem;line-height:1.1;margin:0 0 .75rem;color:#fafafa}
-      @media(min-width:768px){#home h1{font-size:4.5rem}}
     </style>
     <title>JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland</title>
-    <meta name="description" content="Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin, Vokalkünstlerin und Musikpädagogin. Buchungen für Konzerte, Firmenevents und privaten Klavier- &amp; Gesangsunterricht.">
+    <meta name="description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!">
     <meta name="keywords" content="Jovana Kokor, Pianistin, Sängerin, Klavierunterricht, Deutschland, Oldenburg, klassische Musik, Gesang, Vokalkünstlerin, Musikpädagogin, Konzerte, Firmenevents" />
     <meta name="author" content="Jovana Kokor" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -68,7 +56,7 @@
     <meta property="og:url" content="https://jovanakokor.de" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4256d321-f2d3-42e2-a2c4-fcf109f97b0f">
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Jovana Kokor" />
@@ -77,7 +65,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     
     
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4256d321-f2d3-42e2-a2c4-fcf109f97b0f">
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp">
 
     <link rel="canonical" href="https://jovanakokor.de" />
     
@@ -336,10 +324,14 @@
   
   
   
+  
+  
+  
+  
   <meta property="og:title" content="JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland">
   <meta name="twitter:title" content="JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland">
-  <meta property="og:description" content="Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin, Vokalkünstlerin und Musikpädagogin. Buchungen für Konzerte, Firmenevents und privaten Klavier- &amp; Gesangsunterricht.">
-  <meta name="twitter:description" content="Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin, Vokalkünstlerin und Musikpädagogin. Buchungen für Konzerte, Firmenevents und privaten Klavier- &amp; Gesangsunterricht.">
+  <meta property="og:description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!">
+  <meta name="twitter:description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!">
 </head>
 
   <body>
