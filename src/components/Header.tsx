@@ -76,23 +76,45 @@ export function Header() {
           {/* Language Toggle & Mobile Menu Button */}
           <div className="flex items-center gap-4">
             <div className="lang-toggle" role="group" aria-label="Language selection">
-              <button
-                onClick={() => setLanguage('de')}
+              {/*
+                Real <a> tags with absolute hrefs so Screaming Frog and other
+                non-JS crawlers can follow the language switcher and so the
+                URLs match what hreflang advertises. The onClick prevents a
+                full reload and just flips the in-app language state.
+              */}
+              <a
+                href={`${pathname}${pathname.includes('?') ? '&' : '?'}lang=de`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLanguage('de');
+                  const url = new URL(window.location.href);
+                  url.searchParams.delete('lang');
+                  window.history.replaceState({}, '', url.toString());
+                }}
                 className={language === 'de' ? 'active' : ''}
                 aria-label="Sprache: Deutsch"
-                aria-pressed={language === 'de'}
+                hrefLang="de"
+                rel="alternate"
               >
                 DE
-              </button>
+              </a>
               <span className="text-border" aria-hidden="true">|</span>
-              <button
-                onClick={() => setLanguage('en')}
+              <a
+                href={`${pathname}?lang=en`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLanguage('en');
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('lang', 'en');
+                  window.history.replaceState({}, '', url.toString());
+                }}
                 className={language === 'en' ? 'active' : ''}
                 aria-label="Language: English"
-                aria-pressed={language === 'en'}
+                hrefLang="en"
+                rel="alternate"
               >
                 EN
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
