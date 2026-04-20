@@ -23,12 +23,14 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-background/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+        {/* Mobile-only full-screen readability gradient */}
+        <div className="absolute inset-0 md:hidden bg-[linear-gradient(to_top_right,rgba(0,0,0,0.7),rgba(0,0,0,0.35)_45%,transparent_75%)]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 w-full">
         <div className="max-w-3xl">
-          <div className="inline-block max-w-2xl rounded-sm bg-gradient-to-t from-black/60 via-black/30 to-transparent px-5 pt-24 pb-6 md:max-w-3xl md:bg-none md:px-0 md:pt-0 md:pb-0">
+          <div className="inline-block max-w-2xl rounded-sm px-5 pt-24 pb-6 md:max-w-3xl md:px-0 md:pt-0 md:pb-0">
             {/* Decorative line */}
             <div className="w-16 h-px bg-primary mb-6 md:mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
 
