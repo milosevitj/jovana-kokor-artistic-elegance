@@ -174,13 +174,15 @@
   }
 }
 
-/* Hero background image - Desktop: original position, Mobile: crop to center the person */
+/* Hero background image */
 .hero-bg-image {
   object-position: center;
 }
 
 @media (max-width: 767px) {
   .hero-bg-image {
-    object-position: 75% center;
+    object-fit: contain;
+    object-position: top center;
+    padding-top: 4.5rem;
   }
 }
