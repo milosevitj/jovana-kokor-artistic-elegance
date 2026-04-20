@@ -28,22 +28,22 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 w-full">
         <div className="max-w-3xl">
-          <div className="inline-block max-w-2xl rounded-sm bg-gradient-to-t from-black/60 via-black/30 to-transparent px-5 py-6 md:max-w-3xl md:bg-none md:px-0 md:py-0">
+          <div className="inline-block max-w-2xl rounded-sm bg-gradient-to-t from-black/60 via-black/30 to-transparent px-5 pt-24 pb-6 md:max-w-3xl md:bg-none md:px-0 md:pt-0 md:pb-0">
             {/* Decorative line */}
-            <div className="w-16 h-px bg-primary mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+            <div className="w-16 h-px bg-primary mb-6 md:mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
 
             {/* Headline - Single H1 for the entire page */}
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-3 md:mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               {t('hero.headline')}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-4 md:mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               {t('hero.subheadline')}
             </p>
 
             {/* Tagline */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-6 md:mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
               {t('hero.tagline')}
             </p>
 
