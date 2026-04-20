@@ -4,6 +4,7 @@ import { Header } from '@/components/Header';
 import { useHashNavigation } from '@/hooks/use-hash-navigation';
 import { HeroSection } from '@/components/HeroSection';
 import { Footer } from '@/components/Footer';
+import { SEOManager } from '@/components/SEOManager';
 
 // Lazy-load below-the-fold sections to reduce initial bundle size
 const GigsSection = lazy(() => import('@/components/GigsSection').then(m => ({ default: m.GigsSection })));
@@ -19,6 +20,7 @@ const Index = () => {
 
   return (
     <LanguageProvider>
+      <SEOManager />
       <div className="min-h-screen bg-background text-foreground">
         <Header />
         <main>
