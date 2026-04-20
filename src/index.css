@@ -176,13 +176,12 @@
 
 /* Hero background image */
 .hero-bg-image {
-  object-position: center;
+  object-fit: cover;
+  object-position: 70% center;
 }
 
 @media (max-width: 767px) {
   .hero-bg-image {
-    object-fit: contain;
-    object-position: top center;
-    padding-top: 4.5rem;
+    object-position: 80% top;
   }
 }
