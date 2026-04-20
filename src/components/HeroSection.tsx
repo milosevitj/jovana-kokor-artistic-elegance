@@ -17,7 +17,7 @@ export function HeroSection() {
         <img
           src={heroImage}
           alt="JoyWanna – Music & Performance, live on stage"
-          className="hero-bg-image w-full h-full object-cover object-[70%_center]"
+          className="hero-bg-image w-full h-full object-cover object-[60%_top] md:object-[70%_center]"
           loading="eager"
         />
         <div className="absolute inset-0 bg-background/40" />
