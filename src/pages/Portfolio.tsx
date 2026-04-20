@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useLanguage, LanguageProvider } from '@/contexts/LanguageContext';
+import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ContactSection } from '@/components/ContactSection';
@@ -345,6 +346,7 @@ function PortfolioContent() {
 export default function Portfolio() {
   return (
     <LanguageProvider>
+      <SEOManager />
       <PortfolioContent />
     </LanguageProvider>
   );
