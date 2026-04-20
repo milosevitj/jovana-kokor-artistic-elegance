@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import portraitImage from '@/assets/jovana-portrait.jpeg';
+import portrait400 from '@/assets/jovana-portrait-400.webp';
+import portrait800 from '@/assets/jovana-portrait-800.webp';
+import portrait1200 from '@/assets/jovana-portrait-1200.webp';
+import portrait1600 from '@/assets/jovana-portrait-1600.webp';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
 
@@ -17,10 +20,15 @@ export function AboutSection() {
           <div className="relative order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-sm">
               <img
-                src={portraitImage}
+                src={portrait800}
+                srcSet={`${portrait400} 400w, ${portrait800} 800w, ${portrait1200} 1200w, ${portrait1600} 1600w`}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                width={1919}
+                height={1920}
                 alt={t('about.img.alt')}
                 className="w-full h-auto object-cover aspect-[3/4]"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
             </div>
@@ -87,6 +95,7 @@ export function AboutSection() {
             alt="JoyWanna & The Spicy Jam - Jazz, Soul and Pop Band"
             className="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg"
             loading="lazy"
+            decoding="async"
           />
           <div className="p-6">
             <DialogHeader>

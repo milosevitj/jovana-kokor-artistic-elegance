@@ -242,6 +242,7 @@ function PortfolioContent() {
                             : `Preview – ${item.title.en}`
                         }
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -261,6 +262,7 @@ function PortfolioContent() {
                           : ''
                       }
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   )}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
-import joyWannaLogo from '@/assets/joywanna-logo.png';
+import joyWannaLogo from '@/assets/joywanna-logo.webp';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -54,6 +54,8 @@ export function Header() {
               alt="JoyWanna Official Logo"
               width={540}
               height={360}
+              decoding="async"
+              fetchPriority="high"
               className="h-20 md:h-32 w-auto object-contain -my-6 md:-my-10"
             />
           </Link>
