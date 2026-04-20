@@ -1,13 +1,44 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { pathname } = useLocation();
   const currentYear = new Date().getFullYear();
+  const isHome = pathname === '/';
+
+  // All <Link> components render real <a href> tags, so Screaming Frog and
+  // other non-JS crawlers can follow every internal link advertised here.
+  // Section anchors point to /#section when off the homepage so deep links
+  // always resolve to a 200 OK URL.
+  const sectionLinks: { to: string; label: string }[] = [
+    { to: isHome ? '#home' : '/#home', label: t('nav.home') },
+    { to: isHome ? '#gigs' : '/#gigs', label: t('nav.gigs') },
+    { to: isHome ? '#about' : '/#about', label: t('nav.about') },
+    { to: isHome ? '#lessons' : '/#lessons', label: t('nav.lessons') },
+    { to: '/portfolio', label: t('nav.gallery') },
+    { to: isHome ? '#contact' : '/#contact', label: t('nav.contact') },
+  ];
 
   return (
     <footer className="border-t border-border">
-      <div className="container mx-auto px-6 md:px-12 py-12">
+      <div className="container mx-auto px-6 md:px-12 py-12 space-y-10">
+        {/* Site navigation block — gives every page outbound internal links */}
+        <nav aria-label={language === 'de' ? 'Footer-Navigation' : 'Footer navigation'}>
+          <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm">
+            {sectionLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
