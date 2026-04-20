@@ -32,25 +32,25 @@ export function HeroSection() {
         <div className="max-w-3xl">
           <div className="inline-block max-w-2xl rounded-sm px-5 pt-24 pb-6 md:max-w-3xl md:px-0 md:pt-0 md:pb-0">
             {/* Decorative line */}
-            <div className="w-16 h-px bg-primary mb-6 md:mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+            <div className="w-16 h-px bg-primary mb-6 md:mb-8" />
 
-            {/* Headline - Single H1 for the entire page */}
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-3 md:mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            {/* Headline - Single H1 for the entire page (LCP element — render immediately, no animation) */}
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-3 md:mb-4">
               {t('hero.headline')}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-4 md:mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-4 md:mb-8">
               {t('hero.subheadline')}
             </p>
 
             {/* Tagline */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-6 md:mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-6 md:mb-12 leading-relaxed">
               {t('hero.tagline')}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="flex flex-col sm:flex-row gap-4">
               <a href="#contact" className="btn-hero">
                 {t('hero.cta')}
               </a>
