@@ -28,32 +28,34 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl">
-          {/* Decorative line */}
-          <div className="w-16 h-px bg-primary mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <div className="inline-block max-w-2xl rounded-sm bg-gradient-to-r from-background/92 via-background/78 to-background/12 px-5 py-6 backdrop-blur-[2px] md:max-w-3xl md:bg-none md:px-0 md:py-0 md:backdrop-blur-0">
+            {/* Decorative line */}
+            <div className="w-16 h-px bg-primary mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
 
-          {/* Headline - Single H1 for the entire page */}
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            {t('hero.headline')}
-          </h1>
+            {/* Headline - Single H1 for the entire page */}
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              {t('hero.headline')}
+            </h1>
 
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            {t('hero.subheadline')}
-          </p>
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl lg:text-3xl text-primary font-serif italic mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              {t('hero.subheadline')}
+            </p>
 
-          {/* Tagline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            {t('hero.tagline')}
-          </p>
+            {/* Tagline */}
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
+              {t('hero.tagline')}
+            </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <a href="#contact" className="btn-hero">
-              {t('hero.cta')}
-            </a>
-            <a href="#about" className="btn-outline-hero">
-              {t('hero.cta.secondary')}
-            </a>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <a href="#contact" className="btn-hero">
+                {t('hero.cta')}
+              </a>
+              <a href="#about" className="btn-outline-hero">
+                {t('hero.cta.secondary')}
+              </a>
+            </div>
           </div>
         </div>
       </div>
