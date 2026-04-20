@@ -52,6 +52,8 @@ export function Header() {
             <img
               src={joyWannaLogo}
               alt="JoyWanna Official Logo"
+              width={540}
+              height={360}
               className="h-20 md:h-32 w-auto object-contain -my-6 md:-my-10"
             />
           </Link>
