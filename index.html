@@ -1,8 +1,39 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <!-- Early hints: connect to font CDNs ASAP to shorten the critical request chain -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Preload + apply Google Fonts stylesheet (font-display:swap is already in the URL) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      />
+    </noscript>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Critical CSS: minimum needed to paint the hero immediately while the main stylesheet loads -->
+    <style>
+      html,body{margin:0;padding:0;background:#0a0a0a;color:#fafafa;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+      #root{min-height:100vh;background:#0a0a0a}
+    </style>
     <title>JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland</title>
     <meta name="description" content="Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin, Vokalkünstlerin und Musikpädagogin. Buchungen für Konzerte, Firmenevents und privaten Klavier- &amp; Gesangsunterricht.">
     <meta name="keywords" content="Jovana Kokor, Pianistin, Sängerin, Klavierunterricht, Deutschland, Oldenburg, klassische Musik, Gesang, Vokalkünstlerin, Musikpädagogin, Konzerte, Firmenevents" />
@@ -38,9 +69,6 @@
 
     <link rel="canonical" href="https://jovanakokor.de" />
     
-    <!-- Preconnect for fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
