@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'de' | 'en';
 
@@ -266,7 +266,22 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('de');
+  // Initialize from ?lang= query param so deep links and crawlers (and the
+  // hreflang URLs we advertise) actually land on the correct language.
+  const getInitialLanguage = (): Language => {
+    if (typeof window === 'undefined') return 'de';
+    const param = new URLSearchParams(window.location.search).get('lang');
+    return param === 'en' ? 'en' : 'de';
+  };
+
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+
+  // Keep state in sync if the user navigates back/forward between ?lang= URLs.
+  useEffect(() => {
+    const handlePopState = () => setLanguage(getInitialLanguage());
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const t = (key: string): string => {
     return translations[language][key] || key;
