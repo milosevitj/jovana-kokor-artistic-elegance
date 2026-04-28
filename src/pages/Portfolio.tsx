@@ -60,6 +60,7 @@ const galleryPhotos: { src: string; category: 'live' | 'band' | 'reimagined'; al
 ];
 
 type Category = 'all' | 'live' | 'band' | 'reimagined';
+type Tab = 'visual' | 'shows';
 
 interface PortfolioItem {
   id: string;
