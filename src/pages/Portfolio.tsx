@@ -226,7 +226,7 @@ function PortfolioContent() {
         </section>
         <section className="section-padding pt-8 md:pt-12">
           <div className="container mx-auto max-w-6xl">
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+            <div key={tab} className="columns-1 sm:columns-2 lg:columns-3 gap-4 animate-fade-in">
               {filtered.map((item) => (
                 <button
                   key={item.id}
