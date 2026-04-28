@@ -60,6 +60,7 @@ const galleryPhotos: { src: string; category: 'live' | 'band' | 'reimagined'; al
 ];
 
 type Category = 'all' | 'live' | 'band' | 'reimagined';
+type Tab = 'visual' | 'shows';
 
 interface PortfolioItem {
   id: string;
@@ -145,19 +146,20 @@ const items: PortfolioItem[] = [
 
 function PortfolioContent() {
   const { language, t } = useLanguage();
-  const [filter, setFilter] = useState<Category>('all');
+  const [tab, setTab] = useState<Tab>('visual');
   const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
 
   const filtered = useMemo(
-    () => (filter === 'all' ? items : items.filter((i) => i.category === filter)),
-    [filter],
+    () =>
+      tab === 'shows'
+        ? items.filter((i) => i.type === 'video')
+        : items.filter((i) => i.type === 'image'),
+    [tab],
   );
 
-  const filters: { key: Category; label: string }[] = [
-    { key: 'all', label: t('portfolio.filter.all') },
-    { key: 'live', label: t('portfolio.filter.live') },
-    { key: 'band', label: t('portfolio.filter.band') },
-    { key: 'reimagined', label: t('portfolio.filter.reimagined') },
+  const tabs: { key: Tab; label: string }[] = [
+    { key: 'visual', label: language === 'de' ? 'Visuelle Arbeiten' : 'Visual Work' },
+    { key: 'shows', label: language === 'de' ? 'Live-Auftritte' : 'Live Shows' },
   ];
 
   return (
@@ -197,35 +199,34 @@ function PortfolioContent() {
           </div>
         </section>
 
-        {/* Filter Tabs */}
+        {/* Tabs */}
         <section className="px-6 md:px-12 lg:px-20 mb-12">
           <div className="container mx-auto">
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-              {filters.map((f) => {
-                const active = filter === f.key;
+            <div role="tablist" aria-label="Portfolio" className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {tabs.map((t) => {
+                const active = tab === t.key;
                 return (
                   <button
-                    key={f.key}
-                    onClick={() => setFilter(f.key)}
+                    key={t.key}
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setTab(t.key)}
                     className={`px-5 py-2 rounded-sm text-sm font-medium border transition-all duration-300 ${
                       active
                         ? 'bg-primary text-primary-foreground border-primary'
                         : 'bg-transparent text-muted-foreground border-border hover:text-foreground hover:border-foreground/50'
                     }`}
-                    aria-pressed={active}
                   >
-                    {f.label}
+                    {t.label}
                   </button>
                 );
               })}
             </div>
           </div>
         </section>
-
-        {/* Masonry Grid */}
         <section className="section-padding pt-8 md:pt-12">
           <div className="container mx-auto max-w-6xl">
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+            <div key={tab} className="columns-1 sm:columns-2 lg:columns-3 gap-4 animate-fade-in">
               {filtered.map((item) => (
                 <button
                   key={item.id}
