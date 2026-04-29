@@ -115,8 +115,11 @@ export function useDynamicSEO() {
     const deUrl = `${origin}${dePath}`;
     const enUrl = `${origin}${enPath}`;
 
-    // Self-referencing canonical for the currently active language
-    const canonicalUrl = language === 'en' ? enUrl : deUrl;
+    // Canonical always points to the default-language (DE) URL — the same
+    // page is served for both languages (the only difference is the UI
+    // language toggled via ?lang=en). Hreflang below declares the EN
+    // alternate so search engines still surface the right variant.
+    const canonicalUrl = deUrl;
     upsertLink('canonical', canonicalUrl);
 
     // Hreflang alternates — absolute URLs reflecting the current host
@@ -124,7 +127,7 @@ export function useDynamicSEO() {
     upsertLink('alternate', enUrl, { hreflang: 'en' });
     upsertLink('alternate', deUrl, { hreflang: 'x-default' });
 
-    // Open Graph URL + locale
+    // Open Graph URL + locale (OG URL = canonical so social shares dedupe)
     upsertMeta('og:url', canonicalUrl);
     upsertMeta('og:locale', language === 'en' ? 'en_US' : 'de_DE');
 
