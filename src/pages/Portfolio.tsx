@@ -556,26 +556,41 @@ function PortfolioContent() {
                           Visual Work image tile.
                           STRICT: Images must not move, animate, or shift position under any condition.
                           - No transform, no scale, no translate on the image
-                          - No hover overlay that moves
-                          - Title is rendered statically BELOW the image (not overlaid)
-                            so there is no layout shift and nothing to animate
+                          - Hover overlay only fades in (opacity); image itself is static
+                          - On mobile (no hover), title shows statically below the image
+                          - Click opens fullscreen lightbox (handled by parent button)
                         */}
-                        <img
-                          src={item.source}
-                          alt={
-                            item.alt
-                              ? language === 'de'
-                                ? item.alt.de
-                                : item.alt.en
-                              : ''
-                          }
-                          loading="lazy"
-                          decoding="async"
-                          width={item.width}
-                          height={item.height}
-                          className="block w-full h-auto object-cover"
-                        />
-                        <p className="px-3 py-2 font-serif text-sm md:text-base text-foreground">
+                        <div className="group relative">
+                          <img
+                            src={item.source}
+                            alt={
+                              item.alt
+                                ? language === 'de'
+                                  ? item.alt.de
+                                  : item.alt.en
+                                : ''
+                            }
+                            loading="lazy"
+                            decoding="async"
+                            width={item.width}
+                            height={item.height}
+                            className="block w-full h-auto object-cover"
+                          />
+                          {/* Desktop hover overlay – fade only, no movement */}
+                          <div
+                            aria-hidden="true"
+                            className="hidden md:flex absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex-col items-center justify-center text-center p-4"
+                          >
+                            <p className="font-serif text-lg md:text-xl text-foreground">
+                              {language === 'de' ? item.title.de : item.title.en}
+                            </p>
+                            <p className="mt-2 text-xs md:text-sm text-muted-foreground line-clamp-3 max-w-[90%]">
+                              {language === 'de' ? item.description.de : item.description.en}
+                            </p>
+                          </div>
+                        </div>
+                        {/* Mobile static title (no hover available) */}
+                        <p className="md:hidden px-3 py-2 font-serif text-sm text-foreground">
                           {language === 'de' ? item.title.de : item.title.en}
                         </p>
                       </>
