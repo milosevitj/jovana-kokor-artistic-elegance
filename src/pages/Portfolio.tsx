@@ -35,11 +35,37 @@ import jw46 from '@/assets/portfolio-new/joywanna-jazz-vocal-studies-belgrade.we
 type PhotoEntry = {
   num: number;
   src: string;
-  width: number;
-  height: number;
   title: { de: string; en: string };
   description: { de: string; en: string };
   alt: { de: string; en: string };
+};
+
+// Intrinsic image dimensions — used as width/height attributes so the
+// browser reserves the correct aspect-ratio space and the masonry grid
+// does NOT shift when lazy-loaded images come in.
+const photoDimensions: Record<number, { w: number; h: number }> = {
+  1: { w: 1086, h: 724 },
+  2: { w: 1600, h: 1066 },
+  3: { w: 1600, h: 1068 },
+  4: { w: 1600, h: 1066 },
+  7: { w: 968, h: 812 },
+  9: { w: 1280, h: 852 },
+  10: { w: 1086, h: 724 },
+  12: { w: 946, h: 832 },
+  13: { w: 697, h: 1126 },
+  15: { w: 1600, h: 1652 },
+  20: { w: 1600, h: 1066 },
+  36: { w: 1600, h: 1066 },
+  37: { w: 1600, h: 1066 },
+  38: { w: 1440, h: 1800 },
+  39: { w: 1037, h: 1512 },
+  40: { w: 1440, h: 810 },
+  41: { w: 1440, h: 1440 },
+  42: { w: 1448, h: 2048 },
+  43: { w: 1125, h: 782 },
+  44: { w: 1600, h: 900 },
+  45: { w: 1600, h: 952 },
+  46: { w: 960, h: 642 },
 };
 
 const galleryPhotos: PhotoEntry[] = [
