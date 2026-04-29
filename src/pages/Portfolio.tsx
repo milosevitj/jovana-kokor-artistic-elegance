@@ -716,6 +716,7 @@ function PortfolioContent() {
                                   : item.alt.en
                                 : ''
                             }
+                            title={language === 'de' ? item.title.de : item.title.en}
                             loading="lazy"
                             decoding="async"
                             width={item.width}
