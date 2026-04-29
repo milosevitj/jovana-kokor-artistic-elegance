@@ -265,22 +265,75 @@ const translations: Record<Language, Record<string, string>> = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const STORAGE_KEY = 'joywanna.lang';
+
+function readStoredLanguage(): Language | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const v = window.localStorage.getItem(STORAGE_KEY);
+    return v === 'de' || v === 'en' ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredLanguage(lang: Language) {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, lang);
+  } catch {
+    /* ignore quota / privacy mode errors */
+  }
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Initialize from ?lang= query param so deep links and crawlers (and the
-  // hreflang URLs we advertise) actually land on the correct language.
+  // Resolution order:
+  //   1. Explicit ?lang= query param (deep links, hreflang, crawlers)
+  //   2. Saved choice in localStorage (returning visitors)
+  //   3. Default 'de' (German is the primary language).
+  // We deliberately do NOT auto-detect navigator.language or geolocation –
+  // a user's explicit choice must always win.
   const getInitialLanguage = (): Language => {
     if (typeof window === 'undefined') return 'de';
     const param = new URLSearchParams(window.location.search).get('lang');
-    return param === 'en' ? 'en' : 'de';
+    if (param === 'en' || param === 'de') return param;
+    const stored = readStoredLanguage();
+    if (stored) return stored;
+    return 'de';
   };
 
-  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    writeStoredLanguage(lang);
+  };
+
+  // Persist on first mount (in case the initial value came from ?lang=) and
+  // keep the <html lang> attribute in sync for SEO + accessibility.
+  useEffect(() => {
+    writeStoredLanguage(language);
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
 
   // Keep state in sync if the user navigates back/forward between ?lang= URLs.
   useEffect(() => {
-    const handlePopState = () => setLanguage(getInitialLanguage());
+    const handlePopState = () => setLanguageState(getInitialLanguage());
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // If the same user changes the language in another tab, mirror it here.
+  useEffect(() => {
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY && (e.newValue === 'de' || e.newValue === 'en')) {
+        setLanguageState(e.newValue);
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
   const t = (key: string): string => {
