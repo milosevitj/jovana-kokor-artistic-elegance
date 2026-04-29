@@ -659,6 +659,37 @@ function PortfolioContent() {
         </section>
         <section className="section-padding pt-8 md:pt-12">
           <div className="container mx-auto max-w-6xl">
+            {/* Section heading + intro per active tab (SEO: real text content + H2 per section) */}
+            <header className="text-center mb-10 md:mb-14">
+              <h2 className="font-serif text-2xl md:text-3xl text-foreground">
+                {tab === 'visual' &&
+                  (language === 'de'
+                    ? 'Visuelle Arbeiten – Bühnenmomente & Künstlerporträts'
+                    : 'Visual Work – Stage Moments & Artist Portraits')}
+                {tab === 'shows' &&
+                  (language === 'de'
+                    ? 'Live-Auftritte – Konzerte, Bands & Sessions'
+                    : 'Live Shows – Concerts, Bands & Sessions')}
+                {tab === 'press' &&
+                  (language === 'de'
+                    ? 'Presse – Zeitungs- & Magazinberichte'
+                    : 'Press – Newspaper & Magazine Features')}
+              </h2>
+              <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+                {tab === 'visual' &&
+                  (language === 'de'
+                    ? 'Eine Auswahl visueller Arbeiten von Jovana Kokor – Live-Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.'
+                    : 'A selection of visual work by Jovana Kokor – live stage moments, band photography and artist portraits from concerts across Germany and Europe.')}
+                {tab === 'shows' &&
+                  (language === 'de'
+                    ? 'Ausgewählte Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.'
+                    : 'Selected live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.')}
+                {tab === 'press' &&
+                  (language === 'de'
+                    ? 'Ausgewählte Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang.'
+                    : 'Selected press features from newspapers and magazines covering JoyWanna, her concerts and her musical journey.')}
+              </p>
+            </header>
             <div key={tab} className="columns-1 sm:columns-2 lg:columns-3 gap-4">
               {filtered.map((item) => {
                 const isImage = item.type === 'image';
