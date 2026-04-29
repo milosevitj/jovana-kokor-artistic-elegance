@@ -597,6 +597,8 @@ function PortfolioContent() {
                         : openItem.alt.en
                       : ''
                   }
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto max-h-[70vh] object-contain bg-background"
                 />
               )}
