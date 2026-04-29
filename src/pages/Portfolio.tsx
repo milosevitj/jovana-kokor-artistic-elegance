@@ -299,29 +299,14 @@ const items: PortfolioItem[] = [
       en: '"Reimagined" – familiar songs reinterpreted, stripped to voice and piano.',
     },
   },
-  {
-    id: 'i-band',
-    type: 'image',
-    source: bandImage,
-    category: 'band',
-    title: { de: 'JoyWanna & The Spicy Jam', en: 'JoyWanna & The Spicy Jam' },
-    description: {
-      de: 'Die Band – Jazz, Latin, Soul und Pop in einem Klang.',
-      en: 'The band – Jazz, Latin, Soul and Pop in one sound.',
-    },
-    alt: {
-      de: 'JoyWanna & The Spicy Jam – Jazz, Soul und Pop Band',
-      en: 'JoyWanna & The Spicy Jam – Jazz, Soul and Pop band',
-    },
-  },
-  ...galleryPhotos.map((p, idx) => ({
-    id: `gallery-${idx + 1}`,
+  ...galleryPhotos.map((p) => ({
+    id: `gallery-${p.num}`,
     type: 'image' as const,
     source: p.src,
-    category: p.category,
+    category: 'live' as const,
     title: p.title,
-    description: p.alt,
-    alt: p.alt,
+    description: p.description,
+    alt: p.title,
   })),
 ];
 
