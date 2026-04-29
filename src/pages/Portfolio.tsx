@@ -9,34 +9,35 @@ import { Play } from 'lucide-react';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 // Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
-import jw1 from '@/assets/portfolio-new/joywanna1.webp';
-import jw2 from '@/assets/portfolio-new/joywanna2.webp';
-import jw3 from '@/assets/portfolio-new/joywanna3.webp';
-import jw4 from '@/assets/portfolio-new/joywanna4.webp';
-import jw7 from '@/assets/portfolio-new/joywanna7.webp';
-import jw9 from '@/assets/portfolio-new/joywanna9.webp';
-import jw10 from '@/assets/portfolio-new/joywanna10.webp';
-import jw12 from '@/assets/portfolio-new/joywanna12.webp';
-import jw13 from '@/assets/portfolio-new/joywanna13.webp';
-import jw15 from '@/assets/portfolio-new/joywanna15.webp';
-import jw20 from '@/assets/portfolio-new/joywanna20.webp';
-import jw36 from '@/assets/portfolio-new/joywanna36.webp';
-import jw37 from '@/assets/portfolio-new/joywanna37.webp';
-import jw38 from '@/assets/portfolio-new/joywanna38.webp';
-import jw39 from '@/assets/portfolio-new/joywanna39.webp';
-import jw40 from '@/assets/portfolio-new/joywanna40.webp';
-import jw41 from '@/assets/portfolio-new/joywanna41.webp';
-import jw42 from '@/assets/portfolio-new/joywanna42.webp';
-import jw43 from '@/assets/portfolio-new/joywanna43.webp';
-import jw44 from '@/assets/portfolio-new/joywanna44.webp';
-import jw45 from '@/assets/portfolio-new/joywanna45.webp';
-import jw46 from '@/assets/portfolio-new/joywanna46.webp';
+import jw1 from '@/assets/portfolio-new/joywanna-night-to-remember-garnisonkirche-2025.webp';
+import jw2 from '@/assets/portfolio-new/joywanna-spicy-jam-photoshoot-wilhelm13.webp';
+import jw3 from '@/assets/portfolio-new/joywanna-sound-healing-nature.webp';
+import jw4 from '@/assets/portfolio-new/joywanna-night-to-remember-benefit-2024.webp';
+import jw7 from '@/assets/portfolio-new/joywanna-aida-nightfly-bar.webp';
+import jw9 from '@/assets/portfolio-new/joywanna-leona-clemens-duo.webp';
+import jw10 from '@/assets/portfolio-new/joywanna-reimagined-album.webp';
+import jw12 from '@/assets/portfolio-new/joywanna-stage-playfulness.webp';
+import jw13 from '@/assets/portfolio-new/joywanna-portrait-color-joy.webp';
+import jw15 from '@/assets/portfolio-new/joywanna-queen-mode-glamour.webp';
+import jw20 from '@/assets/portfolio-new/joywanna-sparkling-stage-moment.webp';
+import jw36 from '@/assets/portfolio-new/joywanna-spicy-jam-in-our-element.webp';
+import jw37 from '@/assets/portfolio-new/joywanna-spicy-jam-playful-side.webp';
+import jw38 from '@/assets/portfolio-new/joywanna-aida-onboard-shows.webp';
+import jw39 from '@/assets/portfolio-new/joywanna-some-sing-special-wilhelm13.webp';
+import jw40 from '@/assets/portfolio-new/joywanna-jazzakademie-jade-concert.webp';
+import jw41 from '@/assets/portfolio-new/joywanna-just-breathe-original-music.webp';
+import jw42 from '@/assets/portfolio-new/joywanna-french-guy-serbian-girl-belgrade.webp';
+import jw43 from '@/assets/portfolio-new/joywanna-angel-eyes-voice-piano.webp';
+import jw44 from '@/assets/portfolio-new/joywanna-aida-onboard-dennie-blessing.webp';
+import jw45 from '@/assets/portfolio-new/joywanna-just-voice-piano-esther-filly.webp';
+import jw46 from '@/assets/portfolio-new/joywanna-jazz-vocal-studies-belgrade.webp';
 
 type PhotoEntry = {
   num: number;
   src: string;
   title: { de: string; en: string };
   description: { de: string; en: string };
+  alt: { de: string; en: string };
 };
 
 const galleryPhotos: PhotoEntry[] = [
