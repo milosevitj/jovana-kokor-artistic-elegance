@@ -395,7 +395,7 @@ const items: PortfolioItem[] = [
     category: 'live' as const,
     title: p.title,
     description: p.description,
-    alt: p.title,
+    alt: p.alt,
   })),
 ];
 
