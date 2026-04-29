@@ -49,6 +49,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'A Night to Remember – „Etwas andere Weihnachtskonzert" · Garnisonkirche Oldenburg, 2025. Für mich ein ganz besonderer Abend – getragen von Klang, Nähe und einem etwas anderen Weihnachtsgefühl.',
       en: 'A Night to Remember – "A different kind of Christmas concert" · Garnisonkirche Oldenburg, 2025. A truly special evening for me – carried by sound, closeness and a different kind of Christmas feeling.',
     },
+    alt: {
+      de: 'JoyWanna live beim Weihnachtskonzert „A Night to Remember" in der Garnisonkirche Oldenburg, 2025',
+      en: 'JoyWanna performing live at the "A Night to Remember" Christmas concert at Garnisonkirche Oldenburg, 2025',
+    },
   },
   {
     num: 2,
@@ -57,6 +61,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Mit meinen liebenswerten Spicy Jam-ers beim Fotoshooting im Wilhelm 13, Oldenburg · Foto: Patrick Nagel.',
       en: 'With my lovely Spicy Jam-ers at the photoshoot at Wilhelm 13, Oldenburg · Photo: Patrick Nagel.',
+    },
+    alt: {
+      de: 'Jovana Kokor mit JoyWanna & The Spicy Jam beim Bandfotoshooting im Wilhelm 13, Oldenburg',
+      en: 'Jovana Kokor with JoyWanna & The Spicy Jam at a band photoshoot at Wilhelm 13, Oldenburg',
     },
   },
   {
@@ -67,6 +75,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Musik, Klang, Natur und Sound Healing gehören für mich ganz selbstverständlich zusammen · Foto: Patrick Nagel.',
       en: 'Music, sound, nature and sound healing naturally belong together for me · Photo: Patrick Nagel.',
     },
+    alt: {
+      de: 'Jovana Kokor in der Natur – Sound Healing und Klangarbeit Porträt',
+      en: 'Jovana Kokor in nature – sound healing and sound work portrait',
+    },
   },
   {
     num: 4,
@@ -75,6 +87,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'A Night to Remember – das etwas andere Weihnachtskonzert und Benefizkonzert, organisiert von der bekannten Oldenburger Dragqueen Gina Solera · Garnisonkirche Oldenburg, 2024 · Foto: Patrick Nagel.',
       en: 'A Night to Remember – a different kind of Christmas and benefit concert, organised by the well-known Oldenburg drag queen Gina Solera · Garnisonkirche Oldenburg, 2024 · Photo: Patrick Nagel.',
+    },
+    alt: {
+      de: 'JoyWanna beim Benefizkonzert „A Night to Remember" in der Garnisonkirche Oldenburg, 2024',
+      en: 'JoyWanna at the "A Night to Remember" benefit concert at Garnisonkirche Oldenburg, 2024',
     },
   },
   {
@@ -85,6 +101,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Sechs wundervolle Jahre an Bord der AIDA – singend, spielend, die Welt bereisend und getragen von unzähligen besonderen Momenten in der Nightfly Bar.',
       en: 'Six wonderful years on board AIDA – singing, playing, travelling the world and carried by countless special moments in the Nightfly Bar.',
     },
+    alt: {
+      de: 'Jovana Kokor singt live in der Nightfly Bar an Bord der AIDA',
+      en: 'Jovana Kokor singing live in the Nightfly Bar on board AIDA',
+    },
   },
   {
     num: 9,
@@ -93,6 +113,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Mit dem wunderbaren Duo Leona & Clemens unterwegs – und immer wieder etwas ganz Besonderes, wenn mein Gesangsschüler Clemens mit mir gemeinsam auf der Bühne steht.',
       en: 'On stage with the wonderful duo Leona & Clemens – always something very special when my vocal student Clemens shares the stage with me.',
+    },
+    alt: {
+      de: 'JoyWanna gemeinsam mit dem Duo Leona & Clemens auf der Bühne',
+      en: 'JoyWanna on stage together with the duo Leona & Clemens',
     },
   },
   {
@@ -103,6 +127,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Reimagined – Konzertankündigung und Herzensprojekt zugleich: mein Album, in dem bekannte Songs in meinem ganz eigenen Stil neu erzählt werden.',
       en: 'Reimagined – both a concert announcement and a heart project: my album, in which familiar songs are retold in my very own style.',
     },
+    alt: {
+      de: 'Konzertankündigung für JoyWannas Album „Reimagined"',
+      en: 'Concert announcement for JoyWanna\'s album "Reimagined"',
+    },
   },
   {
     num: 12,
@@ -111,6 +139,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Manchmal gehört zu meiner Bühne auch einfach pure Spielfreude – A Night to Remember Fotoshooting · Foto: Patrick Nagel.',
       en: 'Sometimes my stage simply calls for pure joy of playing – A Night to Remember photoshoot · Photo: Patrick Nagel.',
+    },
+    alt: {
+      de: 'Jovana Kokor mit verspieltem Bühnenausdruck beim A Night to Remember Fotoshooting',
+      en: 'Jovana Kokor with a playful stage expression at the A Night to Remember photoshoot',
     },
   },
   {
@@ -121,6 +153,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Ganz ich – voller Freude, Farbe und manchmal auch mit einem unsichtbaren Mikrofon. :) Foto: Patrick Nagel.',
       en: 'Completely me – full of joy, colour and sometimes with an invisible microphone. :) Photo: Patrick Nagel.',
     },
+    alt: {
+      de: 'Farbenfrohes, freudvolles Künstlerporträt von Jovana Kokor',
+      en: 'Colourful, joyful artist portrait of Jovana Kokor',
+    },
   },
   {
     num: 15,
@@ -129,6 +165,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Manchmal darf\'s auch ein bisschen Glamour sein – Queen Mode an. · A Night to Remember Fotoshooting · Foto: Patrick Nagel.',
       en: 'Sometimes a touch of glamour is just right – Queen Mode on. · A Night to Remember photoshoot · Photo: Patrick Nagel.',
+    },
+    alt: {
+      de: 'Glamouröses Künstlerporträt von Jovana Kokor – „Queen Mode" beim A Night to Remember Fotoshooting',
+      en: 'Glamorous artist portrait of Jovana Kokor – "Queen Mode" at the A Night to Remember photoshoot',
     },
   },
   {
@@ -139,6 +179,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Ein funkelnder Bühnenmoment bei A Night to Remember – mit großer Dankbarkeit an Irene S. Exclusive Fashion für dieses besondere Kleid.',
       en: 'A sparkling stage moment at A Night to Remember – with great gratitude to Irene S. Exclusive Fashion for this special dress.',
     },
+    alt: {
+      de: 'JoyWanna im funkelnden Bühnenkleid bei A Night to Remember in Oldenburg',
+      en: 'JoyWanna in a sparkling stage dress at A Night to Remember in Oldenburg',
+    },
   },
   {
     num: 36,
@@ -147,6 +191,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Meine wunderbaren Spicy Jam-ers und ich – gemeinsam in unserem Element.',
       en: 'My wonderful Spicy Jam-ers and I – together in our element.',
+    },
+    alt: {
+      de: 'JoyWanna & The Spicy Jam live auf der Bühne – gemeinsam in ihrem Element',
+      en: 'JoyWanna & The Spicy Jam live on stage – together in their element',
     },
   },
   {
@@ -157,6 +205,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Mit meinen Spicy Jam-ers wird\'s selten langweilig – meine verspielte Seite inklusive. :)',
       en: 'It\'s rarely boring with my Spicy Jam-ers – my playful side included. :)',
     },
+    alt: {
+      de: 'Verspielter Bandmoment von JoyWanna & The Spicy Jam',
+      en: 'Playful band moment of JoyWanna & The Spicy Jam',
+    },
   },
   {
     num: 38,
@@ -165,6 +217,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'An Bord habe ich viele besondere Projekte erleben dürfen – besonders geliebt habe ich es, gemeinsam mit anderen talentierten Sänger:innen Shows zu gestalten.',
       en: 'On board I had the chance to experience many special projects – I especially loved creating shows together with other talented singers.',
+    },
+    alt: {
+      de: 'Jovana Kokor in einer gemeinsamen Show mit anderen Sängerinnen an Bord der AIDA',
+      en: 'Jovana Kokor in a joint show with other singers on board AIDA',
     },
   },
   {
@@ -175,6 +231,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Some Sing Special – Teil der gleichnamigen Konzertreihe im Wilhelm 13, gemeinsam mit meinen wunderbaren Spicy Jam-ers. Ein Abend, der einfach ganz wir war.',
       en: 'Some Sing Special – part of the concert series of the same name at Wilhelm 13, together with my wonderful Spicy Jam-ers. An evening that was simply all us.',
     },
+    alt: {
+      de: 'JoyWanna & The Spicy Jam beim Konzert „Some Sing Special" im Wilhelm 13, Oldenburg',
+      en: 'JoyWanna & The Spicy Jam at the "Some Sing Special" concert at Wilhelm 13, Oldenburg',
+    },
   },
   {
     num: 40,
@@ -183,6 +243,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Mit meinen großartigen Spicy Jam-ers bei einem besonderen Konzert der Jazzakademie an der Nordsee in Jade – ein Abend voller Musik, Wachstum und gemeinsamer Energie.',
       en: 'With my amazing Spicy Jam-ers at a special concert of the Jazz Academy on the North Sea in Jade – an evening full of music, growth and shared energy.',
+    },
+    alt: {
+      de: 'JoyWanna & The Spicy Jam live beim Konzert der Jazzakademie an der Nordsee in Jade',
+      en: 'JoyWanna & The Spicy Jam live at the Jazz Academy concert on the North Sea in Jade',
     },
   },
   {
@@ -193,6 +257,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Just Breathe – meine erste veröffentlichte eigene Musik und ein ganz besonderes Herzensstück meines Weges.',
       en: 'Just Breathe – my first released original music and a very special piece of heart on my journey.',
     },
+    alt: {
+      de: 'Cover-Artwork zu „Just Breathe", JoyWannas erster veröffentlichter Eigenkomposition',
+      en: 'Cover artwork for "Just Breathe", JoyWanna\'s first released original song',
+    },
   },
   {
     num: 42,
@@ -201,6 +269,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Auch als Sängerin und Schauspielerin durfte ich viele besondere Bühnenmomente erleben – unter anderem in Arnaud Humberts „When a French Guy Met a Serbian Girl" in Belgrad.',
       en: 'As a singer and actress I also experienced many special stage moments – among them in Arnaud Humbert\'s "When a French Guy Met a Serbian Girl" in Belgrade.',
+    },
+    alt: {
+      de: 'Jovana Kokor als Sängerin und Schauspielerin in Arnaud Humberts „When a French Guy Met a Serbian Girl" in Belgrad',
+      en: 'Jovana Kokor as singer and actress in Arnaud Humbert\'s "When a French Guy Met a Serbian Girl" in Belgrade',
     },
   },
   {
@@ -211,6 +283,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Gemeinsam mit der großartigen Esther Filly durfte ich ihrer bereits veröffentlichten Single „Angel Eyes" in einer ganz besonderen Just Voice & Piano Version neues Leben verleihen.',
       en: 'Together with the wonderful Esther Filly I had the chance to give her already released single "Angel Eyes" new life in a very special Just Voice & Piano version.',
     },
+    alt: {
+      de: 'Jovana Kokor und Esther Filly in der Just Voice & Piano Version von „Angel Eyes"',
+      en: 'Jovana Kokor and Esther Filly performing the Just Voice & Piano version of "Angel Eyes"',
+    },
   },
   {
     num: 44,
@@ -219,6 +295,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Besondere Bühnenmomente an Bord – gemeinsam mit großartigen Künstlerpersönlichkeiten wie Dennie Blessing.',
       en: 'Special stage moments on board – together with great artistic personalities such as Dennie Blessing.',
+    },
+    alt: {
+      de: 'Jovana Kokor gemeinsam mit Dennie Blessing auf der Bühne an Bord der AIDA',
+      en: 'Jovana Kokor on stage together with Dennie Blessing on board AIDA',
     },
   },
   {
@@ -229,6 +309,10 @@ const galleryPhotos: PhotoEntry[] = [
       de: 'Dankbar, Teil von Esther Fillys wunderbarem „Just Voice & Piano"-Projekt zu sein – und diese großartige Künstlerin musikalisch am Piano begleiten zu dürfen.',
       en: 'Grateful to be part of Esther Filly\'s wonderful "Just Voice & Piano" project – and to accompany this great artist musically on the piano.',
     },
+    alt: {
+      de: 'Jovana Kokor begleitet Esther Filly am Klavier im „Just Voice & Piano"-Projekt',
+      en: 'Jovana Kokor accompanying Esther Filly on piano in the "Just Voice & Piano" project',
+    },
   },
   {
     num: 46,
@@ -237,6 +321,10 @@ const galleryPhotos: PhotoEntry[] = [
     description: {
       de: 'Meine Zeit des Jazzgesangsstudiums in Belgrad – geprägt von unendlich viel Musik, wertvollen Erfahrungen, inspirierenden Begegnungen und unzähligen besonderen Bühnenmomenten.',
       en: 'My time studying jazz vocals in Belgrade – shaped by endless music, valuable experiences, inspiring encounters and countless special stage moments.',
+    },
+    alt: {
+      de: 'Jovana Kokor während ihres Jazzgesangsstudiums in Belgrad auf der Bühne',
+      en: 'Jovana Kokor on stage during her jazz vocal studies in Belgrade',
     },
   },
 ];
