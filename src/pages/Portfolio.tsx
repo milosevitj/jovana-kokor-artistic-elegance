@@ -426,6 +426,8 @@ const items: PortfolioItem[] = [
     title: p.title,
     description: p.description,
     alt: p.alt,
+    width: photoDimensions[p.num]?.w,
+    height: photoDimensions[p.num]?.h,
   })),
 ];
 
