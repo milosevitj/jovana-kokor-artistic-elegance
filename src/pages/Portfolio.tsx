@@ -571,6 +571,8 @@ function PortfolioContent() {
                           }
                           loading="lazy"
                           decoding="async"
+                          width={item.width}
+                          height={item.height}
                           className="block w-full h-auto object-cover"
                         />
                         <p className="px-3 py-2 font-serif text-sm md:text-base text-foreground">
