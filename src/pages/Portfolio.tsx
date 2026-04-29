@@ -736,10 +736,6 @@ function PortfolioContent() {
                             </p>
                           </div>
                         </div>
-                        {/* Mobile static title (no hover available) */}
-                        <p className="md:hidden px-3 py-2 font-serif text-sm text-foreground">
-                          {language === 'de' ? item.title.de : item.title.en}
-                        </p>
                       </>
                     )}
                   </button>
