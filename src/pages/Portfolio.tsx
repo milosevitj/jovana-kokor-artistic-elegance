@@ -563,6 +563,18 @@ const items: PortfolioItem[] = [
     width: photoDimensions[p.num]?.w,
     height: photoDimensions[p.num]?.h,
   })),
+  // Press clippings (Presse) – newspaper & magazine features.
+  ...pressClippings.map((p) => ({
+    id: `press-${p.num}`,
+    type: 'image' as const,
+    source: p.src,
+    category: 'press' as const,
+    title: p.title,
+    description: p.description,
+    alt: p.alt,
+    width: p.width,
+    height: p.height,
+  })),
 ];
 
 function PortfolioContent() {
@@ -570,17 +582,17 @@ function PortfolioContent() {
   const [tab, setTab] = useState<Tab>('visual');
   const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
 
-  const filtered = useMemo(
-    () =>
-      tab === 'shows'
-        ? items.filter((i) => i.type === 'video')
-        : items.filter((i) => i.type === 'image'),
-    [tab],
-  );
+  const filtered = useMemo(() => {
+    if (tab === 'shows') return items.filter((i) => i.type === 'video');
+    if (tab === 'press') return items.filter((i) => i.category === 'press');
+    // 'visual' – images that are NOT press clippings
+    return items.filter((i) => i.type === 'image' && i.category !== 'press');
+  }, [tab]);
 
   const tabs: { key: Tab; label: string }[] = [
     { key: 'visual', label: language === 'de' ? 'Visuelle Arbeiten' : 'Visual Work' },
     { key: 'shows', label: language === 'de' ? 'Live-Auftritte' : 'Live Shows' },
+    { key: 'press', label: language === 'de' ? 'Presse' : 'Press' },
   ];
 
   return (
