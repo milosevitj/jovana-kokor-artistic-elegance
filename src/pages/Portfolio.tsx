@@ -728,7 +728,9 @@ function PortfolioContent() {
                             aria-hidden="true"
                             className="hidden md:flex absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex-col items-center justify-center text-center p-4"
                           >
-                            {/* Title intentionally hidden on hover – description only */}
+                            <p className="font-serif text-lg md:text-xl text-foreground">
+                              {language === 'de' ? item.title.de : item.title.en}
+                            </p>
                             <p className="mt-2 text-xs md:text-sm text-muted-foreground line-clamp-3 max-w-[90%]">
                               {language === 'de' ? item.description.de : item.description.en}
                             </p>
