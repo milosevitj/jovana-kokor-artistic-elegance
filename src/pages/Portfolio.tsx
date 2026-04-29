@@ -488,11 +488,11 @@ function PortfolioContent() {
                   <button
                     key={item.id}
                     onClick={() => setOpenItem(item)}
-                    className="group relative w-full mb-4 break-inside-avoid overflow-hidden rounded-sm bg-card block"
+                    className="w-full mb-4 break-inside-avoid bg-card block text-left rounded-sm overflow-hidden"
                     aria-label={language === 'de' ? item.title.de : item.title.en}
                   >
                     {item.type === 'video' ? (
-                      <>
+                      <div className="group relative">
                         <img
                           src={`https://img.youtube.com/vi/${item.source}/hqdefault.jpg`}
                           alt={
@@ -502,48 +502,48 @@ function PortfolioContent() {
                           }
                           loading="lazy"
                           decoding="async"
-                          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                          width="480"
+                          height="360"
+                          className="block w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                           <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                             <Play size={22} className="text-primary-foreground ml-1" fill="currentColor" />
                           </div>
                         </div>
-                      </>
-                    ) : (
-                      <img
-                        src={item.source}
-                        alt={
-                          item.alt
-                            ? language === 'de'
-                              ? item.alt.de
-                              : item.alt.en
-                            : ''
-                        }
-                        loading="lazy"
-                        decoding="async"
-                        /* Static image: no transform, no scale, no movement on hover or load */
-                        className="block w-full h-auto object-cover"
-                      />
-                    )}
-                    {isImage ? (
-                      <>
-                        {/* Static subtle overlay – opacity only, no movement */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                           <p className="font-serif text-lg text-foreground">
                             {language === 'de' ? item.title.de : item.title.en}
                           </p>
                         </div>
-                      </>
+                      </div>
                     ) : (
                       <>
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 text-left translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                          <p className="font-serif text-lg text-foreground">
-                            {language === 'de' ? item.title.de : item.title.en}
-                          </p>
-                        </div>
+                        {/*
+                          Visual Work image tile.
+                          STRICT: Images must not move, animate, or shift position under any condition.
+                          - No transform, no scale, no translate on the image
+                          - No hover overlay that moves
+                          - Title is rendered statically BELOW the image (not overlaid)
+                            so there is no layout shift and nothing to animate
+                        */}
+                        <img
+                          src={item.source}
+                          alt={
+                            item.alt
+                              ? language === 'de'
+                                ? item.alt.de
+                                : item.alt.en
+                              : ''
+                          }
+                          loading="lazy"
+                          decoding="async"
+                          className="block w-full h-auto object-cover"
+                        />
+                        <p className="px-3 py-2 font-serif text-sm md:text-base text-foreground">
+                          {language === 'de' ? item.title.de : item.title.en}
+                        </p>
                       </>
                     )}
                   </button>
