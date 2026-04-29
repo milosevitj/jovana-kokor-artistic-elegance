@@ -35,6 +35,59 @@ function upsertMeta(property: string, content: string, isName = false) {
   el.setAttribute('content', content);
 }
 
+// Per-route title + description (kept under 60 / 160 chars).
+type RouteSEO = { title: string; description: string };
+const ROUTE_SEO: Record<string, { de: RouteSEO; en: RouteSEO }> = {
+  '/': {
+    de: {
+      title: 'JoyWanna – Pianistin, Sängerin & Pädagogin | Deutschland',
+      description:
+        'Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht. Jetzt Termin anfragen!',
+    },
+    en: {
+      title: 'Jovana Kokor – Pianist, Vocalist & Educator | Germany',
+      description:
+        'Germany-based classical pianist & vocal artist Jovana Kokor. Concerts, corporate events & private piano and vocal lessons across Germany & Europe.',
+    },
+  },
+  '/portfolio': {
+    de: {
+      title: 'Portfolio – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse',
+      description:
+        'Portfolio von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.',
+    },
+    en: {
+      title: 'Portfolio – JoyWanna | Visual Work, Live Shows & Press',
+      description:
+        'Portfolio of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.',
+    },
+  },
+  '/impressum': {
+    de: {
+      title: 'Impressum – Jovana Kokor (JoyWanna)',
+      description: 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von Jovana Kokor (JoyWanna).',
+    },
+    en: {
+      title: 'Imprint – Jovana Kokor (JoyWanna)',
+      description: 'Legal notice and provider information for the website of Jovana Kokor (JoyWanna).',
+    },
+  },
+  '/privacy': {
+    de: {
+      title: 'Datenschutz – Jovana Kokor (JoyWanna)',
+      description: 'Datenschutzerklärung gemäß DSGVO für die Webseite von Jovana Kokor (JoyWanna).',
+    },
+    en: {
+      title: 'Privacy Policy – Jovana Kokor (JoyWanna)',
+      description: 'GDPR-compliant privacy policy for the website of Jovana Kokor (JoyWanna).',
+    },
+  },
+};
+
+function setTitle(title: string) {
+  if (document.title !== title) document.title = title;
+}
+
 export function useDynamicSEO() {
   const { pathname, search } = useLocation();
   const { language } = useLanguage();
@@ -74,6 +127,16 @@ export function useDynamicSEO() {
     // Open Graph URL + locale
     upsertMeta('og:url', canonicalUrl);
     upsertMeta('og:locale', language === 'en' ? 'en_US' : 'de_DE');
+
+    // Per-route <title> + meta description + OG/Twitter sync
+    const routeKey = ROUTE_SEO[path] ? path : '/';
+    const seo = ROUTE_SEO[routeKey][language === 'en' ? 'en' : 'de'];
+    setTitle(seo.title);
+    upsertMeta('description', seo.description, true);
+    upsertMeta('og:title', seo.title);
+    upsertMeta('og:description', seo.description);
+    upsertMeta('twitter:title', seo.title, true);
+    upsertMeta('twitter:description', seo.description, true);
 
     // Keep <html lang> in sync with the active language
     document.documentElement.setAttribute('lang', language);
