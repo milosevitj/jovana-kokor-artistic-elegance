@@ -8,55 +8,236 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { Play } from 'lucide-react';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
-import bandImage from '@/assets/joywanna-spicy-jam.webp';
+// Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
+import jw1 from '@/assets/portfolio-new/joywanna1.webp';
+import jw2 from '@/assets/portfolio-new/joywanna2.webp';
+import jw3 from '@/assets/portfolio-new/joywanna3.webp';
+import jw4 from '@/assets/portfolio-new/joywanna4.webp';
+import jw7 from '@/assets/portfolio-new/joywanna7.webp';
+import jw9 from '@/assets/portfolio-new/joywanna9.webp';
+import jw10 from '@/assets/portfolio-new/joywanna10.webp';
+import jw12 from '@/assets/portfolio-new/joywanna12.webp';
+import jw13 from '@/assets/portfolio-new/joywanna13.webp';
+import jw15 from '@/assets/portfolio-new/joywanna15.webp';
+import jw20 from '@/assets/portfolio-new/joywanna20.webp';
+import jw36 from '@/assets/portfolio-new/joywanna36.webp';
+import jw37 from '@/assets/portfolio-new/joywanna37.webp';
+import jw38 from '@/assets/portfolio-new/joywanna38.webp';
+import jw39 from '@/assets/portfolio-new/joywanna39.webp';
+import jw40 from '@/assets/portfolio-new/joywanna40.webp';
+import jw41 from '@/assets/portfolio-new/joywanna41.webp';
+import jw42 from '@/assets/portfolio-new/joywanna42.webp';
+import jw43 from '@/assets/portfolio-new/joywanna43.webp';
+import jw44 from '@/assets/portfolio-new/joywanna44.webp';
+import jw45 from '@/assets/portfolio-new/joywanna45.webp';
+import jw46 from '@/assets/portfolio-new/joywanna46.webp';
 
-// Portfolio photo gallery (WebP optimized)
-import jw01 from '@/assets/portfolio/joywanna-01.webp';
-import jw02 from '@/assets/portfolio/joywanna-02.webp';
-import jw03 from '@/assets/portfolio/joywanna-03.webp';
-import jw04 from '@/assets/portfolio/joywanna-04.webp';
-import jw05 from '@/assets/portfolio/joywanna-05.webp';
-import jw06 from '@/assets/portfolio/joywanna-06.webp';
-import jw07 from '@/assets/portfolio/joywanna-07.webp';
-import jw08 from '@/assets/portfolio/joywanna-08.webp';
-import jw09 from '@/assets/portfolio/joywanna-09.webp';
-import jw10 from '@/assets/portfolio/joywanna-10.webp';
-import jw11 from '@/assets/portfolio/joywanna-11.webp';
-import jw12 from '@/assets/portfolio/joywanna-12.webp';
-import jw13 from '@/assets/portfolio/joywanna-13.webp';
-import jw14 from '@/assets/portfolio/joywanna-14.webp';
-import jw15 from '@/assets/portfolio/joywanna-15.webp';
-import jw16 from '@/assets/portfolio/joywanna-16.webp';
-import jw17 from '@/assets/portfolio/joywanna-17.webp';
-import jw18 from '@/assets/portfolio/joywanna-18.webp';
-import jw19 from '@/assets/portfolio/joywanna-19.webp';
-import jw20 from '@/assets/portfolio/joywanna-20.webp';
-import jw21 from '@/assets/portfolio/joywanna-21.webp';
-import jw22 from '@/assets/portfolio/joywanna-22.webp';
+type PhotoEntry = {
+  num: number;
+  src: string;
+  title: { de: string; en: string };
+  description: { de: string; en: string };
+};
 
-const galleryPhotos: { src: string; category: 'live' | 'band' | 'reimagined'; alt: { de: string; en: string }; title: { de: string; en: string } }[] = [
-  { src: jw01, category: 'live', alt: { de: 'JoyWanna live auf der Bühne in Oldenburg', en: 'JoyWanna performing live on stage in Oldenburg' }, title: { de: 'Live auf der Bühne', en: 'Live on Stage' } },
-  { src: jw02, category: 'band', alt: { de: 'Jovana Kokor mit JoyWanna & The Spicy Jam Band', en: 'Jovana Kokor with JoyWanna & The Spicy Jam band' }, title: { de: 'Mit der Band', en: 'With the Band' } },
-  { src: jw03, category: 'reimagined', alt: { de: 'Jovana Kokor Studio Porträt – Reimagined Session', en: 'Jovana Kokor studio portrait – Reimagined session' }, title: { de: 'Studio Porträt', en: 'Studio Portrait' } },
-  { src: jw04, category: 'live', alt: { de: 'JoyWanna singt live – Jazz und Soul Performance', en: 'JoyWanna singing live – Jazz and Soul performance' }, title: { de: 'Stimme & Emotion', en: 'Voice & Emotion' } },
-  { src: jw05, category: 'live', alt: { de: 'JoyWanna mit Mikrofon im Bühnenlicht', en: 'JoyWanna with microphone in stage light' }, title: { de: 'Im Rampenlicht', en: 'In the Spotlight' } },
-  { src: jw06, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam – Live Konzert', en: 'JoyWanna & The Spicy Jam – live concert' }, title: { de: 'The Spicy Jam', en: 'The Spicy Jam' } },
-  { src: jw07, category: 'reimagined', alt: { de: 'Jovana Kokor am Klavier – akustische Session', en: 'Jovana Kokor at the piano – acoustic session' }, title: { de: 'Stimme & Klavier', en: 'Voice & Piano' } },
-  { src: jw08, category: 'live', alt: { de: 'JoyWanna Live Auftritt – elegantes Bühnenoutfit', en: 'JoyWanna live performance – elegant stage outfit' }, title: { de: 'Eleganz auf der Bühne', en: 'Elegance on Stage' } },
-  { src: jw09, category: 'reimagined', alt: { de: 'Jovana Kokor Künstlerporträt in Schwarz-Weiß', en: 'Jovana Kokor artist portrait in black and white' }, title: { de: 'Künstlerporträt', en: 'Artist Portrait' } },
-  { src: jw10, category: 'live', alt: { de: 'JoyWanna live – intimer Konzertmoment', en: 'JoyWanna live – intimate concert moment' }, title: { de: 'Intimer Moment', en: 'Intimate Moment' } },
-  { src: jw11, category: 'band', alt: { de: 'Bandfoto JoyWanna & The Spicy Jam', en: 'Band photo of JoyWanna & The Spicy Jam' }, title: { de: 'Bandfoto', en: 'Band Photo' } },
-  { src: jw12, category: 'live', alt: { de: 'JoyWanna Live Performance bei Event', en: 'JoyWanna live performance at event' }, title: { de: 'Event Performance', en: 'Event Performance' } },
-  { src: jw13, category: 'reimagined', alt: { de: 'Jovana Kokor Studio Aufnahme', en: 'Jovana Kokor studio session' }, title: { de: 'Studio Session', en: 'Studio Session' } },
-  { src: jw14, category: 'live', alt: { de: 'JoyWanna mit Band live in Aktion', en: 'JoyWanna with band live in action' }, title: { de: 'Live in Aktion', en: 'Live in Action' } },
-  { src: jw15, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam beim Soundcheck', en: 'JoyWanna & The Spicy Jam during soundcheck' }, title: { de: 'Soundcheck', en: 'Soundcheck' } },
-  { src: jw16, category: 'live', alt: { de: 'JoyWanna singt mit Hingabe auf der Bühne', en: 'JoyWanna singing with passion on stage' }, title: { de: 'Hingabe', en: 'Passion' } },
-  { src: jw17, category: 'reimagined', alt: { de: 'Jovana Kokor – Reimagined akustisches Set', en: 'Jovana Kokor – Reimagined acoustic set' }, title: { de: 'Reimagined Set', en: 'Reimagined Set' } },
-  { src: jw18, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam Crossover Sound', en: 'JoyWanna & The Spicy Jam crossover sound' }, title: { de: 'Crossover Sound', en: 'Crossover Sound' } },
-  { src: jw19, category: 'live', alt: { de: 'JoyWanna Live Konzert – Jazz, Latin und Soul', en: 'JoyWanna live concert – Jazz, Latin and Soul' }, title: { de: 'Jazz & Soul', en: 'Jazz & Soul' } },
-  { src: jw20, category: 'reimagined', alt: { de: 'Jovana Kokor Porträt – elegante Atmosphäre', en: 'Jovana Kokor portrait – elegant atmosphere' }, title: { de: 'Elegante Atmosphäre', en: 'Elegant Atmosphere' } },
-  { src: jw21, category: 'live', alt: { de: 'JoyWanna Bühnenmoment – Energie und Ausdruck', en: 'JoyWanna stage moment – energy and expression' }, title: { de: 'Bühnenenergie', en: 'Stage Energy' } },
-  { src: jw22, category: 'band', alt: { de: 'JoyWanna & The Spicy Jam – Live Highlight', en: 'JoyWanna & The Spicy Jam – live highlight' }, title: { de: 'Live Highlight', en: 'Live Highlight' } },
+const galleryPhotos: PhotoEntry[] = [
+  {
+    num: 1,
+    src: jw1,
+    title: { de: 'A Night to Remember', en: 'A Night to Remember' },
+    description: {
+      de: 'A Night to Remember – „Etwas andere Weihnachtskonzert" · Garnisonkirche Oldenburg, 2025. Für mich ein ganz besonderer Abend – getragen von Klang, Nähe und einem etwas anderen Weihnachtsgefühl.',
+      en: 'A Night to Remember – "A different kind of Christmas concert" · Garnisonkirche Oldenburg, 2025. A truly special evening for me – carried by sound, closeness and a different kind of Christmas feeling.',
+    },
+  },
+  {
+    num: 2,
+    src: jw2,
+    title: { de: 'Spicy Jam Fotoshooting', en: 'Spicy Jam Photoshoot' },
+    description: {
+      de: 'Mit meinen liebenswerten Spicy Jam-ers beim Fotoshooting im Wilhelm 13, Oldenburg · Foto: Patrick Nagel.',
+      en: 'With my lovely Spicy Jam-ers at the photoshoot at Wilhelm 13, Oldenburg · Photo: Patrick Nagel.',
+    },
+  },
+  {
+    num: 3,
+    src: jw3,
+    title: { de: 'Klang & Natur', en: 'Sound & Nature' },
+    description: {
+      de: 'Musik, Klang, Natur und Sound Healing gehören für mich ganz selbstverständlich zusammen · Foto: Patrick Nagel.',
+      en: 'Music, sound, nature and sound healing naturally belong together for me · Photo: Patrick Nagel.',
+    },
+  },
+  {
+    num: 4,
+    src: jw4,
+    title: { de: 'Benefizkonzert Garnisonkirche', en: 'Benefit Concert Garnisonkirche' },
+    description: {
+      de: 'A Night to Remember – das etwas andere Weihnachtskonzert und Benefizkonzert, organisiert von der bekannten Oldenburger Dragqueen Gina Solera · Garnisonkirche Oldenburg, 2024 · Foto: Patrick Nagel.',
+      en: 'A Night to Remember – a different kind of Christmas and benefit concert, organised by the well-known Oldenburg drag queen Gina Solera · Garnisonkirche Oldenburg, 2024 · Photo: Patrick Nagel.',
+    },
+  },
+  {
+    num: 7,
+    src: jw7,
+    title: { de: 'Sechs Jahre AIDA', en: 'Six Years on AIDA' },
+    description: {
+      de: 'Sechs wundervolle Jahre an Bord der AIDA – singend, spielend, die Welt bereisend und getragen von unzähligen besonderen Momenten in der Nightfly Bar.',
+      en: 'Six wonderful years on board AIDA – singing, playing, travelling the world and carried by countless special moments in the Nightfly Bar.',
+    },
+  },
+  {
+    num: 9,
+    src: jw9,
+    title: { de: 'Leona & Clemens', en: 'Leona & Clemens' },
+    description: {
+      de: 'Mit dem wunderbaren Duo Leona & Clemens unterwegs – und immer wieder etwas ganz Besonderes, wenn mein Gesangsschüler Clemens mit mir gemeinsam auf der Bühne steht.',
+      en: 'On stage with the wonderful duo Leona & Clemens – always something very special when my vocal student Clemens shares the stage with me.',
+    },
+  },
+  {
+    num: 10,
+    src: jw10,
+    title: { de: 'Reimagined', en: 'Reimagined' },
+    description: {
+      de: 'Reimagined – Konzertankündigung und Herzensprojekt zugleich: mein Album, in dem bekannte Songs in meinem ganz eigenen Stil neu erzählt werden.',
+      en: 'Reimagined – both a concert announcement and a heart project: my album, in which familiar songs are retold in my very own style.',
+    },
+  },
+  {
+    num: 12,
+    src: jw12,
+    title: { de: 'Pure Spielfreude', en: 'Pure Joy of Playing' },
+    description: {
+      de: 'Manchmal gehört zu meiner Bühne auch einfach pure Spielfreude – A Night to Remember Fotoshooting · Foto: Patrick Nagel.',
+      en: 'Sometimes my stage simply calls for pure joy of playing – A Night to Remember photoshoot · Photo: Patrick Nagel.',
+    },
+  },
+  {
+    num: 13,
+    src: jw13,
+    title: { de: 'Ganz ich', en: 'Completely Me' },
+    description: {
+      de: 'Ganz ich – voller Freude, Farbe und manchmal auch mit einem unsichtbaren Mikrofon. :) Foto: Patrick Nagel.',
+      en: 'Completely me – full of joy, colour and sometimes with an invisible microphone. :) Photo: Patrick Nagel.',
+    },
+  },
+  {
+    num: 15,
+    src: jw15,
+    title: { de: 'Queen Mode', en: 'Queen Mode' },
+    description: {
+      de: 'Manchmal darf\'s auch ein bisschen Glamour sein – Queen Mode an. · A Night to Remember Fotoshooting · Foto: Patrick Nagel.',
+      en: 'Sometimes a touch of glamour is just right – Queen Mode on. · A Night to Remember photoshoot · Photo: Patrick Nagel.',
+    },
+  },
+  {
+    num: 20,
+    src: jw20,
+    title: { de: 'Funkelnder Bühnenmoment', en: 'Sparkling Stage Moment' },
+    description: {
+      de: 'Ein funkelnder Bühnenmoment bei A Night to Remember – mit großer Dankbarkeit an Irene S. Exclusive Fashion für dieses besondere Kleid.',
+      en: 'A sparkling stage moment at A Night to Remember – with great gratitude to Irene S. Exclusive Fashion for this special dress.',
+    },
+  },
+  {
+    num: 36,
+    src: jw36,
+    title: { de: 'In unserem Element', en: 'In Our Element' },
+    description: {
+      de: 'Meine wunderbaren Spicy Jam-ers und ich – gemeinsam in unserem Element.',
+      en: 'My wonderful Spicy Jam-ers and I – together in our element.',
+    },
+  },
+  {
+    num: 37,
+    src: jw37,
+    title: { de: 'Verspielte Seite', en: 'Playful Side' },
+    description: {
+      de: 'Mit meinen Spicy Jam-ers wird\'s selten langweilig – meine verspielte Seite inklusive. :)',
+      en: 'It\'s rarely boring with my Spicy Jam-ers – my playful side included. :)',
+    },
+  },
+  {
+    num: 38,
+    src: jw38,
+    title: { de: 'Shows an Bord', en: 'Shows on Board' },
+    description: {
+      de: 'An Bord habe ich viele besondere Projekte erleben dürfen – besonders geliebt habe ich es, gemeinsam mit anderen talentierten Sänger:innen Shows zu gestalten.',
+      en: 'On board I had the chance to experience many special projects – I especially loved creating shows together with other talented singers.',
+    },
+  },
+  {
+    num: 39,
+    src: jw39,
+    title: { de: 'Some Sing Special', en: 'Some Sing Special' },
+    description: {
+      de: 'Some Sing Special – Teil der gleichnamigen Konzertreihe im Wilhelm 13, gemeinsam mit meinen wunderbaren Spicy Jam-ers. Ein Abend, der einfach ganz wir war.',
+      en: 'Some Sing Special – part of the concert series of the same name at Wilhelm 13, together with my wonderful Spicy Jam-ers. An evening that was simply all us.',
+    },
+  },
+  {
+    num: 40,
+    src: jw40,
+    title: { de: 'Jazzakademie Jade', en: 'Jazz Academy Jade' },
+    description: {
+      de: 'Mit meinen großartigen Spicy Jam-ers bei einem besonderen Konzert der Jazzakademie an der Nordsee in Jade – ein Abend voller Musik, Wachstum und gemeinsamer Energie.',
+      en: 'With my amazing Spicy Jam-ers at a special concert of the Jazz Academy on the North Sea in Jade – an evening full of music, growth and shared energy.',
+    },
+  },
+  {
+    num: 41,
+    src: jw41,
+    title: { de: 'Just Breathe', en: 'Just Breathe' },
+    description: {
+      de: 'Just Breathe – meine erste veröffentlichte eigene Musik und ein ganz besonderes Herzensstück meines Weges.',
+      en: 'Just Breathe – my first released original music and a very special piece of heart on my journey.',
+    },
+  },
+  {
+    num: 42,
+    src: jw42,
+    title: { de: 'When a French Guy Met a Serbian Girl', en: 'When a French Guy Met a Serbian Girl' },
+    description: {
+      de: 'Auch als Sängerin und Schauspielerin durfte ich viele besondere Bühnenmomente erleben – unter anderem in Arnaud Humberts „When a French Guy Met a Serbian Girl" in Belgrad.',
+      en: 'As a singer and actress I also experienced many special stage moments – among them in Arnaud Humbert\'s "When a French Guy Met a Serbian Girl" in Belgrade.',
+    },
+  },
+  {
+    num: 43,
+    src: jw43,
+    title: { de: 'Angel Eyes – Voice & Piano', en: 'Angel Eyes – Voice & Piano' },
+    description: {
+      de: 'Gemeinsam mit der großartigen Esther Filly durfte ich ihrer bereits veröffentlichten Single „Angel Eyes" in einer ganz besonderen Just Voice & Piano Version neues Leben verleihen.',
+      en: 'Together with the wonderful Esther Filly I had the chance to give her already released single "Angel Eyes" new life in a very special Just Voice & Piano version.',
+    },
+  },
+  {
+    num: 44,
+    src: jw44,
+    title: { de: 'Bühnenmomente an Bord', en: 'Stage Moments on Board' },
+    description: {
+      de: 'Besondere Bühnenmomente an Bord – gemeinsam mit großartigen Künstlerpersönlichkeiten wie Dennie Blessing.',
+      en: 'Special stage moments on board – together with great artistic personalities such as Dennie Blessing.',
+    },
+  },
+  {
+    num: 45,
+    src: jw45,
+    title: { de: 'Just Voice & Piano', en: 'Just Voice & Piano' },
+    description: {
+      de: 'Dankbar, Teil von Esther Fillys wunderbarem „Just Voice & Piano"-Projekt zu sein – und diese großartige Künstlerin musikalisch am Piano begleiten zu dürfen.',
+      en: 'Grateful to be part of Esther Filly\'s wonderful "Just Voice & Piano" project – and to accompany this great artist musically on the piano.',
+    },
+  },
+  {
+    num: 46,
+    src: jw46,
+    title: { de: 'Jazzgesangsstudium Belgrad', en: 'Jazz Vocal Studies in Belgrade' },
+    description: {
+      de: 'Meine Zeit des Jazzgesangsstudiums in Belgrad – geprägt von unendlich viel Musik, wertvollen Erfahrungen, inspirierenden Begegnungen und unzähligen besonderen Bühnenmomenten.',
+      en: 'My time studying jazz vocals in Belgrade – shaped by endless music, valuable experiences, inspiring encounters and countless special stage moments.',
+    },
+  },
 ];
 
 type Category = 'all' | 'live' | 'band' | 'reimagined';
