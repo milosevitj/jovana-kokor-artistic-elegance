@@ -35,6 +35,8 @@ import jw46 from '@/assets/portfolio-new/joywanna-jazz-vocal-studies-belgrade.we
 type PhotoEntry = {
   num: number;
   src: string;
+  width: number;
+  height: number;
   title: { de: string; en: string };
   description: { de: string; en: string };
   alt: { de: string; en: string };
