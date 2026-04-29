@@ -609,9 +609,9 @@ function PortfolioContent() {
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
               {t('portfolio.page.title')}
             </h1>
-            <h2 className="text-muted-foreground leading-relaxed text-[0.95rem] font-normal max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed text-[0.95rem] font-normal max-w-2xl mx-auto">
               {t('portfolio.page.subtitle')}
-            </h2>
+            </p>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12">
