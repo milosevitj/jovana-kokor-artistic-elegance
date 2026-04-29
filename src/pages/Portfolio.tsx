@@ -364,8 +364,135 @@ const galleryPhotos: PhotoEntry[] = [
   },
 ];
 
-type Category = 'all' | 'live' | 'band' | 'reimagined';
-type Tab = 'visual' | 'shows';
+// ============================================================================
+// Press clippings (Presse) — newspaper & magazine features
+// SEO: each entry has descriptive bilingual alt text and a title attribute.
+// Layout & interaction reuse the exact Visual Work pattern (static images,
+// hover overlay fade only, click → fullscreen lightbox).
+// ============================================================================
+type PressEntry = {
+  num: number;
+  src: string;
+  width: number;
+  height: number;
+  title: { de: string; en: string };
+  description: { de: string; en: string };
+  alt: { de: string; en: string };
+};
+
+const pressClippings: PressEntry[] = [
+  {
+    num: 1,
+    src: press1,
+    width: 954,
+    height: 563,
+    title: {
+      de: 'NWZ – Jazz-Akademie an der Nordsee',
+      en: 'NWZ – Jazz Academy on the North Sea',
+    },
+    description: {
+      de: 'Pressebericht der Nordwest-Zeitung über das ausverkaufte Konzert der Jazz-Akademie an der Nordsee in Jever – mit JoyWanna & The Spicy Jam als Vorband von „Jean-Paul".',
+      en: 'Nordwest-Zeitung press feature on the sold-out Jazz Academy concert on the North Sea in Jever – with JoyWanna & The Spicy Jam opening for "Jean-Paul".',
+    },
+    alt: {
+      de: 'Zeitungsartikel der Nordwest-Zeitung über JoyWanna & The Spicy Jam als Vorband bei „Jean-Paul" der Jazz-Akademie an der Nordsee in Jever',
+      en: 'Nordwest-Zeitung newspaper article about JoyWanna & The Spicy Jam opening for "Jean-Paul" at the Jazz Academy on the North Sea in Jever',
+    },
+  },
+  {
+    num: 2,
+    src: press2,
+    width: 698,
+    height: 983,
+    title: {
+      de: 'Passt Oldenburg perfekt? – Porträt',
+      en: 'Does Oldenburg fit perfectly? – Feature',
+    },
+    description: {
+      de: 'Großes Zeitungsporträt über Jazzsängerin Jovana Kokor und ihre neue Heimat Oldenburg – über Musik, Bandleben, Vocal Coaching und ihren Weg von Belgrad über die AIDA bis nach Niedersachsen.',
+      en: 'Extensive newspaper feature on jazz singer Jovana Kokor and her new home Oldenburg – about music, band life, vocal coaching and her journey from Belgrade via AIDA to Lower Saxony.',
+    },
+    alt: {
+      de: 'Zeitungsporträt über Jazzsängerin Jovana Kokor (JoyWanna) und ihre neue Heimatstadt Oldenburg',
+      en: 'Newspaper feature about jazz singer Jovana Kokor (JoyWanna) and her new home town of Oldenburg',
+    },
+  },
+  {
+    num: 3,
+    src: press3,
+    width: 2261,
+    height: 3264,
+    title: {
+      de: 'Magazin – „A Night 2 Remember"',
+      en: 'Magazine – "A Night 2 Remember"',
+    },
+    description: {
+      de: 'Magazinveröffentlichung zum Benefizkonzert „A Night 2 Remember – das etwas andere Weihnachtskonzert" am 6. Dezember 2024 in der Garnisonkirche Oldenburg, mit JoyWanna, Gina Solera, Esther Filly und Minu Safari.',
+      en: 'Magazine feature on the benefit concert "A Night 2 Remember – a different kind of Christmas concert" on 6 December 2024 at Garnisonkirche Oldenburg, with JoyWanna, Gina Solera, Esther Filly and Minu Safari.',
+    },
+    alt: {
+      de: 'Magazinartikel über das Benefiz-Weihnachtskonzert „A Night 2 Remember" 2024 in der Garnisonkirche Oldenburg mit JoyWanna',
+      en: 'Magazine article about the "A Night 2 Remember" benefit Christmas concert 2024 at Garnisonkirche Oldenburg featuring JoyWanna',
+    },
+  },
+  {
+    num: 4,
+    src: press4,
+    width: 819,
+    height: 976,
+    title: {
+      de: 'Spielepark und Livemusik – Familienfest Sandkrug',
+      en: 'Playground and Live Music – Sandkrug Family Festival',
+    },
+    description: {
+      de: 'Pressebericht zum Sandkruger Familienfest – die Oldenburger Sängerin JoyWanna präsentiert live ihren Debüt-Song „Just Breathe".',
+      en: 'Press feature on the Sandkrug family festival – Oldenburg-based singer JoyWanna presenting her debut song "Just Breathe" live on stage.',
+    },
+    alt: {
+      de: 'Zeitungsartikel über das Familienfest in Sandkrug mit JoyWanna live und ihrem Debüt-Song „Just Breathe"',
+      en: 'Newspaper article about the Sandkrug family festival featuring JoyWanna live with her debut song "Just Breathe"',
+    },
+  },
+  {
+    num: 5,
+    src: press5,
+    width: 922,
+    height: 1866,
+    title: {
+      de: 'BILD der FRAU – „Es funkte auf dem Kreuzfahrtschiff"',
+      en: 'BILD der FRAU – "Sparks Flew on the Cruise Ship"',
+    },
+    description: {
+      de: 'Liebesgeschichte in BILD der FRAU (Ausgabe 7/2023): Wie sich Pianistin und Sängerin Jovana an Bord der AIDAperla in ihren Mann Lukas verliebte – inklusive Heiratsantrag und Hochzeit 2021.',
+      en: 'Love story in BILD der FRAU (issue 7/2023): how pianist and singer Jovana fell in love with her husband Lukas on board the AIDAperla – including the proposal and wedding in 2021.',
+    },
+    alt: {
+      de: 'Artikel in BILD der FRAU über Jovana Kokor und ihren Mann Lukas – Liebesgeschichte an Bord der AIDAperla',
+      en: 'BILD der FRAU magazine article about Jovana Kokor and her husband Lukas – love story on board the AIDAperla',
+    },
+  },
+  {
+    num: 6,
+    src: press6,
+    width: 1124,
+    height: 1638,
+    title: {
+      de: 'Mensch & Lebensart – Boho Chic bis Minimalismus',
+      en: 'People & Lifestyle – Boho Chic to Minimalism',
+    },
+    description: {
+      de: 'Zeitungsausgabe „Mensch & Lebensart" vom 15. Februar 2025 mit JoyWanna in der Rubrik „Nachgefragt" – über Stärken, Lieblingslebensweisheit und ihren Song „Just Breathe".',
+      en: '"People & Lifestyle" newspaper edition from 15 February 2025 with JoyWanna in the "Nachgefragt" Q&A section – about strengths, favourite life motto and her song "Just Breathe".',
+    },
+    alt: {
+      de: 'Zeitungsausgabe „Mensch & Lebensart" mit JoyWanna in der Q&A-Rubrik „Nachgefragt"',
+      en: '"People & Lifestyle" newspaper edition featuring JoyWanna in the "Nachgefragt" Q&A section',
+    },
+  },
+];
+
+type Category = 'all' | 'live' | 'band' | 'reimagined' | 'press';
+type Tab = 'visual' | 'shows' | 'press';
 
 interface PortfolioItem {
   id: string;
