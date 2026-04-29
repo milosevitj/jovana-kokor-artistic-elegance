@@ -369,6 +369,8 @@ interface PortfolioItem {
   title: { de: string; en: string };
   description: { de: string; en: string };
   alt?: { de: string; en: string };
+  width?: number;
+  height?: number;
 }
 
 const items: PortfolioItem[] = [
