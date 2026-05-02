@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { useLanguage, LanguageProvider } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
@@ -6,6 +7,12 @@ import { Footer } from '@/components/Footer';
 import { ContactSection } from '@/components/ContactSection';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Play } from 'lucide-react';
+import {
+  PORTFOLIO_TABS,
+  SLUG_TO_TAB,
+  buildCategoryPath,
+  type PortfolioTab,
+} from '@/lib/portfolio-routes';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 // Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
