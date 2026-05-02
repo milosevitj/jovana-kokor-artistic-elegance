@@ -39,11 +39,13 @@ const App = () => (
             <Route path="/en/" element={<Index />} />
             {/* Localized one-page sections — Index handles the scroll. */}
             <Route path="/de/ueber-mich" element={<Index />} />
-            <Route path="/de/vocal-coaching" element={<Index />} />
             <Route path="/de/kontakt" element={<Index />} />
             <Route path="/en/about-me" element={<Index />} />
-            <Route path="/en/vocal-coaching" element={<Index />} />
             <Route path="/en/contact" element={<Index />} />
+            {/* Vocal Coaching is its own dedicated page (per language). */}
+            <Route path="/de/vocal-coaching" element={<VocalCoaching />} />
+            <Route path="/en/vocal-coaching" element={<VocalCoaching />} />
+            <Route path="/vocal-coaching" element={<VocalCoaching />} />
             {/* Legacy lessons slugs → redirect to new vocal-coaching path. */}
             <Route path="/de/unterricht" element={<Navigate to="/de/vocal-coaching" replace />} />
             <Route path="/en/lessons" element={<Navigate to="/en/vocal-coaching" replace />} />
