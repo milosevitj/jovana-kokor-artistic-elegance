@@ -21,7 +21,7 @@ import {
 export type { Lang } from './portfolio-routes';
 
 /** Section ids used in the DOM (HeroSection has id="home", etc.) */
-export type SectionId = 'home' | 'about' | 'lessons' | 'contact';
+export type SectionId = 'home' | 'about' | 'contact';
 
 /**
  * Localized URL segment per section per language.
@@ -30,9 +30,21 @@ export type SectionId = 'home' | 'about' | 'lessons' | 'contact';
 export const SECTION_SLUGS: Record<SectionId, Record<Lang, string>> = {
   home: { de: '', en: '' },
   about: { de: 'ueber-mich', en: 'about-me' },
-  lessons: { de: 'vocal-coaching', en: 'vocal-coaching' },
   contact: { de: 'kontakt', en: 'contact' },
 };
+
+/**
+ * Localized slug for the dedicated "Jetzt anfragen" / "Inquire Now" page.
+ * This is NOT a one-page section — it has its own React route and page.
+ */
+export const INQUIRE_SLUGS: Record<Lang, string> = {
+  de: 'jetzt-anfragen',
+  en: 'inquire-now',
+};
+
+export function buildInquirePath(lang: Lang): string {
+  return `/${lang}/${INQUIRE_SLUGS[lang]}`;
+}
 
 /** Reverse lookup: localized slug -> SectionId (any language). */
 export const SLUG_TO_SECTION: Record<string, SectionId> = (() => {
