@@ -5,6 +5,7 @@ import { Play, ArrowRight } from 'lucide-react';
 interface VideoItem {
   id: string;
   caption: { de: string; en: string };
+  youtubeTitle: string;
 }
 
 export function PortfolioSection() {
@@ -14,18 +15,22 @@ export function PortfolioSection() {
     {
       id: 'KlXXMuKU3wE',
       caption: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
+      youtubeTitle: 'JoyWanna - Just Breathe (Live, Voice & Piano)',
     },
     {
       id: 'HG521HIhxZ4',
       caption: { de: 'Live Highlight I', en: 'Live Highlight I' },
+      youtubeTitle: 'JoyWanna - Live Highlight I',
     },
     {
-      id: 'sQ5XZkarZWQ',
+      id: 'snQoawnhl3Y',
       caption: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
+      youtubeTitle: 'JoyWanna & The Spicy Jam - Live',
     },
     {
       id: 'iDhF5EpRBhw',
       caption: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
+      youtubeTitle: 'JoyWanna - Reimagined Session',
     },
   ];
 
@@ -49,11 +54,14 @@ export function PortfolioSection() {
         {/* Video Grid – 4 live performance videos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {videos.map((video) => (
-            <Link
+            <a
               key={video.id}
-              to="/portfolio"
+              href={`https://www.youtube.com/watch?v=${video.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={video.youtubeTitle}
               className="group relative aspect-video overflow-hidden rounded-sm bg-background block"
-              aria-label={language === 'de' ? video.caption.de : video.caption.en}
+              aria-label={video.youtubeTitle}
             >
               <img
                 src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
@@ -76,10 +84,10 @@ export function PortfolioSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <p className="font-serif text-lg text-foreground">
-                  {language === 'de' ? video.caption.de : video.caption.en}
+                  {video.youtubeTitle}
                 </p>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
 
