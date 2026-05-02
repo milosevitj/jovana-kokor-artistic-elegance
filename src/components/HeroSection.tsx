@@ -16,9 +16,11 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="JoyWanna – Music & Performance, live on stage"
+          alt="Jovana Kokor – Pianist and Vocal Artist performing live on stage"
           className="hero-bg-image w-full h-full"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-background/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
