@@ -11,6 +11,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Impressum = lazy(() => import("./pages/Impressum"));
+const VocalCoaching = lazy(() => import("./pages/VocalCoaching"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
