@@ -13,7 +13,8 @@ import {
 
 type NavItem =
   | { kind: 'section'; section: SectionId; label: string }
-  | { kind: 'portfolio'; label: string };
+  | { kind: 'portfolio'; label: string }
+  | { kind: 'page'; section: SectionId; label: string };
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
