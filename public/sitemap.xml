@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Root + legacy paths -->
+  <!-- Root -->
   <url>
     <loc>https://jovanakokor.de/</loc>
     <lastmod>2026-05-02</lastmod>
@@ -43,13 +43,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/ueber-mich" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/de/unterricht</loc>
+    <loc>https://jovanakokor.de/de/vocal-coaching</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/unterricht" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/lessons" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/unterricht" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/vocal-coaching" />
   </url>
   <url>
     <loc>https://jovanakokor.de/de/kontakt</loc>
@@ -72,13 +72,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/ueber-mich" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/en/lessons</loc>
+    <loc>https://jovanakokor.de/en/vocal-coaching</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/unterricht" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/lessons" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/unterricht" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/vocal-coaching" />
   </url>
   <url>
     <loc>https://jovanakokor.de/en/contact</loc>
@@ -90,82 +90,82 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/kontakt" />
   </url>
 
-  <!-- Portfolio landings -->
+  <!-- Projects landings -->
   <url>
-    <loc>https://jovanakokor.de/de/portfolio</loc>
+    <loc>https://jovanakokor.de/de/projekte</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/en/portfolio</loc>
+    <loc>https://jovanakokor.de/en/projects</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte" />
   </url>
 
-  <!-- Portfolio category pages (DE) -->
+  <!-- Project category pages (DE) -->
   <url>
-    <loc>https://jovanakokor.de/de/portfolio/visuelle-arbeiten</loc>
+    <loc>https://jovanakokor.de/de/projekte/visuelle-arbeiten</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/visuelle-arbeiten" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/visual-work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/visuelle-arbeiten" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/visual-work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/de/portfolio/live-auftritte</loc>
+    <loc>https://jovanakokor.de/de/projekte/live-auftritte</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/live-shows" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/live-auftritte" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/live-shows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/live-auftritte" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/de/portfolio/presse</loc>
+    <loc>https://jovanakokor.de/de/projekte/presse</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/presse" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/press" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/presse" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/presse" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/press" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/presse" />
   </url>
 
-  <!-- Portfolio category pages (EN) -->
+  <!-- Project category pages (EN) -->
   <url>
-    <loc>https://jovanakokor.de/en/portfolio/visual-work</loc>
+    <loc>https://jovanakokor.de/en/projects/visual-work</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/visuelle-arbeiten" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/visual-work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/visuelle-arbeiten" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/visual-work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/en/portfolio/live-shows</loc>
+    <loc>https://jovanakokor.de/en/projects/live-shows</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/live-shows" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/live-auftritte" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/live-shows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/live-auftritte" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/en/portfolio/press</loc>
+    <loc>https://jovanakokor.de/en/projects/press</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/presse" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/press" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/presse" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/presse" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/press" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/presse" />
   </url>
 
   <!-- Legal pages -->
