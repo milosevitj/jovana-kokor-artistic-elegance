@@ -718,15 +718,19 @@ function PortfolioContent() {
             </header>
             <div key={tab} className="columns-1 sm:columns-2 lg:columns-3 gap-4">
               {filtered.map((item) => {
-                const isImage = item.type === 'image';
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setOpenItem(item)}
-                    className="w-full mb-4 break-inside-avoid bg-card block text-left rounded-sm overflow-hidden"
-                    aria-label={language === 'de' ? item.title.de : item.title.en}
-                  >
-                    {item.type === 'video' ? (
+                if (item.type === 'video') {
+                  const hoverTitle =
+                    item.youtubeTitle ?? (language === 'de' ? item.title.de : item.title.en);
+                  return (
+                    <a
+                      key={item.id}
+                      href={`https://www.youtube.com/watch?v=${item.source}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={hoverTitle}
+                      aria-label={hoverTitle}
+                      className="w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
+                    >
                       <div className="group relative">
                         <img
                           src={`https://img.youtube.com/vi/${item.source}/hqdefault.jpg`}
@@ -748,53 +752,55 @@ function PortfolioContent() {
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                          <p className="font-serif text-lg text-foreground">
-                            {language === 'de' ? item.title.de : item.title.en}
+                          <p className="font-serif text-base md:text-lg text-foreground">
+                            {hoverTitle}
                           </p>
                         </div>
                       </div>
-                    ) : (
-                      <>
-                        {/*
-                          Visual Work image tile.
-                          STRICT: Images must not move, animate, or shift position under any condition.
-                          - No transform, no scale, no translate on the image
-                          - Hover overlay only fades in (opacity); image itself is static
-                          - On mobile (no hover), title shows statically below the image
-                          - Click opens fullscreen lightbox (handled by parent button)
-                        */}
-                        <div className="group relative">
-                          <img
-                            src={item.source}
-                            alt={
-                              item.alt
-                                ? language === 'de'
-                                  ? item.alt.de
-                                  : item.alt.en
-                                : ''
-                            }
-                            title={language === 'de' ? item.title.de : item.title.en}
-                            loading="lazy"
-                            decoding="async"
-                            width={item.width}
-                            height={item.height}
-                            className="block w-full h-auto object-cover"
-                          />
-                          {/* Desktop hover overlay – fade only, no movement */}
-                          <div
-                            aria-hidden="true"
-                            className="hidden md:flex absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex-col items-center justify-center text-center p-4"
-                          >
-                            <p className="font-serif text-lg md:text-xl text-foreground">
-                              {language === 'de' ? item.title.de : item.title.en}
-                            </p>
-                            <p className="mt-2 text-xs md:text-sm text-muted-foreground line-clamp-3 max-w-[90%]">
-                              {language === 'de' ? item.description.de : item.description.en}
-                            </p>
-                          </div>
-                        </div>
-                      </>
-                    )}
+                    </a>
+                  );
+                }
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setOpenItem(item)}
+                    className="w-full mb-4 break-inside-avoid bg-card block text-left rounded-sm overflow-hidden"
+                    aria-label={language === 'de' ? item.title.de : item.title.en}
+                  >
+                    {/*
+                      Visual Work image tile.
+                      STRICT: Images must not move, animate, or shift position under any condition.
+                    */}
+                    <div className="group relative">
+                      <img
+                        src={item.source}
+                        alt={
+                          item.alt
+                            ? language === 'de'
+                              ? item.alt.de
+                              : item.alt.en
+                            : ''
+                        }
+                        title={language === 'de' ? item.title.de : item.title.en}
+                        loading="lazy"
+                        decoding="async"
+                        width={item.width}
+                        height={item.height}
+                        className="block w-full h-auto object-cover"
+                      />
+                      {/* Desktop hover overlay – fade only, no movement */}
+                      <div
+                        aria-hidden="true"
+                        className="hidden md:flex absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex-col items-center justify-center text-center p-4"
+                      >
+                        <p className="font-serif text-lg md:text-xl text-foreground">
+                          {language === 'de' ? item.title.de : item.title.en}
+                        </p>
+                        <p className="mt-2 text-xs md:text-sm text-muted-foreground line-clamp-3 max-w-[90%]">
+                          {language === 'de' ? item.description.de : item.description.en}
+                        </p>
+                      </div>
+                    </div>
                   </button>
                 );
               })}
