@@ -585,9 +585,24 @@ const items: PortfolioItem[] = [
 ];
 
 function PortfolioContent() {
-  const { language, t } = useLanguage();
-  const [tab, setTab] = useState<Tab>('visual');
+  const { language, setLanguage, t } = useLanguage();
+  const { category } = useParams<{ category?: string }>();
+  const { pathname } = useLocation();
   const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
+
+  // Derive the active tab from the URL slug (falls back to 'visual').
+  const tab: PortfolioTab = (category && SLUG_TO_TAB[category]) || 'visual';
+
+  // If the URL is locale-prefixed (/en/... or /de/...), force that language.
+  // This makes the locale-prefixed URLs the canonical, language-correct
+  // entry points that crawlers and direct visitors land on.
+  useEffect(() => {
+    if (pathname.startsWith('/en/portfolio') && language !== 'en') {
+      setLanguage('en');
+    } else if (pathname.startsWith('/de/portfolio') && language !== 'de') {
+      setLanguage('de');
+    }
+  }, [pathname, language, setLanguage]);
 
   const filtered = useMemo(() => {
     if (tab === 'shows') return items.filter((i) => i.type === 'video');
@@ -595,12 +610,6 @@ function PortfolioContent() {
     // 'visual' – images that are NOT press clippings
     return items.filter((i) => i.type === 'image' && i.category !== 'press');
   }, [tab]);
-
-  const tabs: { key: Tab; label: string }[] = [
-    { key: 'visual', label: language === 'de' ? 'Visuelle Arbeiten' : 'Visual Work' },
-    { key: 'shows', label: language === 'de' ? 'Live-Auftritte' : 'Live Shows' },
-    { key: 'press', label: language === 'de' ? 'Presse' : 'Press' },
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -639,29 +648,33 @@ function PortfolioContent() {
           </div>
         </section>
 
-        {/* Tabs */}
+        {/* Category navigation – real anchor links so crawlers see them as
+            internal outlinks to dedicated, indexable URLs. */}
         <section className="px-6 md:px-12 lg:px-20 mb-12">
           <div className="container mx-auto">
-            <div role="tablist" aria-label="Portfolio" className="flex flex-wrap justify-center gap-2 md:gap-3">
-              {tabs.map((t) => {
-                const active = tab === t.key;
+            <nav
+              aria-label={language === 'de' ? 'Portfolio-Kategorien' : 'Portfolio categories'}
+              className="flex flex-wrap justify-center gap-2 md:gap-3"
+            >
+              {PORTFOLIO_TABS.map((entry) => {
+                const active = tab === entry.tab;
+                const href = buildCategoryPath(entry.tab, language);
                 return (
-                  <button
-                    key={t.key}
-                    role="tab"
-                    aria-selected={active}
-                    onClick={() => setTab(t.key)}
+                  <Link
+                    key={entry.tab}
+                    to={href}
+                    aria-current={active ? 'page' : undefined}
                     className={`px-5 py-2 rounded-sm text-sm font-medium border transition-all duration-300 ${
                       active
                         ? 'bg-primary text-primary-foreground border-primary'
                         : 'bg-transparent text-muted-foreground border-border hover:text-foreground hover:border-foreground/50'
                     }`}
                   >
-                    {t.label}
-                  </button>
+                    {entry.label[language]}
+                  </Link>
                 );
               })}
-            </div>
+            </nav>
           </div>
         </section>
         <section className="section-padding pt-8 md:pt-12">
