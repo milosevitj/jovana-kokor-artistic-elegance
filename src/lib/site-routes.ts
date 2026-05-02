@@ -21,7 +21,7 @@ import {
 export type { Lang } from './portfolio-routes';
 
 /** Section ids used in the DOM (HeroSection has id="home", etc.) */
-export type SectionId = 'home' | 'about' | 'contact';
+export type SectionId = 'home' | 'about' | 'lessons' | 'contact';
 
 /**
  * Localized URL segment per section per language.
@@ -30,21 +30,9 @@ export type SectionId = 'home' | 'about' | 'contact';
 export const SECTION_SLUGS: Record<SectionId, Record<Lang, string>> = {
   home: { de: '', en: '' },
   about: { de: 'ueber-mich', en: 'about-me' },
+  lessons: { de: 'vocal-coaching', en: 'vocal-coaching' },
   contact: { de: 'kontakt', en: 'contact' },
 };
-
-/**
- * Localized slug for the dedicated "Jetzt anfragen" / "Inquire Now" page.
- * This is NOT a one-page section — it has its own React route and page.
- */
-export const INQUIRE_SLUGS: Record<Lang, string> = {
-  de: 'jetzt-anfragen',
-  en: 'inquire-now',
-};
-
-export function buildInquirePath(lang: Lang): string {
-  return `/${lang}/${INQUIRE_SLUGS[lang]}`;
-}
 
 /** Reverse lookup: localized slug -> SectionId (any language). */
 export const SLUG_TO_SECTION: Record<string, SectionId> = (() => {
@@ -79,7 +67,6 @@ export type ParsedRoute =
   | { kind: 'section'; section: SectionId; lang: Lang }
   | { kind: 'portfolio'; lang: Lang | null }
   | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang | null }
-  | { kind: 'inquire'; lang: Lang }
   | { kind: 'other'; lang: Lang | null };
 
 const baseAlt = PORTFOLIO_BASE_SEGMENTS.join('|');
@@ -125,16 +112,11 @@ export function parseRoute(pathname: string): ParsedRoute {
     const lang = localizedSection[1] as Lang;
     const slug = localizedSection[2];
     if (!slug) return { kind: 'home', lang };
-    // Inquire page (jetzt-anfragen / inquire-now)
-    if (slug === INQUIRE_SLUGS.de || slug === INQUIRE_SLUGS.en) {
-      return { kind: 'inquire', lang };
-    }
     const section = SLUG_TO_SECTION[slug];
     if (section) return { kind: 'section', section, lang };
-    // Legacy lessons / vocal-coaching slugs → resolve as inquire so that
-    // hreflang counterparts and language switching still work.
-    if (slug === 'unterricht' || slug === 'lessons' || slug === 'vocal-coaching') {
-      return { kind: 'inquire', lang };
+    // Legacy lessons slugs
+    if (slug === 'unterricht' || slug === 'lessons') {
+      return { kind: 'section', section: 'lessons', lang };
     }
     return { kind: 'other', lang };
   }
@@ -158,14 +140,12 @@ export function localizedCounterpart(pathname: string, target: Lang): string {
       return buildPortfolioPath(target);
     case 'portfolio-category':
       return buildCategoryPath(parsed.tab, target);
-    case 'inquire':
-      return buildInquirePath(target);
     default:
       return buildSectionPath('home', target);
   }
 }
 
-/** Locale-prefixed paths for every section + portfolio + portfolio category + inquire, both languages. */
+/** Locale-prefixed paths for every section + portfolio + portfolio category, both languages. */
 export function allLocalizedPaths(): { de: string; en: string }[] {
   const out: { de: string; en: string }[] = [];
   (Object.keys(SECTION_SLUGS) as SectionId[]).forEach((s) => {
@@ -178,6 +158,5 @@ export function allLocalizedPaths(): { de: string; en: string }[] {
       en: buildCategoryPath(entry.tab, 'en'),
     });
   });
-  out.push({ de: buildInquirePath('de'), en: buildInquirePath('en') });
   return out;
 }

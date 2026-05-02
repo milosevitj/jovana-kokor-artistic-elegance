@@ -11,7 +11,6 @@ import { ScrollToTop } from "./components/ScrollToTop";
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Impressum = lazy(() => import("./pages/Impressum"));
-const InquirePage = lazy(() => import("./pages/InquirePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -39,17 +38,14 @@ const App = () => (
             <Route path="/en/" element={<Index />} />
             {/* Localized one-page sections — Index handles the scroll. */}
             <Route path="/de/ueber-mich" element={<Index />} />
+            <Route path="/de/vocal-coaching" element={<Index />} />
             <Route path="/de/kontakt" element={<Index />} />
             <Route path="/en/about-me" element={<Index />} />
+            <Route path="/en/vocal-coaching" element={<Index />} />
             <Route path="/en/contact" element={<Index />} />
-            {/* Dedicated "Jetzt anfragen" / "Inquire Now" page (was Vocal Coaching). */}
-            <Route path="/de/jetzt-anfragen" element={<InquirePage />} />
-            <Route path="/en/inquire-now" element={<InquirePage />} />
-            {/* Legacy lessons / vocal-coaching slugs → redirect to new inquire page. */}
-            <Route path="/de/unterricht" element={<Navigate to="/de/jetzt-anfragen" replace />} />
-            <Route path="/en/lessons" element={<Navigate to="/en/inquire-now" replace />} />
-            <Route path="/de/vocal-coaching" element={<Navigate to="/de/jetzt-anfragen" replace />} />
-            <Route path="/en/vocal-coaching" element={<Navigate to="/en/inquire-now" replace />} />
+            {/* Legacy lessons slugs → redirect to new vocal-coaching path. */}
+            <Route path="/de/unterricht" element={<Navigate to="/de/vocal-coaching" replace />} />
+            <Route path="/en/lessons" element={<Navigate to="/en/vocal-coaching" replace />} />
             {/* Portfolio routes (now "Projekte" / "Projects"). */}
             <Route path="/de/projekte" element={<Portfolio />} />
             <Route path="/en/projects" element={<Portfolio />} />

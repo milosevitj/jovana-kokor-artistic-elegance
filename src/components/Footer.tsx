@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { buildSectionPath, buildPortfolioPath, buildInquirePath, parseRoute, type SectionId } from '@/lib/site-routes';
+import { buildSectionPath, buildPortfolioPath, parseRoute, type SectionId } from '@/lib/site-routes';
 
 export function Footer() {
   const { t, language } = useLanguage();
@@ -13,6 +13,7 @@ export function Footer() {
   const sectionLinks: { section: SectionId; label: string }[] = [
     { section: 'home', label: t('nav.home') },
     { section: 'about', label: t('nav.about') },
+    { section: 'lessons', label: t('nav.lessons') },
     { section: 'contact', label: t('nav.contact') },
   ];
 
@@ -57,14 +58,6 @@ export function Footer() {
                 </li>
               );
             })}
-            <li>
-              <Link
-                to={buildInquirePath(language)}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {t('nav.inquire')}
-              </Link>
-            </li>
             <li>
               <Link
                 to={buildPortfolioPath(language)}

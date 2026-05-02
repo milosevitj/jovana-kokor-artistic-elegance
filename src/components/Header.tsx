@@ -6,7 +6,6 @@ import joyWannaLogo from '@/assets/joywanna-logo.webp';
 import {
   buildSectionPath,
   buildPortfolioPath,
-  buildInquirePath,
   localizedCounterpart,
   parseRoute,
   type SectionId,
@@ -14,8 +13,7 @@ import {
 
 type NavItem =
   | { kind: 'section'; section: SectionId; label: string }
-  | { kind: 'portfolio'; label: string }
-  | { kind: 'inquire'; label: string };
+  | { kind: 'portfolio'; label: string };
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -54,7 +52,7 @@ export function Header() {
   const navItems: NavItem[] = [
     { kind: 'section', section: 'home', label: t('nav.home') },
     { kind: 'section', section: 'about', label: t('nav.about') },
-    { kind: 'inquire', label: t('nav.inquire') },
+    { kind: 'section', section: 'lessons', label: t('nav.lessons') },
     { kind: 'portfolio', label: t('nav.gallery') },
     { kind: 'section', section: 'contact', label: t('nav.contact') },
   ];
@@ -62,9 +60,6 @@ export function Header() {
   const isActive = (item: NavItem): boolean => {
     if (item.kind === 'portfolio') {
       return parsed.kind === 'portfolio' || parsed.kind === 'portfolio-category';
-    }
-    if (item.kind === 'inquire') {
-      return parsed.kind === 'inquire';
     }
     if (parsed.kind === 'section') return parsed.section === item.section;
     if (parsed.kind === 'home') {
@@ -74,11 +69,10 @@ export function Header() {
     return false;
   };
 
-  const hrefFor = (item: NavItem): string => {
-    if (item.kind === 'portfolio') return buildPortfolioPath(language);
-    if (item.kind === 'inquire') return buildInquirePath(language);
-    return buildSectionPath(item.section, language);
-  };
+  const hrefFor = (item: NavItem): string =>
+    item.kind === 'portfolio'
+      ? buildPortfolioPath(language)
+      : buildSectionPath(item.section, language);
 
   const handleSectionClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -181,19 +175,6 @@ export function Header() {
                   </Link>
                 );
               }
-              if (item.kind === 'inquire') {
-                return (
-                  <Link
-                    key="inquire"
-                    to={href}
-                    className={desktopLinkClass(active)}
-                    aria-current={active ? 'page' : undefined}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
               return (
                 <a
                   key={item.section}
@@ -264,19 +245,6 @@ export function Header() {
                   return (
                     <Link
                       key="portfolio"
-                      to={href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={mobileLinkClass(active)}
-                      aria-current={active ? 'page' : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
-                if (item.kind === 'inquire') {
-                  return (
-                    <Link
-                      key="inquire"
                       to={href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={mobileLinkClass(active)}

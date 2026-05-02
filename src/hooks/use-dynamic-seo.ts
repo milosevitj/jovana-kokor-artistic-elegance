@@ -6,7 +6,6 @@ import {
   parseRoute,
   buildSectionPath,
   buildPortfolioPath,
-  buildInquirePath,
   type SectionId,
 } from '@/lib/site-routes';
 
