@@ -342,7 +342,11 @@ export function prerenderPlugin(): Plugin {
       const template = fs.readFileSync(indexPath, "utf8");
 
       for (const route of ROUTES) {
-        const html = rewriteHtml(template, route, "de");
+        // Locale-prefixed routes (e.g. /en/portfolio/press) must render in
+        // their own language; everything else uses DE as the static shell
+        // (React swaps copy at runtime when ?lang=en is set).
+        const lang: Lang = route.path.startsWith("/en/") ? "en" : "de";
+        const html = rewriteHtml(template, route, lang);
         const targetDir = route.outDir ? path.join(distDir, route.outDir) : distDir;
         fs.mkdirSync(targetDir, { recursive: true });
         fs.writeFileSync(path.join(targetDir, "index.html"), html, "utf8");
