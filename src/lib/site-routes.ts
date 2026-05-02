@@ -125,11 +125,16 @@ export function parseRoute(pathname: string): ParsedRoute {
     const lang = localizedSection[1] as Lang;
     const slug = localizedSection[2];
     if (!slug) return { kind: 'home', lang };
+    // Inquire page (jetzt-anfragen / inquire-now)
+    if (slug === INQUIRE_SLUGS.de || slug === INQUIRE_SLUGS.en) {
+      return { kind: 'inquire', lang };
+    }
     const section = SLUG_TO_SECTION[slug];
     if (section) return { kind: 'section', section, lang };
-    // Legacy lessons slugs
-    if (slug === 'unterricht' || slug === 'lessons') {
-      return { kind: 'section', section: 'lessons', lang };
+    // Legacy lessons / vocal-coaching slugs → resolve as inquire so that
+    // hreflang counterparts and language switching still work.
+    if (slug === 'unterricht' || slug === 'lessons' || slug === 'vocal-coaching') {
+      return { kind: 'inquire', lang };
     }
     return { kind: 'other', lang };
   }
