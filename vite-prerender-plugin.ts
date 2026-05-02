@@ -65,26 +65,6 @@ const ROUTES: RouteMeta[] = [
     },
   },
   {
-    path: "/portfolio",
-    outDir: "portfolio",
-    title: {
-      de: "Portfolio – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse",
-      en: "Portfolio – JoyWanna | Visual Work, Live Shows & Press",
-    },
-    description: {
-      de: "Portfolio von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.",
-      en: "Portfolio of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.",
-    },
-    h1: {
-      de: "Portfolio von Jovana Kokor",
-      en: "Portfolio of Jovana Kokor",
-    },
-    intro: {
-      de: "Eine Auswahl visueller Arbeiten, Live-Auftritte und Pressestimmen rund um die Bühnenarbeit von Jovana Kokor – Pianistin, Sängerin und Performerin aus Deutschland.",
-      en: "A curated selection of visual work, live performances and press features documenting the stage work of Jovana Kokor – pianist, vocalist and performer based in Germany.",
-    },
-  },
-  {
     path: "/impressum",
     outDir: "impressum",
     title: {
@@ -95,10 +75,7 @@ const ROUTES: RouteMeta[] = [
       de: "Impressum und Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von Jovana Kokor (JoyWanna).",
       en: "Legal notice and provider information for the website of Jovana Kokor (JoyWanna).",
     },
-    h1: {
-      de: "Impressum",
-      en: "Imprint",
-    },
+    h1: { de: "Impressum", en: "Imprint" },
     intro: {
       de: "Anbieterkennzeichnung gemäß § 5 TMG und § 55 RStV für die Webseite von Jovana Kokor (JoyWanna), Oldenburg, Deutschland.",
       en: "Provider information and legal notice for the website of Jovana Kokor (JoyWanna), Oldenburg, Germany.",
@@ -184,22 +161,22 @@ const SECTION_ROUTES: SectionLocalizedRoute[] = [
   },
   {
     section: "lessons",
-    slug: { de: "unterricht", en: "lessons" },
+    slug: { de: "vocal-coaching", en: "vocal-coaching" },
     title: {
-      de: "Unterricht – Klavier & Vocal Coaching | Jovana Kokor",
-      en: "Lessons – Piano & Vocal Coaching | Jovana Kokor",
+      de: "Vocal Coaching – Klavier & Stimmunterricht | Jovana Kokor",
+      en: "Vocal Coaching – Voice & Piano Lessons | Jovana Kokor",
     },
     description: {
-      de: "Klavier- und Gesangsunterricht mit Jovana Kokor (JoyWanna): individuelles Vocal Coaching und Klavierunterricht für alle Altersgruppen, online & vor Ort.",
-      en: "Piano lessons and vocal coaching with Jovana Kokor (JoyWanna): tailored sessions for every age and level, available online and in person.",
+      de: "Vocal Coaching mit Jovana Kokor (JoyWanna): individueller Gesangs- und Klavierunterricht für alle Altersgruppen, online & vor Ort.",
+      en: "Vocal coaching with Jovana Kokor (JoyWanna): tailored voice and piano sessions for every age and level, available online and in person.",
     },
     h1: {
-      de: "Klavierunterricht & Vocal Coaching",
-      en: "Piano Lessons & Vocal Coaching",
+      de: "Vocal Coaching & Klavierunterricht",
+      en: "Vocal Coaching & Piano Lessons",
     },
     intro: {
-      de: "Individueller Klavier- und Gesangsunterricht mit Jovana Kokor – online und vor Ort, für alle Altersgruppen und Niveaus.",
-      en: "Individual piano lessons and vocal coaching with Jovana Kokor – online and in person, for every age and level.",
+      de: "Individuelles Vocal Coaching und Klavierunterricht mit Jovana Kokor – online und vor Ort, für alle Altersgruppen und Niveaus.",
+      en: "Individual vocal coaching and piano lessons with Jovana Kokor – online and in person, for every age and level.",
     },
   },
   {
@@ -254,23 +231,23 @@ for (const s of SECTION_ROUTES) {
   });
 }
 
-// Localized portfolio landings (/de/portfolio, /en/portfolio).
+// Localized portfolio (a.k.a. "Projekte"/"Projects") landings.
 {
-  const dePath = "/de/portfolio";
-  const enPath = "/en/portfolio";
+  const dePath = "/de/projekte";
+  const enPath = "/en/projects";
   const alternates = { de: dePath, en: enPath };
   const portfolioMeta = {
     title: {
-      de: "Portfolio – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse",
-      en: "Portfolio – JoyWanna | Visual Work, Live Shows & Press",
+      de: "Projekte – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse",
+      en: "Projects – JoyWanna | Visual Work, Live Shows & Press",
     },
     description: {
-      de: "Portfolio von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.",
-      en: "Portfolio of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.",
+      de: "Projekte von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.",
+      en: "Projects of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.",
     },
     h1: {
-      de: "Portfolio von Jovana Kokor",
-      en: "Portfolio of Jovana Kokor",
+      de: "Projekte von Jovana Kokor",
+      en: "Projects of Jovana Kokor",
     },
     intro: {
       de: "Eine Auswahl visueller Arbeiten, Live-Auftritte und Pressestimmen rund um die Bühnenarbeit von Jovana Kokor.",
@@ -279,14 +256,14 @@ for (const s of SECTION_ROUTES) {
   };
   ROUTES.push({
     path: dePath,
-    outDir: "de/portfolio",
+    outDir: "de/projekte",
     ...portfolioMeta,
     alternates,
     canonicalOverride: alternates,
   });
   ROUTES.push({
     path: enPath,
-    outDir: "en/portfolio",
+    outDir: "en/projects",
     ...portfolioMeta,
     alternates,
     canonicalOverride: alternates,
@@ -367,13 +344,13 @@ const CATEGORY_ROUTES: CategoryRoute[] = [
 // Expand each category into one RouteMeta per language with cross-linked
 // hreflang counterparts.
 for (const c of CATEGORY_ROUTES) {
-  const dePath = `/de/portfolio/${c.slug.de}`;
-  const enPath = `/en/portfolio/${c.slug.en}`;
+  const dePath = `/de/projekte/${c.slug.de}`;
+  const enPath = `/en/projects/${c.slug.en}`;
   const alternates = { de: dePath, en: enPath };
 
   ROUTES.push({
     path: dePath,
-    outDir: `de/portfolio/${c.slug.de}`,
+    outDir: `de/projekte/${c.slug.de}`,
     title: c.title,
     description: c.description,
     h1: c.h1,
@@ -383,7 +360,7 @@ for (const c of CATEGORY_ROUTES) {
   });
   ROUTES.push({
     path: enPath,
-    outDir: `en/portfolio/${c.slug.en}`,
+    outDir: `en/projects/${c.slug.en}`,
     title: c.title,
     description: c.description,
     h1: c.h1,
