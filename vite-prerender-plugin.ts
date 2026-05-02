@@ -143,7 +143,7 @@ interface CategoryRoute {
 const CATEGORY_ROUTES: CategoryRoute[] = [
   {
     tab: "visual",
-    slug: { de: "visuelle-arbeit", en: "visual-work" },
+    slug: { de: "visuelle-arbeiten", en: "visual-work" },
     title: {
       de: "Visuelle Arbeiten – Portfolio | JoyWanna · Jovana Kokor",
       en: "Visual Work – Portfolio | JoyWanna · Jovana Kokor",
