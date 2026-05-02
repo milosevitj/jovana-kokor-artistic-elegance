@@ -512,6 +512,8 @@ interface PortfolioItem {
   alt?: { de: string; en: string };
   width?: number;
   height?: number;
+  // Real YouTube title shown on hover for video items.
+  youtubeTitle?: string;
 }
 
 const items: PortfolioItem[] = [
@@ -525,6 +527,7 @@ const items: PortfolioItem[] = [
       de: 'Live Performance – Jazz & Soul, ein intimer Bühnenmoment.',
       en: 'Live Performance – Jazz & Soul, an intimate stage moment.',
     },
+    youtubeTitle: 'JoyWanna - Just Breathe (Live, Voice & Piano)',
   },
   {
     id: 'v-HG521HIhxZ4',
@@ -536,17 +539,19 @@ const items: PortfolioItem[] = [
       de: 'Live Performance – Jazz, Latin & Groove.',
       en: 'Live Performance – Jazz, Latin & Groove.',
     },
+    youtubeTitle: 'JoyWanna - Live Highlight I',
   },
   {
-    id: 'v-sQ5XZkarZWQ',
+    id: 'v-snQoawnhl3Y',
     type: 'video',
-    source: 'sQ5XZkarZWQ',
+    source: 'snQoawnhl3Y',
     category: 'band',
     title: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
     description: {
       de: 'JoyWanna & The Spicy Jam – mitreißender Crossover-Sound.',
       en: 'JoyWanna & The Spicy Jam – captivating crossover sound.',
     },
+    youtubeTitle: 'JoyWanna & The Spicy Jam - Live',
   },
   {
     id: 'v-iDhF5EpRBhw',
@@ -558,6 +563,7 @@ const items: PortfolioItem[] = [
       de: '„Reimagined" – bekannte Songs, neu interpretiert auf Stimme und Klavier reduziert.',
       en: '"Reimagined" – familiar songs reinterpreted, stripped to voice and piano.',
     },
+    youtubeTitle: 'JoyWanna - Reimagined Session',
   },
   ...galleryPhotos.map((p) => ({
     id: `gallery-${p.num}`,
