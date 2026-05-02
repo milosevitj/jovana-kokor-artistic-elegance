@@ -271,6 +271,19 @@ export function Header() {
                     </Link>
                   );
                 }
+                if (item.kind === 'page') {
+                  return (
+                    <Link
+                      key={item.section}
+                      to={href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={mobileLinkClass(active)}
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
                 return (
                   <a
                     key={item.section}
