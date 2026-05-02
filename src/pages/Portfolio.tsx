@@ -499,7 +499,7 @@ const pressClippings: PressEntry[] = [
 ];
 
 type Category = 'all' | 'live' | 'band' | 'reimagined' | 'press';
-type Tab = 'visual' | 'shows' | 'press';
+// Tab type imported from @/lib/portfolio-routes (PortfolioTab)
 
 interface PortfolioItem {
   id: string;
