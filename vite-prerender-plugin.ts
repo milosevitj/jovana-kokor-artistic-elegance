@@ -252,9 +252,17 @@ function rewriteHtml(template: string, route: RouteMeta, lang: Lang): string {
   const h1 = route.h1[lang];
   const intro = route.intro[lang];
 
-  const dePath = buildLangQuery(route.path, "de");
-  const enPath = buildLangQuery(route.path, "en");
-  const canonicalPath = lang === "en" ? enPath : dePath;
+  // Determine the DE/EN paths for canonical + hreflang. Category routes
+  // supply explicit `alternates` (locale-prefixed paths); other routes use
+  // the legacy ?lang=en pattern on a single shared path.
+  const dePath = route.alternates ? route.alternates.de : buildLangQuery(route.path, "de");
+  const enPath = route.alternates ? route.alternates.en : buildLangQuery(route.path, "en");
+
+  // Canonical: per-language for category routes (each lang is its own page);
+  // DE-only for plain routes (same shell serves both languages).
+  const canonicalPath = route.canonicalOverride
+    ? route.canonicalOverride[lang]
+    : dePath;
 
   const canonicalUrl = `${SITE_ORIGIN}${canonicalPath}`;
   const deUrl = `${SITE_ORIGIN}${dePath}`;
