@@ -31,10 +31,23 @@ const App = () => (
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            {/* Localized homepage (per language) */}
+            <Route path="/de" element={<Index />} />
+            <Route path="/de/" element={<Index />} />
+            <Route path="/en" element={<Index />} />
+            <Route path="/en/" element={<Index />} />
+            {/* Localized one-page sections — Index handles the scroll. */}
+            <Route path="/de/ueber-mich" element={<Index />} />
+            <Route path="/de/unterricht" element={<Index />} />
+            <Route path="/de/kontakt" element={<Index />} />
+            <Route path="/en/about-me" element={<Index />} />
+            <Route path="/en/lessons" element={<Index />} />
+            <Route path="/en/contact" element={<Index />} />
+            {/* Portfolio routes */}
             <Route path="/portfolio" element={<Portfolio />} />
-            {/* SEO-friendly category sub-routes (English slugs) */}
             <Route path="/portfolio/:category" element={<Portfolio />} />
-            {/* Locale-prefixed canonical category URLs */}
+            <Route path="/en/portfolio" element={<Portfolio />} />
+            <Route path="/de/portfolio" element={<Portfolio />} />
             <Route path="/en/portfolio/:category" element={<Portfolio />} />
             <Route path="/de/portfolio/:category" element={<Portfolio />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

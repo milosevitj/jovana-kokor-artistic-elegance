@@ -3,17 +3,17 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 import joyWannaLogo from '@/assets/joywanna-logo.webp';
+import {
+  buildSectionPath,
+  buildPortfolioPath,
+  localizedCounterpart,
+  parseRoute,
+  type SectionId,
+} from '@/lib/site-routes';
 
-type NavLink = {
-  /** href used by the rendered anchor / Link (for crawlers + middle-click) */
-  href: string;
-  /** stable id for active-state matching: section id ('home', 'about', …) or route ('/portfolio') */
-  id: string;
-  /** rendered label */
-  label: string;
-  /** true → in-page section anchor, false → real route */
-  isSection: boolean;
-};
+type NavItem =
+  | { kind: 'section'; section: SectionId; label: string }
+  | { kind: 'portfolio'; label: string };
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -22,7 +22,8 @@ export function Header() {
   const [activeHash, setActiveHash] = useState<string>('');
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const isHome = pathname === '/';
+  const parsed = parseRoute(pathname);
+  const isHome = parsed.kind === 'home' || parsed.kind === 'section';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -31,9 +32,9 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Update html lang attribute when language changes
+  // Keep <html lang> in sync with active language
   useEffect(() => {
-    document.documentElement.lang = language === 'de' ? 'de' : 'en';
+    document.documentElement.lang = language;
   }, [language]);
 
   // Track current section via hash so we can highlight the active link.
@@ -41,8 +42,6 @@ export function Header() {
     const sync = () => setActiveHash(window.location.hash.replace('#', ''));
     sync();
     window.addEventListener('hashchange', sync);
-    // useHashNavigation also rewrites the hash on scroll via replaceState,
-    // which doesn't fire hashchange — poll lightly so highlighting stays live.
     const id = window.setInterval(sync, 400);
     return () => {
       window.removeEventListener('hashchange', sync);
@@ -50,40 +49,53 @@ export function Header() {
     };
   }, []);
 
-  const navLinks: NavLink[] = [
-    { id: 'home', href: '/#home', label: t('nav.home'), isSection: true },
-    { id: 'gigs', href: '/#gigs', label: t('nav.gigs'), isSection: true },
-    { id: 'about', href: '/#about', label: t('nav.about'), isSection: true },
-    { id: 'lessons', href: '/#lessons', label: t('nav.lessons'), isSection: true },
-    { id: '/portfolio', href: '/portfolio', label: t('nav.gallery'), isSection: false },
-    { id: 'contact', href: '/#contact', label: t('nav.contact'), isSection: true },
+  const navItems: NavItem[] = [
+    { kind: 'section', section: 'home', label: t('nav.home') },
+    { kind: 'section', section: 'about', label: t('nav.about') },
+    { kind: 'section', section: 'lessons', label: t('nav.lessons') },
+    { kind: 'portfolio', label: t('nav.gallery') },
+    { kind: 'section', section: 'contact', label: t('nav.contact') },
   ];
 
-  const isActive = (link: NavLink) => {
-    if (!link.isSection) return pathname === link.id;
-    if (!isHome) return false;
-    if (link.id === 'home') return activeHash === '' || activeHash === 'home';
-    return activeHash === link.id;
+  const isActive = (item: NavItem): boolean => {
+    if (item.kind === 'portfolio') {
+      return parsed.kind === 'portfolio' || parsed.kind === 'portfolio-category';
+    }
+    if (parsed.kind === 'section') return parsed.section === item.section;
+    if (parsed.kind === 'home') {
+      if (item.section === 'home') return activeHash === '' || activeHash === 'home';
+      return activeHash === item.section;
+    }
+    return false;
   };
+
+  const hrefFor = (item: NavItem): string =>
+    item.kind === 'portfolio'
+      ? buildPortfolioPath(language)
+      : buildSectionPath(item.section, language);
 
   const handleSectionClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    sectionId: string,
+    item: Extract<NavItem, { kind: 'section' }>,
   ) => {
-    // If we're already on home, smooth-scroll without a route change/reload.
+    const targetPath = hrefFor(item);
+    // Already on the homepage shell → smooth-scroll without remounting.
     if (isHome) {
-      const el = document.getElementById(sectionId);
+      const el = document.getElementById(item.section);
       if (el) {
         e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth' });
-        window.history.replaceState(null, '', `#${sectionId}`);
-        setActiveHash(sectionId);
+        if (item.section === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Reflect the localized URL in the address bar.
+        window.history.replaceState(null, '', targetPath);
       }
     } else {
-      // Different route → use client-side navigation to '/' with the hash so
-      // there is no full page reload.
+      // Different page (e.g. /portfolio) → client-side navigate.
       e.preventDefault();
-      navigate(`/#${sectionId}`);
+      navigate(targetPath);
     }
     setIsMobileMenuOpen(false);
   };
@@ -98,6 +110,22 @@ export function Header() {
       active ? 'text-primary' : 'text-foreground hover:text-primary'
     }`;
 
+  // Language switcher hrefs: equivalent localized URL in the other language.
+  const dePath = localizedCounterpart(pathname, 'de');
+  const enPath = localizedCounterpart(pathname, 'en');
+  const homeHref = buildSectionPath('home', language);
+
+  const handleLangSwitch = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    target: 'de' | 'en',
+    targetPath: string,
+  ) => {
+    e.preventDefault();
+    setLanguage(target);
+    navigate(targetPath);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -111,12 +139,12 @@ export function Header() {
           className="flex items-center justify-between h-16 md:h-20 gap-6"
           aria-label="Main navigation"
         >
-          {/* Logo → Home */}
-          <a
-            href="/#home"
-            onClick={(e) => handleSectionClick(e, 'home')}
+          {/* Logo → localized Home */}
+          <Link
+            to={homeHref}
             className="flex items-center shrink-0 hover:opacity-80 transition-opacity"
             aria-label="JoyWanna – Home"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             <img
               src={joyWannaLogo}
@@ -127,35 +155,36 @@ export function Header() {
               fetchPriority="high"
               className="h-20 md:h-32 w-auto object-contain -my-6 md:-my-10"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const active = isActive(link);
-              if (link.isSection) {
+            {navItems.map((item) => {
+              const active = isActive(item);
+              const href = hrefFor(item);
+              if (item.kind === 'portfolio') {
                 return (
-                  <a
-                    key={link.id}
-                    href={link.href}
-                    onClick={(e) => handleSectionClick(e, link.id)}
+                  <Link
+                    key="portfolio"
+                    to={href}
                     className={desktopLinkClass(active)}
                     aria-current={active ? 'page' : undefined}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {link.label}
-                  </a>
+                    {item.label}
+                  </Link>
                 );
               }
               return (
-                <Link
-                  key={link.id}
-                  to={link.href}
+                <a
+                  key={item.section}
+                  href={href}
+                  onClick={(e) => handleSectionClick(e, item)}
                   className={desktopLinkClass(active)}
                   aria-current={active ? 'page' : undefined}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.label}
-                </Link>
+                  {item.label}
+                </a>
               );
             })}
           </div>
@@ -163,21 +192,9 @@ export function Header() {
           {/* Language Toggle & Mobile Menu Button */}
           <div className="flex items-center gap-4">
             <div className="lang-toggle" role="group" aria-label="Language selection">
-              {/*
-                Real <a> tags with absolute hrefs so Screaming Frog and other
-                non-JS crawlers can follow the language switcher and so the
-                URLs match what hreflang advertises. The onClick prevents a
-                full reload and just flips the in-app language state.
-              */}
               <a
-                href={`${pathname}${pathname.includes('?') ? '&' : '?'}lang=de`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setLanguage('de');
-                  const url = new URL(window.location.href);
-                  url.searchParams.delete('lang');
-                  window.history.replaceState({}, '', url.toString());
-                }}
+                href={dePath}
+                onClick={(e) => handleLangSwitch(e, 'de', dePath)}
                 className={language === 'de' ? 'active' : ''}
                 aria-label="Sprache: Deutsch"
                 aria-current={language === 'de' ? 'true' : undefined}
@@ -188,14 +205,8 @@ export function Header() {
               </a>
               <span className="text-border" aria-hidden="true">|</span>
               <a
-                href={`${pathname}?lang=en`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setLanguage('en');
-                  const url = new URL(window.location.href);
-                  url.searchParams.set('lang', 'en');
-                  window.history.replaceState({}, '', url.toString());
-                }}
+                href={enPath}
+                onClick={(e) => handleLangSwitch(e, 'en', enPath)}
                 className={language === 'en' ? 'active' : ''}
                 aria-label="Language: English"
                 aria-current={language === 'en' ? 'true' : undefined}
@@ -227,31 +238,32 @@ export function Header() {
             className="md:hidden absolute top-16 left-0 right-0 bg-background/98 backdrop-blur-lg border-b border-border animate-fade-in z-50"
           >
             <div className="flex flex-col py-6 px-6 gap-4">
-              {navLinks.map((link) => {
-                const active = isActive(link);
-                if (link.isSection) {
+              {navItems.map((item) => {
+                const active = isActive(item);
+                const href = hrefFor(item);
+                if (item.kind === 'portfolio') {
                   return (
-                    <a
-                      key={link.id}
-                      href={link.href}
-                      onClick={(e) => handleSectionClick(e, link.id)}
+                    <Link
+                      key="portfolio"
+                      to={href}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className={mobileLinkClass(active)}
                       aria-current={active ? 'page' : undefined}
                     >
-                      {link.label}
-                    </a>
+                      {item.label}
+                    </Link>
                   );
                 }
                 return (
-                  <Link
-                    key={link.id}
-                    to={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  <a
+                    key={item.section}
+                    href={href}
+                    onClick={(e) => handleSectionClick(e, item)}
                     className={mobileLinkClass(active)}
                     aria-current={active ? 'page' : undefined}
                   >
-                    {link.label}
-                  </Link>
+                    {item.label}
+                  </a>
                 );
               })}
             </div>
