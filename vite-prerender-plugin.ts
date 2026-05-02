@@ -127,10 +127,171 @@ const ROUTES: RouteMeta[] = [
 ];
 
 /**
- * Portfolio category sub-routes. Each tab gets two prerendered destinations
- * (one per language) so crawlers see them as distinct, indexable pages with
- * cross-linked hreflang alternates.
+ * Localized one-page section routes (DE + EN). Each is a dedicated
+ * crawlable URL with unique title/description/canonical/hreflang. The
+ * client-side Index page reads the URL on mount and scrolls to the
+ * matching section, so users still see the one-page experience.
  */
+interface SectionLocalizedRoute {
+  section: "home" | "about" | "lessons" | "contact";
+  slug: { de: string; en: string }; // "" for home
+  title: { de: string; en: string };
+  description: { de: string; en: string };
+  h1: { de: string; en: string };
+  intro: { de: string; en: string };
+}
+
+const SECTION_ROUTES: SectionLocalizedRoute[] = [
+  {
+    section: "home",
+    slug: { de: "", en: "" },
+    title: {
+      de: "JoyWanna – Pianistin, Sängerin & Pädagogin | Deutschland",
+      en: "Jovana Kokor – Pianist, Vocalist & Educator | Germany",
+    },
+    description: {
+      de: "Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht. Jetzt Termin anfragen!",
+      en: "Germany-based classical pianist & vocal artist Jovana Kokor. Concerts, corporate events & private piano and vocal lessons across Germany & Europe.",
+    },
+    h1: {
+      de: "Jovana Kokor – Pianistin, Sängerin & Musikpädagogin",
+      en: "Jovana Kokor – Pianist, Vocalist & Music Educator",
+    },
+    intro: {
+      de: "Offizielle Webseite von Jovana Kokor (JoyWanna). Klassisch ausgebildete Pianistin und Vokalkünstlerin mit Sitz in Deutschland.",
+      en: "Official website of Jovana Kokor (JoyWanna). Germany-based classical pianist and vocal artist.",
+    },
+  },
+  {
+    section: "about",
+    slug: { de: "ueber-mich", en: "about-me" },
+    title: {
+      de: "Über mich – Jovana Kokor (JoyWanna) | Pianistin & Sängerin",
+      en: "About – Jovana Kokor (JoyWanna) | Pianist & Vocalist",
+    },
+    description: {
+      de: "Über Jovana Kokor (JoyWanna): Pianistin und Sängerin aus Oldenburg, Jazz, Latin & NeoSoul – Werdegang, Bands und musikalische Vision.",
+      en: "About Jovana Kokor (JoyWanna): pianist and vocalist based in Oldenburg, Germany. Jazz, Latin & NeoSoul background, bands and musical vision.",
+    },
+    h1: {
+      de: "Über mich – Jovana Kokor",
+      en: "About – Jovana Kokor",
+    },
+    intro: {
+      de: "Pianistin und Sängerin Jovana Kokor (JoyWanna) – Werdegang, Bands und musikalische Vision aus Oldenburg.",
+      en: "Pianist and vocalist Jovana Kokor (JoyWanna) – background, bands and musical vision based in Oldenburg, Germany.",
+    },
+  },
+  {
+    section: "lessons",
+    slug: { de: "unterricht", en: "lessons" },
+    title: {
+      de: "Unterricht – Klavier & Vocal Coaching | Jovana Kokor",
+      en: "Lessons – Piano & Vocal Coaching | Jovana Kokor",
+    },
+    description: {
+      de: "Klavier- und Gesangsunterricht mit Jovana Kokor (JoyWanna): individuelles Vocal Coaching und Klavierunterricht für alle Altersgruppen, online & vor Ort.",
+      en: "Piano lessons and vocal coaching with Jovana Kokor (JoyWanna): tailored sessions for every age and level, available online and in person.",
+    },
+    h1: {
+      de: "Klavierunterricht & Vocal Coaching",
+      en: "Piano Lessons & Vocal Coaching",
+    },
+    intro: {
+      de: "Individueller Klavier- und Gesangsunterricht mit Jovana Kokor – online und vor Ort, für alle Altersgruppen und Niveaus.",
+      en: "Individual piano lessons and vocal coaching with Jovana Kokor – online and in person, for every age and level.",
+    },
+  },
+  {
+    section: "contact",
+    slug: { de: "kontakt", en: "contact" },
+    title: {
+      de: "Kontakt & Booking – Jovana Kokor (JoyWanna)",
+      en: "Contact & Booking – Jovana Kokor (JoyWanna)",
+    },
+    description: {
+      de: "Kontakt und Booking-Anfragen für Jovana Kokor (JoyWanna): Konzerte, Firmenevents, Hochzeiten und Privatunterricht. Jetzt unverbindlich anfragen.",
+      en: "Contact and booking enquiries for Jovana Kokor (JoyWanna): concerts, corporate events, weddings and private lessons. Get in touch today.",
+    },
+    h1: {
+      de: "Kontakt & Booking",
+      en: "Contact & Booking",
+    },
+    intro: {
+      de: "Anfragen für Konzerte, Firmenevents, Hochzeiten und Privatunterricht – Jovana Kokor (JoyWanna), Oldenburg, Deutschland.",
+      en: "Enquiries for concerts, corporate events, weddings and private lessons – Jovana Kokor (JoyWanna), Oldenburg, Germany.",
+    },
+  },
+];
+
+// Expand each section into one prerendered page per language (locale-prefixed).
+for (const s of SECTION_ROUTES) {
+  const dePath = s.slug.de ? `/de/${s.slug.de}` : `/de/`;
+  const enPath = s.slug.en ? `/en/${s.slug.en}` : `/en/`;
+  const alternates = { de: dePath, en: enPath };
+  const deOutDir = s.slug.de ? `de/${s.slug.de}` : `de`;
+  const enOutDir = s.slug.en ? `en/${s.slug.en}` : `en`;
+
+  ROUTES.push({
+    path: dePath,
+    outDir: deOutDir,
+    title: s.title,
+    description: s.description,
+    h1: s.h1,
+    intro: s.intro,
+    alternates,
+    canonicalOverride: alternates,
+  });
+  ROUTES.push({
+    path: enPath,
+    outDir: enOutDir,
+    title: s.title,
+    description: s.description,
+    h1: s.h1,
+    intro: s.intro,
+    alternates,
+    canonicalOverride: alternates,
+  });
+}
+
+// Localized portfolio landings (/de/portfolio, /en/portfolio).
+{
+  const dePath = "/de/portfolio";
+  const enPath = "/en/portfolio";
+  const alternates = { de: dePath, en: enPath };
+  const portfolioMeta = {
+    title: {
+      de: "Portfolio – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse",
+      en: "Portfolio – JoyWanna | Visual Work, Live Shows & Press",
+    },
+    description: {
+      de: "Portfolio von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.",
+      en: "Portfolio of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.",
+    },
+    h1: {
+      de: "Portfolio von Jovana Kokor",
+      en: "Portfolio of Jovana Kokor",
+    },
+    intro: {
+      de: "Eine Auswahl visueller Arbeiten, Live-Auftritte und Pressestimmen rund um die Bühnenarbeit von Jovana Kokor.",
+      en: "A curated selection of visual work, live performances and press features documenting the stage work of Jovana Kokor.",
+    },
+  };
+  ROUTES.push({
+    path: dePath,
+    outDir: "de/portfolio",
+    ...portfolioMeta,
+    alternates,
+    canonicalOverride: alternates,
+  });
+  ROUTES.push({
+    path: enPath,
+    outDir: "en/portfolio",
+    ...portfolioMeta,
+    alternates,
+    canonicalOverride: alternates,
+  });
+}
 interface CategoryRoute {
   tab: "visual" | "shows" | "press";
   slug: { de: string; en: string };
