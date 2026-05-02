@@ -179,6 +179,19 @@ export function Header() {
                   </Link>
                 );
               }
+              if (item.kind === 'page') {
+                return (
+                  <Link
+                    key={item.section}
+                    to={href}
+                    className={desktopLinkClass(active)}
+                    aria-current={active ? 'page' : undefined}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
               return (
                 <a
                   key={item.section}
