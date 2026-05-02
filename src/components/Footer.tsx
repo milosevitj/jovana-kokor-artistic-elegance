@@ -46,6 +46,18 @@ export function Footer() {
           <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm">
             {sectionLinks.map((link) => {
               const href = buildSectionPath(link.section, language);
+              if (link.section === 'lessons') {
+                return (
+                  <li key={link.section}>
+                    <Link
+                      to={href}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              }
               return (
                 <li key={link.section}>
                   <a
