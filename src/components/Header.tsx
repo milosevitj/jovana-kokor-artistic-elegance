@@ -53,7 +53,7 @@ export function Header() {
   const navItems: NavItem[] = [
     { kind: 'section', section: 'home', label: t('nav.home') },
     { kind: 'section', section: 'about', label: t('nav.about') },
-    { kind: 'section', section: 'lessons', label: t('nav.lessons') },
+    { kind: 'page', section: 'lessons', label: t('nav.lessons') },
     { kind: 'portfolio', label: t('nav.gallery') },
     { kind: 'section', section: 'contact', label: t('nav.contact') },
   ];
@@ -61,6 +61,9 @@ export function Header() {
   const isActive = (item: NavItem): boolean => {
     if (item.kind === 'portfolio') {
       return parsed.kind === 'portfolio' || parsed.kind === 'portfolio-category';
+    }
+    if (item.kind === 'page') {
+      return parsed.kind === 'section' && parsed.section === item.section;
     }
     if (parsed.kind === 'section') return parsed.section === item.section;
     if (parsed.kind === 'home') {
@@ -70,10 +73,10 @@ export function Header() {
     return false;
   };
 
-  const hrefFor = (item: NavItem): string =>
-    item.kind === 'portfolio'
-      ? buildPortfolioPath(language)
-      : buildSectionPath(item.section, language);
+  const hrefFor = (item: NavItem): string => {
+    if (item.kind === 'portfolio') return buildPortfolioPath(language);
+    return buildSectionPath(item.section, language);
+  };
 
   const handleSectionClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
