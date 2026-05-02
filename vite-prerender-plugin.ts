@@ -23,12 +23,22 @@ import path from "node:path";
 type Lang = "de" | "en";
 
 interface RouteMeta {
-  path: string;            // e.g. "/portfolio"
-  outDir: string;          // e.g. "portfolio" (relative to dist root)
+  /** Pretty path used inside <link rel="canonical">. */
+  path: string;
+  /** Output directory under dist (e.g. "portfolio" → dist/portfolio/index.html). */
+  outDir: string;
   title: { de: string; en: string };
   description: { de: string; en: string };
   h1: { de: string; en: string };
   intro: { de: string; en: string };
+  /**
+   * For non-category routes, the same HTML shell serves both languages so
+   * canonical points at the DE URL. For category routes, each language has
+   * its own dedicated URL — overrides supplied below.
+   */
+  alternates?: { de: string; en: string };
+  /** When set, canonical = this URL (instead of the default DE path). */
+  canonicalOverride?: { de: string; en: string };
 }
 
 const SITE_ORIGIN = "https://jovana-kokor-stage-art.lovable.app";
@@ -116,6 +126,112 @@ const ROUTES: RouteMeta[] = [
   },
 ];
 
+/**
+ * Portfolio category sub-routes. Each tab gets two prerendered destinations
+ * (one per language) so crawlers see them as distinct, indexable pages with
+ * cross-linked hreflang alternates.
+ */
+interface CategoryRoute {
+  tab: "visual" | "shows" | "press";
+  slug: { de: string; en: string };
+  title: { de: string; en: string };
+  description: { de: string; en: string };
+  h1: { de: string; en: string };
+  intro: { de: string; en: string };
+}
+
+const CATEGORY_ROUTES: CategoryRoute[] = [
+  {
+    tab: "visual",
+    slug: { de: "visuelle-arbeit", en: "visual-work" },
+    title: {
+      de: "Visuelle Arbeiten – Portfolio | JoyWanna · Jovana Kokor",
+      en: "Visual Work – Portfolio | JoyWanna · Jovana Kokor",
+    },
+    description: {
+      de: "Visuelle Arbeiten von Jovana Kokor (JoyWanna): Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.",
+      en: "Visual work by Jovana Kokor (JoyWanna): stage moments, band photography and artist portraits from concerts across Germany and Europe.",
+    },
+    h1: {
+      de: "Visuelle Arbeiten – Bühnenmomente & Künstlerporträts",
+      en: "Visual Work – Stage Moments & Artist Portraits",
+    },
+    intro: {
+      de: "Eine Auswahl visueller Arbeiten von Jovana Kokor – Live-Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.",
+      en: "A selection of visual work by Jovana Kokor – live stage moments, band photography and artist portraits from concerts across Germany and Europe.",
+    },
+  },
+  {
+    tab: "shows",
+    slug: { de: "live-shows", en: "live-shows" },
+    title: {
+      de: "Live-Auftritte – Portfolio | JoyWanna · Jovana Kokor",
+      en: "Live Shows – Portfolio | JoyWanna · Jovana Kokor",
+    },
+    description: {
+      de: 'Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier. Konzertvideos & Highlights.',
+      en: 'Live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series. Concert videos & highlights.',
+    },
+    h1: {
+      de: "Live-Auftritte – Konzerte, Bands & Sessions",
+      en: "Live Shows – Concerts, Bands & Sessions",
+    },
+    intro: {
+      de: 'Ausgewählte Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.',
+      en: 'Selected live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.',
+    },
+  },
+  {
+    tab: "press",
+    slug: { de: "presse", en: "press" },
+    title: {
+      de: "Presse – Portfolio | JoyWanna · Jovana Kokor",
+      en: "Press – Portfolio | JoyWanna · Jovana Kokor",
+    },
+    description: {
+      de: "Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang in Deutschland und Europa.",
+      en: "Press features from newspapers and magazines about JoyWanna, her concerts and her musical journey across Germany and Europe.",
+    },
+    h1: {
+      de: "Presse – Zeitungs- & Magazinberichte",
+      en: "Press – Newspaper & Magazine Features",
+    },
+    intro: {
+      de: "Ausgewählte Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang.",
+      en: "Selected press features from newspapers and magazines covering JoyWanna, her concerts and her musical journey.",
+    },
+  },
+];
+
+// Expand each category into one RouteMeta per language with cross-linked
+// hreflang counterparts.
+for (const c of CATEGORY_ROUTES) {
+  const dePath = `/de/portfolio/${c.slug.de}`;
+  const enPath = `/en/portfolio/${c.slug.en}`;
+  const alternates = { de: dePath, en: enPath };
+
+  ROUTES.push({
+    path: dePath,
+    outDir: `de/portfolio/${c.slug.de}`,
+    title: c.title,
+    description: c.description,
+    h1: c.h1,
+    intro: c.intro,
+    alternates,
+    canonicalOverride: alternates,
+  });
+  ROUTES.push({
+    path: enPath,
+    outDir: `en/portfolio/${c.slug.en}`,
+    title: c.title,
+    description: c.description,
+    h1: c.h1,
+    intro: c.intro,
+    alternates,
+    canonicalOverride: alternates,
+  });
+}
+
 function escapeHtml(s: string): string {
   return s
     .replace(/&/g, "&amp;")
@@ -136,9 +252,17 @@ function rewriteHtml(template: string, route: RouteMeta, lang: Lang): string {
   const h1 = route.h1[lang];
   const intro = route.intro[lang];
 
-  const dePath = buildLangQuery(route.path, "de");
-  const enPath = buildLangQuery(route.path, "en");
-  const canonicalPath = lang === "en" ? enPath : dePath;
+  // Determine the DE/EN paths for canonical + hreflang. Category routes
+  // supply explicit `alternates` (locale-prefixed paths); other routes use
+  // the legacy ?lang=en pattern on a single shared path.
+  const dePath = route.alternates ? route.alternates.de : buildLangQuery(route.path, "de");
+  const enPath = route.alternates ? route.alternates.en : buildLangQuery(route.path, "en");
+
+  // Canonical: per-language for category routes (each lang is its own page);
+  // DE-only for plain routes (same shell serves both languages).
+  const canonicalPath = route.canonicalOverride
+    ? route.canonicalOverride[lang]
+    : dePath;
 
   const canonicalUrl = `${SITE_ORIGIN}${canonicalPath}`;
   const deUrl = `${SITE_ORIGIN}${dePath}`;
@@ -218,7 +342,11 @@ export function prerenderPlugin(): Plugin {
       const template = fs.readFileSync(indexPath, "utf8");
 
       for (const route of ROUTES) {
-        const html = rewriteHtml(template, route, "de");
+        // Locale-prefixed routes (e.g. /en/portfolio/press) must render in
+        // their own language; everything else uses DE as the static shell
+        // (React swaps copy at runtime when ?lang=en is set).
+        const lang: Lang = route.path.startsWith("/en/") ? "en" : "de";
+        const html = rewriteHtml(template, route, lang);
         const targetDir = route.outDir ? path.join(distDir, route.outDir) : distDir;
         fs.mkdirSync(targetDir, { recursive: true });
         fs.writeFileSync(path.join(targetDir, "index.html"), html, "utf8");

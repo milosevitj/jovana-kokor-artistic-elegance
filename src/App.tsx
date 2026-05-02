@@ -32,6 +32,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            {/* SEO-friendly category sub-routes (English slugs) */}
+            <Route path="/portfolio/:category" element={<Portfolio />} />
+            {/* Locale-prefixed canonical category URLs */}
+            <Route path="/en/portfolio/:category" element={<Portfolio />} />
+            <Route path="/de/portfolio/:category" element={<Portfolio />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
