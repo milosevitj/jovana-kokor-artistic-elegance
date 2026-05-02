@@ -28,7 +28,7 @@ export type SectionId = 'home' | 'about' | 'lessons' | 'contact';
 export const SECTION_SLUGS: Record<SectionId, Record<Lang, string>> = {
   home: { de: '', en: '' },
   about: { de: 'ueber-mich', en: 'about-me' },
-  lessons: { de: 'unterricht', en: 'lessons' },
+  lessons: { de: 'vocal-coaching', en: 'vocal-coaching' },
   contact: { de: 'kontakt', en: 'contact' },
 };
 
