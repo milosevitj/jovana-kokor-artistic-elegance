@@ -1,13 +1,26 @@
 /**
- * Shared mapping for portfolio category sub-routes.
+ * Shared mapping for portfolio (a.k.a. "Projekte" / "Projects") category sub-routes.
  *
- * Each tab has a localized slug (DE + EN). Crawlers see real, distinct URLs
- * (e.g. /en/portfolio/press, /de/portfolio/presse) so each category becomes
- * its own internal outlink and indexable destination.
+ * The landing segment is localized per language:
+ *   DE: /de/projekte/...
+ *   EN: /en/projects/...
+ *
+ * Each category tab also has a localized slug (DE + EN). Crawlers see real,
+ * distinct URLs (e.g. /en/projects/press, /de/projekte/presse) so each
+ * category becomes its own internal outlink and indexable destination.
  */
 
 export type PortfolioTab = 'visual' | 'shows' | 'press';
 export type Lang = 'de' | 'en';
+
+/** Localized base segment for the portfolio landing per language. */
+export const PORTFOLIO_BASE: Record<Lang, string> = {
+  de: 'projekte',
+  en: 'projects',
+};
+
+/** All recognised base segments (both languages + legacy "portfolio"). */
+export const PORTFOLIO_BASE_SEGMENTS: string[] = ['projekte', 'projects', 'portfolio'];
 
 export const PORTFOLIO_SLUGS: Record<PortfolioTab, Record<Lang, string>> = {
   visual: { de: 'visuelle-arbeiten', en: 'visual-work' },
@@ -30,11 +43,11 @@ export const SLUG_TO_TAB: Record<string, PortfolioTab> = (() => {
 
 /**
  * Build the canonical, locale-prefixed path for a given tab + language.
- *   buildCategoryPath('press', 'de') -> '/de/portfolio/presse'
- *   buildCategoryPath('press', 'en') -> '/en/portfolio/press'
+ *   buildCategoryPath('press', 'de') -> '/de/projekte/presse'
+ *   buildCategoryPath('press', 'en') -> '/en/projects/press'
  */
 export function buildCategoryPath(tab: PortfolioTab, lang: Lang): string {
-  return `/${lang}/portfolio/${PORTFOLIO_SLUGS[tab][lang]}`;
+  return `/${lang}/${PORTFOLIO_BASE[lang]}/${PORTFOLIO_SLUGS[tab][lang]}`;
 }
 
 /**
