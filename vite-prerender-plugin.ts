@@ -163,7 +163,7 @@ const CATEGORY_ROUTES: CategoryRoute[] = [
   },
   {
     tab: "shows",
-    slug: { de: "live-shows", en: "live-shows" },
+    slug: { de: "live-auftritte", en: "live-shows" },
     title: {
       de: "Live-Auftritte – Portfolio | JoyWanna · Jovana Kokor",
       en: "Live Shows – Portfolio | JoyWanna · Jovana Kokor",

@@ -31,13 +31,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/visuelle-arbeit" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/de/portfolio/live-shows</loc>
+    <loc>https://jovanakokor.de/de/portfolio/live-auftritte</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/live-shows" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/live-shows" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/live-shows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
   </url>
   <url>
     <loc>https://jovanakokor.de/de/portfolio/presse</loc>
@@ -64,9 +64,9 @@
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/live-shows" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/portfolio/live-shows" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/live-shows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/portfolio/live-auftritte" />
   </url>
   <url>
     <loc>https://jovanakokor.de/en/portfolio/press</loc>

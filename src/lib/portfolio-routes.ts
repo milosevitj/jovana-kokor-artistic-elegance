@@ -11,7 +11,7 @@ export type Lang = 'de' | 'en';
 
 export const PORTFOLIO_SLUGS: Record<PortfolioTab, Record<Lang, string>> = {
   visual: { de: 'visuelle-arbeit', en: 'visual-work' },
-  shows: { de: 'live-shows', en: 'live-shows' },
+  shows: { de: 'live-auftritte', en: 'live-shows' },
   press: { de: 'presse', en: 'press' },
 };
 
