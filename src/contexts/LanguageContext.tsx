@@ -14,7 +14,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.home': 'Start',
     'nav.gigs': 'Auftritte',
     'nav.about': 'Über mich',
-    'nav.gallery': 'Portfolio',
+    'nav.gallery': 'Projekte',
     'nav.contact': 'Kontakt',
     
     // Hero
@@ -90,7 +90,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.subject.other': 'Sonstiges',
     
     // Lessons
-    'nav.lessons': 'Unterricht',
+    'nav.lessons': 'Vocal Coaching',
     'lessons.title': 'Vocal Coaching',
     'lessons.subtitle': 'Individuelles Coaching für Stimme & Ausdruck',
     
@@ -141,7 +141,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.home': 'Home',
     'nav.gigs': 'Shows',
     'nav.about': 'About',
-    'nav.gallery': 'Portfolio',
+    'nav.gallery': 'Projects',
     'nav.contact': 'Contact',
     
     // Hero
@@ -217,7 +217,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.subject.other': 'Other',
     
     // Lessons
-    'nav.lessons': 'Lessons',
+    'nav.lessons': 'Vocal Coaching',
     'lessons.title': 'Vocal Coaching',
     'lessons.subtitle': 'Individual Coaching for Voice & Expression',
     

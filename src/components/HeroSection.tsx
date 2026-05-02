@@ -51,12 +51,9 @@ export function HeroSection() {
               {t('hero.tagline')}
             </p>
 
-            {/* CTAs */}
+            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="btn-hero">
-                {t('hero.cta')}
-              </a>
-              <a href="#about" className="btn-outline-hero">
+              <a href="#about" className="btn-hero">
                 {t('hero.cta.secondary')}
               </a>
             </div>
