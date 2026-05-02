@@ -295,10 +295,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // a user's explicit choice must always win.
   const getInitialLanguage = (): Language => {
     if (typeof window === 'undefined') return 'de';
+    // 1. URL path prefix (locale-prefixed routes are the strongest signal).
+    const path = window.location.pathname;
+    if (path.startsWith('/en/') || path === '/en') return 'en';
+    if (path.startsWith('/de/') || path === '/de') return 'de';
+    // 2. ?lang= query param (legacy deep links).
     const param = new URLSearchParams(window.location.search).get('lang');
     if (param === 'en' || param === 'de') return param;
+    // 3. Saved choice in localStorage (returning visitors).
     const stored = readStoredLanguage();
     if (stored) return stored;
+    // 4. Default 'de' (German is the primary language).
     return 'de';
   };
 
