@@ -181,6 +181,19 @@ export function Header() {
                   </Link>
                 );
               }
+              if (item.kind === 'inquire') {
+                return (
+                  <Link
+                    key="inquire"
+                    to={href}
+                    className={desktopLinkClass(active)}
+                    aria-current={active ? 'page' : undefined}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
               return (
                 <a
                   key={item.section}
@@ -251,6 +264,19 @@ export function Header() {
                   return (
                     <Link
                       key="portfolio"
+                      to={href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={mobileLinkClass(active)}
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                if (item.kind === 'inquire') {
+                  return (
+                    <Link
+                      key="inquire"
                       to={href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={mobileLinkClass(active)}
