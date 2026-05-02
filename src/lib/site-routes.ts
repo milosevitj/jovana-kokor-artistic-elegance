@@ -79,6 +79,7 @@ export type ParsedRoute =
   | { kind: 'section'; section: SectionId; lang: Lang }
   | { kind: 'portfolio'; lang: Lang | null }
   | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang | null }
+  | { kind: 'inquire'; lang: Lang }
   | { kind: 'other'; lang: Lang | null };
 
 const baseAlt = PORTFOLIO_BASE_SEGMENTS.join('|');
