@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import { ScrollToTop } from "./components/ScrollToTop";
@@ -38,18 +38,26 @@ const App = () => (
             <Route path="/en/" element={<Index />} />
             {/* Localized one-page sections — Index handles the scroll. */}
             <Route path="/de/ueber-mich" element={<Index />} />
-            <Route path="/de/unterricht" element={<Index />} />
+            <Route path="/de/vocal-coaching" element={<Index />} />
             <Route path="/de/kontakt" element={<Index />} />
             <Route path="/en/about-me" element={<Index />} />
-            <Route path="/en/lessons" element={<Index />} />
+            <Route path="/en/vocal-coaching" element={<Index />} />
             <Route path="/en/contact" element={<Index />} />
-            {/* Portfolio routes */}
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/portfolio/:category" element={<Portfolio />} />
-            <Route path="/en/portfolio" element={<Portfolio />} />
-            <Route path="/de/portfolio" element={<Portfolio />} />
-            <Route path="/en/portfolio/:category" element={<Portfolio />} />
+            {/* Legacy lessons slugs → redirect to new vocal-coaching path. */}
+            <Route path="/de/unterricht" element={<Navigate to="/de/vocal-coaching" replace />} />
+            <Route path="/en/lessons" element={<Navigate to="/en/vocal-coaching" replace />} />
+            {/* Portfolio routes (now "Projekte" / "Projects"). */}
+            <Route path="/de/projekte" element={<Portfolio />} />
+            <Route path="/en/projects" element={<Portfolio />} />
+            <Route path="/de/projekte/:category" element={<Portfolio />} />
+            <Route path="/en/projects/:category" element={<Portfolio />} />
+            {/* Legacy /portfolio paths → redirect to localized equivalent. */}
+            <Route path="/portfolio" element={<Navigate to="/de/projekte" replace />} />
+            <Route path="/portfolio/:category" element={<Navigate to="/de/projekte" replace />} />
+            <Route path="/de/portfolio" element={<Navigate to="/de/projekte" replace />} />
+            <Route path="/en/portfolio" element={<Navigate to="/en/projects" replace />} />
             <Route path="/de/portfolio/:category" element={<Portfolio />} />
+            <Route path="/en/portfolio/:category" element={<Portfolio />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

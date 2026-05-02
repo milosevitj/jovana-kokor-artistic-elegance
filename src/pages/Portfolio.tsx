@@ -597,9 +597,9 @@ function PortfolioContent() {
   // This makes the locale-prefixed URLs the canonical, language-correct
   // entry points that crawlers and direct visitors land on.
   useEffect(() => {
-    if (pathname.startsWith('/en/portfolio') && language !== 'en') {
+    if (pathname.startsWith('/en/') && language !== 'en') {
       setLanguage('en');
-    } else if (pathname.startsWith('/de/portfolio') && language !== 'de') {
+    } else if (pathname.startsWith('/de/') && language !== 'de') {
       setLanguage('de');
     }
   }, [pathname, language, setLanguage]);

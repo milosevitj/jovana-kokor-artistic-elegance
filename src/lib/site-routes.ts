@@ -9,6 +9,8 @@
  */
 
 import {
+  PORTFOLIO_BASE,
+  PORTFOLIO_BASE_SEGMENTS,
   PORTFOLIO_SLUGS,
   PORTFOLIO_TABS,
   buildCategoryPath,
@@ -28,7 +30,7 @@ export type SectionId = 'home' | 'about' | 'lessons' | 'contact';
 export const SECTION_SLUGS: Record<SectionId, Record<Lang, string>> = {
   home: { de: '', en: '' },
   about: { de: 'ueber-mich', en: 'about-me' },
-  lessons: { de: 'unterricht', en: 'lessons' },
+  lessons: { de: 'vocal-coaching', en: 'vocal-coaching' },
   contact: { de: 'kontakt', en: 'contact' },
 };
 
@@ -52,12 +54,13 @@ export function buildSectionPath(section: SectionId, lang: Lang): string {
 
 /** "portfolio" landing (no category) per language. */
 export function buildPortfolioPath(lang: Lang): string {
-  return `/${lang}/portfolio`;
+  return `/${lang}/${PORTFOLIO_BASE[lang]}`;
 }
 
 /**
  * Parse a pathname and return what it represents.
- * Handles: /, /portfolio, /portfolio/<slug>, and the locale-prefixed variants.
+ * Handles localized portfolio base ("projekte"/"projects") plus the legacy
+ * "/portfolio" segment so old links keep resolving.
  */
 export type ParsedRoute =
   | { kind: 'home'; lang: Lang | null }
@@ -66,11 +69,15 @@ export type ParsedRoute =
   | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang | null }
   | { kind: 'other'; lang: Lang | null };
 
+const baseAlt = PORTFOLIO_BASE_SEGMENTS.join('|');
+
 export function parseRoute(pathname: string): ParsedRoute {
   const clean = pathname.replace(/\/+$/, '') || '/';
 
-  // /<lang>/portfolio/<slug>
-  const localizedCategory = clean.match(/^\/(de|en)\/portfolio\/([^/]+)$/);
+  // /<lang>/<base>/<slug>
+  const localizedCategory = clean.match(
+    new RegExp(`^/(de|en)/(?:${baseAlt})/([^/]+)$`),
+  );
   if (localizedCategory) {
     const lang = localizedCategory[1] as Lang;
     const slug = localizedCategory[2];
@@ -80,8 +87,8 @@ export function parseRoute(pathname: string): ParsedRoute {
     if (tab) return { kind: 'portfolio-category', tab, lang };
   }
 
-  // /portfolio/<slug>
-  const bareCategory = clean.match(/^\/portfolio\/([^/]+)$/);
+  // /<base>/<slug> (no language prefix, legacy)
+  const bareCategory = clean.match(new RegExp(`^/(?:${baseAlt})/([^/]+)$`));
   if (bareCategory) {
     const slug = bareCategory[1];
     const tab = (Object.keys(PORTFOLIO_SLUGS) as PortfolioTab[]).find(
@@ -90,12 +97,14 @@ export function parseRoute(pathname: string): ParsedRoute {
     if (tab) return { kind: 'portfolio-category', tab, lang: null };
   }
 
-  // /<lang>/portfolio
-  const localizedPortfolio = clean.match(/^\/(de|en)\/portfolio$/);
+  // /<lang>/<base>
+  const localizedPortfolio = clean.match(new RegExp(`^/(de|en)/(?:${baseAlt})$`));
   if (localizedPortfolio) {
     return { kind: 'portfolio', lang: localizedPortfolio[1] as Lang };
   }
-  if (clean === '/portfolio') return { kind: 'portfolio', lang: null };
+  if (PORTFOLIO_BASE_SEGMENTS.some((b) => clean === `/${b}`)) {
+    return { kind: 'portfolio', lang: null };
+  }
 
   // /<lang>/<slug> or /<lang> or /<lang>/
   const localizedSection = clean.match(/^\/(de|en)(?:\/([^/]+))?$/);
@@ -105,6 +114,10 @@ export function parseRoute(pathname: string): ParsedRoute {
     if (!slug) return { kind: 'home', lang };
     const section = SLUG_TO_SECTION[slug];
     if (section) return { kind: 'section', section, lang };
+    // Legacy lessons slugs
+    if (slug === 'unterricht' || slug === 'lessons') {
+      return { kind: 'section', section: 'lessons', lang };
+    }
     return { kind: 'other', lang };
   }
 
