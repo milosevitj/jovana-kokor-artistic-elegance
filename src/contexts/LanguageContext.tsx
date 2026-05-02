@@ -103,6 +103,8 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.vocal.expression.desc': 'Es geht nicht nur um Technik, sondern um Ausdruck. Gemeinsam entdecken wir deine Stimme als kraftvollen Raum für Emotion und Persönlichkeit.',
     'lessons.vocal.allages': 'Alle Altersgruppen',
     'lessons.vocal.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meinen Unterricht an deinen Lernstil und deine Ziele an.',
+    'vocal.cta.title': 'Bereit, deine Reise zu beginnen?',
+    'vocal.cta.subtitle': 'Schreib mir – ich melde mich persönlich bei dir zurück.',
     
     // Piano section
     'lessons.piano.tagline': 'Maßgeschneiderter Unterricht für jedes Niveau',
@@ -231,6 +233,8 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.vocal.expression.desc': 'It\'s not just about technique – it\'s about expression. Together we discover your voice as a powerful space for emotion and personality.',
     'lessons.vocal.allages': 'All Age Groups',
     'lessons.vocal.allages.desc': 'Music knows no age limit. Whether 7 or 70 – I adapt my teaching to your learning style and goals.',
+    'vocal.cta.title': 'Ready to start your journey?',
+    'vocal.cta.subtitle': 'Send me a message – I\'ll personally get back to you.',
     
     'lessons.piano.tagline': 'Tailored Instruction for Every Level',
     'lessons.piano.title': 'Piano Lessons',

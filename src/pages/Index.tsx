@@ -11,7 +11,6 @@ import { parseRoute, type SectionId } from '@/lib/site-routes';
 // Lazy-load below-the-fold sections to reduce initial bundle size
 const GigsSection = lazy(() => import('@/components/GigsSection').then(m => ({ default: m.GigsSection })));
 const AboutSection = lazy(() => import('@/components/AboutSection').then(m => ({ default: m.AboutSection })));
-const LessonsSection = lazy(() => import('@/components/LessonsSection').then(m => ({ default: m.LessonsSection })));
 const PortfolioSection = lazy(() => import('@/components/PortfolioSection').then(m => ({ default: m.PortfolioSection })));
 const ContactSection = lazy(() => import('@/components/ContactSection').then(m => ({ default: m.ContactSection })));
 
@@ -77,7 +76,6 @@ const Index = () => {
           <Suspense fallback={<SectionFallback />}>
             <GigsSection />
             <AboutSection />
-            <LessonsSection />
             <PortfolioSection />
             <ContactSection />
           </Suspense>
