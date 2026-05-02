@@ -158,12 +158,14 @@ export function localizedCounterpart(pathname: string, target: Lang): string {
       return buildPortfolioPath(target);
     case 'portfolio-category':
       return buildCategoryPath(parsed.tab, target);
+    case 'inquire':
+      return buildInquirePath(target);
     default:
       return buildSectionPath('home', target);
   }
 }
 
-/** Locale-prefixed paths for every section + portfolio + portfolio category, both languages. */
+/** Locale-prefixed paths for every section + portfolio + portfolio category + inquire, both languages. */
 export function allLocalizedPaths(): { de: string; en: string }[] {
   const out: { de: string; en: string }[] = [];
   (Object.keys(SECTION_SLUGS) as SectionId[]).forEach((s) => {
@@ -176,5 +178,6 @@ export function allLocalizedPaths(): { de: string; en: string }[] {
       en: buildCategoryPath(entry.tab, 'en'),
     });
   });
+  out.push({ de: buildInquirePath('de'), en: buildInquirePath('en') });
   return out;
 }
