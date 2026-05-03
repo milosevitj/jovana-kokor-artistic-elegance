@@ -13,7 +13,6 @@ import {
   buildCategoryPath,
   type PortfolioTab,
 } from '@/lib/portfolio-routes';
-import { openExternalLink } from '@/lib/external-link';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 // Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
@@ -507,6 +506,7 @@ interface PortfolioItem {
   type: 'video' | 'image';
   // For videos: YouTube ID. For images: image src.
   source: string;
+  url?: string;
   category: Exclude<Category, 'all'>;
   title: { de: string; en: string };
   description: { de: string; en: string };
@@ -522,6 +522,7 @@ const items: PortfolioItem[] = [
     id: 'v-KlXXMuKU3wE',
     type: 'video',
     source: 'KlXXMuKU3wE',
+    url: 'https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1',
     category: 'live',
     title: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
     description: {
@@ -534,6 +535,7 @@ const items: PortfolioItem[] = [
     id: 'v-HG521HIhxZ4',
     type: 'video',
     source: 'HG521HIhxZ4',
+    url: 'https://www.youtube.com/watch?v=HG521HIhxZ4',
     category: 'live',
     title: { de: 'Live Highlight I', en: 'Live Highlight I' },
     description: {
@@ -546,6 +548,7 @@ const items: PortfolioItem[] = [
     id: 'v-snQoawnhl3Y',
     type: 'video',
     source: 'snQoawnhl3Y',
+    url: 'https://youtu.be/snQoawnhl3Y?si=Hu5SCBuDc7yEr0Nc',
     category: 'band',
     title: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
     description: {
@@ -558,6 +561,7 @@ const items: PortfolioItem[] = [
     id: 'v-iDhF5EpRBhw',
     type: 'video',
     source: 'iDhF5EpRBhw',
+    url: 'https://www.youtube.com/watch?v=iDhF5EpRBhw',
     category: 'reimagined',
     title: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
     description: {
@@ -725,15 +729,9 @@ function PortfolioContent() {
                   return (
                     <a
                       key={item.id}
-                      href={`https://www.youtube.com/watch?v=${item.source}`}
+                      href={item.url ?? `https://www.youtube.com/watch?v=${item.source}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) =>
-                        openExternalLink(
-                          e,
-                          `https://www.youtube.com/watch?v=${item.source}`,
-                        )
-                      }
                       title={hoverTitle}
                       aria-label={hoverTitle}
                       className="w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
@@ -839,31 +837,19 @@ function PortfolioContent() {
                 {language === 'de' ? openItem.description.de : openItem.description.en}
               </DialogDescription>
 
-              {openItem.type === 'video' ? (
-                <div className="relative aspect-video w-full bg-background">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${openItem.source}?autoplay=1`}
-                    title={language === 'de' ? openItem.title.de : openItem.title.en}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full border-0"
-                  />
-                </div>
-              ) : (
-                <img
-                  src={openItem.source}
-                  alt={
-                    openItem.alt
-                      ? language === 'de'
-                        ? openItem.alt.de
-                        : openItem.alt.en
-                      : ''
-                  }
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto max-h-[70vh] object-contain bg-background"
-                />
-              )}
+              <img
+                src={openItem.source}
+                alt={
+                  openItem.alt
+                    ? language === 'de'
+                      ? openItem.alt.de
+                      : openItem.alt.en
+                    : ''
+                }
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto max-h-[70vh] object-contain bg-background"
+              />
 
               <div className="p-6 md:p-8">
                 <h3 className="font-serif text-2xl md:text-3xl mb-2">
