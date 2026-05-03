@@ -60,6 +60,9 @@ export function PortfolioSection() {
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) =>
+                openExternalLink(e, `https://www.youtube.com/watch?v=${video.id}`)
+              }
               title={video.youtubeTitle}
               className="group relative aspect-video overflow-hidden rounded-sm bg-background block"
               aria-label={video.youtubeTitle}
