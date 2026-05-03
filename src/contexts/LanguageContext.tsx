@@ -26,7 +26,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Gigs
     'gigs.title': 'Kommende Auftritte',
-    'gigs.subtitle': 'Erleben Sie Jovana live auf der Bühne',
+    'gigs.subtitle': 'Erleben Sie JoyWanna live auf der Bühne',
     'gigs.empty': 'Neue Termine werden bald bekannt gegeben',
     'gigs.tickets': 'Tickets',
     'gigs.details': 'Details',
@@ -157,7 +157,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Gigs
     'gigs.title': 'Upcoming Shows',
-    'gigs.subtitle': 'Experience Jovana live on stage',
+    'gigs.subtitle': 'Experience JoyWanna live on stage',
     'gigs.empty': 'New dates will be announced soon',
     'gigs.tickets': 'Tickets',
     'gigs.details': 'Details',
