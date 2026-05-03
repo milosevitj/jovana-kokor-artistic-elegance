@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Play, ArrowRight } from 'lucide-react';
-import { openExternalLink } from '@/lib/external-link';
 
 interface VideoItem {
   id: string;
+  url: string;
   caption: { de: string; en: string };
   youtubeTitle: string;
 }
@@ -15,21 +15,25 @@ export function PortfolioSection() {
   const videos: VideoItem[] = [
     {
       id: 'KlXXMuKU3wE',
+      url: 'https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1',
       caption: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
       youtubeTitle: 'JoyWanna - Just Breathe (Live, Voice & Piano)',
     },
     {
       id: 'HG521HIhxZ4',
+      url: 'https://www.youtube.com/watch?v=HG521HIhxZ4',
       caption: { de: 'Live Highlight I', en: 'Live Highlight I' },
       youtubeTitle: 'JoyWanna - Live Highlight I',
     },
     {
       id: 'snQoawnhl3Y',
+      url: 'https://youtu.be/snQoawnhl3Y?si=Hu5SCBuDc7yEr0Nc',
       caption: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
       youtubeTitle: 'JoyWanna & The Spicy Jam - Live',
     },
     {
       id: 'iDhF5EpRBhw',
+      url: 'https://www.youtube.com/watch?v=iDhF5EpRBhw',
       caption: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
       youtubeTitle: 'JoyWanna - Reimagined Session',
     },
@@ -57,12 +61,9 @@ export function PortfolioSection() {
           {videos.map((video) => (
             <a
               key={video.id}
-              href={`https://www.youtube.com/watch?v=${video.id}`}
+              href={video.url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) =>
-                openExternalLink(e, `https://www.youtube.com/watch?v=${video.id}`)
-              }
               title={video.youtubeTitle}
               className="group relative aspect-video overflow-hidden rounded-sm bg-background block"
               aria-label={video.youtubeTitle}
