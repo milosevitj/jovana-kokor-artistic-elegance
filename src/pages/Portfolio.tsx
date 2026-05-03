@@ -13,7 +13,6 @@ import {
   buildCategoryPath,
   type PortfolioTab,
 } from '@/lib/portfolio-routes';
-import { openExternalLink } from '@/lib/external-link';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 // Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
@@ -507,6 +506,7 @@ interface PortfolioItem {
   type: 'video' | 'image';
   // For videos: YouTube ID. For images: image src.
   source: string;
+  url?: string;
   category: Exclude<Category, 'all'>;
   title: { de: string; en: string };
   description: { de: string; en: string };
@@ -522,6 +522,7 @@ const items: PortfolioItem[] = [
     id: 'v-KlXXMuKU3wE',
     type: 'video',
     source: 'KlXXMuKU3wE',
+    url: 'https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1',
     category: 'live',
     title: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
     description: {
@@ -534,6 +535,7 @@ const items: PortfolioItem[] = [
     id: 'v-HG521HIhxZ4',
     type: 'video',
     source: 'HG521HIhxZ4',
+    url: 'https://www.youtube.com/watch?v=HG521HIhxZ4',
     category: 'live',
     title: { de: 'Live Highlight I', en: 'Live Highlight I' },
     description: {
@@ -546,6 +548,7 @@ const items: PortfolioItem[] = [
     id: 'v-snQoawnhl3Y',
     type: 'video',
     source: 'snQoawnhl3Y',
+    url: 'https://youtu.be/snQoawnhl3Y?si=Hu5SCBuDc7yEr0Nc',
     category: 'band',
     title: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
     description: {
@@ -558,6 +561,7 @@ const items: PortfolioItem[] = [
     id: 'v-iDhF5EpRBhw',
     type: 'video',
     source: 'iDhF5EpRBhw',
+    url: 'https://www.youtube.com/watch?v=iDhF5EpRBhw',
     category: 'reimagined',
     title: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
     description: {
