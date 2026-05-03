@@ -75,8 +75,8 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.footerCta.subtitle': 'Lassen Sie uns gemeinsam einen unvergesslichen Abend gestalten.',
     
     // Contact
-    'contact.title': 'Booking & Kontakt',
-    'contact.subtitle': 'Für Anfragen zu Konzerten, Firmenevents, Hochzeiten oder Privatunterricht',
+    'contact.title': 'Kontakt & Anfragen',
+    'contact.subtitle': 'Für Konzertanfragen, Events, Vocal Coaching und kreative Projekte.',
     'contact.name': 'Name',
     'contact.email': 'E-Mail',
     'contact.subject': 'Betreff',
@@ -206,8 +206,8 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.footerCta.subtitle': 'Let\'s create an unforgettable evening together.',
     
     // Contact
-    'contact.title': 'Booking & Contact',
-    'contact.subtitle': 'For inquiries about concerts, corporate events, weddings, or private lessons',
+    'contact.title': 'Contact & Inquiries',
+    'contact.subtitle': 'For concert bookings, events, vocal coaching and creative projects.',
     'contact.name': 'Name',
     'contact.email': 'Email',
     'contact.subject': 'Subject',
