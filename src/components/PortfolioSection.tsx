@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Play, ArrowRight } from 'lucide-react';
+import { openExternalLink } from '@/lib/external-link';
 
 interface VideoItem {
   id: string;
