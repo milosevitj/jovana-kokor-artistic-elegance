@@ -6,6 +6,7 @@ import portrait800 from '@/assets/jovana-portrait-800.webp';
 import portrait1200 from '@/assets/jovana-portrait-1200.webp';
 import portrait1600 from '@/assets/jovana-portrait-1600.webp';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
+import { openExternalLink } from '@/lib/external-link';
 
 
 export function AboutSection() {
