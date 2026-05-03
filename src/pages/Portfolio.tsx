@@ -837,31 +837,19 @@ function PortfolioContent() {
                 {language === 'de' ? openItem.description.de : openItem.description.en}
               </DialogDescription>
 
-              {openItem.type === 'video' ? (
-                <div className="relative aspect-video w-full bg-background">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${openItem.source}?autoplay=1`}
-                    title={language === 'de' ? openItem.title.de : openItem.title.en}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full border-0"
-                  />
-                </div>
-              ) : (
-                <img
-                  src={openItem.source}
-                  alt={
-                    openItem.alt
-                      ? language === 'de'
-                        ? openItem.alt.de
-                        : openItem.alt.en
-                      : ''
-                  }
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto max-h-[70vh] object-contain bg-background"
-                />
-              )}
+              <img
+                src={openItem.source}
+                alt={
+                  openItem.alt
+                    ? language === 'de'
+                      ? openItem.alt.de
+                      : openItem.alt.en
+                    : ''
+                }
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto max-h-[70vh] object-contain bg-background"
+              />
 
               <div className="p-6 md:p-8">
                 <h3 className="font-serif text-2xl md:text-3xl mb-2">
