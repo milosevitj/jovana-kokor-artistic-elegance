@@ -735,6 +735,7 @@ function PortfolioContent() {
                       title={hoverTitle}
                       aria-label={hoverTitle}
                       className="relative z-10 w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
+                      onClick={(event) => event.stopPropagation()}
                     >
                       <div className="group relative">
                         <img

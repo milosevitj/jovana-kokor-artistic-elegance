@@ -72,6 +72,7 @@ export function AboutSection() {
                     target="_blank"
                     rel="noopener noreferrer external"
                     className="text-foreground font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                    onClick={(event) => event.stopPropagation()}
                   >
                     {t('about.p5.link')}
                   </a>

@@ -67,6 +67,7 @@ export function PortfolioSection() {
               title={video.youtubeTitle}
               className="group relative z-10 aspect-video overflow-hidden rounded-sm bg-background block"
               aria-label={video.youtubeTitle}
+              onClick={(event) => event.stopPropagation()}
             >
               <img
                 src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
