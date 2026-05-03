@@ -13,6 +13,7 @@ import {
   buildCategoryPath,
   type PortfolioTab,
 } from '@/lib/portfolio-routes';
+import { openExternalLink } from '@/lib/external-link';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 // Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
