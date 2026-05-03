@@ -6,6 +6,7 @@ import portrait800 from '@/assets/jovana-portrait-800.webp';
 import portrait1200 from '@/assets/jovana-portrait-1200.webp';
 import portrait1600 from '@/assets/jovana-portrait-1600.webp';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
+import { openExternalLink } from '@/lib/external-link';
 
 
 export function AboutSection() {
@@ -71,6 +72,12 @@ export function AboutSection() {
                     href="https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) =>
+                      openExternalLink(
+                        e,
+                        'https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1',
+                      )
+                    }
                     className="text-foreground font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                   >
                     {t('about.p5.link')}

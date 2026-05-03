@@ -13,6 +13,7 @@ import {
   buildCategoryPath,
   type PortfolioTab,
 } from '@/lib/portfolio-routes';
+import { openExternalLink } from '@/lib/external-link';
 import heroImage from '@/assets/jovana-hero.jpeg';
 import portraitImage from '@/assets/jovana-portrait.jpeg';
 // Portfolio photo gallery (WebP optimized) – sourced from images-joywanna
@@ -727,6 +728,12 @@ function PortfolioContent() {
                       href={`https://www.youtube.com/watch?v=${item.source}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) =>
+                        openExternalLink(
+                          e,
+                          `https://www.youtube.com/watch?v=${item.source}`,
+                        )
+                      }
                       title={hoverTitle}
                       aria-label={hoverTitle}
                       className="w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
