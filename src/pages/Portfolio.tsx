@@ -729,15 +729,9 @@ function PortfolioContent() {
                   return (
                     <a
                       key={item.id}
-                      href={`https://www.youtube.com/watch?v=${item.source}`}
+                      href={item.url ?? `https://www.youtube.com/watch?v=${item.source}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) =>
-                        openExternalLink(
-                          e,
-                          `https://www.youtube.com/watch?v=${item.source}`,
-                        )
-                      }
                       title={hoverTitle}
                       aria-label={hoverTitle}
                       className="w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
