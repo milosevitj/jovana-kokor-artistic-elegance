@@ -63,9 +63,9 @@ export function PortfolioSection() {
               key={video.id}
               href={video.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer external"
               title={video.youtubeTitle}
-              className="group relative aspect-video overflow-hidden rounded-sm bg-background block"
+              className="group relative z-10 aspect-video overflow-hidden rounded-sm bg-background block"
               aria-label={video.youtubeTitle}
             >
               <img
@@ -86,8 +86,8 @@ export function PortfolioSection() {
               </div>
 
               {/* Hover overlay with caption */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
                 <p className="font-serif text-lg text-foreground">
                   {video.youtubeTitle}
                 </p>

@@ -70,7 +70,7 @@ export function AboutSection() {
                   <a
                     href="https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer external"
                     className="text-foreground font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                   >
                     {t('about.p5.link')}

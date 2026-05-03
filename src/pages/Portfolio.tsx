@@ -731,10 +731,10 @@ function PortfolioContent() {
                       key={item.id}
                       href={item.url ?? `https://www.youtube.com/watch?v=${item.source}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer external"
                       title={hoverTitle}
                       aria-label={hoverTitle}
-                      className="w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
+                      className="relative z-10 w-full mb-4 break-inside-avoid bg-card block rounded-sm overflow-hidden"
                     >
                       <div className="group relative">
                         <img
