@@ -548,7 +548,7 @@ const items: PortfolioItem[] = [
     id: 'v-snQoawnhl3Y',
     type: 'video',
     source: 'snQoawnhl3Y',
-    url: 'https://youtu.be/snQoawnhl3Y?si=Hu5SCBuDc7yEr0Nc',
+    url: 'https://www.youtube.com/watch?v=snQoawnhl3Y',
     category: 'band',
     title: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
     description: {
