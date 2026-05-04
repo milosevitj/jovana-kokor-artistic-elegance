@@ -570,17 +570,22 @@ const items: PortfolioItem[] = [
     },
     youtubeTitle: 'JoyWanna - Reimagined Session',
   },
-  ...galleryPhotos.map((p) => ({
-    id: `gallery-${p.num}`,
-    type: 'image' as const,
-    source: p.src,
-    category: 'live' as const,
-    title: p.title,
-    description: p.description,
-    alt: p.alt,
-    width: photoDimensions[p.num]?.w,
-    height: photoDimensions[p.num]?.h,
-  })),
+  ...galleryPhotos.map((p) => {
+    // Photoshoot vs stage-moment classification (for the gallery filter tabs)
+    const photoshootNums = new Set([2, 3, 10, 12, 13, 15, 41]);
+    const isPhotoshoot = photoshootNums.has(p.num);
+    return {
+      id: `gallery-${p.num}`,
+      type: 'image' as const,
+      source: p.src,
+      category: (isPhotoshoot ? 'band' : 'live') as 'band' | 'live',
+      title: p.title,
+      description: p.description,
+      alt: p.alt,
+      width: photoDimensions[p.num]?.w,
+      height: photoDimensions[p.num]?.h,
+    };
+  }),
   // Press clippings (Presse) – newspaper & magazine features.
   ...pressClippings.map((p) => ({
     id: `press-${p.num}`,
@@ -616,10 +621,12 @@ function PortfolioContent() {
   }, [pathname, language, setLanguage]);
 
   const filtered = useMemo(() => {
-    if (tab === 'shows') return items.filter((i) => i.type === 'video');
+    // 'visual' tab → Fotoshooting (studio/portrait shots, mapped to category 'band')
+    // 'shows'  tab → Bühnenmomente (live stage photos, mapped to category 'live')
+    // 'press'  tab → Presse (newspaper & magazine clippings)
+    if (tab === 'shows') return items.filter((i) => i.type === 'image' && i.category === 'live');
     if (tab === 'press') return items.filter((i) => i.category === 'press');
-    // 'visual' – images that are NOT press clippings
-    return items.filter((i) => i.type === 'image' && i.category !== 'press');
+    return items.filter((i) => i.type === 'image' && i.category === 'band');
   }, [tab]);
 
   return (
@@ -695,12 +702,12 @@ function PortfolioContent() {
               <h2 className="font-serif text-2xl md:text-3xl text-foreground">
                 {tab === 'visual' &&
                   (language === 'de'
-                    ? 'Visuelle Arbeiten – Bühnenmomente & Künstlerporträts'
-                    : 'Visual Work – Stage Moments & Artist Portraits')}
+                    ? 'Fotoshooting – Künstlerporträts & Bandfotografie'
+                    : 'Photoshoot – Artist Portraits & Band Photography')}
                 {tab === 'shows' &&
                   (language === 'de'
-                    ? 'Live-Auftritte – Konzerte, Bands & Sessions'
-                    : 'Live Shows – Concerts, Bands & Sessions')}
+                    ? 'Bühnenmomente – Konzerte, Bands & Sessions'
+                    : 'Stage Moments – Concerts, Bands & Sessions')}
                 {tab === 'press' &&
                   (language === 'de'
                     ? 'Presse – Zeitungs- & Magazinberichte'
@@ -709,12 +716,12 @@ function PortfolioContent() {
               <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
                 {tab === 'visual' &&
                   (language === 'de'
-                    ? 'Eine Auswahl visueller Arbeiten von Jovana Kokor – Live-Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.'
-                    : 'A selection of visual work by Jovana Kokor – live stage moments, band photography and artist portraits from concerts across Germany and Europe.')}
+                    ? 'Eine Auswahl an Fotoshooting-Aufnahmen von JoyWanna – Künstlerporträts und Bandfotografie aus Studio und Bühne.'
+                    : "A selection of photoshoot images of JoyWanna – artist portraits and band photography from studio and stage.")}
                 {tab === 'shows' &&
                   (language === 'de'
-                    ? 'Ausgewählte Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.'
-                    : 'Selected live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.')}
+                    ? 'Ausgewählte Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.'
+                    : 'Selected stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.')}
                 {tab === 'press' &&
                   (language === 'de'
                     ? 'Ausgewählte Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang.'

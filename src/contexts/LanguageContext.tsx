@@ -51,7 +51,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.p6': 'Ob auf der Bühne oder im kleinen Rahmen – mir geht es immer darum, echte Momente zu schaffen: ehrlich, lebendig – und spürbar.',
     'about.img.alt': 'Jovana Kokor – Sängerin und Pianistin, Porträtfoto',
     'about.stat.years': 'Jahre Erfahrung',
-    'about.stat.shows': 'Shows',
+    'about.stat.shows': 'Bühnenmomente',
     'about.stat.passion': 'Leidenschaft',
     
     // Portfolio (teaser on landing page)
@@ -65,7 +65,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.back': 'Zurück zur Startseite',
     'portfolio.page.eyebrow': 'Portfolio',
     'portfolio.page.title': 'Stimme. Klang. Gefühl.',
-    'portfolio.page.subtitle': 'Entdecke die vielfältigen musikalischen Landschaften von JoyWanna – eine Reise durch Jazz, NeoSoul und lateinamerikanische Rhythmen auf Bühnen rund um die Welt. Von sechs Jahren internationaler Tourneen bis hin zu intimen „Reimagined"-Sessions – erlebe die kreative Spannung und die ehrlichen Momente, die meinen Sound prägen.',
+    'portfolio.page.subtitle': 'Entdecke die vielfältige musikalische Reise von JoyWanna – von internationalen Bühnen und sechs Jahren Tournee bis hin zu Solo-Performances, Jazzprojekten und intimen „Reimagined"-Sessions.',
     'portfolio.filter.all': 'Alle',
     'portfolio.filter.live': 'Live Shows',
     'portfolio.filter.band': 'The Spicy Jam',
@@ -182,7 +182,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.p6': 'Whether on stage or in an intimate setting – it is always about creating real moments: honest, alive – and felt.',
     'about.img.alt': 'Jovana Kokor – singer and pianist, portrait photo',
     'about.stat.years': 'Years of Experience',
-    'about.stat.shows': 'Shows',
+    'about.stat.shows': 'Stage Moments',
     'about.stat.passion': 'Passion',
     
     // Portfolio (teaser on landing page)
@@ -196,7 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.back': 'Back to Home',
     'portfolio.page.eyebrow': 'Portfolio',
     'portfolio.page.title': 'Voice. Sound. Emotion.',
-    'portfolio.page.subtitle': "Explore the diverse musical landscapes of JoyWanna—a journey spanning Jazz, NeoSoul, and Latin rhythms across global stages. From six years of international tours to intimate 'Reimagined' sessions, experience the creative tension and honest moments that define my sound.",
+    'portfolio.page.subtitle': "Explore JoyWanna's diverse musical journey – from international stages and six years of touring to solo performances, jazz projects, and intimate 'Reimagined' sessions.",
     'portfolio.filter.all': 'All',
     'portfolio.filter.live': 'Live Shows',
     'portfolio.filter.band': 'The Spicy Jam',
