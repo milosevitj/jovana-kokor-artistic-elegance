@@ -281,42 +281,42 @@ interface CategoryRoute {
 const CATEGORY_ROUTES: CategoryRoute[] = [
   {
     tab: "visual",
-    slug: { de: "visuelle-arbeiten", en: "visual-work" },
+    slug: { de: "fotoshooting", en: "photoshoot" },
     title: {
-      de: "Visuelle Arbeiten – Portfolio | JoyWanna · Jovana Kokor",
-      en: "Visual Work – Portfolio | JoyWanna · Jovana Kokor",
+      de: "Fotoshooting – Portfolio | JoyWanna · Jovana Kokor",
+      en: "Photoshoot – Portfolio | JoyWanna · Jovana Kokor",
     },
     description: {
-      de: "Visuelle Arbeiten von Jovana Kokor (JoyWanna): Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.",
-      en: "Visual work by Jovana Kokor (JoyWanna): stage moments, band photography and artist portraits from concerts across Germany and Europe.",
+      de: "Fotoshooting-Aufnahmen von Jovana Kokor (JoyWanna): Künstlerporträts und Bandfotografie aus Studio und Bühne.",
+      en: "Photoshoot images of Jovana Kokor (JoyWanna): artist portraits and band photography from studio and stage.",
     },
     h1: {
-      de: "Visuelle Arbeiten – Bühnenmomente & Künstlerporträts",
-      en: "Visual Work – Stage Moments & Artist Portraits",
+      de: "Fotoshooting – Künstlerporträts & Bandfotografie",
+      en: "Photoshoot – Artist Portraits & Band Photography",
     },
     intro: {
-      de: "Eine Auswahl visueller Arbeiten von Jovana Kokor – Live-Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.",
-      en: "A selection of visual work by Jovana Kokor – live stage moments, band photography and artist portraits from concerts across Germany and Europe.",
+      de: "Eine Auswahl an Fotoshooting-Aufnahmen von JoyWanna – Künstlerporträts und Bandfotografie aus Studio und Bühne.",
+      en: "A selection of photoshoot images of JoyWanna – artist portraits and band photography from studio and stage.",
     },
   },
   {
     tab: "shows",
-    slug: { de: "live-auftritte", en: "live-shows" },
+    slug: { de: "buehnenmomente", en: "stage-moments" },
     title: {
-      de: "Live-Auftritte – Portfolio | JoyWanna · Jovana Kokor",
-      en: "Live Shows – Portfolio | JoyWanna · Jovana Kokor",
+      de: "Bühnenmomente – Portfolio | JoyWanna · Jovana Kokor",
+      en: "Stage Moments – Portfolio | JoyWanna · Jovana Kokor",
     },
     description: {
-      de: 'Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier. Konzertvideos & Highlights.',
-      en: 'Live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series. Concert videos & highlights.',
+      de: 'Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier. Live-Fotos & Highlights.',
+      en: 'Stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series. Live photos & highlights.',
     },
     h1: {
-      de: "Live-Auftritte – Konzerte, Bands & Sessions",
-      en: "Live Shows – Concerts, Bands & Sessions",
+      de: "Bühnenmomente – Konzerte, Bands & Sessions",
+      en: "Stage Moments – Concerts, Bands & Sessions",
     },
     intro: {
-      de: 'Ausgewählte Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.',
-      en: 'Selected live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.',
+      de: 'Ausgewählte Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.',
+      en: 'Selected stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.',
     },
   },
   {
