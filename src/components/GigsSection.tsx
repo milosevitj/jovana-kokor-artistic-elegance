@@ -41,7 +41,7 @@ const upcomingGigs: Gig[] = [
     city: '97828 Marktheidenfeld',
     titleDe: 'Just Voice & Piano mit Esther Filly',
     titleEn: 'Just Voice & Piano with Esther Filly',
-    ticketUrl: 'https://www.eventim.de',
+    ticketUrl: 'https://www.eventim-light.com/de/a/5c73ef5bd2c0670001e0d190/e/6936b7866fe9085f50247cf7',
   },
   {
     id: 'some-sing-special',
