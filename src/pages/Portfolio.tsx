@@ -695,12 +695,12 @@ function PortfolioContent() {
               <h2 className="font-serif text-2xl md:text-3xl text-foreground">
                 {tab === 'visual' &&
                   (language === 'de'
-                    ? 'Visuelle Arbeiten – Bühnenmomente & Künstlerporträts'
-                    : 'Visual Work – Stage Moments & Artist Portraits')}
+                    ? 'Fotoshooting – Künstlerporträts & Bandfotografie'
+                    : 'Photoshoot – Artist Portraits & Band Photography')}
                 {tab === 'shows' &&
                   (language === 'de'
-                    ? 'Live-Auftritte – Konzerte, Bands & Sessions'
-                    : 'Live Shows – Concerts, Bands & Sessions')}
+                    ? 'Bühnenmomente – Konzerte, Bands & Sessions'
+                    : 'Stage Moments – Concerts, Bands & Sessions')}
                 {tab === 'press' &&
                   (language === 'de'
                     ? 'Presse – Zeitungs- & Magazinberichte'
@@ -709,12 +709,12 @@ function PortfolioContent() {
               <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
                 {tab === 'visual' &&
                   (language === 'de'
-                    ? 'Eine Auswahl visueller Arbeiten von Jovana Kokor – Live-Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.'
-                    : 'A selection of visual work by Jovana Kokor – live stage moments, band photography and artist portraits from concerts across Germany and Europe.')}
+                    ? 'Eine Auswahl an Fotoshooting-Aufnahmen von JoyWanna – Künstlerporträts und Bandfotografie aus Studio und Bühne.'
+                    : "A selection of photoshoot images of JoyWanna – artist portraits and band photography from studio and stage.")}
                 {tab === 'shows' &&
                   (language === 'de'
-                    ? 'Ausgewählte Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.'
-                    : 'Selected live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.')}
+                    ? 'Ausgewählte Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.'
+                    : 'Selected stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.')}
                 {tab === 'press' &&
                   (language === 'de'
                     ? 'Ausgewählte Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang.'
