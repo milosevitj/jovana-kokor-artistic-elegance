@@ -112,22 +112,22 @@
 
   <!-- Project category pages (DE) -->
   <url>
-    <loc>https://jovanakokor.de/de/projekte/visuelle-arbeiten</loc>
+    <loc>https://jovanakokor.de/de/projekte/fotoshooting</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/visual-work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/fotoshooting" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/photoshoot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/fotoshooting" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/de/projekte/live-auftritte</loc>
+    <loc>https://jovanakokor.de/de/projekte/buehnenmomente</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/live-auftritte" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/live-shows" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/live-auftritte" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/buehnenmomente" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/stage-moments" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/buehnenmomente" />
   </url>
   <url>
     <loc>https://jovanakokor.de/de/projekte/presse</loc>
@@ -141,22 +141,22 @@
 
   <!-- Project category pages (EN) -->
   <url>
-    <loc>https://jovanakokor.de/en/projects/visual-work</loc>
+    <loc>https://jovanakokor.de/en/projects/photoshoot</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/visual-work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/visuelle-arbeiten" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/fotoshooting" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/photoshoot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/fotoshooting" />
   </url>
   <url>
-    <loc>https://jovanakokor.de/en/projects/live-shows</loc>
+    <loc>https://jovanakokor.de/en/projects/stage-moments</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/live-auftritte" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/live-shows" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/live-auftritte" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/projekte/buehnenmomente" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/projects/stage-moments" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/buehnenmomente" />
   </url>
   <url>
     <loc>https://jovanakokor.de/en/projects/press</loc>

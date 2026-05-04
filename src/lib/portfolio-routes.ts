@@ -23,17 +23,28 @@ export const PORTFOLIO_BASE: Record<Lang, string> = {
 export const PORTFOLIO_BASE_SEGMENTS: string[] = ['projekte', 'projects', 'portfolio'];
 
 export const PORTFOLIO_SLUGS: Record<PortfolioTab, Record<Lang, string>> = {
-  visual: { de: 'visuelle-arbeiten', en: 'visual-work' },
-  shows: { de: 'live-auftritte', en: 'live-shows' },
+  visual: { de: 'fotoshooting', en: 'photoshoot' },
+  shows: { de: 'buehnenmomente', en: 'stage-moments' },
   press: { de: 'presse', en: 'press' },
 };
 
 /**
- * All recognised slugs (in either language) → canonical tab.
+ * Legacy slugs (previous category URL segments) → canonical tab.
+ * Kept so old links and previously indexed URLs keep resolving.
+ */
+const LEGACY_SLUGS: Record<string, PortfolioTab> = {
+  'visuelle-arbeiten': 'visual',
+  'visual-work': 'visual',
+  'live-auftritte': 'shows',
+  'live-shows': 'shows',
+};
+
+/**
+ * All recognised slugs (current + legacy, in either language) → canonical tab.
  * Used by the Portfolio page to read the current category from the URL.
  */
 export const SLUG_TO_TAB: Record<string, PortfolioTab> = (() => {
-  const out: Record<string, PortfolioTab> = {};
+  const out: Record<string, PortfolioTab> = { ...LEGACY_SLUGS };
   (Object.keys(PORTFOLIO_SLUGS) as PortfolioTab[]).forEach((tab) => {
     out[PORTFOLIO_SLUGS[tab].de] = tab;
     out[PORTFOLIO_SLUGS[tab].en] = tab;
