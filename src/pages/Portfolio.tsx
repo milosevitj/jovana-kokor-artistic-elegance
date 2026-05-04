@@ -570,17 +570,22 @@ const items: PortfolioItem[] = [
     },
     youtubeTitle: 'JoyWanna - Reimagined Session',
   },
-  ...galleryPhotos.map((p) => ({
-    id: `gallery-${p.num}`,
-    type: 'image' as const,
-    source: p.src,
-    category: 'live' as const,
-    title: p.title,
-    description: p.description,
-    alt: p.alt,
-    width: photoDimensions[p.num]?.w,
-    height: photoDimensions[p.num]?.h,
-  })),
+  ...galleryPhotos.map((p) => {
+    // Photoshoot vs stage-moment classification (for the gallery filter tabs)
+    const photoshootNums = new Set([2, 3, 10, 12, 13, 15, 41]);
+    const isPhotoshoot = photoshootNums.has(p.num);
+    return {
+      id: `gallery-${p.num}`,
+      type: 'image' as const,
+      source: p.src,
+      category: (isPhotoshoot ? 'band' : 'live') as 'band' | 'live',
+      title: p.title,
+      description: p.description,
+      alt: p.alt,
+      width: photoDimensions[p.num]?.w,
+      height: photoDimensions[p.num]?.h,
+    };
+  }),
   // Press clippings (Presse) – newspaper & magazine features.
   ...pressClippings.map((p) => ({
     id: `press-${p.num}`,
@@ -616,10 +621,12 @@ function PortfolioContent() {
   }, [pathname, language, setLanguage]);
 
   const filtered = useMemo(() => {
-    if (tab === 'shows') return items.filter((i) => i.type === 'video');
+    // 'visual' tab → Fotoshooting (studio/portrait shots, mapped to category 'band')
+    // 'shows'  tab → Bühnenmomente (live stage photos, mapped to category 'live')
+    // 'press'  tab → Presse (newspaper & magazine clippings)
+    if (tab === 'shows') return items.filter((i) => i.type === 'image' && i.category === 'live');
     if (tab === 'press') return items.filter((i) => i.category === 'press');
-    // 'visual' – images that are NOT press clippings
-    return items.filter((i) => i.type === 'image' && i.category !== 'press');
+    return items.filter((i) => i.type === 'image' && i.category === 'band');
   }, [tab]);
 
   return (
