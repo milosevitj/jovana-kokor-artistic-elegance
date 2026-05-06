@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import portrait400 from '@/assets/jovana-portrait-400.webp';
-import portrait800 from '@/assets/jovana-portrait-800.webp';
-import portrait1200 from '@/assets/jovana-portrait-1200.webp';
-import portrait1600 from '@/assets/jovana-portrait-1600.webp';
+import portraitOriginal from '@/assets/jovana-portrait.jpeg';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
 
@@ -20,9 +17,7 @@ export function AboutSection() {
           <div className="relative order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-sm">
               <img
-                src={portrait800}
-                srcSet={`${portrait400} 400w, ${portrait800} 800w, ${portrait1200} 1200w, ${portrait1600} 1600w`}
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                src={portraitOriginal}
                 width={1919}
                 height={1920}
                 alt={t('about.img.alt')}
