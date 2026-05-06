@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import heroImage from '@/assets/joywanna-hero.webp';
+import heroImage from '@/assets/joywanna-hero-2x.webp';
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -17,6 +17,8 @@ export function HeroSection() {
         <img
           src={heroImage}
           alt="Jovana Kokor – Pianist and Vocal Artist performing live on stage"
+          width={3280}
+          height={1848}
           className="hero-bg-image w-full h-full"
           loading="eager"
           fetchPriority="high"
