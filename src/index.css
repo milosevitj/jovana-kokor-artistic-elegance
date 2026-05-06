@@ -175,11 +175,14 @@
   }
 }
 
-/* Crisp image rendering on high-DPI displays */
+/* Force original, high-quality image rendering on high-DPI displays */
 img {
   image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Hero background image */
