@@ -175,6 +175,13 @@
   }
 }
 
+/* Crisp image rendering on high-DPI displays */
+img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 /* Hero background image */
 .hero-bg-image {
   object-fit: cover;

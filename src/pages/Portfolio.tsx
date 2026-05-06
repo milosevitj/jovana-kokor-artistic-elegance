@@ -746,7 +746,14 @@ function PortfolioContent() {
                     >
                       <div className="group relative">
                         <img
-                          src={`https://img.youtube.com/vi/${item.source}/hqdefault.jpg`}
+                          src={`https://img.youtube.com/vi/${item.source}/maxresdefault.jpg`}
+                          onError={(e) => {
+                            const img = e.currentTarget;
+                            if (!img.dataset.fallback) {
+                              img.dataset.fallback = '1';
+                              img.src = `https://img.youtube.com/vi/${item.source}/sddefault.jpg`;
+                            }
+                          }}
                           alt={
                             language === 'de'
                               ? `Vorschau – ${item.title.de}`
@@ -754,8 +761,8 @@ function PortfolioContent() {
                           }
                           loading="lazy"
                           decoding="async"
-                          width="480"
-                          height="360"
+                          width={1280}
+                          height={720}
                           className="block w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
