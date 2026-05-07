@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import portraitOriginal from '@/assets/jovana-portrait.jpeg';
+import portraitOriginal from '@/assets/jovana-portrait-hq.webp?url';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
 
