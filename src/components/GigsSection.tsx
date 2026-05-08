@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Calendar, MapPin, ExternalLink, X } from 'lucide-react';
+import reimaginedPoster from '@/assets/joywanna-reimagined-poster.webp';
 
 interface Gig {
   id: string;
@@ -161,8 +162,16 @@ export function GigsSection() {
               <X className="w-6 h-6" />
             </button>
 
-            <div className="aspect-[3/2] bg-muted/40 border border-border mb-8 flex items-center justify-center text-muted-foreground text-sm italic">
-              {language === 'de' ? 'Poster folgt in Kürze' : 'Poster coming soon'}
+            <div className="aspect-[3/2] bg-muted/40 border border-border mb-8 flex items-center justify-center overflow-hidden">
+              <img
+                src={reimaginedPoster}
+                alt="JoyWanna Reimagined Konzert und Albumrelease Poster"
+                width={1414}
+                height={1885}
+                className="h-full w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <h3 className="font-serif text-3xl md:text-4xl mb-2">
