@@ -18,10 +18,10 @@ export function AboutSection() {
             <div className="relative overflow-hidden rounded-sm">
               <img
                 src={portraitOriginal}
-                width={1919}
-                height={1920}
+                width={1440}
+                height={1440}
                 alt={t('about.img.alt')}
-                className="w-full h-auto object-cover aspect-[3/4]"
+                className="w-full h-auto object-cover aspect-square"
                 loading="lazy"
                 decoding="async"
               />
