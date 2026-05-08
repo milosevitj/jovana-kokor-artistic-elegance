@@ -17,8 +17,8 @@ export function HeroSection() {
         <img
           src={heroImage}
           alt="Jovana Kokor – Pianist and Vocal Artist performing live on stage"
-          width={4920}
-          height={2772}
+          width={6960}
+          height={4640}
           className="hero-bg-image w-full h-full"
           loading="eager"
           fetchPriority="high"
