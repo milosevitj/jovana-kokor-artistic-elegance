@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Calendar, MapPin, ExternalLink, X } from 'lucide-react';
 import reimaginedPoster from '@/assets/joywanna-reimagined-poster.webp';
+import jadeJazzJamPoster from '@/assets/jade-jazz-jam-poster.webp';
 
 interface Gig {
   id: string;
@@ -12,6 +13,8 @@ interface Gig {
   titleDe: string;
   titleEn: string;
   ticketUrl?: string;
+  eventUrl?: string;
+  poster?: string;
   modal?: 'reimagined';
 }
 
@@ -19,11 +22,12 @@ const upcomingGigs: Gig[] = [
   {
     id: 'jade-jazz-jam',
     date: '2026-05-24',
-    time: '14:00 – 17:00',
+    time: '15:15',
     venue: 'Pumpwerk',
     city: 'Wilhelmshaven',
     titleDe: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
     titleEn: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
+    poster: jadeJazzJamPoster,
   },
   {
     id: 'reimagined-release',
@@ -33,6 +37,7 @@ const upcomingGigs: Gig[] = [
     city: 'Oldenburg',
     titleDe: '„Reimagined" – Konzert & Albumrelease',
     titleEn: '"Reimagined" – Concert & Album Release',
+    eventUrl: 'https://wilhelm13.de/programm/joywanna-reimagined-bekannte-songs-neu-gehoert/',
     modal: 'reimagined',
   },
   {
@@ -51,6 +56,7 @@ const upcomingGigs: Gig[] = [
     city: 'Oldenburg',
     titleDe: '"Some Sing Special" – JoyWanna & The Spicy Jam',
     titleEn: '"Some Sing Special" – JoyWanna & The Spicy Jam',
+    eventUrl: 'https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/',
   },
 ];
 
