@@ -73,8 +73,7 @@ function formatDate(dateStr: string, language: string): string {
 
 export function GigsSection() {
   const { language, t } = useLanguage();
-  const [modalOpen, setModalOpen] = useState(false);
-
+  const [openModal, setOpenModal] = useState<ModalKey | null>(null);
   return (
     <section id="gigs" className="section-padding bg-card">
       <div className="container mx-auto">
