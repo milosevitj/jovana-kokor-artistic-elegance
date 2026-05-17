@@ -117,26 +117,62 @@ export function GigsSection() {
                       </div>
                     </div>
 
-                    {gig.modal === 'reimagined' ? (
-                      <button
-                        type="button"
-                        onClick={() => setModalOpen(true)}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                      >
-                        {language === 'de' ? 'Mehr erfahren' : 'Learn more'}
-                      </button>
-                    ) : gig.ticketUrl ? (
+                    <div className="flex flex-col items-start md:items-end gap-2">
+                      {gig.ticketUrl ? (
+                        <a
+                          href={gig.ticketUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                        >
+                          {language === 'de' ? 'Tickets kaufen' : 'Buy Tickets'}
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      ) : gig.eventUrl ? (
+                        <a
+                          href={gig.eventUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                        >
+                          {language === 'de' ? 'Zur Event-Seite' : 'Event page'}
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      ) : (
+                        <span className="text-sm italic text-muted-foreground">
+                          {language === 'de' ? 'Tickets folgen bald' : 'Tickets coming soon'}
+                        </span>
+                      )}
+                      {gig.modal === 'reimagined' && (
+                        <button
+                          type="button"
+                          onClick={() => setModalOpen(true)}
+                          className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {language === 'de' ? 'Mehr erfahren' : 'Learn more'}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {gig.poster && (
+                    <div className="mt-6 pt-6 border-t border-border">
                       <a
-                        href={gig.ticketUrl}
+                        href={gig.poster}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                        className="block max-w-xs mx-auto md:mx-0"
                       >
-                        {language === 'de' ? 'Tickets kaufen' : 'Buy Tickets'}
-                        <ExternalLink className="w-4 h-4" />
+                        <img
+                          src={gig.poster}
+                          alt={`${language === 'de' ? gig.titleDe : gig.titleEn} Poster`}
+                          className="w-full h-auto rounded-sm border border-border hover:opacity-90 transition-opacity"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </a>
-                    ) : null}
-                  </div>
+                    </div>
+                  )}
                 </article>
               );
             })}
