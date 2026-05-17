@@ -1,0 +1,23 @@
+# JoyWanna – Jovana Kokor
+
+> Official site of JoyWanna (Jovana Kokor) — singer, pianist and vocal coach based in Oldenburg, Germany. Concerts, live music, and individual vocal coaching across Germany and Europe.
+
+JoyWanna is the stage name of Jovana Kokor, a classically trained singer and pianist with years of international stage experience. The site is bilingual (German / English) and covers upcoming shows, biography, portfolio, and one-on-one vocal coaching.
+
+## Pages
+
+- [Start / Home (DE)](/de/): Übersicht – Live-Musik, Konzerte und Vocal Coaching.
+- [Home (EN)](/en/): Overview – live music, concerts and vocal coaching.
+- [Über mich (DE)](/de/ueber-mich): Biografie und künstlerischer Werdegang.
+- [About (EN)](/en/about-me): Biography and artistic background.
+- [Vocal Coaching (DE)](/de/vocal-coaching): Individuelles Vocal Coaching für Stimme, Ausdruck und künstlerische Entwicklung.
+- [Vocal Coaching (EN)](/en/vocal-coaching): Individual vocal coaching for voice, expression and artistic development.
+- [Projekte (DE)](/de/projekte): Fotoshooting, Bühnenmomente, Presse.
+- [Projects (EN)](/en/projects): Photoshoots, stage moments, press.
+- [Kontakt (DE)](/de/kontakt): Anfragen für Konzerte, Events und Coaching.
+- [Contact (EN)](/en/contact): Inquiries for concerts, events and coaching.
+
+## Optional
+
+- [Impressum](/impressum): Legal notice (German law).
+- [Datenschutz / Privacy](/privacy): Privacy policy.
