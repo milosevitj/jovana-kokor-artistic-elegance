@@ -18,6 +18,7 @@ interface Gig {
   ticketUrl?: string;
   eventUrl?: string;
   modal?: ModalKey;
+  freeEntrance?: boolean;
 }
 
 const upcomingGigs: Gig[] = [
@@ -30,6 +31,7 @@ const upcomingGigs: Gig[] = [
     titleDe: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
     titleEn: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
     modal: 'jade',
+    freeEntrance: true,
   },
   {
     id: 'reimagined-release',
@@ -119,7 +121,11 @@ export function GigsSection() {
                     </div>
 
                     <div className="flex flex-col items-start md:items-end gap-2">
-                      {(gig.ticketUrl || gig.eventUrl) ? (
+                      {gig.freeEntrance ? (
+                        <span className="text-sm font-medium text-primary">
+                          {language === 'de' ? 'Freier Eintritt' : 'Free entrance'}
+                        </span>
+                      ) : (gig.ticketUrl || gig.eventUrl) ? (
                         <a
                           href={gig.ticketUrl ?? gig.eventUrl}
                           target="_blank"
