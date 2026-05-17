@@ -119,9 +119,9 @@ export function GigsSection() {
                     </div>
 
                     <div className="flex flex-col items-start md:items-end gap-2">
-                      {gig.ticketUrl ? (
+                      {(gig.ticketUrl || gig.eventUrl) ? (
                         <a
-                          href={gig.ticketUrl}
+                          href={gig.ticketUrl ?? gig.eventUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
@@ -129,25 +129,15 @@ export function GigsSection() {
                           {language === 'de' ? 'Tickets kaufen' : 'Buy Tickets'}
                           <ExternalLink className="w-4 h-4" />
                         </a>
-                      ) : gig.eventUrl ? (
-                        <a
-                          href={gig.eventUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                        >
-                          {language === 'de' ? 'Zur Event-Seite' : 'Event page'}
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
                       ) : (
                         <span className="text-sm italic text-muted-foreground">
                           {language === 'de' ? 'Tickets folgen bald' : 'Tickets coming soon'}
                         </span>
                       )}
-                      {gig.modal === 'reimagined' && (
+                      {gig.modal && (
                         <button
                           type="button"
-                          onClick={() => setModalOpen(true)}
+                          onClick={() => setOpenModal(gig.modal!)}
                           className="text-xs text-muted-foreground hover:text-primary transition-colors"
                         >
                           {language === 'de' ? 'Mehr erfahren' : 'Learn more'}
@@ -155,25 +145,6 @@ export function GigsSection() {
                       )}
                     </div>
                   </div>
-
-                  {gig.poster && (
-                    <div className="mt-6 pt-6 border-t border-border">
-                      <a
-                        href={gig.poster}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block max-w-xs mx-auto md:mx-0"
-                      >
-                        <img
-                          src={gig.poster}
-                          alt={`${language === 'de' ? gig.titleDe : gig.titleEn} Poster`}
-                          className="w-full h-auto rounded-sm border border-border hover:opacity-90 transition-opacity"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </a>
-                    </div>
-                  )}
                 </article>
               );
             })}
