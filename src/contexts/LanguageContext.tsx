@@ -103,7 +103,7 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.vocal.expression.desc': 'Es geht nicht nur um Technik, sondern um Ausdruck. Gemeinsam entdecken wir deine Stimme als kraftvollen Raum für Emotion und Persönlichkeit.',
     'lessons.vocal.allages': 'Alle Altersgruppen',
     'lessons.vocal.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meinen Unterricht an deinen Lernstil und deine Ziele an.',
-    'vocal.cta.title': 'Bereit, deine Reise zu beginnen?',
+    'vocal.cta.title': 'Bereit, deine authentische Stimme zu entfalten?',
     'vocal.cta.subtitle': 'Schreib mir – ich melde mich persönlich bei dir zurück.',
     
     // Piano section
@@ -222,7 +222,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Lessons
     'nav.lessons': 'Vocal Coaching',
     'lessons.title': 'Vocal Coaching',
-    'lessons.subtitle': 'Individual Vocal Coaching for Voice, Expression & Artistic Developmentwhat',
+    'lessons.subtitle': 'Individual Vocal Coaching for Voice, Expression & Artistic Development',
     
     'lessons.vocal.individual': 'Individual Guidance',
     'lessons.vocal.individual.desc': 'Every voice is unique. That\'s why I design each session individually – tailored to your pace, your needs, and your personal journey.',
@@ -230,7 +230,7 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.vocal.expression.desc': 'It\'s not just about technique – it\'s about expression. Together we discover your voice as a powerful space for emotion and personality.',
     'lessons.vocal.allages': 'All Age Groups',
     'lessons.vocal.allages.desc': 'Music knows no age limit. Whether 7 or 70 – I adapt my teaching to your learning style and goals.',
-    'vocal.cta.title': 'Ready to start your journey?',
+    'vocal.cta.title': 'Ready to unfold your authentic voice?',
     'vocal.cta.subtitle': 'Send me a message – I\'ll personally get back to you.',
     
     'lessons.piano.tagline': 'Tailored Instruction for Every Level',
