@@ -156,10 +156,10 @@ export function GigsSection() {
         )}
       </div>
 
-      {modalOpen && (
+      {openModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
-          onClick={() => setModalOpen(false)}
+          onClick={() => setOpenModal(null)}
           role="dialog"
           aria-modal="true"
         >
@@ -169,52 +169,86 @@ export function GigsSection() {
           >
             <button
               type="button"
-              onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-primary transition-colors"
+              onClick={() => setOpenModal(null)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-primary transition-colors z-10"
               aria-label={language === 'de' ? 'Schließen' : 'Close'}
             >
               <X className="w-6 h-6" />
             </button>
 
-            <div className="aspect-[3/2] bg-muted/40 border border-border mb-8 flex items-center justify-center overflow-hidden">
-              <img
-                src={reimaginedPoster}
-                alt="JoyWanna Reimagined Konzert und Albumrelease Poster"
-                width={1414}
-                height={1885}
-                className="h-full w-full object-contain"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+            {openModal === 'reimagined' && (
+              <>
+                <div className="bg-muted/40 border border-border mb-8 overflow-hidden">
+                  <img
+                    src={reimaginedPoster}
+                    alt="JoyWanna Reimagined Konzert und Albumrelease Poster"
+                    width={1414}
+                    height={1885}
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
 
-            <h3 className="font-serif text-3xl md:text-4xl mb-2">
-              JoyWanna – Reimagined
-            </h3>
-            <p className="text-primary italic mb-6">
-              {language === 'de'
-                ? 'Bekannte Songs – neu gehört.'
-                : 'Familiar songs – heard anew.'}
-            </p>
+                <h3 className="font-serif text-3xl md:text-4xl mb-2">
+                  JoyWanna – Reimagined
+                </h3>
+                <p className="text-primary italic mb-6">
+                  {language === 'de'
+                    ? 'Bekannte Songs – neu gehört.'
+                    : 'Familiar songs – heard anew.'}
+                </p>
 
-            <p className="text-foreground/80 leading-relaxed mb-6">
-              {language === 'de'
-                ? 'JoyWanna (Jovana Kokor), Sängerin und Pianistin aus Serbien, verleiht vertrauten Melodien eine neue Stimme. Zwischen Jazz, Latin und Pop entstehen reduzierte, persönliche Interpretationen – manchmal auf Spanisch, immer mit Gefühl. Was bleibt, ist der Kern. Was entsteht, klingt oft wie neu. Mit über 15 Jahren Bühnenerfahrung und geprägt durch ihr Jazzstudium in Belgrad entwickelt sie ihren ganz eigenen Zugang zu bekannten Songs. Ihr aktuelles Projekt „Reimagined" bringt genau das auf die Bühne – ergänzt durch erste Einblicke in eigene Kompositionen. Ein Konzert zwischen Vertrautem und Überraschung.'
-                : 'JoyWanna (Jovana Kokor), singer and pianist from Serbia, gives familiar melodies a new voice. Between jazz, Latin and pop, stripped-down, personal interpretations emerge – sometimes in Spanish, always with feeling. What remains is the essence. What emerges often sounds like new. With over 15 years of stage experience and shaped by her jazz studies in Belgrade, she develops her very own approach to well-known songs. Her current project "Reimagined" brings exactly that to the stage – complemented by first glimpses of her own compositions. A concert between the familiar and the surprising.'}
-            </p>
+                <p className="text-foreground/80 leading-relaxed mb-6">
+                  {language === 'de'
+                    ? 'JoyWanna (Jovana Kokor), Sängerin und Pianistin aus Serbien, verleiht vertrauten Melodien eine neue Stimme. Zwischen Jazz, Latin und Pop entstehen reduzierte, persönliche Interpretationen – manchmal auf Spanisch, immer mit Gefühl. Was bleibt, ist der Kern. Was entsteht, klingt oft wie neu. Mit über 15 Jahren Bühnenerfahrung und geprägt durch ihr Jazzstudium in Belgrad entwickelt sie ihren ganz eigenen Zugang zu bekannten Songs. Ihr aktuelles Projekt „Reimagined" bringt genau das auf die Bühne – ergänzt durch erste Einblicke in eigene Kompositionen. Ein Konzert zwischen Vertrautem und Überraschung.'
+                    : 'JoyWanna (Jovana Kokor), singer and pianist from Serbia, gives familiar melodies a new voice. Between jazz, Latin and pop, stripped-down, personal interpretations emerge – sometimes in Spanish, always with feeling. What remains is the essence. What emerges often sounds like new. With over 15 years of stage experience and shaped by her jazz studies in Belgrade, she develops her very own approach to well-known songs. Her current project "Reimagined" brings exactly that to the stage – complemented by first glimpses of her own compositions. A concert between the familiar and the surprising.'}
+                </p>
 
-            <div className="border-t border-border pt-6">
-              <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">
-                {language === 'de' ? 'Besetzung' : 'Line-up'}
-              </p>
-              <p className="font-medium">
-                JoyWanna – {language === 'de' ? 'Gesang, Klavier' : 'Vocals, Piano'}
-              </p>
-            </div>
+                <div className="border-t border-border pt-6">
+                  <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">
+                    {language === 'de' ? 'Besetzung' : 'Line-up'}
+                  </p>
+                  <p className="font-medium">
+                    JoyWanna – {language === 'de' ? 'Gesang, Klavier' : 'Vocals, Piano'}
+                  </p>
+                </div>
 
-            <div className="mt-8 pt-6 border-t border-border text-sm text-muted-foreground">
-              <p>14.06.2026 · 20:00 · Wilhelm 13, Oldenburg</p>
-            </div>
+                <div className="mt-8 pt-6 border-t border-border text-sm text-muted-foreground">
+                  <p>14.06.2026 · 20:00 · Wilhelm 13, Oldenburg</p>
+                </div>
+              </>
+            )}
+
+            {openModal === 'jade' && (
+              <>
+                <h3 className="font-serif text-3xl md:text-4xl mb-2">
+                  Jade Jazz Jam
+                </h3>
+                <p className="text-primary italic mb-6">
+                  JoyWanna & The Spicy Jam
+                </p>
+                <div className="space-y-6">
+                  <img
+                    src={jadeJazzJamPoster}
+                    alt="Jade Jazz Jam Poster 1"
+                    className="w-full h-auto object-contain border border-border"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={jadeJazzJamPoster2}
+                    alt="Jade Jazz Jam Poster 2"
+                    className="w-full h-auto object-contain border border-border"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="mt-8 pt-6 border-t border-border text-sm text-muted-foreground">
+                  <p>24.05.2026 · 15:15 · Pumpwerk, Wilhelmshaven</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
