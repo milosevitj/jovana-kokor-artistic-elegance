@@ -230,7 +230,7 @@ const translations: Record<Language, Record<string, string>> = {
     'lessons.vocal.expression.desc': 'It\'s not just about technique – it\'s about expression. Together we discover your voice as a powerful space for emotion and personality.',
     'lessons.vocal.allages': 'All Age Groups',
     'lessons.vocal.allages.desc': 'Music knows no age limit. Whether 7 or 70 – I adapt my teaching to your learning style and goals.',
-    'vocal.cta.title': 'Ready to start your journey?',
+    'vocal.cta.title': 'Ready to unfold your authentic voice?',
     'vocal.cta.subtitle': 'Send me a message – I\'ll personally get back to you.',
     
     'lessons.piano.tagline': 'Tailored Instruction for Every Level',
