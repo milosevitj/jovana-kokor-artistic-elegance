@@ -61,7 +61,7 @@ function VocalCoachingContent() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main>
-        <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary/30">
+        <section className="pt-32 pb-6 md:pt-40 md:pb-8 bg-secondary/30">
           <div className="container mx-auto px-6 md:px-12">
             <Link
               to={homeHref}
@@ -83,7 +83,7 @@ function VocalCoachingContent() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-secondary/30">
+        <section className="pt-4 pb-16 md:pt-6 md:pb-24 bg-secondary/30">
           <div className="container mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {vocalCards.map(({ titleKey, descKey, Icon }) => (
