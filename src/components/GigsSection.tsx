@@ -121,7 +121,11 @@ export function GigsSection() {
                     </div>
 
                     <div className="flex flex-col items-start md:items-end gap-2">
-                      {(gig.ticketUrl || gig.eventUrl) ? (
+                      {gig.freeEntrance ? (
+                        <span className="text-sm font-medium text-primary">
+                          {language === 'de' ? 'Freier Eintritt' : 'Free entrance'}
+                        </span>
+                      ) : (gig.ticketUrl || gig.eventUrl) ? (
                         <a
                           href={gig.ticketUrl ?? gig.eventUrl}
                           target="_blank"
