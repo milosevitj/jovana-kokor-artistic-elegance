@@ -18,6 +18,7 @@ interface Gig {
   ticketUrl?: string;
   eventUrl?: string;
   modal?: ModalKey;
+  freeEntrance?: boolean;
 }
 
 const upcomingGigs: Gig[] = [
