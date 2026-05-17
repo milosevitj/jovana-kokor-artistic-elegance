@@ -168,6 +168,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/projekte/presse" />
   </url>
 
+  <!-- Non-prefixed vocal coaching (canonical equivalent) -->
+  <url>
+    <loc>https://jovanakokor.de/vocal-coaching</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/vocal-coaching" />
+  </url>
+
   <!-- Legal pages -->
   <url>
     <loc>https://jovanakokor.de/impressum</loc>
