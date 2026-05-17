@@ -102,6 +102,123 @@ function VocalCoachingContent() {
           </div>
         </section>
 
+        {/* Holistic approach – long form description */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+            {language === 'de' ? (
+              <div className="space-y-6 text-foreground/90 leading-relaxed text-lg">
+                <p>Gesang ist weit mehr als reine Technik – es ist ein ganzheitlicher Weg zu Stimme, Ausdruck und persönlicher Entfaltung.</p>
+                <p>In meinem Coaching verbinde ich fundierte Vokaltechnik, Atemarbeit, Körperbewusstsein und künstlerischen Ausdruck zu einem individuellen, holistischen Ansatz. Denn Singen öffnet nicht nur die Stimme, sondern oft auch tiefere Ebenen unseres Selbst.</p>
+                <p>Gemeinsam arbeiten wir daran, deine authentische Stimme zu stärken, emotionale Blockaden zu lösen, mehr Freiheit im Ausdruck zu entwickeln und eine tiefere Verbindung zu dir selbst aufzubauen.</p>
+                <div>
+                  <p className="mb-4">Meine Stunden bieten Raum für:</p>
+                  <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                    <li>Vokaltechnik &amp; gesunde Stimmentwicklung</li>
+                    <li>Atem- und Körperarbeit</li>
+                    <li>Ausdruck, Bühnenpräsenz &amp; Persönlichkeit</li>
+                    <li>Selbstvertrauen &amp; innere Freiheit</li>
+                    <li>Kreative Entfaltung und künstlerisches Wachstum</li>
+                  </ul>
+                </div>
+                <p>Mit Leichtigkeit, Freude und emotionaler Tiefe entsteht ein geschützter Raum, in dem du nicht nur gesanglich wächst, sondern oft auch neue Seiten an dir selbst entdeckst.</p>
+                <p>Neben individuellem Coaching erweitern perspektivisch auch Vocal Workshops und kreative Gruppenformate mein Angebot – für gemeinsames Wachstum, Ausdruck und neue Impulse.</p>
+                <p className="font-serif italic text-xl text-foreground">Deine Stimme kann ein Schlüssel sein – zu mehr Ausdruck, Präsenz und innerer Befreiung, weit über das Singen hinaus.</p>
+              </div>
+            ) : (
+              <div className="space-y-6 text-foreground/90 leading-relaxed text-lg">
+                <p>Singing is far more than pure technique – it is a holistic path to voice, expression and personal unfolding.</p>
+                <p>In my coaching I combine grounded vocal technique, breath work, body awareness and artistic expression into an individual, holistic approach. Because singing opens not only the voice, but often deeper layers of ourselves.</p>
+                <p>Together we work on strengthening your authentic voice, releasing emotional blockages, developing more freedom of expression and building a deeper connection to yourself.</p>
+                <div>
+                  <p className="mb-4">My sessions offer space for:</p>
+                  <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                    <li>Vocal technique &amp; healthy voice development</li>
+                    <li>Breath and body work</li>
+                    <li>Expression, stage presence &amp; personality</li>
+                    <li>Self-confidence &amp; inner freedom</li>
+                    <li>Creative unfolding and artistic growth</li>
+                  </ul>
+                </div>
+                <p>With ease, joy and emotional depth a protected space emerges in which you not only grow vocally, but often also discover new sides of yourself.</p>
+                <p>Alongside individual coaching, vocal workshops and creative group formats will gradually expand my offering – for shared growth, expression and new impulses.</p>
+                <p className="font-serif italic text-xl text-foreground">Your voice can be a key – to more expression, presence and inner liberation, far beyond singing itself.</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Pricing / Packages */}
+        <section className="py-16 md:py-24 bg-secondary/30">
+          <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
+                {language === 'de' ? 'Coaching Pakete' : 'Coaching Packages'}
+              </h2>
+              <div className="w-16 h-px bg-primary mx-auto mt-6" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: language === 'de' ? 'Einzelcoaching' : 'Single Session',
+                  meta: language === 'de' ? '60 Min' : '60 min',
+                  price: '60 €',
+                  bonus: null as string | null,
+                },
+                {
+                  title: language === 'de' ? '5er Paket' : '5-Session Package',
+                  meta: language === 'de' ? '5 Sessions à 60 Min' : '5 sessions × 60 min',
+                  price: '250 €',
+                  bonus: null,
+                },
+                {
+                  title: language === 'de' ? '10er Paket' : '10-Session Package',
+                  meta: language === 'de' ? '10 Sessions à 60 Min' : '10 sessions × 60 min',
+                  price: '500 €',
+                  bonus: language === 'de' ? '+ 1 Bonus Session inklusive' : '+ 1 bonus session included',
+                },
+              ].map((pkg) => (
+                <div
+                  key={pkg.title}
+                  className="bg-card rounded-2xl border border-border/50 p-8 text-center hover:border-primary/30 transition-colors duration-300 flex flex-col"
+                >
+                  <h3 className="font-serif text-2xl font-medium mb-2">{pkg.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-6">{pkg.meta}</p>
+                  <div className="font-serif text-4xl text-primary mb-4">{pkg.price}</div>
+                  {pkg.bonus && (
+                    <p className="text-sm text-foreground/80 mt-auto pt-4 border-t border-border/40">
+                      {pkg.bonus}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="max-w-3xl mx-auto mt-12 space-y-6 text-muted-foreground leading-relaxed text-base md:text-lg text-center">
+              <p>
+                {language === 'de'
+                  ? 'Jede Session bietet Raum für individuelle Begleitung, gezielte Stimmentwicklung und persönliche Entfaltung. Ich nehme mir bewusst Zeit für meine Schüler:innen, um nicht nur an Technik, sondern auch an Ausdruck, Atmung und künstlerischer Entwicklung ganzheitlich zu arbeiten.'
+                  : 'Every session offers space for individual guidance, focused vocal development and personal unfolding. I consciously take time for my students to work holistically – not only on technique, but also on expression, breathing and artistic growth.'}
+              </p>
+              <div>
+                <h3 className="font-serif text-xl text-foreground mb-2">
+                  {language === 'de' ? 'Vocal Workshops & Gruppenangebote' : 'Vocal Workshops & Group Offerings'}
+                </h3>
+                <p>
+                  {language === 'de'
+                    ? 'Aktuelle Termine und Angebote werden regelmäßig auf der Website veröffentlicht.'
+                    : 'Current dates and offers are published regularly on this website.'}
+                </p>
+              </div>
+              <p>
+                {language === 'de'
+                  ? 'Für weitere Fragen oder individuelle Anfragen freue ich mich über deine Nachricht.'
+                  : 'For further questions or individual inquiries, I look forward to hearing from you.'}
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA + Contact form */}
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-6 md:px-12 max-w-2xl">
