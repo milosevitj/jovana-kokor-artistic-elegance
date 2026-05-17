@@ -222,7 +222,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Lessons
     'nav.lessons': 'Vocal Coaching',
     'lessons.title': 'Vocal Coaching',
-    'lessons.subtitle': 'Individual Vocal Coaching for Voice, Expression & Artistic Developmentwhat',
+    'lessons.subtitle': 'Individual Vocal Coaching for Voice, Expression & Artistic Development',
     
     'lessons.vocal.individual': 'Individual Guidance',
     'lessons.vocal.individual.desc': 'Every voice is unique. That\'s why I design each session individually – tailored to your pace, your needs, and your personal journey.',
