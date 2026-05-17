@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Calendar, MapPin, ExternalLink, X } from 'lucide-react';
 import reimaginedPoster from '@/assets/joywanna-reimagined-poster.webp';
+import jadeJazzJamPoster from '@/assets/jade-jazz-jam-poster.webp';
 import jadeJazzJamPoster2 from '@/assets/jade-jazz-jam-poster-2.webp';
 
 type ModalKey = 'reimagined' | 'jade';
