@@ -31,6 +31,7 @@ const upcomingGigs: Gig[] = [
     titleDe: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
     titleEn: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
     modal: 'jade',
+    freeEntrance: true,
   },
   {
     id: 'reimagined-release',
