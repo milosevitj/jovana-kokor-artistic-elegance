@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="de">
   <head>
-    <!-- Early hints: connect to font CDNs ASAP to shorten the critical request chain -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-    <!-- Preload + apply Google Fonts stylesheet (font-display:swap is already in the URL) -->
     <link
       rel="preload"
       as="style"
@@ -29,21 +27,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#6d0c1d" />
 
-    <!-- Critical CSS: minimum needed to paint the hero immediately while the main stylesheet loads -->
     <style>
       html,body{margin:0;padding:0;background:#0a0a0a;color:#fafafa;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
       #root{min-height:100vh;background:#0a0a0a}
     </style>
+
+    <!--
+      Default meta tagovi su na nemačkom (lang="de").
+      useDynamicSEO hook ih menja dinamički na osnovu aktivnog jezika i rute.
+      canonical i hreflang tagovi se injektuju u runtime-u.
+    -->
     <title>JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland</title>
-    <meta name="description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!">
-    <meta name="keywords" content="Jovana Kokor, Pianistin, Sängerin, Klavierunterricht, Deutschland, Oldenburg, klassische Musik, Gesang, Vokalkünstlerin, Musikpädagogin, Konzerte, Firmenevents" />
+    <meta name="description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!" />
+    <meta name="keywords" content="JoyWanna, Jovana Kokor, Pianistin, Sängerin, Klavierunterricht, Deutschland, Oldenburg, klassische Musik, Gesang, Vokalkünstlerin, Musikpädagogin, Konzerte, Firmenevents" />
     <meta name="author" content="Jovana Kokor" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="geo.region" content="DE" />
@@ -51,25 +53,22 @@
     <meta name="geo.position" content="53.1435;8.2146" />
     <meta name="ICBM" content="53.1435, 8.2146" />
 
-    <!--
-      Hreflang, canonical and og:url are injected at runtime by SEOManager
-      so they always match the active host (lovable.app subdomain today,
-      custom domain later) and the active language. Do not hardcode them here.
-    -->
-
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp">
+    <meta property="og:title" content="JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland" />
+    <meta property="og:description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Jovana Kokor" />
+    <meta property="og:site_name" content="JoyWanna | Jovana Kokor" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp">
-
+    <meta name="twitter:title" content="JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland" />
+    <meta name="twitter:description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!" />
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -80,6 +79,7 @@
           "@type": ["Person", "Musician"],
           "@id": "https://jovanakokor.de/#person",
           "name": "Jovana Kokor",
+          "alternateName": "JoyWanna",
           "url": "https://jovanakokor.de",
           "image": "https://jovanakokor.de/jovana-portrait.jpg",
           "description": "Germany-based classical pianist, vocal artist, and music educator with classical training from Serbia. Graduate of the Academy of Music with expertise in piano performance, vocal artistry, and music pedagogy.",
@@ -152,8 +152,8 @@
           "@type": "WebSite",
           "@id": "https://jovanakokor.de/#website",
           "url": "https://jovanakokor.de",
-          "name": "Jovana Kokor – Pianist, Vocalist & Educator",
-          "description": "Official website of Jovana Kokor – Germany-based classical pianist, vocal artist, and music educator",
+          "name": "JoyWanna | Jovana Kokor",
+          "description": "Official website of JoyWanna (Jovana Kokor) – Germany-based classical pianist, vocal artist, and music educator",
           "publisher": { "@id": "https://jovanakokor.de/#person" },
           "inLanguage": ["de-DE", "en-US"]
         },
@@ -161,10 +161,10 @@
           "@type": "WebPage",
           "@id": "https://jovanakokor.de/#webpage-de",
           "url": "https://jovanakokor.de/",
-          "name": "Jovana Kokor – Pianistin, Sängerin & Pädagogin | Deutschland",
+          "name": "JoyWanna – Pianistin, Sängerin & Pädagogin | Deutschland",
           "isPartOf": { "@id": "https://jovanakokor.de/#website" },
           "about": { "@id": "https://jovanakokor.de/#person" },
-          "description": "Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin. Buchungen für Konzerte, Firmenevents und privaten Klavierunterricht.",
+          "description": "Jovana Kokor (JoyWanna) ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin. Buchungen für Konzerte, Firmenevents und privaten Klavierunterricht.",
           "inLanguage": "de-DE",
           "translationOfWork": { "@id": "https://jovanakokor.de/#webpage-en" },
           "datePublished": "2024-01-01",
@@ -174,10 +174,10 @@
           "@type": "WebPage",
           "@id": "https://jovanakokor.de/#webpage-en",
           "url": "https://jovanakokor.de/?lang=en",
-          "name": "Jovana Kokor – Pianist, Vocalist & Educator | Germany",
+          "name": "JoyWanna – Pianist, Vocalist & Educator | Germany",
           "isPartOf": { "@id": "https://jovanakokor.de/#website" },
           "about": { "@id": "https://jovanakokor.de/#person" },
-          "description": "Germany-based classical pianist and vocal artist. Available for concerts, corporate events, and private piano & vocal instruction across Germany and Europe.",
+          "description": "Germany-based classical pianist and vocal artist JoyWanna (Jovana Kokor). Available for concerts, corporate events, and private piano & vocal instruction across Germany and Europe.",
           "inLanguage": "en-US",
           "translationOfWork": { "@id": "https://jovanakokor.de/#webpage-de" },
           "datePublished": "2024-01-01",
@@ -188,7 +188,7 @@
           "@id": "https://jovanakokor.de/#lessons",
           "name": "Private Piano & Vocal Lessons",
           "alternateName": "Privater Klavier- & Gesangsunterricht",
-          "description": "Private piano and vocal instruction for all ages and skill levels. Available online and in-person in Germany. Personalized curriculum from beginner to advanced.",
+          "description": "Private piano and vocal instruction for all ages and skill levels with JoyWanna (Jovana Kokor). Available online and in-person in Germany. Personalized curriculum from beginner to advanced.",
           "provider": { "@id": "https://jovanakokor.de/#person" },
           "serviceType": ["Piano Lessons", "Vocal Coaching", "Music Education", "Klavierunterricht", "Gesangsunterricht"],
           "areaServed": [
@@ -205,7 +205,7 @@
           "@id": "https://jovanakokor.de/#performance",
           "name": "Live Performance & Booking",
           "alternateName": "Live-Auftritte & Booking",
-          "description": "Professional pianist and vocal artist available for concerts, festivals, corporate events, weddings, and private gatherings across Germany and Europe.",
+          "description": "Professional pianist and vocal artist JoyWanna (Jovana Kokor) available for concerts, festivals, corporate events, weddings, and private gatherings across Germany and Europe.",
           "provider": { "@id": "https://jovanakokor.de/#person" },
           "serviceType": ["Live Performance", "Concert", "Corporate Entertainment", "Wedding Music"],
           "areaServed": [
@@ -220,42 +220,42 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What is Jovana Kokor's musical background?",
+              "name": "What is JoyWanna's musical background?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor is a Germany-based classical pianist and vocal artist with over 10 years of professional experience. She holds a degree in Classical Music and Vocal Performance from the Academy of Music in Serbia and has performed at concert halls and festivals across Germany and Europe."
+                "text": "JoyWanna (Jovana Kokor) is a Germany-based classical pianist and vocal artist with over 10 years of professional experience. She holds a degree in Classical Music and Vocal Performance from the Academy of Music in Serbia and has performed at concert halls and festivals across Germany and Europe."
               }
             },
             {
               "@type": "Question",
-              "name": "What repertoire does Jovana Kokor perform?",
+              "name": "What repertoire does JoyWanna perform?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor performs a wide repertoire spanning classical piano works, art song (Lieder), opera arias, and contemporary vocal pieces. She tailors her programs to each event — from intimate solo recitals and chamber music to full concert performances at festivals and corporate events."
+                "text": "JoyWanna (Jovana Kokor) performs a wide repertoire spanning classical piano works, art song (Lieder), opera arias, and contemporary vocal pieces. She tailors her programs to each event — from intimate solo recitals and chamber music to full concert performances at festivals and corporate events."
               }
             },
             {
               "@type": "Question",
-              "name": "Does Jovana Kokor offer private piano and vocal lessons?",
+              "name": "Does JoyWanna offer private piano and vocal lessons?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Jovana offers private piano and vocal instruction for all ages and skill levels, from beginners to advanced conservatory-track students. Lessons are available online and in-person in Germany, with a personalized curriculum and flexible scheduling."
+                "text": "Yes. JoyWanna (Jovana Kokor) offers private piano and vocal instruction for all ages and skill levels, from beginners to advanced conservatory-track students. Lessons are available online and in-person in Germany, with a personalized curriculum and flexible scheduling."
               }
             },
             {
               "@type": "Question",
-              "name": "How can I book Jovana Kokor for a concert or event in Germany?",
+              "name": "How can I book JoyWanna for a concert or event in Germany?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings across Germany and Europe by using the contact form on jovanakokor.de or emailing jovanakokor8@gmail.com."
+                "text": "You can book JoyWanna (Jovana Kokor) for concerts, corporate events, weddings, and private gatherings across Germany and Europe by using the contact form on jovanakokor.de or emailing jovanakokor8@gmail.com."
               }
             },
             {
               "@type": "Question",
-              "name": "Where is Jovana Kokor based?",
+              "name": "Where is JoyWanna based?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor is based in Germany. Originally from Serbia, where she received her classical training at the Academy of Music, she now performs and teaches across Germany and Europe."
+                "text": "JoyWanna (Jovana Kokor) is based in Germany. Originally from Serbia, where she received her classical training at the Academy of Music, she now performs and teaches across Germany and Europe."
               }
             }
           ]
@@ -267,42 +267,42 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Welchen musikalischen Hintergrund hat Jovana Kokor?",
+              "name": "Welchen musikalischen Hintergrund hat JoyWanna?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin mit über 10 Jahren Berufserfahrung. Sie hat ihren Abschluss in Klassischer Musik und Gesang an der Musikakademie in Serbien erworben und tritt an Konzerthäusern und Festivals in Deutschland und Europa auf."
+                "text": "JoyWanna (Jovana Kokor) ist eine in Deutschland ansässige, klassisch ausgebildete Pianistin und Vokalkünstlerin mit über 10 Jahren Berufserfahrung. Sie hat ihren Abschluss in Klassischer Musik und Gesang an der Musikakademie in Serbien erworben und tritt an Konzerthäusern und Festivals in Deutschland und Europa auf."
               }
             },
             {
               "@type": "Question",
-              "name": "Welches Repertoire spielt Jovana Kokor?",
+              "name": "Welches Repertoire spielt JoyWanna?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor bietet ein vielfältiges Repertoire von klassischen Klavierwerken über Kunstlied (Lieder) und Opernarien bis hin zu zeitgenössischen Vokalwerken. Ihre Programme werden individuell auf jeden Anlass abgestimmt — von intimen Solorezitals bis hin zu großen Konzertauftritten."
+                "text": "JoyWanna (Jovana Kokor) bietet ein vielfältiges Repertoire von klassischen Klavierwerken über Kunstlied (Lieder) und Opernarien bis hin zu zeitgenössischen Vokalwerken. Ihre Programme werden individuell auf jeden Anlass abgestimmt — von intimen Solorezitals bis hin zu großen Konzertauftritten."
               }
             },
             {
               "@type": "Question",
-              "name": "Bietet Jovana Kokor privaten Klavierunterricht an?",
+              "name": "Bietet JoyWanna privaten Klavierunterricht an?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an — von Anfängern bis zu fortgeschrittenen Konservatoriumsstudenten. Der Unterricht ist online und persönlich in Deutschland verfügbar, mit individuellem Lehrplan und flexibler Termingestaltung."
+                "text": "Ja, JoyWanna (Jovana Kokor) bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an — von Anfängern bis zu fortgeschrittenen Konservatoriumsstudenten. Der Unterricht ist online und persönlich in Deutschland verfügbar, mit individuellem Lehrplan und flexibler Termingestaltung."
               }
             },
             {
               "@type": "Question",
-              "name": "Wie kann ich Jovana Kokor für ein Konzert oder Event buchen?",
+              "name": "Wie kann ich JoyWanna für ein Konzert oder Event buchen?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen in Deutschland und Europa über das Kontaktformular auf jovanakokor.de oder per E-Mail an jovanakokor8@gmail.com buchen."
+                "text": "Sie können JoyWanna (Jovana Kokor) für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen in Deutschland und Europa über das Kontaktformular auf jovanakokor.de oder per E-Mail an jovanakokor8@gmail.com buchen."
               }
             },
             {
               "@type": "Question",
-              "name": "Wo ist Jovana Kokor ansässig?",
+              "name": "Wo ist JoyWanna ansässig?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jovana Kokor lebt und arbeitet in Deutschland. Ursprünglich aus Serbien, wo sie ihre klassische Ausbildung an der Musikakademie absolvierte, tritt sie heute in ganz Deutschland und Europa auf und gibt Unterricht."
+                "text": "JoyWanna (Jovana Kokor) lebt und arbeitet in Deutschland. Ursprünglich aus Serbien, wo sie ihre klassische Ausbildung an der Musikakademie absolvierte, tritt sie heute in ganz Deutschland und Europa auf und gibt Unterricht."
               }
             }
           ]
@@ -321,28 +321,14 @@
       ]
     }
     </script>
-    
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland">
-  <meta name="twitter:title" content="JoyWanna – Pianistin, Sängerin &amp; Pädagogin | Deutschland">
-  <meta property="og:description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!">
-  <meta name="twitter:description" content="Jovana Kokor: Klassische Pianistin, Sängerin &amp; Musikpädagogin in Deutschland. Buchungen für Konzerte, Events &amp; Privatunterricht. Jetzt Termin anfragen!">
-</head>
 
+  </head>
   <body>
     <div id="root"></div>
 
     <!--
-      Crawler-visible navigation. Hidden from sighted users (the React app
-      renders the real interactive header/footer once hydrated), but present
-      in the raw HTML so non-JS crawlers like Screaming Frog can discover
-      every internal route and section. Fixes "Pages Without Internal Outlinks".
+      Crawler fallback navigacija — skrivena od korisnika, vidljiva za
+      non-JS crawlere (Screaming Frog, Googlebot bez JS rendering-a).
     -->
     <nav aria-label="Site navigation (crawler fallback)" hidden>
       <h1>JoyWanna – Jovana Kokor | Pianistin, Sängerin &amp; Pädagogin</h1>

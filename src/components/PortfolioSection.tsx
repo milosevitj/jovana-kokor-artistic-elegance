@@ -17,25 +17,25 @@ export function PortfolioSection() {
       id: 'KlXXMuKU3wE',
       url: 'https://www.youtube.com/watch?v=KlXXMuKU3wE&list=RDKlXXMuKU3wE&start_radio=1',
       caption: { de: 'Live – Stimme & Klavier', en: 'Live – Voice & Piano' },
-      youtubeTitle: 'JoyWanna - Just Breathe (Live, Voice & Piano)',
+      youtubeTitle: 'JoyWanna - Just Breathe',
     },
     {
       id: 'HG521HIhxZ4',
       url: 'https://www.youtube.com/watch?v=HG521HIhxZ4',
       caption: { de: 'Live Highlight I', en: 'Live Highlight I' },
-      youtubeTitle: 'JoyWanna - Live Highlight I',
+      youtubeTitle: 'Esther Filly & JoyWanna – Angel Eyes (Just Voice & Piano)',
     },
     {
       id: 'snQoawnhl3Y',
       url: 'https://www.youtube.com/watch?v=snQoawnhl3Y',
       caption: { de: 'The Spicy Jam – Live', en: 'The Spicy Jam – Live' },
-      youtubeTitle: 'JoyWanna & The Spicy Jam - Live',
+      youtubeTitle: 'Live Medley – JoyWanna & The Spicy Jam | Concert Highlights',
     },
     {
       id: 'iDhF5EpRBhw',
       url: 'https://www.youtube.com/watch?v=iDhF5EpRBhw',
       caption: { de: '"Reimagined" Session', en: '"Reimagined" Session' },
-      youtubeTitle: 'JoyWanna - Reimagined Session',
+      youtubeTitle: 'Kiss - JoyWanna (Cover)',
     },
   ];
 
@@ -44,9 +44,7 @@ export function PortfolioSection() {
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4">
-            {t('portfolio.eyebrow')}
-          </p>
+        
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
             {t('portfolio.heading')}
           </h2>

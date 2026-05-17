@@ -40,6 +40,7 @@ export function LessonsSection() {
           ))}
         </div>
       </div>
+      
     </section>
   );
 }

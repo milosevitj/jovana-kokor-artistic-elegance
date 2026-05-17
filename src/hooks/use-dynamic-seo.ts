@@ -9,19 +9,6 @@ import {
   type SectionId,
 } from '@/lib/site-routes';
 
-/**
- * Dynamic SEO updater.
- *
- * For every route we set:
- *   - <title>, <meta name="description">
- *   - <link rel="canonical">  – self-referencing, points to the *current* URL
- *     in the *current* language (uses live origin so lovable.app, custom
- *     domain or localhost all canonicalise correctly).
- *   - <link rel="alternate" hreflang="de|en|x-default"> – cross-linked DE/EN
- *   - og:title / og:description / og:url / og:locale (+ twitter equivalents)
- *   - <html lang="...">
- */
-
 function upsertLink(rel: string, href: string, attrs: Record<string, string> = {}) {
   const selectorParts = [`link[rel="${rel}"]`];
   if (attrs.hreflang) selectorParts.push(`[hreflang="${attrs.hreflang}"]`);
@@ -63,9 +50,9 @@ const HOME_SEO: { de: RouteSEO; en: RouteSEO } = {
       'Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht. Jetzt Termin anfragen!',
   },
   en: {
-    title: 'Jovana Kokor – Pianist, Vocalist & Educator | Germany',
+    title: 'JoyWanna – Pianist, Vocalist & Educator | Germany',
     description:
-      'Germany-based classical pianist & vocal artist Jovana Kokor. Concerts, corporate events & private piano and vocal lessons across Germany & Europe.',
+      'Germany-based classical pianist & vocal artist JoyWanna (Jovana Kokor). Concerts, corporate events & private piano and vocal lessons across Germany & Europe.',
   },
 };
 
@@ -73,38 +60,38 @@ const SECTION_SEO: Record<SectionId, { de: RouteSEO; en: RouteSEO }> = {
   home: HOME_SEO,
   about: {
     de: {
-      title: 'Über mich – Jovana Kokor (JoyWanna) | Pianistin & Sängerin',
+      title: 'Über mich – JoyWanna (Jovana Kokor) | Pianistin & Sängerin',
       description:
-        'Über Jovana Kokor (JoyWanna): Pianistin und Sängerin aus Oldenburg, Jazz, Latin & NeoSoul – Werdegang, Bands und musikalische Vision.',
+        'Über JoyWanna (Jovana Kokor): Pianistin und Sängerin aus Oldenburg, Jazz, Latin & NeoSoul – Werdegang, Bands und musikalische Vision.',
     },
     en: {
-      title: 'About – Jovana Kokor (JoyWanna) | Pianist & Vocalist',
+      title: 'About – JoyWanna (Jovana Kokor) | Pianist & Vocalist',
       description:
-        'About Jovana Kokor (JoyWanna): pianist and vocalist based in Oldenburg, Germany. Jazz, Latin & NeoSoul background, bands and musical vision.',
+        'About JoyWanna (Jovana Kokor): pianist and vocalist based in Oldenburg, Germany. Jazz, Latin & NeoSoul background, bands and musical vision.',
     },
   },
   lessons: {
     de: {
-      title: 'Unterricht – Klavier & Vocal Coaching | Jovana Kokor',
+      title: 'Unterricht – Klavier & Vocal Coaching | JoyWanna (Jovana Kokor)',
       description:
-        'Klavier- und Gesangsunterricht mit Jovana Kokor (JoyWanna): individuelles Vocal Coaching und Klavierunterricht für alle Altersgruppen, online & vor Ort.',
+        'Klavier- und Gesangsunterricht mit JoyWanna (Jovana Kokor): individuelles Vocal Coaching und Klavierunterricht für alle Altersgruppen, online & vor Ort.',
     },
     en: {
-      title: 'Lessons – Piano & Vocal Coaching | Jovana Kokor',
+      title: 'Lessons – Piano & Vocal Coaching | JoyWanna (Jovana Kokor)',
       description:
-        'Piano lessons and vocal coaching with Jovana Kokor (JoyWanna): tailored sessions for every age and level, available online and in person.',
+        'Piano lessons and vocal coaching with JoyWanna (Jovana Kokor): tailored sessions for every age and level, available online and in person.',
     },
   },
   contact: {
     de: {
-      title: 'Kontakt & Booking – Jovana Kokor (JoyWanna)',
+      title: 'Kontakt & Booking – JoyWanna (Jovana Kokor)',
       description:
-        'Kontakt und Booking-Anfragen für Jovana Kokor (JoyWanna): Konzerte, Firmenevents, Hochzeiten und Privatunterricht. Jetzt unverbindlich anfragen.',
+        'Kontakt und Booking-Anfragen für JoyWanna (Jovana Kokor): Konzerte, Firmenevents, Hochzeiten und Privatunterricht. Jetzt unverbindlich anfragen.',
     },
     en: {
-      title: 'Contact & Booking – Jovana Kokor (JoyWanna)',
+      title: 'Contact & Booking – JoyWanna (Jovana Kokor)',
       description:
-        'Contact and booking enquiries for Jovana Kokor (JoyWanna): concerts, corporate events, weddings and private lessons. Get in touch today.',
+        'Contact and booking enquiries for JoyWanna (Jovana Kokor): concerts, corporate events, weddings and private lessons. Get in touch today.',
     },
   },
 };
@@ -113,12 +100,12 @@ const PORTFOLIO_SEO: { de: RouteSEO; en: RouteSEO } = {
   de: {
     title: 'Portfolio – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse',
     description:
-      'Portfolio von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.',
+      'Portfolio von JoyWanna (Jovana Kokor): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.',
   },
   en: {
     title: 'Portfolio – JoyWanna | Visual Work, Live Shows & Press',
     description:
-      'Portfolio of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.',
+      'Portfolio of JoyWanna (Jovana Kokor): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.',
   },
 };
 
@@ -127,12 +114,12 @@ const CATEGORY_SEO: Record<PortfolioTab, { de: RouteSEO; en: RouteSEO }> = {
     de: {
       title: 'Visuelle Arbeiten – Portfolio | JoyWanna · Jovana Kokor',
       description:
-        'Visuelle Arbeiten von Jovana Kokor (JoyWanna): Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.',
+        'Visuelle Arbeiten von JoyWanna (Jovana Kokor): Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.',
     },
     en: {
       title: 'Visual Work – Portfolio | JoyWanna · Jovana Kokor',
       description:
-        'Visual work by Jovana Kokor (JoyWanna): stage moments, band photography and artist portraits from concerts across Germany and Europe.',
+        'Visual work by JoyWanna (Jovana Kokor): stage moments, band photography and artist portraits from concerts across Germany and Europe.',
     },
   },
   shows: {
@@ -151,12 +138,12 @@ const CATEGORY_SEO: Record<PortfolioTab, { de: RouteSEO; en: RouteSEO }> = {
     de: {
       title: 'Presse – Portfolio | JoyWanna · Jovana Kokor',
       description:
-        'Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang in Deutschland und Europa.',
+        'Presseberichte aus Zeitungen und Magazinen über JoyWanna (Jovana Kokor), ihre Konzerte und ihren musikalischen Werdegang in Deutschland und Europa.',
     },
     en: {
       title: 'Press – Portfolio | JoyWanna · Jovana Kokor',
       description:
-        'Press features from newspapers and magazines about JoyWanna, her concerts and her musical journey across Germany and Europe.',
+        'Press features from newspapers and magazines about JoyWanna (Jovana Kokor), her concerts and her musical journey across Germany and Europe.',
     },
   },
 };
@@ -164,22 +151,22 @@ const CATEGORY_SEO: Record<PortfolioTab, { de: RouteSEO; en: RouteSEO }> = {
 const LEGAL_SEO: Record<'/impressum' | '/privacy', { de: RouteSEO; en: RouteSEO }> = {
   '/impressum': {
     de: {
-      title: 'Impressum – Jovana Kokor (JoyWanna)',
-      description: 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von Jovana Kokor (JoyWanna).',
+      title: 'Impressum – JoyWanna | Jovana Kokor',
+      description: 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von JoyWanna (Jovana Kokor).',
     },
     en: {
-      title: 'Imprint – Jovana Kokor (JoyWanna)',
-      description: 'Legal notice and provider information for the website of Jovana Kokor (JoyWanna).',
+      title: 'Imprint – JoyWanna | Jovana Kokor',
+      description: 'Legal notice and provider information for the website of JoyWanna (Jovana Kokor).',
     },
   },
   '/privacy': {
     de: {
-      title: 'Datenschutz – Jovana Kokor (JoyWanna)',
-      description: 'Datenschutzerklärung gemäß DSGVO für die Webseite von Jovana Kokor (JoyWanna).',
+      title: 'Datenschutz – JoyWanna | Jovana Kokor',
+      description: 'Datenschutzerklärung gemäß DSGVO für die Webseite von JoyWanna (Jovana Kokor).',
     },
     en: {
-      title: 'Privacy Policy – Jovana Kokor (JoyWanna)',
-      description: 'GDPR-compliant privacy policy for the website of Jovana Kokor (JoyWanna).',
+      title: 'Privacy Policy – JoyWanna | Jovana Kokor',
+      description: 'GDPR-compliant privacy policy for the website of JoyWanna (Jovana Kokor).',
     },
   },
 };
@@ -249,7 +236,6 @@ export function useDynamicSEO() {
         HOME_SEO,
       );
     } else if (pathname === '/impressum' || pathname === '/privacy') {
-      // Legal pages are single-shell; canonical = self URL.
       const url = `${origin}${pathname}`;
       upsertLink('canonical', url);
       clearHreflangs();
@@ -266,7 +252,6 @@ export function useDynamicSEO() {
       upsertMeta('twitter:title', copy.title, true);
       upsertMeta('twitter:description', copy.description, true);
     } else {
-      // Unknown route — self-canonical fallback.
       const url = `${origin}${pathname}`;
       upsertLink('canonical', url);
       clearHreflangs();
