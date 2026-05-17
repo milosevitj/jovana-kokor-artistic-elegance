@@ -29,7 +29,7 @@ const upcomingGigs: Gig[] = [
     city: 'Wilhelmshaven',
     titleDe: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
     titleEn: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
-    poster: jadeJazzJamPoster,
+    modal: 'jade',
   },
   {
     id: 'reimagined-release',
