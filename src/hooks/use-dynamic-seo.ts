@@ -45,14 +45,14 @@ type RouteSEO = { title: string; description: string };
 
 const HOME_SEO: { de: RouteSEO; en: RouteSEO } = {
   de: {
-    title: 'JoyWanna – Pianistin, Sängerin & Pädagogin | Deutschland',
+    title: 'JoyWanna – Sängerin & Pianistin | Live-Musik, Konzerte & Vocal Coaching',
     description:
-      'Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht. Jetzt Termin anfragen!',
+      'Vielseitige Bühnenkunst, künstlerischer Ausdruck und langjährige internationale Bühnenerfahrung – von großen Bühnen bis zu persönlichen Konzertmomenten.',
   },
   en: {
-    title: 'JoyWanna – Pianist, Vocalist & Educator | Germany',
+    title: 'JoyWanna – Singer & Pianist | Live Music, Concerts & Vocal Coaching',
     description:
-      'Germany-based classical pianist & vocal artist JoyWanna (Jovana Kokor). Concerts, corporate events & private piano and vocal lessons across Germany & Europe.',
+      'Versatile stage artistry, artistic expression and many years of international stage experience – from grand stages to intimate concert moments.',
   },
 };
 
