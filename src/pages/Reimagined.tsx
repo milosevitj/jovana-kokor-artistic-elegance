@@ -1,36 +1,41 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
+import { SEOManager } from '@/components/SEOManager';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import coverImage from '@/assets/reimagined-cover.jpeg';
 
 const albumConfig = {
-  artistName: "Jovana Kokor",
-  albumTitle: "Reimagined",
-  coverImage: "/cover.jpg",
+  artistName: 'Jovana Kokor',
+  albumTitle: 'Reimagined',
+  coverImage,
   links: {
-    deezer: "#",
-    spotify: "#",
-    appleMusic: "#",
-    youtubeMusic: "#",
-    youtube: "#",
-    tidal: "#",
-    amazonMusic: "#",
+    deezer: '#',
+    spotify: '#',
+    appleMusic: '#',
+    youtubeMusic: '#',
+    youtube: '#',
+    tidal: '#',
+    amazonMusic: '#',
   },
 };
 
+type PlatformKey = keyof typeof albumConfig.links;
+
 type Platform = {
-  key: keyof typeof albumConfig.links;
+  key: PlatformKey;
   name: string;
-  badgeColor: string;
   logo: JSX.Element;
 };
 
 const platforms: Platform[] = [
   {
-    key: "deezer",
-    name: "Deezer",
-    badgeColor: "#A238FF",
+    key: 'deezer',
+    name: 'Deezer',
     logo: (
       <svg viewBox="0 0 64 32" className="h-5 w-auto" aria-hidden="true">
-        <g fill="#A238FF">
-          <rect x="48" y="4" width="16" height="4" />
+        <g>
+          <rect x="48" y="4" width="16" height="4" fill="#A238FF" />
           <rect x="32" y="11" width="16" height="4" fill="#FF0092" />
           <rect x="48" y="11" width="16" height="4" fill="#FFCC00" />
           <rect x="0" y="18" width="16" height="4" fill="#00C7F2" />
@@ -46,9 +51,8 @@ const platforms: Platform[] = [
     ),
   },
   {
-    key: "spotify",
-    name: "Spotify",
-    badgeColor: "#1DB954",
+    key: 'spotify',
+    name: 'Spotify',
     logo: (
       <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
         <circle cx="12" cy="12" r="12" fill="#1DB954" />
@@ -60,9 +64,8 @@ const platforms: Platform[] = [
     ),
   },
   {
-    key: "appleMusic",
-    name: "Apple Music",
-    badgeColor: "#FA243C",
+    key: 'appleMusic',
+    name: 'Apple Music',
     logo: (
       <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
         <defs>
@@ -80,9 +83,8 @@ const platforms: Platform[] = [
     ),
   },
   {
-    key: "youtubeMusic",
-    name: "YouTube Music",
-    badgeColor: "#FF0000",
+    key: 'youtubeMusic',
+    name: 'YouTube Music',
     logo: (
       <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
         <circle cx="12" cy="12" r="12" fill="#FF0000" />
@@ -92,9 +94,8 @@ const platforms: Platform[] = [
     ),
   },
   {
-    key: "youtube",
-    name: "YouTube",
-    badgeColor: "#FF0000",
+    key: 'youtube',
+    name: 'YouTube',
     logo: (
       <svg viewBox="0 0 32 24" className="h-6 w-auto" aria-hidden="true">
         <rect width="32" height="24" rx="6" fill="#FF0000" />
@@ -103,23 +104,20 @@ const platforms: Platform[] = [
     ),
   },
   {
-    key: "tidal",
-    name: "Tidal",
-    badgeColor: "#000",
+    key: 'tidal',
+    name: 'Tidal',
     logo: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+      <svg viewBox="0 0 24 16" className="h-5 w-auto" aria-hidden="true">
         <path
           fill="#000"
-          d="M12 6L8 10l-4-4-4 4 4 4 4-4 4 4 4-4-4-4zm8-4l-4 4 4 4 4-4-4-4zM12 14l-4 4 4 4 4-4-4-4z"
-          transform="translate(0 -1)"
+          d="M8 0L4 4 0 0v4l4 4 4-4 4 4 4-4-4-4zm8 0l-4 4 4 4 4-4-4-4zM8 8l-4 4 4 4 4-4-4-4z"
         />
       </svg>
     ),
   },
   {
-    key: "amazonMusic",
-    name: "Amazon Music",
-    badgeColor: "#25D1DA",
+    key: 'amazonMusic',
+    name: 'Amazon Music',
     logo: (
       <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
         <rect width="24" height="24" rx="5" fill="#25D1DA" />
@@ -132,86 +130,99 @@ const platforms: Platform[] = [
   },
 ];
 
-export default function Reimagined() {
+function ReimaginedContent() {
+  const { language } = useLanguage();
+  const listenLabel = language === 'de' ? 'Anhören' : 'Listen';
+  const subtitle = language === 'de' ? 'Streaming-Dienst wählen' : 'Choose music service';
+
   useEffect(() => {
     const prev = document.title;
-    document.title = `${albumConfig.artistName} – ${albumConfig.albumTitle}`;
+    document.title = `${albumConfig.albumTitle} – ${albumConfig.artistName} | JoyWanna`;
     return () => {
       document.title = prev;
     };
   }, []);
 
   return (
-    <main
-      className="min-h-screen w-full flex flex-col items-center px-4 py-10 sm:py-16"
-      style={{
-        background:
-          "linear-gradient(160deg, #f5e9dc 0%, #e8c9b4 40%, #d99c8a 75%, #c47a6e 100%)",
-      }}
-    >
-      <div className="w-full max-w-md flex flex-col items-center">
-        {/* Album cover */}
-        <div className="relative">
-          <img
-            src={albumConfig.coverImage}
-            alt={`${albumConfig.albumTitle} – ${albumConfig.artistName} album cover`}
-            className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl object-cover shadow-2xl"
-            loading="eager"
-          />
-          {/* Streaming badge */}
-          <div className="absolute -top-2 -right-2 bg-white rounded-full shadow-md p-1.5 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
-              <defs>
-                <linearGradient id="amg2" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stopColor="#FA5C7F" />
-                  <stop offset="1" stopColor="#FA243C" />
-                </linearGradient>
-              </defs>
-              <rect width="24" height="24" rx="6" fill="url(#amg2)" />
-              <path
-                fill="#fff"
-                d="M16.5 6.5c0-.4-.3-.6-.7-.5l-6 1.2c-.4.1-.6.4-.6.8v6.4c-.3-.1-.6-.2-1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9c1.2 0 2.1-.8 2.1-1.8V9.7l5.3-1.1v4.8c-.3-.1-.6-.2-1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.1-.8 2.1-1.9V6.5z"
-              />
-            </svg>
-            <span className="absolute -bottom-1 -right-1 h-3 w-3 bg-green-500 rounded-full border-2 border-white" />
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main
+        className="relative min-h-screen pt-28 md:pt-36 pb-16 px-4"
+        style={{
+          background:
+            'linear-gradient(160deg, hsl(30 35% 92%) 0%, hsl(22 40% 80%) 40%, hsl(12 40% 65%) 75%, hsl(355 35% 50%) 100%)',
+        }}
+      >
+        <div className="w-full max-w-md mx-auto flex flex-col items-center">
+          {/* Album cover */}
+          <div className="relative">
+            <img
+              src={albumConfig.coverImage}
+              alt={`${albumConfig.albumTitle} – ${albumConfig.artistName}`}
+              className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl object-cover shadow-2xl"
+              loading="eager"
+            />
+            {/* Streaming badge (Apple Music) */}
+            <div className="absolute -top-2 -right-2 bg-background rounded-full shadow-md p-1.5 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                <defs>
+                  <linearGradient id="amg2" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stopColor="#FA5C7F" />
+                    <stop offset="1" stopColor="#FA243C" />
+                  </linearGradient>
+                </defs>
+                <rect width="24" height="24" rx="6" fill="url(#amg2)" />
+                <path
+                  fill="#fff"
+                  d="M16.5 6.5c0-.4-.3-.6-.7-.5l-6 1.2c-.4.1-.6.4-.6.8v6.4c-.3-.1-.6-.2-1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9c1.2 0 2.1-.8 2.1-1.8V9.7l5.3-1.1v4.8c-.3-.1-.6-.2-1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.1-.8 2.1-1.9V6.5z"
+                />
+              </svg>
+              <span className="absolute -bottom-1 -right-1 h-3 w-3 bg-green-500 rounded-full border-2 border-background" />
+            </div>
+          </div>
+
+          {/* Title */}
+          <h1 className="mt-6 font-serif text-3xl sm:text-4xl font-medium tracking-tight text-center text-foreground">
+            {albumConfig.artistName} – {albumConfig.albumTitle}
+          </h1>
+          <p className="mt-2 text-sm sm:text-base text-foreground/70">{subtitle}</p>
+
+          {/* Platform list */}
+          <div className="mt-8 w-full bg-background rounded-2xl shadow-xl overflow-hidden border border-border">
+            {platforms.map((p, i) => (
+              <a
+                key={p.key}
+                href={albumConfig.links[p.key]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-between gap-4 px-5 py-4 hover:bg-secondary/50 transition-colors ${
+                  i !== platforms.length - 1 ? 'border-b border-border' : ''
+                }`}
+              >
+                <div className="flex items-center gap-4 min-w-0">
+                  <span className="flex-shrink-0 flex items-center justify-center w-10">
+                    {p.logo}
+                  </span>
+                  <span className="font-medium text-foreground truncate">{p.name}</span>
+                </div>
+                <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-2 rounded-full border border-foreground/30 text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+                  {listenLabel}
+                </span>
+              </a>
+            ))}
           </div>
         </div>
-
-        {/* Title */}
-        <h1 className="mt-6 text-2xl sm:text-3xl font-semibold text-neutral-900 text-center tracking-tight">
-          {albumConfig.artistName} - {albumConfig.albumTitle}
-        </h1>
-        <p className="mt-1 text-neutral-700 text-sm sm:text-base">Choose music service</p>
-
-        {/* Platform list */}
-        <div className="mt-8 w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-          {platforms.map((p, i) => (
-            <a
-              key={p.key}
-              href={albumConfig.links[p.key]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center justify-between gap-4 px-5 py-4 hover:bg-neutral-50 transition-colors ${
-                i !== platforms.length - 1 ? "border-b border-neutral-100" : ""
-              }`}
-            >
-              <div className="flex items-center gap-4 min-w-0">
-                <span className="flex-shrink-0 flex items-center justify-center w-10">
-                  {p.logo}
-                </span>
-                <span className="font-semibold text-neutral-900 truncate">{p.name}</span>
-              </div>
-              <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-2 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-colors">
-                Listen
-              </span>
-            </a>
-          ))}
-        </div>
-
-        <p className="mt-8 text-xs text-neutral-600/80">
-          © {new Date().getFullYear()} {albumConfig.artistName}
-        </p>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }
+
+const Reimagined = () => (
+  <LanguageProvider>
+    <SEOManager />
+    <ReimaginedContent />
+  </LanguageProvider>
+);
+
+export default Reimagined;
