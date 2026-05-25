@@ -33,19 +33,15 @@ const platforms: Platform[] = [
     key: 'deezer',
     name: 'Deezer',
     logo: (
-      <svg viewBox="0 0 64 32" className="h-5 w-auto" aria-hidden="true">
-        <g>
-          <rect x="48" y="4" width="16" height="4" fill="#A238FF" />
-          <rect x="32" y="11" width="16" height="4" fill="#FF0092" />
-          <rect x="48" y="11" width="16" height="4" fill="#FFCC00" />
-          <rect x="0" y="18" width="16" height="4" fill="#00C7F2" />
-          <rect x="16" y="18" width="16" height="4" fill="#00CF56" />
-          <rect x="32" y="18" width="16" height="4" fill="#FF6184" />
-          <rect x="48" y="18" width="16" height="4" fill="#FF0000" />
-          <rect x="0" y="25" width="16" height="4" fill="#B47AEF" />
-          <rect x="16" y="25" width="16" height="4" fill="#FF8E00" />
-          <rect x="32" y="25" width="16" height="4" fill="#F12E51" />
-          <rect x="48" y="25" width="16" height="4" fill="#2D2D2D" />
+      <svg viewBox="0 0 48 40" className="h-7 w-auto" aria-hidden="true">
+        <g fill="#A238FF">
+          <ellipse cx="6" cy="14" rx="6" ry="8" />
+          <ellipse cx="18" cy="11" rx="7" ry="10" />
+          <ellipse cx="30" cy="11" rx="7" ry="10" />
+          <ellipse cx="42" cy="14" rx="6" ry="8" />
+          <ellipse cx="12" cy="24" rx="8" ry="10" />
+          <ellipse cx="24" cy="26" rx="9" ry="12" />
+          <ellipse cx="36" cy="24" rx="8" ry="10" />
         </g>
       </svg>
     ),
@@ -107,11 +103,13 @@ const platforms: Platform[] = [
     key: 'tidal',
     name: 'Tidal',
     logo: (
-      <svg viewBox="0 0 24 16" className="h-5 w-auto" aria-hidden="true">
-        <path
-          fill="#000"
-          d="M8 0L4 4 0 0v4l4 4 4-4 4 4 4-4-4-4zm8 0l-4 4 4 4 4-4-4-4zM8 8l-4 4 4 4 4-4-4-4z"
-        />
+      <svg viewBox="0 0 36 24" className="h-6 w-auto" aria-hidden="true">
+        <g fill="#000">
+          <path d="M6 0L0 6l6 6 6-6z" />
+          <path d="M18 0l-6 6 6 6 6-6z" />
+          <path d="M30 0l-6 6 6 6 6-6z" />
+          <path d="M18 12l-6 6 6 6 6-6z" />
+        </g>
       </svg>
     ),
   },
