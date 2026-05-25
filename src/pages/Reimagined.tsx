@@ -146,13 +146,7 @@ function ReimaginedContent() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main
-        className="relative min-h-screen pt-28 md:pt-36 pb-16 px-4"
-        style={{
-          background:
-            'linear-gradient(160deg, hsl(30 35% 92%) 0%, hsl(22 40% 80%) 40%, hsl(12 40% 65%) 75%, hsl(355 35% 50%) 100%)',
-        }}
-      >
+      <main className="relative pt-32 md:pt-40 pb-20 px-4 bg-secondary/30">
         <div className="w-full max-w-md mx-auto flex flex-col items-center">
           {/* Album cover */}
           <div className="relative">
