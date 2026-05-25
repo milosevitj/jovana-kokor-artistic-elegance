@@ -14,8 +14,7 @@ import {
 type NavItem =
   | { kind: 'section'; section: SectionId; label: string }
   | { kind: 'portfolio'; label: string }
-  | { kind: 'page'; section: SectionId; label: string }
-  | { kind: 'static'; href: string; label: string; matchPath: string };
+  | { kind: 'page'; section: SectionId; label: string };
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -56,17 +55,12 @@ export function Header() {
     { kind: 'section', section: 'about', label: t('nav.about') },
     { kind: 'page', section: 'lessons', label: t('nav.lessons') },
     { kind: 'portfolio', label: t('nav.gallery') },
-    // Reimagined – label stays identical in DE and EN.
-    { kind: 'static', href: '/reimagined', matchPath: '/reimagined', label: 'Reimagined' },
     { kind: 'section', section: 'contact', label: t('nav.contact') },
   ];
 
   const isActive = (item: NavItem): boolean => {
     if (item.kind === 'portfolio') {
       return parsed.kind === 'portfolio' || parsed.kind === 'portfolio-category';
-    }
-    if (item.kind === 'static') {
-      return pathname === item.matchPath || pathname.endsWith(item.matchPath);
     }
     if (item.kind === 'page') {
       return parsed.kind === 'section' && parsed.section === item.section;
@@ -81,7 +75,6 @@ export function Header() {
 
   const hrefFor = (item: NavItem): string => {
     if (item.kind === 'portfolio') return buildPortfolioPath(language);
-    if (item.kind === 'static') return item.href;
     return buildSectionPath(item.section, language);
   };
 
@@ -186,10 +179,10 @@ export function Header() {
                   </Link>
                 );
               }
-              if (item.kind === 'page' || item.kind === 'static') {
+              if (item.kind === 'page') {
                 return (
                   <Link
-                    key={item.kind === 'page' ? item.section : item.href}
+                    key={item.section}
                     to={href}
                     className={desktopLinkClass(active)}
                     aria-current={active ? 'page' : undefined}
@@ -291,10 +284,10 @@ export function Header() {
                     </Link>
                   );
                 }
-                if (item.kind === 'page' || item.kind === 'static') {
+                if (item.kind === 'page') {
                   return (
                     <Link
-                      key={item.kind === 'page' ? item.section : item.href}
+                      key={item.section}
                       to={href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={mobileLinkClass(active)}

@@ -148,19 +148,6 @@ const CATEGORY_SEO: Record<PortfolioTab, { de: RouteSEO; en: RouteSEO }> = {
   },
 };
 
-const REIMAGINED_SEO: { de: RouteSEO; en: RouteSEO } = {
-  de: {
-    title: 'Reimagined – JoyWanna | Songs neu interpretiert für Stimme & Klavier',
-    description:
-      '„Reimagined" – ein Projekt von JoyWanna (Jovana Kokor): bekannte Songs neu interpretiert, reduziert auf Stimme, Klavier, Klang und Gefühl.',
-  },
-  en: {
-    title: 'Reimagined – JoyWanna | Songs reinterpreted for voice & piano',
-    description:
-      '"Reimagined" – a project by JoyWanna (Jovana Kokor): familiar songs reinterpreted, stripped back to voice, piano, sound and feeling.',
-  },
-};
-
 const LEGAL_SEO: Record<'/impressum' | '/privacy', { de: RouteSEO; en: RouteSEO }> = {
   '/impressum': {
     de: {
@@ -248,27 +235,6 @@ export function useDynamicSEO() {
         buildSectionPath('home', 'en'),
         HOME_SEO,
       );
-    } else if (
-      pathname === '/reimagined' ||
-      pathname === '/de/reimagined' ||
-      pathname === '/en/reimagined'
-    ) {
-      // Same slug in both languages – canonical is /reimagined.
-      const url = `${origin}/reimagined`;
-      upsertLink('canonical', url);
-      clearHreflangs();
-      upsertLink('alternate', url, { hreflang: 'de' });
-      upsertLink('alternate', url, { hreflang: 'en' });
-      upsertLink('alternate', url, { hreflang: 'x-default' });
-      upsertMeta('og:url', url);
-      upsertMeta('og:locale', language === 'en' ? 'en_US' : 'de_DE');
-      const copy = REIMAGINED_SEO[language];
-      setTitle(copy.title);
-      upsertMeta('description', copy.description, true);
-      upsertMeta('og:title', copy.title);
-      upsertMeta('og:description', copy.description);
-      upsertMeta('twitter:title', copy.title, true);
-      upsertMeta('twitter:description', copy.description, true);
     } else if (pathname === '/impressum' || pathname === '/privacy') {
       const url = `${origin}${pathname}`;
       upsertLink('canonical', url);

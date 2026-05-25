@@ -13,7 +13,6 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const VocalCoaching = lazy(() => import("./pages/VocalCoaching"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Reimagined = lazy(() => import("./pages/Reimagined"));
 
 const queryClient = new QueryClient();
 
@@ -50,10 +49,6 @@ const App = () => (
             {/* Legacy lessons slugs → redirect to new vocal-coaching path. */}
             <Route path="/de/unterricht" element={<Navigate to="/de/vocal-coaching" replace />} />
             <Route path="/en/lessons" element={<Navigate to="/en/vocal-coaching" replace />} />
-            {/* Reimagined – same slug in both languages. */}
-            <Route path="/reimagined" element={<Reimagined />} />
-            <Route path="/de/reimagined" element={<Reimagined />} />
-            <Route path="/en/reimagined" element={<Reimagined />} />
             {/* Portfolio routes (now "Projekte" / "Projects"). */}
             <Route path="/de/projekte" element={<Portfolio />} />
             <Route path="/en/projects" element={<Portfolio />} />
