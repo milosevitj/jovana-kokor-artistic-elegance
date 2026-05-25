@@ -13,6 +13,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const VocalCoaching = lazy(() => import("./pages/VocalCoaching"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Reimagined = lazy(() => import("./pages/Reimagined"));
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,10 @@ const App = () => (
             <Route path="/en/portfolio/:category" element={<Portfolio />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/impressum" element={<Impressum />} />
+            {/* Album smart link */}
+            <Route path="/reimagined" element={<Reimagined />} />
+            <Route path="/de/reimagined" element={<Reimagined />} />
+            <Route path="/en/reimagined" element={<Reimagined />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
