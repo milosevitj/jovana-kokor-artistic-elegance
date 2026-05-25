@@ -178,6 +178,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/en/vocal-coaching" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/de/vocal-coaching" />
   </url>
+  <!-- Reimagined (same slug in both languages) -->
+  <url>
+    <loc>https://jovanakokor.de/reimagined</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jovanakokor.de/reimagined" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jovanakokor.de/reimagined" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jovanakokor.de/reimagined" />
+  </url>
+
 
   <!-- Legal pages -->
   <url>
