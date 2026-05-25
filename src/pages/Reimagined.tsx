@@ -1,85 +1,58 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Music2, Piano, Mic2, Sparkles } from 'lucide-react';
+import { ArrowLeft, MapPin, CalendarDays, Clock, Ticket, Music2, Piano, Mic2, Sparkles } from 'lucide-react';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import poster from '@/assets/reimagined-poster.jpeg';
 
 const COPY = {
   de: {
     back: 'Zurück zur Startseite',
-    eyebrow: 'Ein Projekt von JoyWanna',
-    title: 'Reimagined',
-    subtitle: 'Bekannte Songs – neu gehört. Reduziert auf Stimme, Klavier, Klang und Gefühl.',
-    intro:
-      '„Reimagined" ist ein persönliches Projekt von Jovana Kokor – ein Album mit neu interpretierten Lieblingssongs und Publikumsfavoriten. Die Stücke werden aus ihrem ursprünglichen Kontext gelöst und auf das Wesentliche reduziert: eine Stimme, ein Klavier, ein Raum für echte Emotion.',
-    conceptTitle: 'Das Konzept',
-    concept:
-      'Jeder Song erzählt eine Geschichte. In „Reimagined" entstehen diese Geschichten neu – langsamer, intimer, oft mit mehr Stille zwischen den Tönen. Der Fokus liegt nicht auf der Originalproduktion, sondern auf dem, was bleibt, wenn man alles Überflüssige weglässt: die Melodie, der Text, der Moment.',
-    pillarsTitle: 'Was „Reimagined" ausmacht',
+    eyebrow: 'Konzert · Voice & Piano',
+    tagline: 'Bekannte Songs – neu interpretiert. Reduziert auf Stimme, Klavier, Klang und Gefühl.',
+    venue: 'Wilhelm 13',
+    city: 'Oldenburg',
+    date: '14. Juni',
+    time: '20:00 Uhr',
+    tickets: 'Tickets & Anfrage',
+    aboutTitle: 'Über den Abend',
+    about:
+      '„Reimagined" ist ein persönliches Projekt von Jovana Kokor – ein intimer Konzertabend, an dem bekannte Songs und Publikumsfavoriten neu interpretiert werden. Die Stücke werden aus ihrem ursprünglichen Kontext gelöst und auf das Wesentliche reduziert: eine Stimme, ein Klavier, ein Raum für echte Emotion.',
+    pillarsTitle: 'Was dich erwartet',
     pillars: [
-      {
-        title: 'Stimme',
-        desc: 'Roh, ehrlich und unmittelbar – mit Raum für jede Nuance.',
-      },
-      {
-        title: 'Klavier',
-        desc: 'Reduziert und tragend – als Begleiter und gleichberechtigter Partner der Stimme.',
-      },
-      {
-        title: 'Klang',
-        desc: 'Warm, dicht, lebendig – jeder Atemzug, jeder Anschlag wird Teil des Stücks.',
-      },
-      {
-        title: 'Gefühl',
-        desc: 'Die Songs werden zu kleinen Konzertmomenten – persönlich, direkt, berührend.',
-      },
+      { title: 'Stimme', desc: 'Roh, ehrlich und unmittelbar – mit Raum für jede Nuance.' },
+      { title: 'Klavier', desc: 'Reduziert und tragend – Begleiter und gleichberechtigter Partner der Stimme.' },
+      { title: 'Klang', desc: 'Warm, dicht, lebendig – jeder Atemzug wird Teil des Stücks.' },
+      { title: 'Gefühl', desc: 'Kleine Konzertmomente – persönlich, direkt, berührend.' },
     ],
-    sessionsTitle: 'Sessions & Live-Konzerte',
-    sessions:
-      '„Reimagined" lebt nicht nur auf dem Album, sondern auch auf der Bühne. In intimen Konzertformaten – solo oder im Duo – entstehen Abende, die ganz auf Stimme und Klavier reduziert sind. Ein Raum, in dem zwischen Künstlerin und Publikum eine besondere Verbundenheit entsteht.',
-    ctaTitle: 'Live erleben oder buchen',
-    ctaSubtitle:
-      '„Reimagined" eignet sich für Konzertreihen, kuratierte Events, Kulturhäuser und private Anlässe, bei denen Musik nicht nur Beiwerk, sondern Mittelpunkt sein soll.',
-    ctaPrimary: 'Anfrage senden',
+    ctaTitle: 'Sei dabei',
+    ctaSubtitle: 'Begrenzte Plätze – sichere dir deinen Sitz für diesen besonderen Abend in Oldenburg.',
+    ctaPrimary: 'Karte anfragen',
     ctaSecondary: 'Mehr über JoyWanna',
   },
   en: {
     back: 'Back to Home',
-    eyebrow: 'A project by JoyWanna',
-    title: 'Reimagined',
-    subtitle: 'Familiar songs – heard anew. Stripped back to voice, piano, sound and feeling.',
-    intro:
-      '"Reimagined" is a personal project by Jovana Kokor – an album of reinterpreted favorite songs and audience favorites. The pieces are lifted out of their original context and reduced to the essentials: one voice, one piano, a space for honest emotion.',
-    conceptTitle: 'The concept',
-    concept:
-      'Every song tells a story. In "Reimagined" these stories are reborn – slower, more intimate, often with more silence between the notes. The focus is not on the original production, but on what remains when everything unnecessary is stripped away: the melody, the lyric, the moment.',
-    pillarsTitle: 'What "Reimagined" stands for',
+    eyebrow: 'Concert · Voice & Piano',
+    tagline: 'Familiar songs – reinterpreted. Stripped back to voice, piano, sound and feeling.',
+    venue: 'Wilhelm 13',
+    city: 'Oldenburg',
+    date: 'June 14',
+    time: '8:00 PM',
+    tickets: 'Tickets & inquiry',
+    aboutTitle: 'About the evening',
+    about:
+      '"Reimagined" is a personal project by Jovana Kokor – an intimate concert evening where familiar songs and audience favorites are reinterpreted. The pieces are lifted out of their original context and reduced to the essentials: one voice, one piano, a space for honest emotion.',
+    pillarsTitle: 'What to expect',
     pillars: [
-      {
-        title: 'Voice',
-        desc: 'Raw, honest and immediate – with room for every nuance.',
-      },
-      {
-        title: 'Piano',
-        desc: 'Reduced and supportive – companion and equal partner to the voice.',
-      },
-      {
-        title: 'Sound',
-        desc: 'Warm, close, alive – every breath and every key becomes part of the piece.',
-      },
-      {
-        title: 'Feeling',
-        desc: 'Songs become small concert moments – personal, direct, deeply moving.',
-      },
+      { title: 'Voice', desc: 'Raw, honest and immediate – with room for every nuance.' },
+      { title: 'Piano', desc: 'Reduced and supportive – companion and equal partner to the voice.' },
+      { title: 'Sound', desc: 'Warm, close, alive – every breath becomes part of the piece.' },
+      { title: 'Feeling', desc: 'Small concert moments – personal, direct, deeply moving.' },
     ],
-    sessionsTitle: 'Sessions & live concerts',
-    sessions:
-      '"Reimagined" lives not only on the album, but also on stage. In intimate concert formats – solo or as a duo – evenings emerge that are fully reduced to voice and piano. A space where a special connection is created between the artist and the audience.',
-    ctaTitle: 'Experience it live or book the show',
-    ctaSubtitle:
-      '"Reimagined" is ideal for concert series, curated events, cultural venues and private occasions where music is meant to be the heart of the evening, not a backdrop.',
-    ctaPrimary: 'Send an inquiry',
+    ctaTitle: 'Join us',
+    ctaSubtitle: 'Limited seats – secure your spot for this special evening in Oldenburg.',
+    ctaPrimary: 'Request a ticket',
     ctaSecondary: 'More about JoyWanna',
   },
 } as const;
@@ -97,10 +70,10 @@ function ReimaginedContent() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main>
-        {/* Hero */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-secondary/30 relative overflow-hidden">
+        {/* Hero – concert poster */}
+        <section className="pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden">
           <div
-            className="absolute inset-0 opacity-40 pointer-events-none"
+            className="absolute inset-0 opacity-60 pointer-events-none"
             style={{ background: 'var(--gradient-hero)' }}
             aria-hidden="true"
           />
@@ -113,41 +86,80 @@ function ReimaginedContent() {
               {copy.back}
             </Link>
 
-            <div className="text-center max-w-3xl mx-auto animate-fade-in">
-              <p className="text-sm md:text-base uppercase tracking-[0.25em] text-primary mb-4">
-                {copy.eyebrow}
-              </p>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6">
-                {copy.title}
-              </h1>
-              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-                {copy.subtitle}
-              </p>
-              <div className="w-20 h-px bg-primary mx-auto mt-8" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+              {/* Poster */}
+              <div className="relative animate-fade-in order-1 lg:order-1">
+                <div
+                  className="absolute -inset-4 rounded-2xl opacity-50 blur-2xl"
+                  style={{ background: 'var(--gradient-ruby)' }}
+                  aria-hidden="true"
+                />
+                <img
+                  src={poster}
+                  alt="JoyWanna Reimagined – Voice & Piano – Wilhelm 13, Oldenburg, 14. Juni 20:00"
+                  width={900}
+                  height={1200}
+                  loading="eager"
+                  fetchPriority="high"
+                  className="relative w-full h-auto rounded-2xl border border-border/50 shadow-2xl object-cover"
+                  style={{ boxShadow: 'var(--shadow-elegant)' }}
+                />
+              </div>
+
+              {/* Event details */}
+              <div className="order-2 lg:order-2 text-center lg:text-left">
+                <p className="text-sm md:text-base uppercase tracking-[0.25em] text-primary mb-4">
+                  {copy.eyebrow}
+                </p>
+                <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-4 leading-[1.05]">
+                  Reimagined
+                </h1>
+                <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8">
+                  {copy.tagline}
+                </p>
+
+                <div className="w-20 h-px bg-primary mx-auto lg:mx-0 mb-8" />
+
+                <ul className="space-y-4 mb-10 inline-block text-left">
+                  <li className="flex items-center gap-3">
+                    <MapPin className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-base md:text-lg">
+                      <span className="font-medium">{copy.venue}</span>
+                      <span className="text-muted-foreground"> · {copy.city}</span>
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CalendarDays className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-base md:text-lg">{copy.date}</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Clock className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-base md:text-lg">{copy.time}</span>
+                  </li>
+                </ul>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Link to={contactHref} className="btn-hero inline-flex items-center justify-center">
+                    <Ticket className="w-4 h-4 mr-2" />
+                    {copy.tickets}
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Intro */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
-            <p className="text-foreground/90 leading-relaxed text-lg md:text-xl text-center">
-              {copy.intro}
-            </p>
-          </div>
-        </section>
-
-        {/* Concept */}
-        <section className="py-16 md:py-24 bg-secondary/30">
+        {/* About the evening */}
+        <section className="py-20 md:py-28 bg-secondary/30">
           <div className="container mx-auto px-6 md:px-12 max-w-3xl">
             <div className="text-center mb-10">
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
-                {copy.conceptTitle}
+                {copy.aboutTitle}
               </h2>
               <div className="w-16 h-px bg-primary mx-auto mt-6" />
             </div>
-            <p className="text-foreground/90 leading-relaxed text-lg text-center">
-              {copy.concept}
+            <p className="text-foreground/90 leading-relaxed text-lg md:text-xl text-center">
+              {copy.about}
             </p>
           </div>
         </section>
@@ -182,30 +194,16 @@ function ReimaginedContent() {
           </div>
         </section>
 
-        {/* Sessions */}
-        <section className="py-16 md:py-24 bg-secondary/30">
-          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
-            <div className="text-center mb-10">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
-                {copy.sessionsTitle}
-              </h2>
-              <div className="w-16 h-px bg-primary mx-auto mt-6" />
-            </div>
-            <p className="text-foreground/90 leading-relaxed text-lg text-center">
-              {copy.sessions}
-            </p>
-          </div>
-        </section>
-
         {/* CTA */}
-        <section className="py-20 md:py-28">
+        <section className="py-20 md:py-28 bg-secondary/30">
           <div className="container mx-auto px-6 md:px-12 max-w-2xl text-center">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
               {copy.ctaTitle}
             </h2>
             <p className="text-muted-foreground text-lg mb-10">{copy.ctaSubtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={contactHref} className="btn-hero">
+              <Link to={contactHref} className="btn-hero inline-flex items-center justify-center">
+                <Ticket className="w-4 h-4 mr-2" />
                 {copy.ctaPrimary}
               </Link>
               <Link
