@@ -291,10 +291,10 @@ export function Header() {
                     </Link>
                   );
                 }
-                if (item.kind === 'page') {
+                if (item.kind === 'page' || item.kind === 'static') {
                   return (
                     <Link
-                      key={item.section}
+                      key={item.kind === 'page' ? item.section : item.href}
                       to={href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={mobileLinkClass(active)}
