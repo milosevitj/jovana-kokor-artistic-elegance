@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://jovanakokor.de/sitemap.xml
+Sitemap: https://joywanna.com/sitemap.xml
