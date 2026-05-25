@@ -14,7 +14,8 @@ import {
 type NavItem =
   | { kind: 'section'; section: SectionId; label: string }
   | { kind: 'portfolio'; label: string }
-  | { kind: 'page'; section: SectionId; label: string };
+  | { kind: 'page'; section: SectionId; label: string }
+  | { kind: 'custom'; key: string; href: string; label: string };
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -55,6 +56,7 @@ export function Header() {
     { kind: 'section', section: 'about', label: t('nav.about') },
     { kind: 'page', section: 'lessons', label: t('nav.lessons') },
     { kind: 'portfolio', label: t('nav.gallery') },
+    { kind: 'custom', key: 'reimagined', href: `/${language}/reimagined`, label: 'Reimagined' },
     { kind: 'section', section: 'contact', label: t('nav.contact') },
   ];
 
@@ -64,6 +66,9 @@ export function Header() {
     }
     if (item.kind === 'page') {
       return parsed.kind === 'section' && parsed.section === item.section;
+    }
+    if (item.kind === 'custom') {
+      return pathname === item.href;
     }
     if (parsed.kind === 'section') return parsed.section === item.section;
     if (parsed.kind === 'home') {
@@ -75,6 +80,7 @@ export function Header() {
 
   const hrefFor = (item: NavItem): string => {
     if (item.kind === 'portfolio') return buildPortfolioPath(language);
+    if (item.kind === 'custom') return item.href;
     return buildSectionPath(item.section, language);
   };
 
@@ -179,10 +185,10 @@ export function Header() {
                   </Link>
                 );
               }
-              if (item.kind === 'page') {
+              if (item.kind === 'page' || item.kind === 'custom') {
                 return (
                   <Link
-                    key={item.section}
+                    key={item.kind === 'custom' ? item.key : item.section}
                     to={href}
                     className={desktopLinkClass(active)}
                     aria-current={active ? 'page' : undefined}
@@ -284,10 +290,10 @@ export function Header() {
                     </Link>
                   );
                 }
-                if (item.kind === 'page') {
+                if (item.kind === 'page' || item.kind === 'custom') {
                   return (
                     <Link
-                      key={item.section}
+                      key={item.kind === 'custom' ? item.key : item.section}
                       to={href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={mobileLinkClass(active)}
