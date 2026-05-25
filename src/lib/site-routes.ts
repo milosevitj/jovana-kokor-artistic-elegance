@@ -140,8 +140,14 @@ export function localizedCounterpart(pathname: string, target: Lang): string {
       return buildPortfolioPath(target);
     case 'portfolio-category':
       return buildCategoryPath(parsed.tab, target);
-    default:
-      return buildSectionPath('home', target);
+    default: {
+      // For any other path: swap the /de or /en prefix if present,
+      // otherwise keep the path as-is so the user stays on the same page.
+      const swapped = pathname.replace(/^\/(de|en)(\/|$)/, `/${target}$2`);
+      if (swapped !== pathname) return swapped;
+      if (/^\/(de|en)(\/|$)/.test(pathname)) return pathname;
+      return pathname || `/${target}/`;
+    }
   }
 }
 
