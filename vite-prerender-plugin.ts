@@ -269,6 +269,52 @@ for (const s of SECTION_ROUTES) {
     canonicalOverride: alternates,
   });
 }
+
+// Album smart link ("Reimagined") — localized DE/EN + non-prefixed.
+{
+  const dePath = "/de/reimagined";
+  const enPath = "/en/reimagined";
+  const alternates = { de: dePath, en: enPath };
+  const reimaginedMeta = {
+    title: {
+      de: "Reimagined – Jovana Kokor (JoyWanna) | Album streamen",
+      en: "Reimagined – Jovana Kokor (JoyWanna) | Stream the Album",
+    },
+    description: {
+      de: 'Höre „Reimagined" von Jovana Kokor (JoyWanna) auf Spotify, Apple Music, Deezer, YouTube Music, Tidal und Amazon Music. Jetzt streamen.',
+      en: "Listen to \"Reimagined\" by Jovana Kokor (JoyWanna) on Spotify, Apple Music, Deezer, YouTube Music, Tidal and Amazon Music. Stream now.",
+    },
+    h1: {
+      de: "Reimagined – Jovana Kokor",
+      en: "Reimagined – Jovana Kokor",
+    },
+    intro: {
+      de: 'Wähle deinen bevorzugten Streaming-Dienst, um „Reimagined" von Jovana Kokor (JoyWanna) anzuhören.',
+      en: "Choose your preferred streaming service to listen to \"Reimagined\" by Jovana Kokor (JoyWanna).",
+    },
+  };
+  ROUTES.push({
+    path: dePath,
+    outDir: "de/reimagined",
+    ...reimaginedMeta,
+    alternates,
+    canonicalOverride: alternates,
+  });
+  ROUTES.push({
+    path: enPath,
+    outDir: "en/reimagined",
+    ...reimaginedMeta,
+    alternates,
+    canonicalOverride: alternates,
+  });
+  ROUTES.push({
+    path: "/reimagined",
+    outDir: "reimagined",
+    ...reimaginedMeta,
+    alternates,
+    canonicalOverride: { de: "/reimagined", en: "/reimagined" },
+  });
+}
 interface CategoryRoute {
   tab: "visual" | "shows" | "press";
   slug: { de: string; en: string };

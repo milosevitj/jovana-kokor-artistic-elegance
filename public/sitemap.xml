@@ -191,5 +191,33 @@
     <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+
+  <!-- Album smart link (Reimagined) -->
+  <url>
+    <loc>https://joywanna.com/reimagined</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/reimagined" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/reimagined" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/de/reimagined</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/reimagined" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/reimagined" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/en/reimagined</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/reimagined" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/reimagined" />
   </url>
 </urlset>
