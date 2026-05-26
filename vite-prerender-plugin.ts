@@ -281,7 +281,7 @@ for (const s of SECTION_ROUTES) {
       en: "Reimagined – Jovana Kokor (JoyWanna) | Stream the Album",
     },
     description: {
-      de: "Höre „Reimagined" von Jovana Kokor (JoyWanna) auf Spotify, Apple Music, Deezer, YouTube Music, Tidal und Amazon Music. Jetzt streamen.",
+      de: 'Höre „Reimagined" von Jovana Kokor (JoyWanna) auf Spotify, Apple Music, Deezer, YouTube Music, Tidal und Amazon Music. Jetzt streamen.',
       en: "Listen to \"Reimagined\" by Jovana Kokor (JoyWanna) on Spotify, Apple Music, Deezer, YouTube Music, Tidal and Amazon Music. Stream now.",
     },
     h1: {
@@ -289,7 +289,7 @@ for (const s of SECTION_ROUTES) {
       en: "Reimagined – Jovana Kokor",
     },
     intro: {
-      de: "Wähle deinen bevorzugten Streaming-Dienst, um „Reimagined" von Jovana Kokor (JoyWanna) anzuhören.",
+      de: 'Wähle deinen bevorzugten Streaming-Dienst, um „Reimagined" von Jovana Kokor (JoyWanna) anzuhören.',
       en: "Choose your preferred streaming service to listen to \"Reimagined\" by Jovana Kokor (JoyWanna).",
     },
   };
