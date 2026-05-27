@@ -21,41 +21,6 @@ function VocalCoachingContent() {
         { Icon: Users, quote: 'Music knows no age limit. Whether 7 or 70, I adapt my teaching to your learning style and your goals.' },
       ];
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    const name = (formData.get('name') as string)?.trim();
-    const email = (formData.get('email') as string)?.trim();
-    const message = (formData.get('message') as string)?.trim();
-
-    if (!name || !email || !message) {
-      toast.error(t('contact.error.required'));
-      setIsSubmitting(false);
-      return;
-    }
-
-    try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name,
-          email,
-          subject: language === 'de' ? 'Vocal Coaching Anfrage' : 'Vocal Coaching Inquiry',
-          message,
-        },
-      });
-      if (error) throw error;
-      setIsSubmitted(true);
-      (e.target as HTMLFormElement).reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
-      console.error('Vocal coaching form error:', err);
-      toast.error(t('contact.error.send'));
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const homeHref = `/${language}/`;
 
