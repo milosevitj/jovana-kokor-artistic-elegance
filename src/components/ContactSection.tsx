@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Send, Instagram, Facebook, Mail } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 
 export function ContactSection() {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setErrorMsg(null);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const name = (formData.get('name') as string)?.trim();
     const email = (formData.get('email') as string)?.trim();
     const subject = formData.get('subject') as string;
@@ -21,23 +24,47 @@ export function ContactSection() {
 
     if (!name || !email || !subject || !message) {
       toast.error(t('contact.error.required'));
-      setIsSubmitting(false);
       return;
     }
 
-    try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: { name, email, subject, message },
-      });
+    if (!WEB3FORMS_KEY) {
+      const msg = 'Form is not configured. Please set VITE_WEB3FORMS_KEY.';
+      setErrorMsg(msg);
+      toast.error(msg);
+      return;
+    }
 
-      if (error) throw error;
+    setIsSubmitting(true);
+
+    const payload = new FormData();
+    payload.append('access_key', WEB3FORMS_KEY);
+    payload.append('name', name);
+    payload.append('email', email);
+    payload.append('subject', `[JoyWanna] ${subject} — ${name}`);
+    payload.append('message', message);
+    payload.append('from_name', 'JoyWanna Website');
+    payload.append('replyto', email);
+    payload.append('botcheck', '');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: payload,
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data?.message || 'Submission failed');
+      }
 
       setIsSubmitted(true);
-      (e.target as HTMLFormElement).reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
+      form.reset();
+      setTimeout(() => setIsSubmitted(false), 6000);
     } catch (err) {
       console.error('Contact form error:', err);
-      toast.error(t('contact.error.send'));
+      const msg = t('contact.error.send');
+      setErrorMsg(msg);
+      toast.error(msg);
     } finally {
       setIsSubmitting(false);
     }
