@@ -13,11 +13,17 @@ function VocalCoachingContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const vocalCards = [
-    { titleKey: 'lessons.vocal.individual', descKey: 'lessons.vocal.individual.desc', Icon: Heart },
-    { titleKey: 'lessons.vocal.expression', descKey: 'lessons.vocal.expression.desc', Icon: Sparkles },
-    { titleKey: 'lessons.vocal.allages', descKey: 'lessons.vocal.allages.desc', Icon: Users },
-  ];
+  const vocalQuotes = language === 'de'
+    ? [
+        { Icon: Heart, quote: 'Jede Stimme ist einzigartig. Deshalb gestalte ich jede Einheit individuell, angepasst an dein Tempo, deine Bedürfnisse und deinen persönlichen Weg.' },
+        { Icon: Sparkles, quote: 'Es geht nicht nur um Technik, sondern auch um Ausdruck. Gemeinsam entdecken wir deine Stimme als kraftvollen Raum für Emotion und Persönlichkeit.' },
+        { Icon: Users, quote: 'Musik kennt keine Altersgrenze. Ob 7 oder 70, ich passe meinen Unterricht an deinen Lernstil und deine Ziele an.' },
+      ]
+    : [
+        { Icon: Heart, quote: 'Every voice is unique. That is why I shape each session individually — attuned to your pace, your needs and your personal path.' },
+        { Icon: Sparkles, quote: 'It is not only about technique, but also about expression. Together we discover your voice as a powerful space for emotion and personality.' },
+        { Icon: Users, quote: 'Music knows no age limit. Whether 7 or 70, I adapt my teaching to your learning style and your goals.' },
+      ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
