@@ -38,6 +38,7 @@ import jw43 from '@/assets/portfolio-new/joywanna-angel-eyes-voice-piano.webp';
 import jw44 from '@/assets/portfolio-new/joywanna-aida-onboard-dennie-blessing.webp';
 import jw45 from '@/assets/portfolio-new/joywanna-just-voice-piano-esther-filly.webp';
 import jw46 from '@/assets/portfolio-new/joywanna-jazz-vocal-studies-belgrade.webp';
+import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
 // Press clippings (newspaper & magazine features) – sourced from joywanna-press
 import press1 from '@/assets/press/joywanna-press-1.webp';
 import press2 from '@/assets/press/joywanna-press-2.webp';
@@ -80,6 +81,7 @@ const photoDimensions: Record<number, { w: number; h: number }> = {
   44: { w: 1600, h: 900 },
   45: { w: 1600, h: 952 },
   46: { w: 960, h: 642 },
+  47: { w: 1616, h: 1080 },
 };
 
 const galleryPhotos: PhotoEntry[] = [
@@ -205,8 +207,8 @@ const galleryPhotos: PhotoEntry[] = [
     src: jw15,
     title: { de: 'Queen Mode', en: 'Queen Mode' },
     description: {
-      de: 'Manchmal darf\'s auch ein bisschen Glamour sein – Queen Mode an. · A Night to Remember Fotoshooting · Foto: Patrick Nagel.',
-      en: 'Sometimes a touch of glamour is just right – Queen Mode on. · A Night to Remember photoshoot · Photo: Patrick Nagel.',
+      de: 'Manchmal darf\'s auch ein bisschen Glamour sein. Queen Mode an. „A Night to Remember" Fotoshooting von Patrick Nagel.',
+      en: 'Sometimes a touch of glamour is just right. Queen Mode on. "A Night to Remember" photoshoot by Patrick Nagel.',
     },
     alt: {
       de: 'Glamouröses Künstlerporträt von Jovana Kokor – „Queen Mode" beim A Night to Remember Fotoshooting',
@@ -367,6 +369,19 @@ const galleryPhotos: PhotoEntry[] = [
     alt: {
       de: 'Jovana Kokor während ihres Jazzgesangsstudiums in Belgrad auf der Bühne',
       en: 'Jovana Kokor on stage during her jazz vocal studies in Belgrade',
+    },
+  },
+  {
+    num: 47,
+    src: jw47,
+    title: { de: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven', en: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven' },
+    description: {
+      de: 'Jade Jazz Jam – live open air am Pumpwerk in Wilhelmshaven. Einfach ein schöner Moment, in dem ich ganz im Zuhören versinke, während mein Pianist Jakob sein Solo spielt. Foto: Bert Bergner',
+      en: 'Jade Jazz Jam – live open air at Pumpwerk in Wilhelmshaven. Simply a beautiful moment in which I sink completely into listening while my pianist Jakob plays his solo. Photo: Bert Bergner',
+    },
+    alt: {
+      de: 'JoyWanna live open air beim Jade Jazz Jam am Pumpwerk in Wilhelmshaven, lauschend während Pianist Jakob ein Solo spielt',
+      en: 'JoyWanna live open air at the Jade Jazz Jam at Pumpwerk in Wilhelmshaven, listening as pianist Jakob plays a solo',
     },
   },
 ];
