@@ -174,6 +174,9 @@ export function ContactSection() {
                 <Send className="w-4 h-4 ml-2" />
               </button>
             </div>
+            {errorMsg && (
+              <p className="text-center text-sm text-destructive mt-2">{errorMsg}</p>
+            )}
           </form>
         )}
 
