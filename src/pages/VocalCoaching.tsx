@@ -100,8 +100,8 @@ function VocalCoachingContent() {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <p className="font-serif italic text-lg leading-relaxed text-foreground/90">
-                    „{quote}"
+                  <p className="text-foreground/90 leading-relaxed">
+                    {quote}
                   </p>
                 </div>
               ))}
