@@ -48,7 +48,7 @@ function PrivacyDE() {
         </p>
         <p className="text-muted-foreground leading-relaxed">
           Jovana Kokor<br />
-          E-Mail: jovanakokor8@gmail.com
+          E-Mail: contact@joywanna.com
         </p>
       </section>
 
@@ -143,7 +143,7 @@ function PrivacyEN() {
         </p>
         <p className="text-muted-foreground leading-relaxed">
           Jovana Kokor<br />
-          Email: jovanakokor8@gmail.com
+          Email: contact@joywanna.com
         </p>
       </section>
 

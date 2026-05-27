@@ -42,7 +42,7 @@ function ImpressumDE() {
           Oldenburg, Deutschland
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          E-Mail: jovanakokor8@gmail.com
+          E-Mail: contact@joywanna.com
         </p>
       </section>
 
@@ -88,7 +88,7 @@ function ImpressumEN() {
           Oldenburg, Germany
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          Email: jovanakokor8@gmail.com
+          Email: contact@joywanna.com
         </p>
       </section>
 
