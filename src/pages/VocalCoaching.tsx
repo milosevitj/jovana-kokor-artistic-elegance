@@ -114,12 +114,12 @@ function VocalCoachingContent() {
           <div className="container mx-auto px-6 md:px-12 max-w-3xl">
             {language === 'de' ? (
               <div className="space-y-6 text-foreground/90 leading-relaxed text-lg">
-                <p>Gesang ist weit mehr als reine Technik – es ist ein ganzheitlicher Weg zu Stimme, Ausdruck und persönlicher Entfaltung.</p>
+                <p>Singen ist weit mehr als reine Technik, es ist ein ganzheitlicher Weg zu Stimme, Ausdruck und persönlicher Entfaltung.</p>
                 <p>In meinem Coaching verbinde ich fundierte Vokaltechnik, Atemarbeit, Körperbewusstsein und künstlerischen Ausdruck zu einem individuellen, holistischen Ansatz. Denn Singen öffnet nicht nur die Stimme, sondern oft auch tiefere Ebenen unseres Selbst.</p>
                 <p>Gemeinsam arbeiten wir daran, deine authentische Stimme zu stärken, emotionale Blockaden zu lösen, mehr Freiheit im Ausdruck zu entwickeln und eine tiefere Verbindung zu dir selbst aufzubauen.</p>
                 <div>
                   <p className="mb-4">Meine Stunden bieten Raum für:</p>
-                  <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                  <ul className="list-disc pl-6 space-y-2">
                     <li>Vokaltechnik &amp; gesunde Stimmentwicklung</li>
                     <li>Atem- und Körperarbeit</li>
                     <li>Ausdruck, Bühnenpräsenz &amp; Persönlichkeit</li>
@@ -129,16 +129,16 @@ function VocalCoachingContent() {
                 </div>
                 <p>Mit Leichtigkeit, Freude und emotionaler Tiefe entsteht ein geschützter Raum, in dem du nicht nur gesanglich wächst, sondern oft auch neue Seiten an dir selbst entdeckst.</p>
                 <p>Neben individuellem Coaching erweitern perspektivisch auch Vocal Workshops und kreative Gruppenformate mein Angebot – für gemeinsames Wachstum, Ausdruck und neue Impulse.</p>
-                <p className="font-serif italic text-xl text-foreground">Deine Stimme kann ein Schlüssel sein – zu mehr Ausdruck, Präsenz und innerer Befreiung, weit über das Singen hinaus.</p>
+                <p className="font-serif italic text-xl text-foreground">Deine Stimme kann ein Schlüssel zu mehr Ausdruck, Präsenz und innerer Freiheit sein, weit über das Singen hinaus.</p>
               </div>
             ) : (
               <div className="space-y-6 text-foreground/90 leading-relaxed text-lg">
-                <p>Singing is far more than pure technique – it is a holistic path to voice, expression and personal unfolding.</p>
+                <p>Singing is far more than pure technique — it is a holistic path to voice, expression and personal unfolding.</p>
                 <p>In my coaching I combine grounded vocal technique, breath work, body awareness and artistic expression into an individual, holistic approach. Because singing opens not only the voice, but often deeper layers of ourselves.</p>
                 <p>Together we work on strengthening your authentic voice, releasing emotional blockages, developing more freedom of expression and building a deeper connection to yourself.</p>
                 <div>
                   <p className="mb-4">My sessions offer space for:</p>
-                  <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                  <ul className="list-disc pl-6 space-y-2">
                     <li>Vocal technique &amp; healthy voice development</li>
                     <li>Breath and body work</li>
                     <li>Expression, stage presence &amp; personality</li>
@@ -147,8 +147,8 @@ function VocalCoachingContent() {
                   </ul>
                 </div>
                 <p>With ease, joy and emotional depth a protected space emerges in which you not only grow vocally, but often also discover new sides of yourself.</p>
-                <p>Alongside individual coaching, vocal workshops and creative group formats will gradually expand my offering – for shared growth, expression and new impulses.</p>
-                <p className="font-serif italic text-xl text-foreground">Your voice can be a key – to more expression, presence and inner liberation, far beyond singing itself.</p>
+                <p>Alongside individual coaching, vocal workshops and creative group formats will gradually expand my offering — for shared growth, expression and new impulses.</p>
+                <p className="font-serif italic text-xl text-foreground">Your voice can be a key to more expression, presence and inner freedom, far beyond singing itself.</p>
               </div>
             )}
           </div>
