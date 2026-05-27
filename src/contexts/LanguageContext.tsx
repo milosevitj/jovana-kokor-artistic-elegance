@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Language = 'de' | 'en';
+type Language = "de" | "en";
 
 interface LanguageContextType {
   language: Language;
@@ -11,279 +11,353 @@ interface LanguageContextType {
 const translations: Record<Language, Record<string, string>> = {
   de: {
     // Navigation
-    'nav.home': 'Start',
-    'nav.gigs': 'Auftritte',
-    'nav.about': 'Über mich',
-    'nav.gallery': 'Projekte',
-    'nav.contact': 'Kontakt',
-    
-    // Hero
-    'hero.headline': 'JoyWanna',
-    'hero.subheadline': 'Music & Performance',
-    'hero.tagline': 'Musik ist mein Raum, um ganz ich selbst zu sein – voller Leidenschaft und Energie, eine Einladung, diesen Moment mit Hingabe und in Verbundenheit zu teilen.',
-    'hero.cta': 'Booking Anfragen',
-    'hero.cta.secondary': 'Mehr erfahren',
-    
-    // Gigs
-    'gigs.title': 'Kommende Auftritte',
-    'gigs.subtitle': 'Erleben Sie JoyWanna live auf der Bühne',
-    'gigs.empty': 'Neue Termine werden bald bekannt gegeben',
-    'gigs.tickets': 'Tickets',
-    'gigs.details': 'Details',
-    
-    // About
-    'about.title': 'Musik, die verbindet',
-    'about.subtitle': 'Stimme. Klang. Gefühl.',
-    'about.p1': 'Musik ist mein Raum, um ganz ich selbst zu sein – voller Leidenschaft und Energie, eine Einladung, diesen Moment mit Hingabe und in Verbundenheit zu teilen.',
-    'about.p2': 'Ich bin Sängerin und Pianistin und bewege mich zwischen Jazz, Latin, NeoSoul, Groove und Pop. Durch mein Jazzgesangstudium in Belgrad, mein Studium der spanischen Sprache sowie über 15 Jahre Bühnenerfahrung – auf großen und kleinen Bühnen, in verschiedensten Formationen, darunter sechs Jahre auf internationalen Kreuzfahrtschiffen – habe ich meinen eigenen Zugang zur Musik entwickelt: gefühlvoll, lebendig, offen für neue Farben und nicht selten auch auf Spanisch und Serbisch interpretiert.',
-    'about.p3.before': 'Ich trete in verschiedenen Formationen auf – solo, im Duo oder Trio sowie mit meiner Band ',
-    'about.p3.band': 'JoyWanna & The Spicy Jam',
-    'about.p3.after': '. Jede Besetzung hat ihren eigenen Charakter: mal intim und reduziert, mal energiegeladen, rhythmisch und voller Spielfreude.',
-    'band.modal.title': 'JoyWanna & The Spicy Jam',
-    'band.modal.p1': 'JoyWanna & The Spicy Jam stehen für einen mitreißenden, genreübergreifenden Sound zwischen Jazz, Latin, Soul und Pop. Farbige, harmonisch vielschichtige Arrangements treffen auf treibende Grooves und pure Spielfreude. Die Band verbindet die Begeisterung, bekannte Klassiker neu zu interpretieren und eigene Kompositionen zu erschaffen.',
-    'band.modal.p2': 'Live entsteht ein Klang „voller Lebensfreude und Energie": brodelnde Rhythmik, leidenschaftliche Soli und die ausdrucksstarke Stimme von Jovana Kokor tragen durch einen Abend, der bewegt – mal sinnlich, mal funkig, mal tief berührend.',
-    'band.modal.p3': 'Freuen Sie sich auf ein Konzerterlebnis voller Lebensfreude, musikalischer Vielfalt und Crossover-Momenten.',
-    'band.modal.close': 'Schließen',
-    'about.p4': 'Ein wichtiger Teil meiner künstlerischen Arbeit ist genau dieses Spannungsfeld: bekannte Songs neu zu hören und ihnen eine persönliche Note zu geben. Mein Projekt „Reimagined" ist daraus entstanden – ein Album mit neu interpretierten Lieblingssongs und Publikumsfavoriten. Dabei löse ich die Stücke aus ihrem ursprünglichen Kontext und reduziere sie oft auf das Wesentliche – Stimme, Klavier, Klang und Gefühl.',
-    'about.p5.before': 'Gleichzeitig arbeite ich an meinem ersten Album mit eigenen Kompositionen – gemeinsam mit wunderbaren Musiker:innen aus meiner Band. Meine Single „',
-    'about.p5.link': 'Just Breathe',
-    'about.p5.after': '" gibt bereits einen Einblick in diese persönliche musikalische Richtung, und weitere Songs sind auf dem Weg.',
-    'about.p6': 'Ob auf der Bühne oder im kleinen Rahmen – mir geht es immer darum, echte Momente zu schaffen: ehrlich, lebendig – und spürbar.',
-    'about.img.alt': 'Jovana Kokor – Sängerin und Pianistin, Porträtfoto',
-    'about.stat.years': 'Jahre Erfahrung',
-    'about.stat.shows': 'Bühnenmomente',
-    'about.stat.passion': 'Leidenschaft',
-    
-    // Portfolio (teaser on landing page)
-    
+    "nav.home": "Start",
+    "nav.gigs": "Auftritte",
+    "nav.about": "Über mich",
+    "nav.gallery": "Projekte",
+    "nav.contact": "Kontakt",
 
-'gallery.subtitle': 'Momente auf der Bühne',
-'gallery.video.title': 'Live Performance',
-'portfolio.heading': 'Momente auf der Bühne',
-'portfolio.subtitle': 'Einblicke in JoyWannas vielseitige musikalische Reise – von internationalen Bühnen bis hin zu Bandprojekten und persönlichen Sessions.',
-'portfolio.cta': 'Mehr entdecken',
-'portfolio.back': 'Zurück zur Startseite',
-'portfolio.page.eyebrow': 'Bühnenmomente & Künstlerporträts',
-'portfolio.page.title': 'Stimme. Klang. Gefühl.',
-'portfolio.page.subtitle': 'Einblicke in JoyWannas vielseitige musikalische Reise – von internationalen Bühnen, sechs Jahren Musik auf See und vielfältigen Bandprojekten bis hin zu persönlichen Künstlerporträts.',
-'portfolio.filter.all': 'Alle',
-'portfolio.filter.live': 'Live Shows',
-'portfolio.filter.band': 'The Spicy Jam',
-'portfolio.filter.reimagined': '"Reimagined" Sessions',
-'portfolio.empty': 'Keine Inhalte in dieser Kategorie.',
-'portfolio.footerCta.title': 'Für ein Event buchen',
-'portfolio.footerCta.subtitle': 'Lassen Sie uns gemeinsam einen unvergesslichen Abend gestalten.',
-    
+    // Hero
+    "hero.headline": "JoyWanna",
+    "hero.subheadline": "Music & Performance",
+    "hero.tagline":
+      "Musik ist mein Raum, um ganz ich selbst zu sein – voller Leidenschaft und Energie, eine Einladung, diesen Moment mit Hingabe und in Verbundenheit zu teilen.",
+    "hero.cta": "Booking Anfragen",
+    "hero.cta.secondary": "Mehr erfahren",
+
+    // Gigs
+    "gigs.title": "Kommende Auftritte",
+    "gigs.subtitle": "Erleben Sie JoyWanna live auf der Bühne",
+    "gigs.empty": "Neue Termine werden bald bekannt gegeben",
+    "gigs.tickets": "Tickets",
+    "gigs.details": "Details",
+
+    // About
+    "about.title": "Musik, die verbindet",
+    "about.subtitle": "Stimme. Klang. Gefühl.",
+    "about.p1":
+      "Musik ist mein Raum, um ganz ich selbst zu sein, voller Leidenschaft und Energie und eine Einladung, diesen Moment mit Präsenz und Verbundenheit zu teilen.",
+
+    "about.p2":
+      "Ich bin Sängerin und Pianistin und bewege mich zwischen Jazz, Latin, NeoSoul, Groove und Pop. Durch mein Jazzgesangsstudium in Belgrad, mein Studium der spanischen Sprache und über 15 Jahre Bühnenerfahrung auf großen und kleinen Bühnen, in unterschiedlichsten Ensembles und sechs Jahre auf internationalen Kreuzfahrtschiffen habe ich meinen eigenen Zugang zur Musik entwickelt, der warm, lebendig, offen für neue Klangfarben und oft auf Spanisch und Serbisch interpretiert ist.",
+
+    "about.p3.before": "Ich trete in verschiedenen Formationen auf, solo, als Duo oder Trio und mit meiner Band ",
+
+    "about.p3.band": "JoyWanna & The Spicy Jam",
+
+    "about.p3.after":
+      ". Jede Besetzung hat ihren eigenen Charakter und reicht von intim und reduziert bis hin zu energiegeladen, rhythmisch und voller Spielfreude.",
+
+    "band.modal.title": "JoyWanna & The Spicy Jam",
+
+    "band.modal.p1":
+      "JoyWanna & The Spicy Jam stehen für einen mitreißenden, genreübergreifenden Sound zwischen Jazz, Latin, Soul und Pop. Farbige, harmonisch vielschichtige Arrangements treffen auf treibende Grooves und pure Spielfreude. Die Band verbindet die Begeisterung, bekannte Klassiker neu zu interpretieren und eigene Kompositionen zu erschaffen.",
+
+    "band.modal.p2":
+      "Live entsteht ein Klang „voller Lebensfreude und Energie“: brodelnde Rhythmik, leidenschaftliche Soli und die ausdrucksstarke Stimme von Jovana Kokor tragen durch einen Abend, der bewegt – mal sinnlich, mal funkig, mal tief berührend.",
+
+    "band.modal.p3":
+      "Freuen Sie sich auf ein Konzerterlebnis voller Lebensfreude, musikalischer Vielfalt und Crossover-Momenten.",
+
+    "band.modal.close": "Schließen",
+
+    "about.p4":
+      "Ein besonderer Teil meiner künstlerischen Arbeit ist diese kreative Spannung, bekannte Songs neu zu hören und ihnen eine persönliche Note zu geben. Daraus entstand mein Projekt „Reimagined“, ein Album mit neu interpretierten Lieblingssongs und Publikumsfavoriten. Ich löse die Stücke aus ihrem ursprünglichen Kontext und reduziere sie oft auf das Wesentliche, Stimme, Klavier, Klang und Emotion.",
+
+    "about.p5.before":
+      "Gleichzeitig arbeite ich gemeinsam mit den wunderbaren Musikerinnen und Musikern meiner Band an meinem ersten Album mit eigenen Kompositionen. Meine Single „",
+
+    "about.p5.link": "Just Breathe",
+
+    "about.p5.after":
+      "“ gibt bereits einen Einblick in diese persönliche musikalische Richtung, weitere Songs sind schon auf dem Weg.",
+
+    "about.p6":
+      "Ob auf der Bühne oder in einem intimen Rahmen, es geht immer darum, echte Momente zu schaffen, die ehrlich, lebendig und spürbar sind.",
+    "about.img.alt": "Jovana Kokor – Sängerin und Pianistin, Porträtfoto",
+    "about.stat.years": "Jahre Erfahrung",
+    "about.stat.shows": "Bühnenmomente",
+    "about.stat.passion": "Leidenschaft",
+
+    // Portfolio (teaser on landing page)
+
+    "gallery.subtitle": "Momente auf der Bühne",
+    "gallery.video.title": "Live Performance",
+    "portfolio.heading": "Momente auf der Bühne",
+    "portfolio.subtitle":
+      "Einblicke in JoyWannas vielseitige musikalische Reise – von internationalen Bühnen bis hin zu Bandprojekten und persönlichen Sessions.",
+    "portfolio.cta": "Mehr entdecken",
+    "portfolio.back": "Zurück zur Startseite",
+    "portfolio.page.eyebrow": "Bühnenmomente & Künstlerporträts",
+    "portfolio.page.title": "Stimme. Klang. Gefühl.",
+    "portfolio.page.subtitle":
+      "Einblicke in JoyWannas vielseitige musikalische Reise – von internationalen Bühnen, sechs Jahren Musik auf See und vielfältigen Bandprojekten bis hin zu persönlichen Künstlerporträts.",
+    "portfolio.filter.all": "Alle",
+    "portfolio.filter.live": "Live Shows",
+    "portfolio.filter.band": "The Spicy Jam",
+    "portfolio.filter.reimagined": '"Reimagined" Sessions',
+    "portfolio.empty": "Keine Inhalte in dieser Kategorie.",
+    "portfolio.footerCta.title": "Für ein Event buchen",
+    "portfolio.footerCta.subtitle": "Lassen Sie uns gemeinsam einen unvergesslichen Abend gestalten.",
+
     // Contact
-    'contact.title': 'Kontakt & Anfragen',
-    'contact.subtitle': 'Für Konzertanfragen, Events, Vocal Coaching und kreative Projekte.',
-    'contact.name': 'Name',
-    'contact.email': 'E-Mail',
-    'contact.subject': 'Betreff',
-    'contact.message': 'Nachricht',
-    'contact.send': 'Nachricht senden',
-    'contact.sending': 'Wird gesendet...',
-    'contact.success': 'Vielen Dank! Ihre Nachricht wurde gesendet.',
-    'contact.error.required': 'Bitte füllen Sie alle Pflichtfelder aus.',
-    'contact.error.send': 'Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut.',
-    'contact.subject.booking': 'Booking Anfrage',
-    'contact.subject.collaboration': 'Zusammenarbeit',
-    'contact.subject.press': 'Presse & Medien',
-    'contact.subject.other': 'Sonstiges',
-    
+    "contact.title": "Kontakt & Anfragen",
+    "contact.subtitle": "Für Konzertanfragen, Events, Vocal Coaching und kreative Projekte.",
+    "contact.name": "Name",
+    "contact.email": "E-Mail",
+    "contact.subject": "Betreff",
+    "contact.message": "Nachricht",
+    "contact.send": "Nachricht senden",
+    "contact.sending": "Wird gesendet...",
+    "contact.success": "Vielen Dank! Ihre Nachricht wurde gesendet.",
+    "contact.error.required": "Bitte füllen Sie alle Pflichtfelder aus.",
+    "contact.error.send": "Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    "contact.subject.booking": "Booking Anfrage",
+    "contact.subject.collaboration": "Zusammenarbeit",
+    "contact.subject.press": "Presse & Medien",
+    "contact.subject.other": "Sonstiges",
+
     // Lessons
-    'nav.lessons': 'Vocal Coaching',
-    'lessons.title': 'Vocal Coaching',
-    'lessons.subtitle': 'Individuelles Vocal Coaching für Stimme, Ausdruck & künstlerische Entwicklung',
-    
+    "nav.lessons": "Vocal Coaching",
+    "lessons.title": "Vocal Coaching",
+    "lessons.subtitle": "Individuelles Vocal Coaching für Stimme, Ausdruck & künstlerische Entwicklung",
+
     // Vocal Coaching cards
-    'lessons.vocal.individual': 'Individuelle Begleitung',
-    'lessons.vocal.individual.desc': 'Jede Stimme ist einzigartig. Deshalb gestalte ich jede Einheit individuell – abgestimmt auf dein Tempo, deine Bedürfnisse und deinen persönlichen Weg.',
-    'lessons.vocal.expression': 'Stimme, Ausdruck & Präsenz',
-    'lessons.vocal.expression.desc': 'Es geht nicht nur um Technik, sondern um Ausdruck. Gemeinsam entdecken wir deine Stimme als kraftvollen Raum für Emotion und Persönlichkeit.',
-    'lessons.vocal.allages': 'Alle Altersgruppen',
-    'lessons.vocal.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meinen Unterricht an deinen Lernstil und deine Ziele an.',
-    'vocal.cta.title': 'Bereit, deine authentische Stimme zu entfalten?',
-    'vocal.cta.subtitle': 'Schreib mir – ich melde mich persönlich bei dir zurück.',
-    
+    "lessons.vocal.individual": "Individuelle Begleitung",
+    "lessons.vocal.individual.desc":
+      "Jede Stimme ist einzigartig. Deshalb gestalte ich jede Einheit individuell – abgestimmt auf dein Tempo, deine Bedürfnisse und deinen persönlichen Weg.",
+    "lessons.vocal.expression": "Stimme, Ausdruck & Präsenz",
+    "lessons.vocal.expression.desc":
+      "Es geht nicht nur um Technik, sondern um Ausdruck. Gemeinsam entdecken wir deine Stimme als kraftvollen Raum für Emotion und Persönlichkeit.",
+    "lessons.vocal.allages": "Alle Altersgruppen",
+    "lessons.vocal.allages.desc":
+      "Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meinen Unterricht an deinen Lernstil und deine Ziele an.",
+    "vocal.cta.title": "Bereit, deine authentische Stimme zu entfalten?",
+    "vocal.cta.subtitle": "Schreib mir – ich melde mich persönlich bei dir zurück.",
+
     // Piano section
-    'lessons.piano.tagline': 'Maßgeschneiderter Unterricht für jedes Niveau',
-    'lessons.piano.title': 'Klavierunterricht',
-    'lessons.piano.beginners': 'Anfänger',
-    'lessons.piano.beginners.desc': 'Starten Sie Ihre musikalische Reise mit einem soliden Fundament. Lernen Sie die richtige Technik, Grundlagen der Musiktheorie und entdecken Sie die Freude am Spielen Ihrer ersten Stücke.',
-    'lessons.piano.advanced': 'Fortgeschrittene',
-    'lessons.piano.advanced.desc': 'Verfeinern Sie Ihre Kunstfertigkeit und meistern Sie anspruchsvolles Repertoire. Fokus auf Ausdruck, Interpretation und Vorbereitung auf Auftritte.',
-    'lessons.piano.allages': 'Alle Altersgruppen',
-    'lessons.piano.allages.desc': 'Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meine Lehrmethoden an Ihren Lernstil und Ihre Ziele an.',
-    
-    'lessons.feature.schedule': 'Flexible Termine',
-    'lessons.feature.online': 'Online & Vor Ort',
-    'lessons.feature.curriculum': 'Individueller Lehrplan',
+    "lessons.piano.tagline": "Maßgeschneiderter Unterricht für jedes Niveau",
+    "lessons.piano.title": "Klavierunterricht",
+    "lessons.piano.beginners": "Anfänger",
+    "lessons.piano.beginners.desc":
+      "Starten Sie Ihre musikalische Reise mit einem soliden Fundament. Lernen Sie die richtige Technik, Grundlagen der Musiktheorie und entdecken Sie die Freude am Spielen Ihrer ersten Stücke.",
+    "lessons.piano.advanced": "Fortgeschrittene",
+    "lessons.piano.advanced.desc":
+      "Verfeinern Sie Ihre Kunstfertigkeit und meistern Sie anspruchsvolles Repertoire. Fokus auf Ausdruck, Interpretation und Vorbereitung auf Auftritte.",
+    "lessons.piano.allages": "Alle Altersgruppen",
+    "lessons.piano.allages.desc":
+      "Musik kennt keine Altersgrenze. Ob 7 oder 70 – ich passe meine Lehrmethoden an Ihren Lernstil und Ihre Ziele an.",
+
+    "lessons.feature.schedule": "Flexible Termine",
+    "lessons.feature.online": "Online & Vor Ort",
+    "lessons.feature.curriculum": "Individueller Lehrplan",
 
     // FAQ
-    'faq.title': 'Häufige Fragen',
-    'faq.subtitle': 'Alles Wichtige auf einen Blick',
-    'faq.q1': 'Welchen musikalischen Hintergrund hat Jovana Kokor?',
-    'faq.a1': 'Jovana Kokor ist eine klassisch ausgebildete Pianistin und Vokalkünstlerin, die ihren Abschluss an der Musikakademie in Klassischer Musik und Gesang gemacht hat. Mit über 10 Jahren Berufserfahrung hat sie an bedeutenden Konzerthäusern und Festivals in Serbien und Deutschland aufgetreten.',
-    'faq.q2': 'Welches Repertoire spielt Jovana Kokor?',
-    'faq.a2': 'Jovana Kokor interpretiert ein vielfältiges Repertoire von klassischem Klavier über Kunstlied (Lieder) und Opernarien bis hin zu zeitgenössischen Vokalwerken. Ihre Programme reichen von intimen Recitals bis zu großen Konzertauftritten, individuell abgestimmt auf den Anlass.',
-    'faq.q3': 'Bietet Jovana Kokor privaten Klavierunterricht an?',
-    'faq.a3': 'Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an – von Anfängern bis Fortgeschrittenen. Der Unterricht ist online und persönlich in Belgrad verfügbar, mit flexiblen Terminen und individuellem Lehrplan.',
-    'faq.q4': 'Wie kann ich Jovana Kokor für ein Konzert oder Event buchen?',
-    'faq.a4': 'Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen buchen, indem Sie das Kontaktformular auf dieser Website nutzen oder eine E-Mail an jovanakokor8@gmail.com senden.',
-    'faq.q5': 'Wo ist Jovana Kokor verfügbar?',
-    'faq.a5': 'Jovana ist in Belgrad, Serbien ansässig und tritt regelmäßig in ganz Deutschland auf – darunter in Städten wie Berlin, München und Frankfurt. Online-Unterricht ist weltweit verfügbar.',
+    "faq.title": "Häufige Fragen",
+    "faq.subtitle": "Alles Wichtige auf einen Blick",
+    "faq.q1": "Welchen musikalischen Hintergrund hat Jovana Kokor?",
+    "faq.a1":
+      "Jovana Kokor ist eine klassisch ausgebildete Pianistin und Vokalkünstlerin, die ihren Abschluss an der Musikakademie in Klassischer Musik und Gesang gemacht hat. Mit über 10 Jahren Berufserfahrung hat sie an bedeutenden Konzerthäusern und Festivals in Serbien und Deutschland aufgetreten.",
+    "faq.q2": "Welches Repertoire spielt Jovana Kokor?",
+    "faq.a2":
+      "Jovana Kokor interpretiert ein vielfältiges Repertoire von klassischem Klavier über Kunstlied (Lieder) und Opernarien bis hin zu zeitgenössischen Vokalwerken. Ihre Programme reichen von intimen Recitals bis zu großen Konzertauftritten, individuell abgestimmt auf den Anlass.",
+    "faq.q3": "Bietet Jovana Kokor privaten Klavierunterricht an?",
+    "faq.a3":
+      "Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an – von Anfängern bis Fortgeschrittenen. Der Unterricht ist online und persönlich in Belgrad verfügbar, mit flexiblen Terminen und individuellem Lehrplan.",
+    "faq.q4": "Wie kann ich Jovana Kokor für ein Konzert oder Event buchen?",
+    "faq.a4":
+      "Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen buchen, indem Sie das Kontaktformular auf dieser Website nutzen oder eine E-Mail an jovanakokor8@gmail.com senden.",
+    "faq.q5": "Wo ist Jovana Kokor verfügbar?",
+    "faq.a5":
+      "Jovana ist in Belgrad, Serbien ansässig und tritt regelmäßig in ganz Deutschland auf – darunter in Städten wie Berlin, München und Frankfurt. Online-Unterricht ist weltweit verfügbar.",
 
     // Footer
-    'footer.rights': 'Alle Rechte vorbehalten',
-    'footer.impressum': 'Impressum',
-    'footer.datenschutz': 'Datenschutz',
-    'footer.follow': 'Folgen Sie mir',
+    "footer.rights": "Alle Rechte vorbehalten",
+    "footer.impressum": "Impressum",
+    "footer.datenschutz": "Datenschutz",
+    "footer.follow": "Folgen Sie mir",
   },
   en: {
     // Navigation
-    'nav.home': 'Home',
-    'nav.gigs': 'Shows',
-    'nav.about': 'About',
-    'nav.gallery': 'Projects',
-    'nav.contact': 'Contact',
-    
+    "nav.home": "Home",
+    "nav.gigs": "Shows",
+    "nav.about": "About",
+    "nav.gallery": "Projects",
+    "nav.contact": "Contact",
+
     // Hero
-    'hero.headline': 'JoyWanna',
-    'hero.subheadline': 'Music & Performance',
-    'hero.tagline': 'Music is my space to fully be myself – full of passion and energy, an invitation to share this moment with presence and connection.',
-    'hero.cta': 'Book for Event',
-    'hero.cta.secondary': 'Learn More',
-    
+    "hero.headline": "JoyWanna",
+    "hero.subheadline": "Music & Performance",
+    "hero.tagline":
+      "Music is my space to be fully myself, full of passion and energy and an invitation to share this moment with presence and connection.",
+    "hero.cta": "Book for Event",
+    "hero.cta.secondary": "Learn More",
+
     // Gigs
-    'gigs.title': 'Upcoming Shows',
-    'gigs.subtitle': 'Experience JoyWanna live on stage',
-    'gigs.empty': 'New dates will be announced soon',
-    'gigs.tickets': 'Tickets',
-    'gigs.details': 'Details',
-    
+    "gigs.title": "Upcoming Shows",
+    "gigs.subtitle": "Experience JoyWanna live on stage",
+    "gigs.empty": "New dates will be announced soon",
+    "gigs.tickets": "Tickets",
+    "gigs.details": "Details",
+
     // About
-    'about.title': 'Music That Connects',
-    'about.subtitle': 'Voice. Sound. Emotion.',
-    'about.p1': 'Music is my space to be fully myself – full of passion and energy, an invitation to share the moment with devotion and connection.',
-    'about.p2': 'I am a singer and pianist, moving between Jazz, Latin, NeoSoul, Groove, and Pop. Through my jazz vocal studies in Belgrade, my studies of the Spanish language, and over 15 years of stage experience – on big and small stages, in a wide variety of ensembles, including six years on international cruise ships – I have developed my own approach to music: soulful, vibrant, open to new colors, and often interpreted in Spanish and Serbian.',
-    'about.p3.before': 'I perform in various formations – solo, as a duo or trio, and with my band ',
-    'about.p3.band': 'JoyWanna & The Spicy Jam',
-    'about.p3.after': '. Each lineup has its own character: sometimes intimate and stripped-back, sometimes energetic, rhythmic, and full of playful joy.',
-    'band.modal.title': 'JoyWanna & The Spicy Jam',
-    'band.modal.p1': 'JoyWanna & The Spicy Jam stand for a captivating, genre-crossing sound between Jazz, Latin, Soul, and Pop. Colorful, harmonically layered arrangements meet driving grooves and pure playfulness. The band combines the joy of reinterpreting beloved classics with creating original compositions.',
-    'band.modal.p2': 'Live, a sound emerges that is "full of joie de vivre and energy": simmering rhythms, passionate solos, and the expressive voice of Jovana Kokor carry you through an evening that moves you – sometimes sensual, sometimes funky, sometimes deeply touching.',
-    'band.modal.p3': 'Look forward to a concert experience full of vitality, musical diversity, and crossover moments.',
-    'band.modal.close': 'Close',
-    'about.p4': 'An important part of my artistic work is exactly this creative tension: hearing well-known songs in a new way and giving them a personal touch. My project "Reimagined" was born from this – an album of reinterpreted favorite songs and audience favorites. I take the pieces out of their original context and often reduce them to the essentials – voice, piano, sound, and emotion.',
-    'about.p5.before': 'At the same time, I am working on my first album of original compositions – together with wonderful musicians from my band. My single "',
-    'about.p5.link': 'Just Breathe',
-    'about.p5.after': '" already offers a glimpse into this personal musical direction, and more songs are on the way.',
-    'about.p6': 'Whether on stage or in an intimate setting – it is always about creating real moments: honest, alive – and felt.',
-    'about.img.alt': 'Jovana Kokor – singer and pianist, portrait photo',
-    'about.stat.years': 'Years of Experience',
-    'about.stat.shows': 'Stage Moments',
-    'about.stat.passion': 'Passion',
-    
+    "about.title": "Music That Connects",
+    "about.subtitle": "Voice. Sound. Emotion.",
+    "about.p1":
+      "Music is my space to be fully myself, full of passion and energy and an invitation to share this moment with presence and connection.",
+
+    "about.p2":
+      "I am a singer and pianist moving between Jazz, Latin, NeoSoul, Groove and Pop. Through my jazz vocal studies in Belgrade, my studies in the Spanish language and more than 15 years of stage experience on both large and small stages, in a wide variety of ensembles and six years on international cruise ships, I have developed my own approach to music, one that is warm, vibrant, open to new colors of sound and often interpreted in Spanish and Serbian.",
+
+    "about.p3.before": "I perform in different formations, solo, as a duo or trio and with my band ",
+
+    "about.p3.band": "JoyWanna & The Spicy Jam",
+
+    "about.p3.after":
+      ". Each constellation has its own character, ranging from intimate and minimal to energetic, rhythmic and full of playful spirit.",
+
+    "band.modal.title": "JoyWanna & The Spicy Jam",
+
+    "band.modal.p1":
+      "JoyWanna & The Spicy Jam stand for an exciting, genre-crossing sound between Jazz, Latin, Soul and Pop. Colorful, harmonically rich arrangements meet driving grooves and pure joy of playing. The band shares a passion for reinterpreting well-known classics and creating original compositions.",
+
+    "band.modal.p2":
+      "Live, a sound “full of joy and energy” unfolds: bubbling rhythms, passionate solos and the expressive voice of Jovana Kokor guide the audience through an evening that moves — sometimes sensual, sometimes funky, sometimes deeply touching.",
+
+    "band.modal.p3": "Look forward to a concert experience full of joy, musical diversity and crossover moments.",
+
+    "band.modal.close": "Close",
+
+    "about.p4":
+      "A special part of my artistic work is this creative tension of hearing familiar songs in a new way and giving them a personal touch. This led to my project “Reimagined”, an album of reinterpreted favorite songs and audience favorites. I take the pieces out of their original context and often reduce them to the essentials — voice, piano, sound and emotion.",
+
+    "about.p5.before":
+      "At the same time, together with the wonderful musicians of my band, I am working on my first album of original compositions. My single “",
+
+    "about.p5.link": "Just Breathe",
+
+    "about.p5.after":
+      "” already offers a glimpse into this personal musical direction, and more songs are already on the way.",
+
+    "about.p6":
+      "Whether on stage or in an intimate setting, it is always about creating real moments that are honest, vibrant and deeply felt.",
+    "about.img.alt": "Jovana Kokor – singer and pianist, portrait photo",
+    "about.stat.years": "Years of Experience",
+    "about.stat.shows": "Stage Moments",
+    "about.stat.passion": "Passion",
+
     // Portfolio (teaser on landing page)
-'gallery.subtitle': 'Stage Moments',
-'gallery.video.title': 'Live Performance',
-'portfolio.heading': 'Stage Moments',
-'portfolio.subtitle': 'Glimpses into JoyWanna\'s versatile musical journey – from international stages to band projects and personal sessions.',
-'portfolio.cta': 'Discover More',
-'portfolio.back': 'Back to Home',
-'portfolio.page.eyebrow': 'Stage Moments & Artist Portraits',
-'portfolio.page.title': 'Voice. Sound. Emotion.',
-'portfolio.page.subtitle': 'Glimpses into JoyWanna\'s versatile musical journey – from international stages, six years of music at sea and diverse band projects to personal artist portraits.',
-'portfolio.filter.all': 'All',
-'portfolio.filter.live': 'Live Shows',
-'portfolio.filter.band': 'The Spicy Jam',
-'portfolio.filter.reimagined': '"Reimagined" Sessions',
-'portfolio.empty': 'No content in this category yet.',
-'portfolio.footerCta.title': 'Book for an Event',
-'portfolio.footerCta.subtitle': 'Let\'s create an unforgettable evening together.',
+    "gallery.subtitle": "Stage Moments",
+    "gallery.video.title": "Live Performance",
+    "portfolio.heading": "Stage Moments",
+    "portfolio.subtitle":
+      "Glimpses into JoyWanna's versatile musical journey – from international stages to band projects and personal sessions.",
+    "portfolio.cta": "Discover More",
+    "portfolio.back": "Back to Home",
+    "portfolio.page.eyebrow": "Stage Moments & Artist Portraits",
+    "portfolio.page.title": "Voice. Sound. Emotion.",
+    "portfolio.page.subtitle":
+      "Glimpses into JoyWanna's versatile musical journey – from international stages, six years of music at sea and diverse band projects to personal artist portraits.",
+    "portfolio.filter.all": "All",
+    "portfolio.filter.live": "Live Shows",
+    "portfolio.filter.band": "The Spicy Jam",
+    "portfolio.filter.reimagined": '"Reimagined" Sessions',
+    "portfolio.empty": "No content in this category yet.",
+    "portfolio.footerCta.title": "Book for an Event",
+    "portfolio.footerCta.subtitle": "Let's create an unforgettable evening together.",
     // Contact
-    'contact.title': 'Contact & Inquiries',
-    'contact.subtitle': 'For concert bookings, events, vocal coaching and creative projects.',
-    'contact.name': 'Name',
-    'contact.email': 'Email',
-    'contact.subject': 'Subject',
-    'contact.message': 'Message',
-    'contact.send': 'Send Message',
-    'contact.sending': 'Sending...',
-    'contact.success': 'Thank you! Your message has been sent.',
-    'contact.error.required': 'Please fill in all required fields.',
-    'contact.error.send': 'Your message could not be sent. Please try again.',
-    'contact.subject.booking': 'Booking Inquiry',
-    'contact.subject.collaboration': 'Collaboration',
-    'contact.subject.press': 'Press & Media',
-    'contact.subject.other': 'Other',
-    
+    "contact.title": "Contact & Inquiries",
+    "contact.subtitle": "For concert bookings, events, vocal coaching and creative projects.",
+    "contact.name": "Name",
+    "contact.email": "Email",
+    "contact.subject": "Subject",
+    "contact.message": "Message",
+    "contact.send": "Send Message",
+    "contact.sending": "Sending...",
+    "contact.success": "Thank you! Your message has been sent.",
+    "contact.error.required": "Please fill in all required fields.",
+    "contact.error.send": "Your message could not be sent. Please try again.",
+    "contact.subject.booking": "Booking Inquiry",
+    "contact.subject.collaboration": "Collaboration",
+    "contact.subject.press": "Press & Media",
+    "contact.subject.other": "Other",
+
     // Lessons
-    'nav.lessons': 'Vocal Coaching',
-    'lessons.title': 'Vocal Coaching',
-    'lessons.subtitle': 'Individual Vocal Coaching for Voice, Expression & Artistic Development',
-    
-    'lessons.vocal.individual': 'Individual Guidance',
-    'lessons.vocal.individual.desc': 'Every voice is unique. That\'s why I design each session individually – tailored to your pace, your needs, and your personal journey.',
-    'lessons.vocal.expression': 'Voice, Expression & Presence',
-    'lessons.vocal.expression.desc': 'It\'s not just about technique – it\'s about expression. Together we discover your voice as a powerful space for emotion and personality.',
-    'lessons.vocal.allages': 'All Age Groups',
-    'lessons.vocal.allages.desc': 'Music knows no age limit. Whether 7 or 70 – I adapt my teaching to your learning style and goals.',
-    'vocal.cta.title': 'Ready to unfold your authentic voice?',
-    'vocal.cta.subtitle': 'Send me a message – I\'ll personally get back to you.',
-    
-    'lessons.piano.tagline': 'Tailored Instruction for Every Level',
-    'lessons.piano.title': 'Piano Lessons',
-    'lessons.piano.beginners': 'Beginners',
-    'lessons.piano.beginners.desc': 'Start your musical journey with a solid foundation. Learn proper technique, music theory basics, and discover the joy of playing your first pieces.',
-    'lessons.piano.advanced': 'Advanced',
-    'lessons.piano.advanced.desc': 'Refine your artistry and tackle challenging repertoire. Focus on expression, interpretation, and performance preparation.',
-    'lessons.piano.allages': 'All Ages',
-    'lessons.piano.allages.desc': 'Music has no age limit. Whether you\'re 7 or 70, I adapt my teaching methods to your learning style and goals.',
-    
-    'lessons.feature.schedule': 'Flexible Schedule',
-    'lessons.feature.online': 'Online & In-Person',
-    'lessons.feature.curriculum': 'Personalized Curriculum',
+    "nav.lessons": "Vocal Coaching",
+    "lessons.title": "Vocal Coaching",
+    "lessons.subtitle": "Individual Vocal Coaching for Voice, Expression & Artistic Development",
+
+    "lessons.vocal.individual": "Individual Guidance",
+    "lessons.vocal.individual.desc":
+      "Every voice is unique. That's why I design each session individually – tailored to your pace, your needs, and your personal journey.",
+    "lessons.vocal.expression": "Voice, Expression & Presence",
+    "lessons.vocal.expression.desc":
+      "It's not just about technique – it's about expression. Together we discover your voice as a powerful space for emotion and personality.",
+    "lessons.vocal.allages": "All Age Groups",
+    "lessons.vocal.allages.desc":
+      "Music knows no age limit. Whether 7 or 70 – I adapt my teaching to your learning style and goals.",
+    "vocal.cta.title": "Ready to unfold your authentic voice?",
+    "vocal.cta.subtitle": "Send me a message – I'll personally get back to you.",
+
+    "lessons.piano.tagline": "Tailored Instruction for Every Level",
+    "lessons.piano.title": "Piano Lessons",
+    "lessons.piano.beginners": "Beginners",
+    "lessons.piano.beginners.desc":
+      "Start your musical journey with a solid foundation. Learn proper technique, music theory basics, and discover the joy of playing your first pieces.",
+    "lessons.piano.advanced": "Advanced",
+    "lessons.piano.advanced.desc":
+      "Refine your artistry and tackle challenging repertoire. Focus on expression, interpretation, and performance preparation.",
+    "lessons.piano.allages": "All Ages",
+    "lessons.piano.allages.desc":
+      "Music has no age limit. Whether you're 7 or 70, I adapt my teaching methods to your learning style and goals.",
+
+    "lessons.feature.schedule": "Flexible Schedule",
+    "lessons.feature.online": "Online & In-Person",
+    "lessons.feature.curriculum": "Personalized Curriculum",
 
     // FAQ
-    'faq.title': 'Frequently Asked Questions',
-    'faq.subtitle': 'Everything you need to know',
-    'faq.q1': 'What is Jovana Kokor\'s musical background?',
-    'faq.a1': 'Jovana Kokor is a classically trained pianist and vocal artist who graduated from the Academy of Music with a degree in Classical Music and Vocal Performance. With over 10 years of professional experience, she has performed at major concert halls and festivals across Serbia and Germany.',
-    'faq.q2': 'What repertoire does Jovana Kokor perform?',
-    'faq.a2': 'Jovana Kokor performs a diverse repertoire spanning classical piano, art song (Lieder), opera arias, and contemporary vocal works. Her programs range from intimate recitals to full concert performances, tailored to the occasion.',
-    'faq.q3': 'Does Jovana Kokor offer private piano lessons?',
-    'faq.a3': 'Yes, Jovana offers private piano and vocal instruction for all ages and skill levels — from beginners to advanced students. Lessons are available both online and in-person in Belgrade, with flexible scheduling and a personalized curriculum.',
-    'faq.q4': 'How can I book Jovana Kokor for a concert or event?',
-    'faq.a4': 'You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by using the contact form on this website or emailing jovanakokor8@gmail.com.',
-    'faq.q5': 'Where is Jovana Kokor available?',
-    'faq.a5': 'Jovana is based in Belgrade, Serbia and performs regularly across Germany — including cities like Berlin, Munich, and Frankfurt. Online lessons are available worldwide.',
+    "faq.title": "Frequently Asked Questions",
+    "faq.subtitle": "Everything you need to know",
+    "faq.q1": "What is Jovana Kokor's musical background?",
+    "faq.a1":
+      "Jovana Kokor is a classically trained pianist and vocal artist who graduated from the Academy of Music with a degree in Classical Music and Vocal Performance. With over 10 years of professional experience, she has performed at major concert halls and festivals across Serbia and Germany.",
+    "faq.q2": "What repertoire does Jovana Kokor perform?",
+    "faq.a2":
+      "Jovana Kokor performs a diverse repertoire spanning classical piano, art song (Lieder), opera arias, and contemporary vocal works. Her programs range from intimate recitals to full concert performances, tailored to the occasion.",
+    "faq.q3": "Does Jovana Kokor offer private piano lessons?",
+    "faq.a3":
+      "Yes, Jovana offers private piano and vocal instruction for all ages and skill levels — from beginners to advanced students. Lessons are available both online and in-person in Belgrade, with flexible scheduling and a personalized curriculum.",
+    "faq.q4": "How can I book Jovana Kokor for a concert or event?",
+    "faq.a4":
+      "You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by using the contact form on this website or emailing jovanakokor8@gmail.com.",
+    "faq.q5": "Where is Jovana Kokor available?",
+    "faq.a5":
+      "Jovana is based in Belgrade, Serbia and performs regularly across Germany — including cities like Berlin, Munich, and Frankfurt. Online lessons are available worldwide.",
 
     // Footer
-    'footer.rights': 'All rights reserved',
-    'footer.impressum': 'Imprint',
-    'footer.datenschutz': 'Privacy Policy',
-    'footer.follow': 'Follow me',
+    "footer.rights": "All rights reserved",
+    "footer.impressum": "Imprint",
+    "footer.datenschutz": "Privacy Policy",
+    "footer.follow": "Follow me",
   },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'joywanna.lang';
+const STORAGE_KEY = "joywanna.lang";
 
 function readStoredLanguage(): Language | null {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === "undefined") return null;
   try {
     const v = window.localStorage.getItem(STORAGE_KEY);
-    return v === 'de' || v === 'en' ? v : null;
+    return v === "de" || v === "en" ? v : null;
   } catch {
     return null;
   }
 }
 
 function writeStoredLanguage(lang: Language) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
   try {
     window.localStorage.setItem(STORAGE_KEY, lang);
   } catch {
@@ -299,19 +373,19 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // We deliberately do NOT auto-detect navigator.language or geolocation –
   // a user's explicit choice must always win.
   const getInitialLanguage = (): Language => {
-    if (typeof window === 'undefined') return 'de';
+    if (typeof window === "undefined") return "de";
     // 1. URL path prefix (locale-prefixed routes are the strongest signal).
     const path = window.location.pathname;
-    if (path.startsWith('/en/') || path === '/en') return 'en';
-    if (path.startsWith('/de/') || path === '/de') return 'de';
+    if (path.startsWith("/en/") || path === "/en") return "en";
+    if (path.startsWith("/de/") || path === "/de") return "de";
     // 2. ?lang= query param (legacy deep links).
-    const param = new URLSearchParams(window.location.search).get('lang');
-    if (param === 'en' || param === 'de') return param;
+    const param = new URLSearchParams(window.location.search).get("lang");
+    if (param === "en" || param === "de") return param;
     // 3. Saved choice in localStorage (returning visitors).
     const stored = readStoredLanguage();
     if (stored) return stored;
     // 4. Default 'de' (German is the primary language).
-    return 'de';
+    return "de";
   };
 
   const [language, setLanguageState] = useState<Language>(getInitialLanguage);
@@ -325,7 +399,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // keep the <html lang> attribute in sync for SEO + accessibility.
   useEffect(() => {
     writeStoredLanguage(language);
-    if (typeof document !== 'undefined') {
+    if (typeof document !== "undefined") {
       document.documentElement.lang = language;
     }
   }, [language]);
@@ -333,36 +407,32 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Keep state in sync if the user navigates back/forward between ?lang= URLs.
   useEffect(() => {
     const handlePopState = () => setLanguageState(getInitialLanguage());
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   // If the same user changes the language in another tab, mirror it here.
   useEffect(() => {
     const handleStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY && (e.newValue === 'de' || e.newValue === 'en')) {
+      if (e.key === STORAGE_KEY && (e.newValue === "de" || e.newValue === "en")) {
         setLanguageState(e.newValue);
       }
     };
-    window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
   const t = (key: string): string => {
     return translations[language][key] || key;
   };
 
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 }
