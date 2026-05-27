@@ -52,137 +52,129 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="section-padding">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left: Info */}
-          <div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
-              {t('contact.title')}
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-md">
-              {t('contact.subtitle')}
-            </p>
-            <div className="w-16 h-px bg-primary mb-12" />
+      <div className="container mx-auto max-w-2xl">
+        {/* CTA */}
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
+            {t('contact.title')}
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+            {t('contact.subtitle')}
+          </p>
+        </div>
 
-            {/* Social Links */}
-            <div>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">
-                {t('footer.follow')}
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="https://www.instagram.com/joywannasworld/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.facebook.com/JovanaKokor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href="mailto:jovanakokor8@gmail.com"
-                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail className="w-5 h-5" />
-                </a>
+        {/* Form */}
+        {isSubmitted ? (
+          <div className="bg-card border border-primary/30 rounded-sm p-8 text-center animate-scale-in">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <Send className="w-6 h-6 text-primary" />
+            </div>
+            <p className="text-lg font-medium">{t('contact.success')}</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  {t('contact.name')} *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  maxLength={100}
+                  className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  {t('contact.email')} *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  maxLength={255}
+                  className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                />
               </div>
             </div>
-          </div>
 
-          {/* Right: Form */}
-          <div>
-            {isSubmitted ? (
-              <div className="bg-card border border-primary/30 rounded-sm p-8 text-center animate-scale-in">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-6 h-6 text-primary" />
-                </div>
-                <p className="text-lg font-medium">{t('contact.success')}</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      {t('contact.name')} *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      maxLength={100}
-                      className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      {t('contact.email')} *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      maxLength={255}
-                      className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                    />
-                  </div>
-                </div>
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                {t('contact.subject')} *
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer"
+              >
+                <option value="">—</option>
+                {subjects.map((subject) => (
+                  <option key={subject.value} value={subject.value}>
+                    {subject.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    {t('contact.subject')} *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer"
-                  >
-                    <option value="">—</option>
-                    {subjects.map((subject) => (
-                      <option key={subject.value} value={subject.value}>
-                        {subject.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
+                {t('contact.message')} *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                maxLength={1000}
+                className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
+              />
+            </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    {t('contact.message')} *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    maxLength={1000}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
-                  />
-                </div>
+            <div className="flex justify-center pt-2">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-hero disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? t('contact.sending') : t('contact.send')}
+                <Send className="w-4 h-4 ml-2" />
+              </button>
+            </div>
+          </form>
+        )}
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-hero w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? t('contact.sending') : t('contact.send')}
-                  <Send className="w-4 h-4 ml-2" />
-                </button>
-              </form>
-            )}
-          </div>
+        {/* Social Icons */}
+        <div className="flex justify-center gap-6 mt-16">
+          <a
+            href="https://www.instagram.com/joywannasworld/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.facebook.com/JovanaKokor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Facebook"
+          >
+            <Facebook className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:jovanakokor8@gmail.com"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Email"
+          >
+            <Mail className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </section>
