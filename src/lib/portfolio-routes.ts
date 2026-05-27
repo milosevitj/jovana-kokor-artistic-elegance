@@ -66,7 +66,7 @@ export function buildCategoryPath(tab: PortfolioTab, lang: Lang): string {
  * for the rendered nav and the prerender plugin.
  */
 export const PORTFOLIO_TABS: { tab: PortfolioTab; label: Record<Lang, string> }[] = [
+  { tab: 'shows', label: { de: 'Bühnenmomente', en: 'Stage Moments' } },
   { tab: 'visual', label: { de: 'Fotoshooting', en: 'Photoshoot' } },
   { tab: 'press', label: { de: 'Presse', en: 'Press' } },
-  { tab: 'shows', label: { de: 'Bühnenmomente', en: 'Stage Moments' } },
 ];
