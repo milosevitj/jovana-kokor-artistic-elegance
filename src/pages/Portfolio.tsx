@@ -207,8 +207,8 @@ const galleryPhotos: PhotoEntry[] = [
     src: jw15,
     title: { de: 'Queen Mode', en: 'Queen Mode' },
     description: {
-      de: 'Manchmal darf\'s auch ein bisschen Glamour sein – Queen Mode an. · A Night to Remember Fotoshooting · Foto: Patrick Nagel.',
-      en: 'Sometimes a touch of glamour is just right – Queen Mode on. · A Night to Remember photoshoot · Photo: Patrick Nagel.',
+      de: 'Manchmal darf\'s auch ein bisschen Glamour sein. Queen Mode an. „A Night to Remember" Fotoshooting von Patrick Nagel.',
+      en: 'Sometimes a touch of glamour is just right. Queen Mode on. "A Night to Remember" photoshoot by Patrick Nagel.',
     },
     alt: {
       de: 'Glamouröses Künstlerporträt von Jovana Kokor – „Queen Mode" beim A Night to Remember Fotoshooting',
