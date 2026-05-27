@@ -81,6 +81,7 @@ const photoDimensions: Record<number, { w: number; h: number }> = {
   44: { w: 1600, h: 900 },
   45: { w: 1600, h: 952 },
   46: { w: 960, h: 642 },
+  47: { w: 1616, h: 1080 },
 };
 
 const galleryPhotos: PhotoEntry[] = [
