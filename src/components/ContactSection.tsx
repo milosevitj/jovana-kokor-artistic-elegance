@@ -100,6 +100,8 @@ export function ContactSection() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Honeypot */}
+            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} aria-hidden="true" />
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
