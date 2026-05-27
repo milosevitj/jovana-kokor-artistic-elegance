@@ -1,17 +1,13 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Heart, Sparkles, Users, Send } from 'lucide-react';
+import { ArrowLeft, Heart, Sparkles, Users } from 'lucide-react';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
 
 function VocalCoachingContent() {
   const { language, t } = useLanguage();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
 
   const vocalQuotes = language === 'de'
     ? [
