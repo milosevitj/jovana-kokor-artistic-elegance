@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Calendar, MapPin, ExternalLink, X } from 'lucide-react';
-import reimaginedPoster from '@/assets/joywanna-reimagined-poster.webp';
-import jadeJazzJamPoster from '@/assets/jade-jazz-jam-poster.webp';
-import jadeJazzJamPoster2 from '@/assets/jade-jazz-jam-poster-2.webp';
+import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Calendar, MapPin, ExternalLink, X } from "lucide-react";
+import reimaginedPoster from "@/assets/joywanna-reimagined-poster.webp";
+import jadeJazzJamPoster from "@/assets/jade-jazz-jam-poster.webp";
+import jadeJazzJamPoster2 from "@/assets/jade-jazz-jam-poster-2.webp";
 
-type ModalKey = 'reimagined' | 'jade';
+type ModalKey = "reimagined" | "jade";
 
 interface Gig {
   id: string;
@@ -23,53 +23,42 @@ interface Gig {
 
 const upcomingGigs: Gig[] = [
   {
-    id: 'jade-jazz-jam',
-    date: '2026-05-24',
-    time: '15:15',
-    venue: 'Pumpwerk',
-    city: 'Wilhelmshaven',
-    titleDe: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
-    titleEn: 'JoyWanna & The Spicy Jam – Jade Jazz Jam',
-    modal: 'jade',
-    freeEntrance: true,
-  },
-  {
-    id: 'reimagined-release',
-    date: '2026-06-14',
-    time: '20:00',
-    venue: 'Wilhelm 13',
-    city: 'Oldenburg',
+    id: "reimagined-release",
+    date: "2026-06-14",
+    time: "20:00",
+    venue: "Wilhelm 13",
+    city: "Oldenburg",
     titleDe: '„Reimagined" – Konzert & Albumrelease',
     titleEn: '"Reimagined" – Concert & Album Release',
-    eventUrl: 'https://wilhelm13.de/programm/joywanna-reimagined-bekannte-songs-neu-gehoert/',
-    modal: 'reimagined',
+    eventUrl: "https://wilhelm13.de/programm/joywanna-reimagined-bekannte-songs-neu-gehoert/",
+    modal: "reimagined",
   },
   {
-    id: 'just-voice-piano',
-    date: '2026-07-24',
-    venue: 'Stadtgärtchen, Mainkai',
-    city: '97828 Marktheidenfeld',
-    titleDe: 'Just Voice & Piano mit Esther Filly',
-    titleEn: 'Just Voice & Piano with Esther Filly',
-    ticketUrl: 'https://www.eventim-light.com/de/a/5c73ef5bd2c0670001e0d190/e/6936b7866fe9085f50247cf7',
+    id: "just-voice-piano",
+    date: "2026-07-24",
+    venue: "Stadtgärtchen, Mainkai",
+    city: "97828 Marktheidenfeld",
+    titleDe: "Just Voice & Piano mit Esther Filly",
+    titleEn: "Just Voice & Piano with Esther Filly",
+    ticketUrl: "https://www.eventim-light.com/de/a/5c73ef5bd2c0670001e0d190/e/6936b7866fe9085f50247cf7",
   },
   {
-    id: 'some-sing-special',
-    date: '2026-09-24',
-    venue: 'Wilhelm 13',
-    city: 'Oldenburg',
+    id: "some-sing-special",
+    date: "2026-09-24",
+    venue: "Wilhelm 13",
+    city: "Oldenburg",
     titleDe: '"Some Sing Special" – JoyWanna & The Spicy Jam',
     titleEn: '"Some Sing Special" – JoyWanna & The Spicy Jam',
-    eventUrl: 'https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/',
+    eventUrl: "https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/",
   },
 ];
 
 function formatDate(dateStr: string, language: string): string {
   const date = new Date(dateStr);
-  return date.toLocaleDateString(language === 'de' ? 'de-DE' : 'en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
+  return date.toLocaleDateString(language === "de" ? "de-DE" : "en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   });
 }
 
@@ -80,19 +69,15 @@ export function GigsSection() {
     <section id="gigs" className="section-padding bg-card">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
-            {t('gigs.title')}
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            {t('gigs.subtitle')}
-          </p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">{t("gigs.title")}</h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">{t("gigs.subtitle")}</p>
           <div className="w-20 h-px bg-primary mx-auto mt-8" />
         </div>
 
         {upcomingGigs.length > 0 ? (
           <div className="max-w-4xl mx-auto space-y-6">
             {upcomingGigs.map((gig, index) => {
-              const title = language === 'de' ? gig.titleDe : gig.titleEn;
+              const title = language === "de" ? gig.titleDe : gig.titleEn;
               return (
                 <article
                   key={gig.id}
@@ -104,9 +89,7 @@ export function GigsSection() {
                       <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium">{formatDate(gig.date, language)}</p>
-                        {gig.time && (
-                          <p className="text-muted-foreground text-sm">{gig.time}</p>
-                        )}
+                        {gig.time && <p className="text-muted-foreground text-sm">{gig.time}</p>}
                       </div>
                     </div>
 
@@ -116,28 +99,30 @@ export function GigsSection() {
                       </h3>
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <MapPin className="w-4 h-4" />
-                        <span>{gig.venue}, {gig.city}</span>
+                        <span>
+                          {gig.venue}, {gig.city}
+                        </span>
                       </div>
                     </div>
 
                     <div className="flex flex-col items-start md:items-end gap-2">
                       {gig.freeEntrance ? (
                         <span className="text-sm font-medium text-primary">
-                          {language === 'de' ? 'Freier Eintritt' : 'Free entrance'}
+                          {language === "de" ? "Freier Eintritt" : "Free entrance"}
                         </span>
-                      ) : (gig.ticketUrl || gig.eventUrl) ? (
+                      ) : gig.ticketUrl || gig.eventUrl ? (
                         <a
                           href={gig.ticketUrl ?? gig.eventUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                         >
-                          {language === 'de' ? 'Tickets kaufen' : 'Buy Tickets'}
+                          {language === "de" ? "Tickets kaufen" : "Buy Tickets"}
                           <ExternalLink className="w-4 h-4" />
                         </a>
                       ) : (
                         <span className="text-sm italic text-muted-foreground">
-                          {language === 'de' ? 'Tickets folgen bald' : 'Tickets coming soon'}
+                          {language === "de" ? "Tickets folgen bald" : "Tickets coming soon"}
                         </span>
                       )}
                       {gig.modal && (
@@ -146,7 +131,7 @@ export function GigsSection() {
                           onClick={() => setOpenModal(gig.modal!)}
                           className="text-xs text-muted-foreground hover:text-primary transition-colors"
                         >
-                          {language === 'de' ? 'Mehr erfahren' : 'Learn more'}
+                          {language === "de" ? "Mehr erfahren" : "Learn more"}
                         </button>
                       )}
                     </div>
@@ -156,9 +141,7 @@ export function GigsSection() {
             })}
           </div>
         ) : (
-          <p className="text-center text-muted-foreground italic">
-            {t('gigs.empty')}
-          </p>
+          <p className="text-center text-muted-foreground italic">{t("gigs.empty")}</p>
         )}
       </div>
 
@@ -177,12 +160,12 @@ export function GigsSection() {
               type="button"
               onClick={() => setOpenModal(null)}
               className="absolute top-4 right-4 text-muted-foreground hover:text-primary transition-colors z-10"
-              aria-label={language === 'de' ? 'Schließen' : 'Close'}
+              aria-label={language === "de" ? "Schließen" : "Close"}
             >
               <X className="w-6 h-6" />
             </button>
 
-            {openModal === 'reimagined' && (
+            {openModal === "reimagined" && (
               <>
                 <div className="bg-muted/40 border border-border mb-8 overflow-hidden">
                   <img
@@ -196,28 +179,22 @@ export function GigsSection() {
                   />
                 </div>
 
-                <h3 className="font-serif text-3xl md:text-4xl mb-2">
-                  JoyWanna – Reimagined
-                </h3>
+                <h3 className="font-serif text-3xl md:text-4xl mb-2">JoyWanna – Reimagined</h3>
                 <p className="text-primary italic mb-6">
-                  {language === 'de'
-                    ? 'Bekannte Songs – neu gehört.'
-                    : 'Familiar songs – heard anew.'}
+                  {language === "de" ? "Bekannte Songs – neu gehört." : "Familiar songs – heard anew."}
                 </p>
 
                 <p className="text-foreground/80 leading-relaxed mb-6">
-                  {language === 'de'
+                  {language === "de"
                     ? 'JoyWanna (Jovana Kokor), Sängerin und Pianistin aus Serbien, verleiht vertrauten Melodien eine neue Stimme. Zwischen Jazz, Latin und Pop entstehen reduzierte, persönliche Interpretationen – manchmal auf Spanisch, immer mit Gefühl. Was bleibt, ist der Kern. Was entsteht, klingt oft wie neu. Mit über 15 Jahren Bühnenerfahrung und geprägt durch ihr Jazzstudium in Belgrad entwickelt sie ihren ganz eigenen Zugang zu bekannten Songs. Ihr aktuelles Projekt „Reimagined" bringt genau das auf die Bühne – ergänzt durch erste Einblicke in eigene Kompositionen. Ein Konzert zwischen Vertrautem und Überraschung.'
                     : 'JoyWanna (Jovana Kokor), singer and pianist from Serbia, gives familiar melodies a new voice. Between jazz, Latin and pop, stripped-down, personal interpretations emerge – sometimes in Spanish, always with feeling. What remains is the essence. What emerges often sounds like new. With over 15 years of stage experience and shaped by her jazz studies in Belgrade, she develops her very own approach to well-known songs. Her current project "Reimagined" brings exactly that to the stage – complemented by first glimpses of her own compositions. A concert between the familiar and the surprising.'}
                 </p>
 
                 <div className="border-t border-border pt-6">
                   <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">
-                    {language === 'de' ? 'Besetzung' : 'Line-up'}
+                    {language === "de" ? "Besetzung" : "Line-up"}
                   </p>
-                  <p className="font-medium">
-                    JoyWanna – {language === 'de' ? 'Gesang, Klavier' : 'Vocals, Piano'}
-                  </p>
+                  <p className="font-medium">JoyWanna – {language === "de" ? "Gesang, Klavier" : "Vocals, Piano"}</p>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-border text-sm text-muted-foreground">
@@ -226,14 +203,10 @@ export function GigsSection() {
               </>
             )}
 
-            {openModal === 'jade' && (
+            {openModal === "jade" && (
               <>
-                <h3 className="font-serif text-3xl md:text-4xl mb-2">
-                  Jade Jazz Jam
-                </h3>
-                <p className="text-primary italic mb-6">
-                  JoyWanna & The Spicy Jam
-                </p>
+                <h3 className="font-serif text-3xl md:text-4xl mb-2">Jade Jazz Jam</h3>
+                <p className="text-primary italic mb-6">JoyWanna & The Spicy Jam</p>
                 <div className="space-y-6">
                   <img
                     src={jadeJazzJamPoster}
