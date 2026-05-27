@@ -92,16 +92,17 @@ function VocalCoachingContent() {
         <section className="pt-4 pb-16 md:pt-6 md:pb-24 bg-secondary/30">
           <div className="container mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {vocalCards.map(({ titleKey, descKey, Icon }) => (
+              {vocalQuotes.map(({ Icon, quote }, idx) => (
                 <div
-                  key={titleKey}
-                  className="bg-card rounded-2xl border border-border/50 p-8 hover:border-primary/30 transition-colors duration-300"
+                  key={idx}
+                  className="bg-card rounded-2xl border border-border/50 p-8 hover:border-primary/30 transition-colors duration-300 flex flex-col"
                 >
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h2 className="font-serif text-2xl font-medium mb-4">{t(titleKey)}</h2>
-                  <p className="text-muted-foreground leading-relaxed">{t(descKey)}</p>
+                  <p className="font-serif italic text-lg leading-relaxed text-foreground/90">
+                    „{quote}"
+                  </p>
                 </div>
               ))}
             </div>
