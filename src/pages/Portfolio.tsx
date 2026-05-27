@@ -38,6 +38,7 @@ import jw43 from '@/assets/portfolio-new/joywanna-angel-eyes-voice-piano.webp';
 import jw44 from '@/assets/portfolio-new/joywanna-aida-onboard-dennie-blessing.webp';
 import jw45 from '@/assets/portfolio-new/joywanna-just-voice-piano-esther-filly.webp';
 import jw46 from '@/assets/portfolio-new/joywanna-jazz-vocal-studies-belgrade.webp';
+import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
 // Press clippings (newspaper & magazine features) – sourced from joywanna-press
 import press1 from '@/assets/press/joywanna-press-1.webp';
 import press2 from '@/assets/press/joywanna-press-2.webp';
