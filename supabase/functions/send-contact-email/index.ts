@@ -3,7 +3,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const RECIPIENT_EMAIL = 'jovanakokor8@gmail.com';
+const RECIPIENT_EMAIL = 'contact@joywanna.com';
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {

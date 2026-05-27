@@ -166,7 +166,7 @@ const translations: Record<Language, Record<string, string>> = {
       "Ja, Jovana bietet privaten Klavier- und Gesangsunterricht für alle Altersgruppen und Niveaus an – von Anfängern bis Fortgeschrittenen. Der Unterricht ist online und persönlich in Belgrad verfügbar, mit flexiblen Terminen und individuellem Lehrplan.",
     "faq.q4": "Wie kann ich Jovana Kokor für ein Konzert oder Event buchen?",
     "faq.a4":
-      "Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen buchen, indem Sie das Kontaktformular auf dieser Website nutzen oder eine E-Mail an jovanakokor8@gmail.com senden.",
+      "Sie können Jovana Kokor für Konzerte, Firmenevents, Hochzeiten und private Veranstaltungen buchen, indem Sie das Kontaktformular auf dieser Website nutzen oder eine E-Mail an contact@joywanna.com senden.",
     "faq.q5": "Wo ist Jovana Kokor verfügbar?",
     "faq.a5":
       "Jovana ist in Belgrad, Serbien ansässig und tritt regelmäßig in ganz Deutschland auf – darunter in Städten wie Berlin, München und Frankfurt. Online-Unterricht ist weltweit verfügbar.",
@@ -329,7 +329,7 @@ const translations: Record<Language, Record<string, string>> = {
       "Yes, Jovana offers private piano and vocal instruction for all ages and skill levels — from beginners to advanced students. Lessons are available both online and in-person in Belgrade, with flexible scheduling and a personalized curriculum.",
     "faq.q4": "How can I book Jovana Kokor for a concert or event?",
     "faq.a4":
-      "You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by using the contact form on this website or emailing jovanakokor8@gmail.com.",
+      "You can book Jovana Kokor for concerts, corporate events, weddings, and private gatherings by using the contact form on this website or emailing contact@joywanna.com.",
     "faq.q5": "Where is Jovana Kokor available?",
     "faq.a5":
       "Jovana is based in Belgrade, Serbia and performs regularly across Germany — including cities like Berlin, Munich, and Frankfurt. Online lessons are available worldwide.",
