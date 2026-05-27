@@ -1,17 +1,13 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Heart, Sparkles, Users, Send } from 'lucide-react';
+import { ArrowLeft, Heart, Sparkles, Users } from 'lucide-react';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
 
 function VocalCoachingContent() {
   const { language, t } = useLanguage();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
 
   const vocalQuotes = language === 'de'
     ? [
@@ -25,41 +21,6 @@ function VocalCoachingContent() {
         { Icon: Users, quote: 'Music knows no age limit. Whether 7 or 70, I adapt my teaching to your learning style and your goals.' },
       ];
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    const name = (formData.get('name') as string)?.trim();
-    const email = (formData.get('email') as string)?.trim();
-    const message = (formData.get('message') as string)?.trim();
-
-    if (!name || !email || !message) {
-      toast.error(t('contact.error.required'));
-      setIsSubmitting(false);
-      return;
-    }
-
-    try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name,
-          email,
-          subject: language === 'de' ? 'Vocal Coaching Anfrage' : 'Vocal Coaching Inquiry',
-          message,
-        },
-      });
-      if (error) throw error;
-      setIsSubmitted(true);
-      (e.target as HTMLFormElement).reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
-      console.error('Vocal coaching form error:', err);
-      toast.error(t('contact.error.send'));
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const homeHref = `/${language}/`;
 
@@ -226,80 +187,33 @@ function VocalCoachingContent() {
           </div>
         </section>
 
-        {/* CTA + Contact form */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-6 md:px-12 max-w-2xl">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
-                {t('vocal.cta.title')}
+        {/* CTA */}
+        <section className="py-24 md:py-32">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="max-w-2xl mx-auto text-center space-y-8">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
+                {language === 'de'
+                  ? 'Bereit, deine Stimme zu entfalten?'
+                  : 'Ready to unfold your voice?'}
               </h2>
-              <p className="text-muted-foreground text-lg">
-                {t('vocal.cta.subtitle')}
+              <div className="w-16 h-px bg-primary mx-auto" />
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
+                {language === 'de'
+                  ? 'Jede Coaching-Einheit ist persönlich und individuell auf dich abgestimmt. Schreib mir für Buchungen oder Fragen – ich freue mich, von dir zu hören.'
+                  : "Every coaching session is personal and tailored to you. Reach out for bookings or questions — I'd love to hear from you."}
               </p>
-              <div className="w-16 h-px bg-primary mx-auto mt-6" />
-            </div>
-
-            {isSubmitted ? (
-              <div className="bg-card border border-primary/30 rounded-sm p-8 text-center animate-scale-in">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-6 h-6 text-primary" />
-                </div>
-                <p className="text-lg font-medium">{t('contact.success')}</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="vc-name" className="block text-sm font-medium mb-2">
-                    {t('contact.name')} *
-                  </label>
-                  <input
-                    type="text"
-                    id="vc-name"
-                    name="name"
-                    required
-                    maxLength={100}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="vc-email" className="block text-sm font-medium mb-2">
-                    {t('contact.email')} *
-                  </label>
-                  <input
-                    type="email"
-                    id="vc-email"
-                    name="email"
-                    required
-                    maxLength={255}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="vc-message" className="block text-sm font-medium mb-2">
-                    {t('contact.message')} *
-                  </label>
-                  <textarea
-                    id="vc-message"
-                    name="message"
-                    required
-                    rows={5}
-                    maxLength={1000}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-hero w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              <div className="pt-2">
+                <Link
+                  to={language === 'de' ? '/de/kontakt' : '/en/contact'}
+                  className="btn-hero inline-flex items-center"
                 >
-                  {isSubmitting ? t('contact.sending') : t('contact.send')}
-                  <Send className="w-4 h-4 ml-2" />
-                </button>
-              </form>
-            )}
+                  {language === 'de' ? 'Kontakt aufnehmen' : 'Get in touch'}
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </div>
