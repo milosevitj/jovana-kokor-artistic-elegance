@@ -78,6 +78,7 @@ const Index = () => {
             <GigsSection />
             <AboutSection />
             <PortfolioSection />
+            <HomeCTASection />
           </Suspense>
         </main>
         <Footer />
