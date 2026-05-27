@@ -14,6 +14,7 @@ const Impressum = lazy(() => import("./pages/Impressum"));
 const VocalCoaching = lazy(() => import("./pages/VocalCoaching"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Reimagined = lazy(() => import("./pages/Reimagined"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 const queryClient = new QueryClient();
 
@@ -40,9 +41,11 @@ const App = () => (
             <Route path="/en/" element={<Index />} />
             {/* Localized one-page sections — Index handles the scroll. */}
             <Route path="/de/ueber-mich" element={<Index />} />
-            <Route path="/de/kontakt" element={<Index />} />
             <Route path="/en/about-me" element={<Index />} />
-            <Route path="/en/contact" element={<Index />} />
+            {/* Contact is its own dedicated page (per language). */}
+            <Route path="/de/kontakt" element={<Contact />} />
+            <Route path="/en/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
             {/* Vocal Coaching is its own dedicated page (per language). */}
             <Route path="/de/vocal-coaching" element={<VocalCoaching />} />
             <Route path="/en/vocal-coaching" element={<VocalCoaching />} />

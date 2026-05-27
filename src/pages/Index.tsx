@@ -12,7 +12,7 @@ import { parseRoute, type SectionId } from '@/lib/site-routes';
 const GigsSection = lazy(() => import('@/components/GigsSection').then(m => ({ default: m.GigsSection })));
 const AboutSection = lazy(() => import('@/components/AboutSection').then(m => ({ default: m.AboutSection })));
 const PortfolioSection = lazy(() => import('@/components/PortfolioSection').then(m => ({ default: m.PortfolioSection })));
-const ContactSection = lazy(() => import('@/components/ContactSection').then(m => ({ default: m.ContactSection })));
+
 
 const SectionFallback = () => <div className="min-h-[40vh]" aria-hidden="true" />;
 
@@ -77,7 +77,6 @@ const Index = () => {
             <GigsSection />
             <AboutSection />
             <PortfolioSection />
-            <ContactSection />
           </Suspense>
         </main>
         <Footer />
