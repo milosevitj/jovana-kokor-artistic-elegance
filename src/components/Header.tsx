@@ -4,28 +4,25 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 import joyWannaLogo from '@/assets/joywanna-logo.webp';
 import {
-  buildSectionPath,
-  buildPortfolioPath,
+  buildPagePath,
   localizedCounterpart,
   parseRoute,
-  type SectionId,
+  type Lang,
 } from '@/lib/site-routes';
 
 type NavItem =
-  | { kind: 'section'; section: SectionId; label: string }
-  | { kind: 'portfolio'; label: string }
-  | { kind: 'page'; section: SectionId; label: string }
+  | { kind: 'scroll'; sectionId: 'home' | 'about'; label: string }
+  | { kind: 'page'; page: 'contact' | 'lessons' | 'projects'; label: string }
   | { kind: 'custom'; key: string; href: string; label: string };
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState<string>('');
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const parsed = parseRoute(pathname);
-  const isHome = parsed.kind === 'home' || parsed.kind === 'section';
+  const isHome = parsed.kind === 'home';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -34,78 +31,52 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Keep <html lang> in sync with active language
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
 
-  // Track current section via hash so we can highlight the active link.
-  useEffect(() => {
-    const sync = () => setActiveHash(window.location.hash.replace('#', ''));
-    sync();
-    window.addEventListener('hashchange', sync);
-    const id = window.setInterval(sync, 400);
-    return () => {
-      window.removeEventListener('hashchange', sync);
-      window.clearInterval(id);
-    };
-  }, []);
-
   const navItems: NavItem[] = [
-    { kind: 'section', section: 'home', label: t('nav.home') },
-    { kind: 'section', section: 'about', label: t('nav.about') },
-    { kind: 'page', section: 'lessons', label: t('nav.lessons') },
-    { kind: 'portfolio', label: t('nav.gallery') },
-    { kind: 'custom', key: 'reimagined', href: `/${language}/reimagined`, label: 'Reimagined' },
-    { kind: 'section', section: 'contact', label: t('nav.contact') },
+    { kind: 'scroll', sectionId: 'home', label: t('nav.home') },
+    { kind: 'scroll', sectionId: 'about', label: t('nav.about') },
+    { kind: 'page', page: 'lessons', label: t('nav.lessons') },
+    { kind: 'page', page: 'projects', label: t('nav.gallery') },
+    { kind: 'custom', key: 'reimagined', href: language === 'en' ? '/en/reimagined' : '/reimagined', label: 'Reimagined' },
+    { kind: 'page', page: 'contact', label: t('nav.contact') },
   ];
 
   const isActive = (item: NavItem): boolean => {
-    if (item.kind === 'portfolio') {
-      return parsed.kind === 'portfolio' || parsed.kind === 'portfolio-category';
-    }
     if (item.kind === 'page') {
-      return parsed.kind === 'section' && parsed.section === item.section;
+      if (item.page === 'projects') {
+        return parsed.kind === 'portfolio' || parsed.kind === 'portfolio-category';
+      }
+      return parsed.kind === item.page;
     }
-    if (item.kind === 'custom') {
-      return pathname === item.href;
-    }
-    if (parsed.kind === 'section') return parsed.section === item.section;
-    if (parsed.kind === 'home') {
-      if (item.section === 'home') return activeHash === '' || activeHash === 'home';
-      return activeHash === item.section;
-    }
+    if (item.kind === 'custom') return pathname === item.href;
     return false;
   };
 
-  const hrefFor = (item: NavItem): string => {
-    if (item.kind === 'portfolio') return buildPortfolioPath(language);
-    if (item.kind === 'custom') return item.href;
-    return buildSectionPath(item.section, language);
+  const homeHref = buildPagePath('home', language);
+
+  const scrollToSection = (sectionId: 'home' | 'about') => {
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  const handleSectionClick = (
+  const handleScrollClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    item: Extract<NavItem, { kind: 'section' }>,
+    sectionId: 'home' | 'about',
   ) => {
-    const targetPath = hrefFor(item);
-    // Already on the homepage shell → smooth-scroll without remounting.
+    e.preventDefault();
     if (isHome) {
-      const el = document.getElementById(item.section);
-      if (el) {
-        e.preventDefault();
-        if (item.section === 'home') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-        // Reflect the localized URL in the address bar.
-        window.history.replaceState(null, '', targetPath);
-      }
+      scrollToSection(sectionId);
     } else {
-      // Different page (e.g. /portfolio) → client-side navigate.
-      e.preventDefault();
-      navigate(targetPath);
+      // Navigate to home then scroll once mounted.
+      navigate(homeHref);
+      setTimeout(() => scrollToSection(sectionId), 300);
     }
     setIsMobileMenuOpen(false);
   };
@@ -120,20 +91,59 @@ export function Header() {
       active ? 'text-primary' : 'text-foreground hover:text-primary'
     }`;
 
-  // Language switcher hrefs: equivalent localized URL in the other language.
+  // Language switcher hrefs
   const dePath = localizedCounterpart(pathname, 'de');
   const enPath = localizedCounterpart(pathname, 'en');
-  const homeHref = buildSectionPath('home', language);
 
   const handleLangSwitch = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    target: 'de' | 'en',
+    target: Lang,
     targetPath: string,
   ) => {
     e.preventDefault();
     setLanguage(target);
     navigate(targetPath);
     setIsMobileMenuOpen(false);
+  };
+
+  const renderItem = (item: NavItem, linkClass: (active: boolean) => string) => {
+    const active = isActive(item);
+    if (item.kind === 'scroll') {
+      return (
+        <a
+          key={item.sectionId}
+          href={homeHref}
+          onClick={(e) => handleScrollClick(e, item.sectionId)}
+          className={linkClass(active)}
+        >
+          {item.label}
+        </a>
+      );
+    }
+    if (item.kind === 'custom') {
+      return (
+        <Link
+          key={item.key}
+          to={item.href}
+          className={linkClass(active)}
+          aria-current={active ? 'page' : undefined}
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          {item.label}
+        </Link>
+      );
+    }
+    return (
+      <Link
+        key={item.page}
+        to={buildPagePath(item.page, language)}
+        className={linkClass(active)}
+        aria-current={active ? 'page' : undefined}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        {item.label}
+      </Link>
+    );
   };
 
   return (
@@ -149,7 +159,7 @@ export function Header() {
           className="flex items-center justify-between h-16 md:h-20 gap-6"
           aria-label="Main navigation"
         >
-          {/* Logo → localized Home */}
+          {/* Logo → Home */}
           <Link
             to={homeHref}
             className="flex items-center shrink-0 hover:opacity-80 transition-opacity"
@@ -169,47 +179,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => {
-              const active = isActive(item);
-              const href = hrefFor(item);
-              if (item.kind === 'portfolio') {
-                return (
-                  <Link
-                    key="portfolio"
-                    to={href}
-                    className={desktopLinkClass(active)}
-                    aria-current={active ? 'page' : undefined}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-              if (item.kind === 'page' || item.kind === 'custom') {
-                return (
-                  <Link
-                    key={item.kind === 'custom' ? item.key : item.section}
-                    to={href}
-                    className={desktopLinkClass(active)}
-                    aria-current={active ? 'page' : undefined}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-              return (
-                <a
-                  key={item.section}
-                  href={href}
-                  onClick={(e) => handleSectionClick(e, item)}
-                  className={desktopLinkClass(active)}
-                  aria-current={active ? 'page' : undefined}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
+            {navItems.map((item) => renderItem(item, desktopLinkClass))}
           </div>
 
           {/* Language Toggle & Mobile Menu Button */}
@@ -240,7 +210,6 @@ export function Header() {
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               type="button"
               className="md:hidden p-2 text-foreground relative z-[60]"
@@ -257,64 +226,11 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div
-  id="mobile-nav"
-  className="
-    md:hidden
-    absolute
-    top-16
-    left-0
-    right-0
-    bg-black/95
-    backdrop-blur-xl
-    border-b
-    border-border
-    z-50
-    shadow-2xl
-    animate-fade-in
-  "
->
-           <div className="flex flex-col py-8 px-6 gap-6">
-              {navItems.map((item) => {
-                const active = isActive(item);
-                const href = hrefFor(item);
-                if (item.kind === 'portfolio') {
-                  return (
-                    <Link
-                      key="portfolio"
-                      to={href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={mobileLinkClass(active)}
-                      aria-current={active ? 'page' : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
-                if (item.kind === 'page' || item.kind === 'custom') {
-                  return (
-                    <Link
-                      key={item.kind === 'custom' ? item.key : item.section}
-                      to={href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={mobileLinkClass(active)}
-                      aria-current={active ? 'page' : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
-                return (
-                  <a
-                    key={item.section}
-                    href={href}
-                    onClick={(e) => handleSectionClick(e, item)}
-                    className={mobileLinkClass(active)}
-                    aria-current={active ? 'page' : undefined}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
+            id="mobile-nav"
+            className="md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-border z-50 shadow-2xl animate-fade-in"
+          >
+            <div className="flex flex-col py-8 px-6 gap-6">
+              {navItems.map((item) => renderItem(item, mobileLinkClass))}
             </div>
           </div>
         )}

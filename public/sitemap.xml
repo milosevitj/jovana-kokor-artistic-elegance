@@ -1,185 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Root -->
+  <!-- Homepage (German default) -->
   <url>
     <loc>https://joywanna.com/</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/en</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/" />
   </url>
 
-  <!-- Localized homepages -->
+  <!-- Vocal Coaching -->
   <url>
-    <loc>https://joywanna.com/de/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/" />
-  </url>
-  <url>
-    <loc>https://joywanna.com/en/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/" />
-  </url>
-
-  <!-- Section pages (DE) -->
-  <url>
-    <loc>https://joywanna.com/de/ueber-mich</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://joywanna.com/vocal-coaching</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/ueber-mich" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/about-me" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/ueber-mich" />
-  </url>
-  <url>
-    <loc>https://joywanna.com/de/vocal-coaching</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/vocal-coaching" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/vocal-coaching" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/vocal-coaching" />
-  </url>
-  <url>
-    <loc>https://joywanna.com/de/kontakt</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/kontakt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/kontakt" />
-  </url>
-
-  <!-- Section pages (EN) -->
-  <url>
-    <loc>https://joywanna.com/en/about-me</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/ueber-mich" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/about-me" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/ueber-mich" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/vocal-coaching" />
   </url>
   <url>
     <loc>https://joywanna.com/en/vocal-coaching</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/vocal-coaching" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/vocal-coaching" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/vocal-coaching" />
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://joywanna.com/contact</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/contact" />
   </url>
   <url>
     <loc>https://joywanna.com/en/contact</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/kontakt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/contact" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/kontakt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/contact" />
   </url>
 
-  <!-- Projects landings -->
+  <!-- Projects landing -->
   <url>
-    <loc>https://joywanna.com/de/projekte</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://joywanna.com/projects</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects" />
   </url>
   <url>
     <loc>https://joywanna.com/en/projects</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects" />
   </url>
 
-  <!-- Project category pages (DE) -->
+  <!-- Project categories -->
   <url>
-    <loc>https://joywanna.com/de/projekte/fotoshooting</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://joywanna.com/projects/photoshoot</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte/fotoshooting" />
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects/photoshoot" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/photoshoot" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte/fotoshooting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects/photoshoot" />
   </url>
-  <url>
-    <loc>https://joywanna.com/de/projekte/buehnenmomente</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte/buehnenmomente" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/stage-moments" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte/buehnenmomente" />
-  </url>
-  <url>
-    <loc>https://joywanna.com/de/projekte/presse</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte/presse" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/press" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte/presse" />
-  </url>
-
-  <!-- Project category pages (EN) -->
   <url>
     <loc>https://joywanna.com/en/projects/photoshoot</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte/fotoshooting" />
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects/photoshoot" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/photoshoot" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte/fotoshooting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects/photoshoot" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/projects/stage-moments</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects/stage-moments" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/stage-moments" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects/stage-moments" />
   </url>
   <url>
     <loc>https://joywanna.com/en/projects/stage-moments</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte/buehnenmomente" />
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects/stage-moments" />
     <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/stage-moments" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte/buehnenmomente" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects/stage-moments" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/projects/press</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects/press" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/press" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects/press" />
   </url>
   <url>
     <loc>https://joywanna.com/en/projects/press</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/projekte/presse" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/press" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/projekte/presse" />
-  </url>
-
-  <!-- Non-prefixed vocal coaching (canonical equivalent) -->
-  <url>
-    <loc>https://joywanna.com/vocal-coaching</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/vocal-coaching" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/vocal-coaching" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/vocal-coaching" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/projects/press" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/projects/press" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/projects/press" />
   </url>
 
-  <!-- Legal pages -->
+  <!-- Album smart link -->
+  <url>
+    <loc>https://joywanna.com/reimagined</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/reimagined" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/reimagined" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/en/reimagined</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/reimagined" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/reimagined" />
+  </url>
+
+  <!-- Legal -->
   <url>
     <loc>https://joywanna.com/impressum</loc>
     <lastmod>2026-04-29</lastmod>
@@ -191,33 +169,5 @@
     <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
- </url>
-  <!-- Album smart link (Reimagined) -->
-  <url>
-    <loc>https://joywanna.com/reimagined</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/reimagined" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/reimagined" />
-  </url>
-  <url>
-    <loc>https://joywanna.com/de/reimagined</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/reimagined" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/reimagined" />
-  </url>
-  <url>
-    <loc>https://joywanna.com/en/reimagined</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/de/reimagined" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/reimagined" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/de/reimagined" />
   </url>
 </urlset>

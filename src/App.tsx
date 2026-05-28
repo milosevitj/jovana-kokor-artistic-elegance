@@ -33,44 +33,50 @@ const App = () => (
         <ScrollToTop />
         <Suspense fallback={<RouteFallback />}>
           <Routes>
+            {/* Home (German default + English) */}
             <Route path="/" element={<Index />} />
-            {/* Localized homepage (per language) */}
-            <Route path="/de" element={<Index />} />
-            <Route path="/de/" element={<Index />} />
             <Route path="/en" element={<Index />} />
             <Route path="/en/" element={<Index />} />
-            {/* Localized one-page sections — Index handles the scroll. */}
-            <Route path="/de/ueber-mich" element={<Index />} />
-            <Route path="/en/about-me" element={<Index />} />
-            {/* Contact is its own dedicated page (per language). */}
-            <Route path="/de/kontakt" element={<Contact />} />
-            <Route path="/en/contact" element={<Contact />} />
+
+            {/* Contact */}
             <Route path="/contact" element={<Contact />} />
-            {/* Vocal Coaching is its own dedicated page (per language). */}
-            <Route path="/de/vocal-coaching" element={<VocalCoaching />} />
-            <Route path="/en/vocal-coaching" element={<VocalCoaching />} />
+            <Route path="/en/contact" element={<Contact />} />
+
+            {/* Vocal Coaching */}
             <Route path="/vocal-coaching" element={<VocalCoaching />} />
-            {/* Legacy lessons slugs → redirect to new vocal-coaching path. */}
-            <Route path="/de/unterricht" element={<Navigate to="/de/vocal-coaching" replace />} />
-            <Route path="/en/lessons" element={<Navigate to="/en/vocal-coaching" replace />} />
-            {/* Portfolio routes (now "Projekte" / "Projects"). */}
-            <Route path="/de/projekte" element={<Portfolio />} />
+            <Route path="/en/vocal-coaching" element={<VocalCoaching />} />
+
+            {/* Projects */}
+            <Route path="/projects" element={<Portfolio />} />
+            <Route path="/projects/:category" element={<Portfolio />} />
             <Route path="/en/projects" element={<Portfolio />} />
-            <Route path="/de/projekte/:category" element={<Portfolio />} />
             <Route path="/en/projects/:category" element={<Portfolio />} />
-            {/* Legacy /portfolio paths → redirect to localized equivalent. */}
-            <Route path="/portfolio" element={<Navigate to="/de/projekte" replace />} />
-            <Route path="/portfolio/:category" element={<Navigate to="/de/projekte" replace />} />
-            <Route path="/de/portfolio" element={<Navigate to="/de/projekte" replace />} />
-            <Route path="/en/portfolio" element={<Navigate to="/en/projects" replace />} />
-            <Route path="/de/portfolio/:category" element={<Portfolio />} />
-            <Route path="/en/portfolio/:category" element={<Portfolio />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/impressum" element={<Impressum />} />
+
             {/* Album smart link */}
             <Route path="/reimagined" element={<Reimagined />} />
-            <Route path="/de/reimagined" element={<Reimagined />} />
             <Route path="/en/reimagined" element={<Reimagined />} />
+
+            {/* Legal */}
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+
+            {/* Legacy redirects: /de/* → new clean paths */}
+            <Route path="/de" element={<Navigate to="/" replace />} />
+            <Route path="/de/" element={<Navigate to="/" replace />} />
+            <Route path="/de/ueber-mich" element={<Navigate to="/" replace />} />
+            <Route path="/en/about-me" element={<Navigate to="/en" replace />} />
+            <Route path="/de/kontakt" element={<Navigate to="/contact" replace />} />
+            <Route path="/de/vocal-coaching" element={<Navigate to="/vocal-coaching" replace />} />
+            <Route path="/de/unterricht" element={<Navigate to="/vocal-coaching" replace />} />
+            <Route path="/en/lessons" element={<Navigate to="/en/vocal-coaching" replace />} />
+            <Route path="/de/projekte" element={<Navigate to="/projects" replace />} />
+            <Route path="/de/projekte/:category" element={<Navigate to="/projects" replace />} />
+            <Route path="/portfolio" element={<Navigate to="/projects" replace />} />
+            <Route path="/portfolio/:category" element={<Navigate to="/projects" replace />} />
+            <Route path="/de/portfolio" element={<Navigate to="/projects" replace />} />
+            <Route path="/en/portfolio" element={<Navigate to="/en/projects" replace />} />
+            <Route path="/de/reimagined" element={<Navigate to="/reimagined" replace />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { buildSectionPath, buildPortfolioPath, parseRoute, type SectionId } from '@/lib/site-routes';
+import { buildPagePath, parseRoute } from '@/lib/site-routes';
 
 export function Footer() {
   const { t, language } = useLanguage();
@@ -8,34 +8,26 @@ export function Footer() {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
   const parsed = parseRoute(pathname);
-  const isHome = parsed.kind === 'home' || parsed.kind === 'section';
+  const isHome = parsed.kind === 'home';
+  const homeHref = buildPagePath('home', language);
 
-  const sectionLinks: { section: SectionId; label: string }[] = [
-    { section: 'home', label: t('nav.home') },
-    { section: 'about', label: t('nav.about') },
-    { section: 'lessons', label: t('nav.lessons') },
-    { section: 'contact', label: t('nav.contact') },
-  ];
-
-  const handleSectionClick = (
+  const scrollOrNavigate = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    section: SectionId,
+    sectionId: 'home' | 'about',
   ) => {
-    const targetPath = buildSectionPath(section, language);
-    if (isHome) {
-      const el = document.getElementById(section);
-      if (el) {
-        e.preventDefault();
-        if (section === 'home') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-        window.history.replaceState(null, '', targetPath);
+    e.preventDefault();
+    const doScroll = () => {
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       }
+    };
+    if (isHome) {
+      doScroll();
     } else {
-      e.preventDefault();
-      navigate(targetPath);
+      navigate(homeHref);
+      setTimeout(doScroll, 300);
     }
   };
 
@@ -44,38 +36,46 @@ export function Footer() {
       <div className="container mx-auto px-6 md:px-12 py-12 space-y-10">
         <nav aria-label={language === 'de' ? 'Footer-Navigation' : 'Footer navigation'}>
           <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm">
-            {sectionLinks.map((link) => {
-              const href = buildSectionPath(link.section, language);
-              if (link.section === 'lessons') {
-                return (
-                  <li key={link.section}>
-                    <Link
-                      to={href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                );
-              }
-              return (
-                <li key={link.section}>
-                  <a
-                    href={href}
-                    onClick={(e) => handleSectionClick(e, link.section)}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              );
-            })}
+            <li>
+              <a
+                href={homeHref}
+                onClick={(e) => scrollOrNavigate(e, 'home')}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t('nav.home')}
+              </a>
+            </li>
+            <li>
+              <a
+                href={homeHref}
+                onClick={(e) => scrollOrNavigate(e, 'about')}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t('nav.about')}
+              </a>
+            </li>
             <li>
               <Link
-                to={buildPortfolioPath(language)}
+                to={buildPagePath('lessons', language)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t('nav.lessons')}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={buildPagePath('projects', language)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t('nav.gallery')}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={buildPagePath('contact', language)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t('nav.contact')}
               </Link>
             </li>
           </ul>

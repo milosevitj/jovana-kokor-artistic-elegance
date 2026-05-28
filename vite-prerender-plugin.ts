@@ -5,129 +5,61 @@ import path from "node:path";
 /**
  * Lightweight build-time prerender for our SPA.
  *
- * Vite outputs a single index.html. Crawlers (Screaming Frog, etc.) that don't
- * execute JS therefore see identical HTML for every route -> "Exact Duplicates",
- * "Duplicate Page Titles", "H1 Missing", etc.
+ * Emits one HTML shell per known route with unique title/description/canonical/
+ * hreflang + a visible <h1> + intro inside #root (replaced by React on hydrate).
  *
- * This plugin emits an additional index.html per known route with:
- *   - unique <title>
- *   - unique <meta name="description">
- *   - unique <link rel="canonical">
- *   - unique og:title / og:description / og:url
- *   - hreflang alternates (de + en + x-default)
- *   - a visible <h1> + intro paragraph inside #root (replaced by React on hydrate)
- *
- * The user-visible UI is unchanged because React replaces #root on mount.
+ * New simplified URL structure:
+ *   /                  → DE home (canonical)
+ *   /en                → EN home
+ *   /vocal-coaching    → DE vocal coaching
+ *   /en/vocal-coaching → EN vocal coaching
+ *   /contact, /en/contact
+ *   /projects, /en/projects, plus /projects/:category × DE+EN
+ *   /reimagined, /en/reimagined
+ *   /impressum, /privacy
  */
 
 type Lang = "de" | "en";
 
 interface RouteMeta {
-  /** Pretty path used inside <link rel="canonical">. */
+  /** Canonical path (no trailing slash). */
   path: string;
-  /** Output directory under dist (e.g. "portfolio" → dist/portfolio/index.html). */
+  /** Output directory under dist (e.g. "vocal-coaching" → dist/vocal-coaching/index.html). */
   outDir: string;
-  title: { de: string; en: string };
-  description: { de: string; en: string };
-  h1: { de: string; en: string };
-  intro: { de: string; en: string };
-  /**
-   * For non-category routes, the same HTML shell serves both languages so
-   * canonical points at the DE URL. For category routes, each language has
-   * its own dedicated URL — overrides supplied below.
-   */
-  alternates?: { de: string; en: string };
-  /** When set, canonical = this URL (instead of the default DE path). */
-  canonicalOverride?: { de: string; en: string };
+  /** Language this prerendered shell is for. */
+  lang: Lang;
+  /** Alternates for hreflang (DE + EN counterparts). */
+  alternates: { de: string; en: string };
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
 }
 
 const SITE_ORIGIN = "https://jovana-kokor-stage-art.lovable.app";
 
-const ROUTES: RouteMeta[] = [
-  {
-    path: "/",
-    outDir: "",
-    title: {
-      de: "JoyWanna – Pianistin, Sängerin & Pädagogin | Deutschland",
-      en: "Jovana Kokor – Pianist, Vocalist & Educator | Germany",
-    },
-    description: {
-      de: "Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht. Jetzt Termin anfragen!",
-      en: "Germany-based classical pianist & vocal artist Jovana Kokor. Concerts, corporate events & private piano and vocal lessons across Germany & Europe.",
-    },
-    h1: {
-      de: "Jovana Kokor – Pianistin, Sängerin & Musikpädagogin",
-      en: "Jovana Kokor – Pianist, Vocalist & Music Educator",
-    },
-    intro: {
-      de: "Offizielle Webseite von Jovana Kokor (JoyWanna). Klassisch ausgebildete Pianistin und Vokalkünstlerin mit Sitz in Deutschland. Buchungen für Konzerte, Firmenevents, Hochzeiten sowie privater Klavier- und Gesangsunterricht.",
-      en: "Official website of Jovana Kokor (JoyWanna). Germany-based classical pianist and vocal artist. Available for concerts, corporate events, weddings and private piano and vocal lessons.",
-    },
-  },
-  {
-    path: "/impressum",
-    outDir: "impressum",
-    title: {
-      de: "Impressum – Jovana Kokor (JoyWanna)",
-      en: "Imprint – Jovana Kokor (JoyWanna)",
-    },
-    description: {
-      de: "Impressum und Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von Jovana Kokor (JoyWanna).",
-      en: "Legal notice and provider information for the website of Jovana Kokor (JoyWanna).",
-    },
-    h1: { de: "Impressum", en: "Imprint" },
-    intro: {
-      de: "Anbieterkennzeichnung gemäß § 5 TMG und § 55 RStV für die Webseite von Jovana Kokor (JoyWanna), Oldenburg, Deutschland.",
-      en: "Provider information and legal notice for the website of Jovana Kokor (JoyWanna), Oldenburg, Germany.",
-    },
-  },
-  {
-    path: "/privacy",
-    outDir: "privacy",
-    title: {
-      de: "Datenschutz – Jovana Kokor (JoyWanna)",
-      en: "Privacy Policy – Jovana Kokor (JoyWanna)",
-    },
-    description: {
-      de: "Datenschutzerklärung gemäß DSGVO für die Webseite von Jovana Kokor (JoyWanna).",
-      en: "GDPR-compliant privacy policy for the website of Jovana Kokor (JoyWanna).",
-    },
-    h1: {
-      de: "Datenschutzerklärung",
-      en: "Privacy Policy",
-    },
-    intro: {
-      de: "Informationen zur Verarbeitung personenbezogener Daten auf der Webseite von Jovana Kokor (JoyWanna) gemäß Datenschutz-Grundverordnung (DSGVO).",
-      en: "Information about how personal data is processed on the website of Jovana Kokor (JoyWanna), in line with the EU General Data Protection Regulation (GDPR).",
-    },
-  },
-];
-
-/**
- * Localized one-page section routes (DE + EN). Each is a dedicated
- * crawlable URL with unique title/description/canonical/hreflang. The
- * client-side Index page reads the URL on mount and scrolls to the
- * matching section, so users still see the one-page experience.
- */
-interface SectionLocalizedRoute {
-  section: "home" | "about" | "lessons" | "contact";
-  slug: { de: string; en: string }; // "" for home
+interface LocalizedPage {
+  /** Path segment after the optional language prefix. "" for home. */
+  slug: string;
+  outBase: string; // dir name under dist for DE
+  enOutBase: string; // dir name under dist for EN (under "en/")
   title: { de: string; en: string };
   description: { de: string; en: string };
   h1: { de: string; en: string };
   intro: { de: string; en: string };
 }
 
-const SECTION_ROUTES: SectionLocalizedRoute[] = [
+const PAGES: LocalizedPage[] = [
   {
-    section: "home",
-    slug: { de: "", en: "" },
+    slug: "",
+    outBase: "",
+    enOutBase: "",
     title: {
       de: "JoyWanna – Pianistin, Sängerin & Pädagogin | Deutschland",
       en: "Jovana Kokor – Pianist, Vocalist & Educator | Germany",
     },
     description: {
-      de: "Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht. Jetzt Termin anfragen!",
+      de: "Jovana Kokor: Klassische Pianistin, Sängerin & Musikpädagogin in Deutschland. Buchungen für Konzerte, Events & Privatunterricht.",
       en: "Germany-based classical pianist & vocal artist Jovana Kokor. Concerts, corporate events & private piano and vocal lessons across Germany & Europe.",
     },
     h1: {
@@ -140,35 +72,16 @@ const SECTION_ROUTES: SectionLocalizedRoute[] = [
     },
   },
   {
-    section: "about",
-    slug: { de: "ueber-mich", en: "about-me" },
-    title: {
-      de: "Über mich – Jovana Kokor (JoyWanna) | Pianistin & Sängerin",
-      en: "About – Jovana Kokor (JoyWanna) | Pianist & Vocalist",
-    },
-    description: {
-      de: "Über Jovana Kokor (JoyWanna): Pianistin und Sängerin aus Oldenburg, Jazz, Latin & NeoSoul – Werdegang, Bands und musikalische Vision.",
-      en: "About Jovana Kokor (JoyWanna): pianist and vocalist based in Oldenburg, Germany. Jazz, Latin & NeoSoul background, bands and musical vision.",
-    },
-    h1: {
-      de: "Über mich – Jovana Kokor",
-      en: "About – Jovana Kokor",
-    },
-    intro: {
-      de: "Pianistin und Sängerin Jovana Kokor (JoyWanna) – Werdegang, Bands und musikalische Vision aus Oldenburg.",
-      en: "Pianist and vocalist Jovana Kokor (JoyWanna) – background, bands and musical vision based in Oldenburg, Germany.",
-    },
-  },
-  {
-    section: "lessons",
-    slug: { de: "vocal-coaching", en: "vocal-coaching" },
+    slug: "vocal-coaching",
+    outBase: "vocal-coaching",
+    enOutBase: "vocal-coaching",
     title: {
       de: "Vocal Coaching – Klavier & Stimmunterricht | Jovana Kokor",
       en: "Vocal Coaching – Voice & Piano Lessons | Jovana Kokor",
     },
     description: {
       de: "Vocal Coaching mit Jovana Kokor (JoyWanna): individueller Gesangs- und Klavierunterricht für alle Altersgruppen, online & vor Ort.",
-      en: "Vocal coaching with Jovana Kokor (JoyWanna): tailored voice and piano sessions for every age and level, available online and in person.",
+      en: "Vocal coaching with Jovana Kokor (JoyWanna): tailored voice and piano sessions for every age and level, online and in person.",
     },
     h1: {
       de: "Vocal Coaching & Klavierunterricht",
@@ -180,157 +93,75 @@ const SECTION_ROUTES: SectionLocalizedRoute[] = [
     },
   },
   {
-    section: "contact",
-    slug: { de: "kontakt", en: "contact" },
+    slug: "contact",
+    outBase: "contact",
+    enOutBase: "contact",
     title: {
       de: "Kontakt & Booking – Jovana Kokor (JoyWanna)",
       en: "Contact & Booking – Jovana Kokor (JoyWanna)",
     },
     description: {
-      de: "Kontakt und Booking-Anfragen für Jovana Kokor (JoyWanna): Konzerte, Firmenevents, Hochzeiten und Privatunterricht. Jetzt unverbindlich anfragen.",
-      en: "Contact and booking enquiries for Jovana Kokor (JoyWanna): concerts, corporate events, weddings and private lessons. Get in touch today.",
+      de: "Kontakt und Booking-Anfragen für Jovana Kokor (JoyWanna): Konzerte, Firmenevents, Hochzeiten und Privatunterricht.",
+      en: "Contact and booking enquiries for Jovana Kokor (JoyWanna): concerts, corporate events, weddings and private lessons.",
     },
-    h1: {
-      de: "Kontakt & Booking",
-      en: "Contact & Booking",
-    },
+    h1: { de: "Kontakt & Booking", en: "Contact & Booking" },
     intro: {
-      de: "Anfragen für Konzerte, Firmenevents, Hochzeiten und Privatunterricht – Jovana Kokor (JoyWanna), Oldenburg, Deutschland.",
+      de: "Anfragen für Konzerte, Firmenevents, Hochzeiten und Privatunterricht – Jovana Kokor (JoyWanna), Oldenburg.",
       en: "Enquiries for concerts, corporate events, weddings and private lessons – Jovana Kokor (JoyWanna), Oldenburg, Germany.",
     },
   },
-];
-
-// Expand each section into one prerendered page per language (locale-prefixed).
-for (const s of SECTION_ROUTES) {
-  const dePath = s.slug.de ? `/de/${s.slug.de}` : `/de/`;
-  const enPath = s.slug.en ? `/en/${s.slug.en}` : `/en/`;
-  const alternates = { de: dePath, en: enPath };
-  const deOutDir = s.slug.de ? `de/${s.slug.de}` : `de`;
-  const enOutDir = s.slug.en ? `en/${s.slug.en}` : `en`;
-
-  ROUTES.push({
-    path: dePath,
-    outDir: deOutDir,
-    title: s.title,
-    description: s.description,
-    h1: s.h1,
-    intro: s.intro,
-    alternates,
-    canonicalOverride: alternates,
-  });
-  ROUTES.push({
-    path: enPath,
-    outDir: enOutDir,
-    title: s.title,
-    description: s.description,
-    h1: s.h1,
-    intro: s.intro,
-    alternates,
-    canonicalOverride: alternates,
-  });
-}
-
-// Localized portfolio (a.k.a. "Projekte"/"Projects") landings.
-{
-  const dePath = "/de/projekte";
-  const enPath = "/en/projects";
-  const alternates = { de: dePath, en: enPath };
-  const portfolioMeta = {
+  {
+    slug: "projects",
+    outBase: "projects",
+    enOutBase: "projects",
     title: {
       de: "Projekte – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse",
       en: "Projects – JoyWanna | Visual Work, Live Shows & Press",
     },
     description: {
-      de: "Projekte von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.",
-      en: "Projects of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.",
+      de: "Projekte von Jovana Kokor (JoyWanna): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa.",
+      en: "Projects of Jovana Kokor (JoyWanna): visual work, live shows and press features from Germany and Europe.",
     },
-    h1: {
-      de: "Projekte von Jovana Kokor",
-      en: "Projects of Jovana Kokor",
-    },
+    h1: { de: "Projekte von Jovana Kokor", en: "Projects of Jovana Kokor" },
     intro: {
       de: "Eine Auswahl visueller Arbeiten, Live-Auftritte und Pressestimmen rund um die Bühnenarbeit von Jovana Kokor.",
       en: "A curated selection of visual work, live performances and press features documenting the stage work of Jovana Kokor.",
     },
-  };
-  ROUTES.push({
-    path: dePath,
-    outDir: "de/projekte",
-    ...portfolioMeta,
-    alternates,
-    canonicalOverride: alternates,
-  });
-  ROUTES.push({
-    path: enPath,
-    outDir: "en/projects",
-    ...portfolioMeta,
-    alternates,
-    canonicalOverride: alternates,
-  });
-}
-
-// Album smart link ("Reimagined") — localized DE/EN + non-prefixed.
-{
-  const dePath = "/de/reimagined";
-  const enPath = "/en/reimagined";
-  const alternates = { de: dePath, en: enPath };
-  const reimaginedMeta = {
+  },
+  {
+    slug: "reimagined",
+    outBase: "reimagined",
+    enOutBase: "reimagined",
     title: {
       de: "Reimagined – Jovana Kokor (JoyWanna) | Album streamen",
       en: "Reimagined – Jovana Kokor (JoyWanna) | Stream the Album",
     },
     description: {
-      de: 'Höre „Reimagined" von Jovana Kokor (JoyWanna) auf Spotify, Apple Music, Deezer, YouTube Music, Tidal und Amazon Music. Jetzt streamen.',
-      en: "Listen to \"Reimagined\" by Jovana Kokor (JoyWanna) on Spotify, Apple Music, Deezer, YouTube Music, Tidal and Amazon Music. Stream now.",
+      de: 'Höre „Reimagined" von Jovana Kokor (JoyWanna) auf Spotify, Apple Music, Deezer, YouTube Music, Tidal und Amazon Music.',
+      en: 'Listen to "Reimagined" by Jovana Kokor (JoyWanna) on Spotify, Apple Music, Deezer, YouTube Music, Tidal and Amazon Music.',
     },
-    h1: {
-      de: "Reimagined – Jovana Kokor",
-      en: "Reimagined – Jovana Kokor",
-    },
+    h1: { de: "Reimagined – Jovana Kokor", en: "Reimagined – Jovana Kokor" },
     intro: {
-      de: 'Wähle deinen bevorzugten Streaming-Dienst, um „Reimagined" von Jovana Kokor (JoyWanna) anzuhören.',
-      en: "Choose your preferred streaming service to listen to \"Reimagined\" by Jovana Kokor (JoyWanna).",
+      de: 'Wähle deinen bevorzugten Streaming-Dienst, um „Reimagined" anzuhören.',
+      en: 'Choose your preferred streaming service to listen to "Reimagined".',
     },
-  };
-  ROUTES.push({
-    path: dePath,
-    outDir: "de/reimagined",
-    ...reimaginedMeta,
-    alternates,
-    canonicalOverride: alternates,
-  });
-  ROUTES.push({
-    path: enPath,
-    outDir: "en/reimagined",
-    ...reimaginedMeta,
-    alternates,
-    canonicalOverride: alternates,
-  });
-  ROUTES.push({
-    path: "/reimagined",
-    outDir: "reimagined",
-    ...reimaginedMeta,
-    alternates,
-    canonicalOverride: { de: "/reimagined", en: "/reimagined" },
-  });
-}
-interface CategoryRoute {
-  tab: "visual" | "shows" | "press";
-  slug: { de: string; en: string };
+  },
+];
+
+interface CategoryPage {
+  slug: string; // unified across both languages
   title: { de: string; en: string };
   description: { de: string; en: string };
   h1: { de: string; en: string };
   intro: { de: string; en: string };
 }
 
-const CATEGORY_ROUTES: CategoryRoute[] = [
+const CATEGORY_PAGES: CategoryPage[] = [
   {
-    tab: "visual",
-    slug: { de: "fotoshooting", en: "photoshoot" },
+    slug: "photoshoot",
     title: {
-      de: "Fotoshooting – Portfolio | JoyWanna · Jovana Kokor",
-      en: "Photoshoot – Portfolio | JoyWanna · Jovana Kokor",
+      de: "Fotoshooting – Projekte | JoyWanna · Jovana Kokor",
+      en: "Photoshoot – Projects | JoyWanna · Jovana Kokor",
     },
     description: {
       de: "Fotoshooting-Aufnahmen von Jovana Kokor (JoyWanna): Künstlerporträts und Bandfotografie aus Studio und Bühne.",
@@ -341,80 +172,129 @@ const CATEGORY_ROUTES: CategoryRoute[] = [
       en: "Photoshoot – Artist Portraits & Band Photography",
     },
     intro: {
-      de: "Eine Auswahl an Fotoshooting-Aufnahmen von JoyWanna – Künstlerporträts und Bandfotografie aus Studio und Bühne.",
-      en: "A selection of photoshoot images of JoyWanna – artist portraits and band photography from studio and stage.",
+      de: "Eine Auswahl an Fotoshooting-Aufnahmen von JoyWanna – Künstlerporträts und Bandfotografie.",
+      en: "A selection of photoshoot images of JoyWanna – artist portraits and band photography.",
     },
   },
   {
-    tab: "shows",
-    slug: { de: "buehnenmomente", en: "stage-moments" },
+    slug: "stage-moments",
     title: {
-      de: "Bühnenmomente – Portfolio | JoyWanna · Jovana Kokor",
-      en: "Stage Moments – Portfolio | JoyWanna · Jovana Kokor",
+      de: "Bühnenmomente – Projekte | JoyWanna · Jovana Kokor",
+      en: "Stage Moments – Projects | JoyWanna · Jovana Kokor",
     },
     description: {
-      de: 'Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier. Live-Fotos & Highlights.',
-      en: 'Stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series. Live photos & highlights.',
+      de: 'Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.',
+      en: 'Stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.',
     },
     h1: {
       de: "Bühnenmomente – Konzerte, Bands & Sessions",
       en: "Stage Moments – Concerts, Bands & Sessions",
     },
     intro: {
-      de: 'Ausgewählte Bühnenmomente von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier.',
-      en: 'Selected stage moments by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series.',
+      de: "Ausgewählte Bühnenmomente von JoyWanna – Solo, mit Band und in der Reimagined-Reihe.",
+      en: "Selected stage moments by JoyWanna – solo, with band and in the Reimagined series.",
     },
   },
   {
-    tab: "press",
-    slug: { de: "presse", en: "press" },
+    slug: "press",
     title: {
-      de: "Presse – Portfolio | JoyWanna · Jovana Kokor",
-      en: "Press – Portfolio | JoyWanna · Jovana Kokor",
+      de: "Presse – Projekte | JoyWanna · Jovana Kokor",
+      en: "Press – Projects | JoyWanna · Jovana Kokor",
     },
     description: {
-      de: "Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang in Deutschland und Europa.",
-      en: "Press features from newspapers and magazines about JoyWanna, her concerts and her musical journey across Germany and Europe.",
+      de: "Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang.",
+      en: "Press features from newspapers and magazines about JoyWanna, her concerts and her musical journey.",
     },
     h1: {
       de: "Presse – Zeitungs- & Magazinberichte",
       en: "Press – Newspaper & Magazine Features",
     },
     intro: {
-      de: "Ausgewählte Presseberichte aus Zeitungen und Magazinen über JoyWanna, ihre Konzerte und ihren musikalischen Werdegang.",
-      en: "Selected press features from newspapers and magazines covering JoyWanna, her concerts and her musical journey.",
+      de: "Ausgewählte Presseberichte aus Zeitungen und Magazinen über JoyWanna.",
+      en: "Selected press features from newspapers and magazines covering JoyWanna.",
     },
   },
 ];
 
-// Expand each category into one RouteMeta per language with cross-linked
-// hreflang counterparts.
-for (const c of CATEGORY_ROUTES) {
-  const dePath = `/de/projekte/${c.slug.de}`;
-  const enPath = `/en/projects/${c.slug.en}`;
+const ROUTES: RouteMeta[] = [];
+
+for (const p of PAGES) {
+  const dePath = p.slug ? `/${p.slug}` : "/";
+  const enPath = p.slug ? `/en/${p.slug}` : "/en";
   const alternates = { de: dePath, en: enPath };
 
   ROUTES.push({
     path: dePath,
-    outDir: `de/projekte/${c.slug.de}`,
-    title: c.title,
-    description: c.description,
-    h1: c.h1,
-    intro: c.intro,
+    outDir: p.outBase,
+    lang: "de",
     alternates,
-    canonicalOverride: alternates,
+    title: p.title.de,
+    description: p.description.de,
+    h1: p.h1.de,
+    intro: p.intro.de,
   });
   ROUTES.push({
     path: enPath,
-    outDir: `en/projects/${c.slug.en}`,
-    title: c.title,
-    description: c.description,
-    h1: c.h1,
-    intro: c.intro,
+    outDir: p.enOutBase ? `en/${p.enOutBase}` : "en",
+    lang: "en",
     alternates,
-    canonicalOverride: alternates,
+    title: p.title.en,
+    description: p.description.en,
+    h1: p.h1.en,
+    intro: p.intro.en,
   });
 }
+
+for (const c of CATEGORY_PAGES) {
+  const dePath = `/projects/${c.slug}`;
+  const enPath = `/en/projects/${c.slug}`;
+  const alternates = { de: dePath, en: enPath };
+
+  ROUTES.push({
+    path: dePath,
+    outDir: `projects/${c.slug}`,
+    lang: "de",
+    alternates,
+    title: c.title.de,
+    description: c.description.de,
+    h1: c.h1.de,
+    intro: c.intro.de,
+  });
+  ROUTES.push({
+    path: enPath,
+    outDir: `en/projects/${c.slug}`,
+    lang: "en",
+    alternates,
+    title: c.title.en,
+    description: c.description.en,
+    h1: c.h1.en,
+    intro: c.intro.en,
+  });
+}
+
+// Legal pages — DE-only canonical, same shell for both languages.
+ROUTES.push(
+  {
+    path: "/impressum",
+    outDir: "impressum",
+    lang: "de",
+    alternates: { de: "/impressum", en: "/impressum" },
+    title: "Impressum – Jovana Kokor (JoyWanna)",
+    description: "Impressum und Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von Jovana Kokor (JoyWanna).",
+    h1: "Impressum",
+    intro: "Anbieterkennzeichnung gemäß § 5 TMG für die Webseite von Jovana Kokor (JoyWanna), Oldenburg, Deutschland.",
+  },
+  {
+    path: "/privacy",
+    outDir: "privacy",
+    lang: "de",
+    alternates: { de: "/privacy", en: "/privacy" },
+    title: "Datenschutz – Jovana Kokor (JoyWanna)",
+    description: "Datenschutzerklärung gemäß DSGVO für die Webseite von Jovana Kokor (JoyWanna).",
+    h1: "Datenschutzerklärung",
+    intro: "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
+  },
+);
 
 function escapeHtml(s: string): string {
   return s
@@ -424,74 +304,41 @@ function escapeHtml(s: string): string {
     .replace(/"/g, "&quot;");
 }
 
-function buildLangQuery(routePath: string, lang: Lang): string {
-  if (lang === "de") return routePath === "/" ? "/" : routePath;
-  const sep = routePath.includes("?") ? "&" : "?";
-  return `${routePath}${sep}lang=en`;
-}
-
-function rewriteHtml(template: string, route: RouteMeta, lang: Lang): string {
-  const title = route.title[lang];
-  const description = route.description[lang];
-  const h1 = route.h1[lang];
-  const intro = route.intro[lang];
-
-  // Determine the DE/EN paths for canonical + hreflang. Category routes
-  // supply explicit `alternates` (locale-prefixed paths); other routes use
-  // the legacy ?lang=en pattern on a single shared path.
-  const dePath = route.alternates ? route.alternates.de : buildLangQuery(route.path, "de");
-  const enPath = route.alternates ? route.alternates.en : buildLangQuery(route.path, "en");
-
-  // Canonical: per-language for category routes (each lang is its own page);
-  // DE-only for plain routes (same shell serves both languages).
-  const canonicalPath = route.canonicalOverride
-    ? route.canonicalOverride[lang]
-    : dePath;
-
-  const canonicalUrl = `${SITE_ORIGIN}${canonicalPath}`;
-  const deUrl = `${SITE_ORIGIN}${dePath}`;
-  const enUrl = `${SITE_ORIGIN}${enPath}`;
+function rewriteHtml(template: string, route: RouteMeta): string {
+  const { title, description, h1, intro, lang, alternates } = route;
+  const canonicalUrl = `${SITE_ORIGIN}${alternates[lang]}`;
+  const deUrl = `${SITE_ORIGIN}${alternates.de}`;
+  const enUrl = `${SITE_ORIGIN}${alternates.en}`;
 
   let html = template;
 
-  // <html lang="...">
   html = html.replace(/<html lang="[^"]*"/i, `<html lang="${lang}"`);
-
-  // <title>
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`);
-
-  // meta description
   html = html.replace(
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="description" content="${escapeHtml(description)}">`
+    `<meta name="description" content="${escapeHtml(description)}">`,
   );
-
-  // og:title / og:description / twitter:title / twitter:description
   html = html.replace(
     /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:title" content="${escapeHtml(title)}">`
+    `<meta property="og:title" content="${escapeHtml(title)}">`,
   );
   html = html.replace(
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="twitter:title" content="${escapeHtml(title)}">`
+    `<meta name="twitter:title" content="${escapeHtml(title)}">`,
   );
   html = html.replace(
     /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:description" content="${escapeHtml(description)}">`
+    `<meta property="og:description" content="${escapeHtml(description)}">`,
   );
   html = html.replace(
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="twitter:description" content="${escapeHtml(description)}">`
+    `<meta name="twitter:description" content="${escapeHtml(description)}">`,
   );
-
-  // og:locale
   html = html.replace(
     /<meta\s+property="og:locale"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:locale" content="${lang === "en" ? "en_US" : "de_DE"}">`
+    `<meta property="og:locale" content="${lang === "en" ? "en_US" : "de_DE"}">`,
   );
 
-  // Inject canonical, hreflang, og:url right before </head>.
-  // Remove any existing canonical/hreflang/og:url first to avoid duplicates.
   html = html
     .replace(/<link\s+rel="canonical"[^>]*>\s*/gi, "")
     .replace(/<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*>\s*/gi, "")
@@ -507,8 +354,6 @@ function rewriteHtml(template: string, route: RouteMeta, lang: Lang): string {
 
   html = html.replace(/<\/head>/i, `    ${headInjection}\n  </head>`);
 
-  // Replace <div id="root"></div> with crawler-visible content.
-  // React will overwrite this on mount, so users see no change.
   const crawlerBody = `<div id="root"><main><h1>${escapeHtml(h1)}</h1><p>${escapeHtml(intro)}</p></main></div>`;
   html = html.replace(/<div id="root"><\/div>/i, crawlerBody);
 
@@ -526,11 +371,7 @@ export function prerenderPlugin(): Plugin {
       const template = fs.readFileSync(indexPath, "utf8");
 
       for (const route of ROUTES) {
-        // Locale-prefixed routes (e.g. /en/portfolio/press) must render in
-        // their own language; everything else uses DE as the static shell
-        // (React swaps copy at runtime when ?lang=en is set).
-        const lang: Lang = route.path.startsWith("/en/") ? "en" : "de";
-        const html = rewriteHtml(template, route, lang);
+        const html = rewriteHtml(template, route);
         const targetDir = route.outDir ? path.join(distDir, route.outDir) : distDir;
         fs.mkdirSync(targetDir, { recursive: true });
         fs.writeFileSync(path.join(targetDir, "index.html"), html, "utf8");

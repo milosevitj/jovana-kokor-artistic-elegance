@@ -107,7 +107,7 @@ export function PortfolioSection() {
         {/* CTA */}
         <div className="text-center mt-16">
           <Link
-            to="/portfolio"
+            to="/projects"
             className="btn-outline-hero inline-flex items-center gap-2 group"
           >
             {t('portfolio.cta')}
