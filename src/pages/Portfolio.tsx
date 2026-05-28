@@ -848,8 +848,8 @@ function PortfolioContent() {
           </div>
         </section>
 
-        {/* Contact form (same as landing page) */}
-        <ContactSection />
+        {/* Call to action linking to Contact page */}
+        <PortfolioCTASection />
       </main>
 
       <Footer />
