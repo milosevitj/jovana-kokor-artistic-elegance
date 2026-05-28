@@ -15,6 +15,7 @@ const VocalCoaching = lazy(() => import("./pages/VocalCoaching"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Reimagined = lazy(() => import("./pages/Reimagined"));
 const Contact = lazy(() => import("./pages/Contact"));
+const About = lazy(() => import("./pages/About"));
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,10 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/en/contact" element={<Contact />} />
 
+            {/* About Me */}
+            <Route path="/ueber-mich" element={<About />} />
+            <Route path="/en/about-me" element={<About />} />
+
             {/* Vocal Coaching */}
             <Route path="/vocal-coaching" element={<VocalCoaching />} />
             <Route path="/en/vocal-coaching" element={<VocalCoaching />} />
@@ -63,8 +68,9 @@ const App = () => (
             {/* Legacy redirects: /de/* → new clean paths */}
             <Route path="/de" element={<Navigate to="/" replace />} />
             <Route path="/de/" element={<Navigate to="/" replace />} />
-            <Route path="/de/ueber-mich" element={<Navigate to="/" replace />} />
-            <Route path="/en/about-me" element={<Navigate to="/en" replace />} />
+            <Route path="/de/ueber-mich" element={<Navigate to="/ueber-mich" replace />} />
+            <Route path="/about-me" element={<Navigate to="/en/about-me" replace />} />
+            <Route path="/about" element={<Navigate to="/ueber-mich" replace />} />
             <Route path="/de/kontakt" element={<Navigate to="/contact" replace />} />
             <Route path="/de/vocal-coaching" element={<Navigate to="/vocal-coaching" replace />} />
             <Route path="/de/unterricht" element={<Navigate to="/vocal-coaching" replace />} />

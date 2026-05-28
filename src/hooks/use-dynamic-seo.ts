@@ -82,6 +82,19 @@ const CONTACT_SEO: { de: RouteSEO; en: RouteSEO } = {
   },
 };
 
+const ABOUT_SEO: { de: RouteSEO; en: RouteSEO } = {
+  de: {
+    title: 'Über mich – JoyWanna (Jovana Kokor) | Sängerin & Pianistin',
+    description:
+      'Über JoyWanna (Jovana Kokor): Sängerin und Pianistin zwischen Jazz, Latin, NeoSoul und Pop – mit über 15 Jahren internationaler Bühnenerfahrung.',
+  },
+  en: {
+    title: 'About Me – JoyWanna (Jovana Kokor) | Singer & Pianist',
+    description:
+      'About JoyWanna (Jovana Kokor): singer and pianist between Jazz, Latin, NeoSoul and Pop – with over 15 years of international stage experience.',
+  },
+};
+
 const PORTFOLIO_SEO: { de: RouteSEO; en: RouteSEO } = {
   de: {
     title: 'Projekte – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse',
@@ -213,6 +226,8 @@ export function useDynamicSEO() {
       applySEO(origin, language, buildPagePath('contact', 'de'), buildPagePath('contact', 'en'), CONTACT_SEO);
     } else if (parsed.kind === 'lessons') {
       applySEO(origin, language, buildPagePath('lessons', 'de'), buildPagePath('lessons', 'en'), LESSONS_SEO);
+    } else if (parsed.kind === 'about') {
+      applySEO(origin, language, buildPagePath('about', 'de'), buildPagePath('about', 'en'), ABOUT_SEO);
     } else if (parsed.kind === 'home') {
       applySEO(origin, language, buildPagePath('home', 'de'), buildPagePath('home', 'en'), HOME_SEO);
     } else if (pathname === '/impressum' || pathname === '/privacy') {

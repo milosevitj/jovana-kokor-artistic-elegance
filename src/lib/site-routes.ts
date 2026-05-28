@@ -31,20 +31,21 @@ export type { Lang } from './portfolio-routes';
 export type SectionId = 'home' | 'about';
 
 /** Top-level page kinds (each has its own URL). */
-export type PageId = 'home' | 'contact' | 'lessons' | 'projects';
+export type PageId = 'home' | 'contact' | 'lessons' | 'projects' | 'about';
 
 /** Localized URL segment per page per language. Home = "". */
-export const PAGE_SLUGS: Record<Exclude<PageId, 'home'>, string> = {
-  contact: 'contact',
-  lessons: 'vocal-coaching',
-  projects: 'projects',
+export const PAGE_SLUGS: Record<Exclude<PageId, 'home'>, { de: string; en: string }> = {
+  contact: { de: 'contact', en: 'contact' },
+  lessons: { de: 'vocal-coaching', en: 'vocal-coaching' },
+  projects: { de: 'projects', en: 'projects' },
+  about: { de: 'ueber-mich', en: 'about-me' },
 };
 
 /** Build the localized URL for a page. */
 export function buildPagePath(page: PageId, lang: Lang): string {
   const prefix = lang === 'en' ? '/en' : '';
   if (page === 'home') return prefix || '/';
-  return `${prefix}/${PAGE_SLUGS[page]}`;
+  return `${prefix}/${PAGE_SLUGS[page][lang]}`;
 }
 
 /** Convenience: build path for the projects landing. */
@@ -59,6 +60,7 @@ export type ParsedRoute =
   | { kind: 'home'; lang: Lang }
   | { kind: 'contact'; lang: Lang }
   | { kind: 'lessons'; lang: Lang }
+  | { kind: 'about'; lang: Lang }
   | { kind: 'portfolio'; lang: Lang }
   | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang }
   | { kind: 'other'; lang: Lang };
@@ -96,6 +98,10 @@ export function parseRoute(pathname: string): ParsedRoute {
     return { kind: 'lessons', lang };
   }
 
+  if (stripped === '/ueber-mich' || stripped === '/about-me' || stripped === '/about') {
+    return { kind: 'about', lang };
+  }
+
   return { kind: 'other', lang };
 }
 
@@ -112,6 +118,8 @@ export function localizedCounterpart(pathname: string, target: Lang): string {
       return buildPagePath('contact', target);
     case 'lessons':
       return buildPagePath('lessons', target);
+    case 'about':
+      return buildPagePath('about', target);
     case 'portfolio':
       return buildPortfolioPath(target);
     case 'portfolio-category':
@@ -124,7 +132,7 @@ export function localizedCounterpart(pathname: string, target: Lang): string {
 
 /** All localized canonical paths (DE + EN counterparts). */
 export function allLocalizedPaths(): { de: string; en: string }[] {
-  const pages: PageId[] = ['home', 'contact', 'lessons', 'projects'];
+  const pages: PageId[] = ['home', 'about', 'contact', 'lessons', 'projects'];
   const out: { de: string; en: string }[] = pages.map((p) => ({
     de: buildPagePath(p, 'de'),
     en: buildPagePath(p, 'en'),

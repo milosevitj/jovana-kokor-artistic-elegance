@@ -46,13 +46,12 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a
-                href={homeHref}
-                onClick={(e) => scrollOrNavigate(e, 'about')}
+              <Link
+                to={buildPagePath('about', language)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t('nav.about')}
-              </a>
+              </Link>
             </li>
             <li>
               <Link

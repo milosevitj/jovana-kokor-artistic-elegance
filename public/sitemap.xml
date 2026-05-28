@@ -21,6 +21,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/" />
   </url>
 
+  <!-- About Me -->
+  <url>
+    <loc>https://joywanna.com/ueber-mich</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/ueber-mich" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/about-me" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/ueber-mich" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/en/about-me</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/ueber-mich" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/about-me" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/ueber-mich" />
+  </url>
+
+
   <!-- Vocal Coaching -->
   <url>
     <loc>https://joywanna.com/vocal-coaching</loc>
