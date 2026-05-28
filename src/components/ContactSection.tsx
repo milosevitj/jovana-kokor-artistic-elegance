@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Send, Instagram, Facebook, Mail } from 'lucide-react';
 import { toast } from 'sonner';
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+const WEB3FORMS_KEY = 'c9a75166-953d-48b7-8f96-9b200665d2ab';
 
 export function ContactSection() {
   const { t } = useLanguage();
