@@ -4,9 +4,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { PORTFOLIO_SLUGS, type PortfolioTab } from '@/lib/portfolio-routes';
 import {
   parseRoute,
-  buildSectionPath,
+  buildPagePath,
   buildPortfolioPath,
-  type SectionId,
+  buildCategoryPath,
 } from '@/lib/site-routes';
 
 function upsertLink(rel: string, href: string, attrs: Record<string, string> = {}) {
@@ -56,92 +56,78 @@ const HOME_SEO: { de: RouteSEO; en: RouteSEO } = {
   },
 };
 
-const SECTION_SEO: Record<SectionId, { de: RouteSEO; en: RouteSEO }> = {
-  home: HOME_SEO,
-  about: {
-    de: {
-      title: 'Über mich – JoyWanna (Jovana Kokor) | Pianistin & Sängerin',
-      description:
-        'Über JoyWanna (Jovana Kokor): Pianistin und Sängerin aus Oldenburg, Jazz, Latin & NeoSoul – Werdegang, Bands und musikalische Vision.',
-    },
-    en: {
-      title: 'About – JoyWanna (Jovana Kokor) | Pianist & Vocalist',
-      description:
-        'About JoyWanna (Jovana Kokor): pianist and vocalist based in Oldenburg, Germany. Jazz, Latin & NeoSoul background, bands and musical vision.',
-    },
+const LESSONS_SEO: { de: RouteSEO; en: RouteSEO } = {
+  de: {
+    title: 'Vocal Coaching – Klavier & Stimmunterricht | JoyWanna (Jovana Kokor)',
+    description:
+      'Klavier- und Gesangsunterricht mit JoyWanna (Jovana Kokor): individuelles Vocal Coaching und Klavierunterricht für alle Altersgruppen, online & vor Ort.',
   },
-  lessons: {
-    de: {
-      title: 'Unterricht – Klavier & Vocal Coaching | JoyWanna (Jovana Kokor)',
-      description:
-        'Klavier- und Gesangsunterricht mit JoyWanna (Jovana Kokor): individuelles Vocal Coaching und Klavierunterricht für alle Altersgruppen, online & vor Ort.',
-    },
-    en: {
-      title: 'Lessons – Piano & Vocal Coaching | JoyWanna (Jovana Kokor)',
-      description:
-        'Piano lessons and vocal coaching with JoyWanna (Jovana Kokor): tailored sessions for every age and level, available online and in person.',
-    },
+  en: {
+    title: 'Vocal Coaching – Piano & Voice Lessons | JoyWanna (Jovana Kokor)',
+    description:
+      'Piano lessons and vocal coaching with JoyWanna (Jovana Kokor): tailored sessions for every age and level, available online and in person.',
   },
-  contact: {
-    de: {
-      title: 'Kontakt & Booking – JoyWanna (Jovana Kokor)',
-      description:
-        'Kontakt und Booking-Anfragen für JoyWanna (Jovana Kokor): Konzerte, Firmenevents, Hochzeiten und Privatunterricht. Jetzt unverbindlich anfragen.',
-    },
-    en: {
-      title: 'Contact & Booking – JoyWanna (Jovana Kokor)',
-      description:
-        'Contact and booking enquiries for JoyWanna (Jovana Kokor): concerts, corporate events, weddings and private lessons. Get in touch today.',
-    },
+};
+
+const CONTACT_SEO: { de: RouteSEO; en: RouteSEO } = {
+  de: {
+    title: 'Kontakt & Booking – JoyWanna (Jovana Kokor)',
+    description:
+      'Kontakt und Booking-Anfragen für JoyWanna (Jovana Kokor): Konzerte, Firmenevents, Hochzeiten und Privatunterricht. Jetzt unverbindlich anfragen.',
+  },
+  en: {
+    title: 'Contact & Booking – JoyWanna (Jovana Kokor)',
+    description:
+      'Contact and booking enquiries for JoyWanna (Jovana Kokor): concerts, corporate events, weddings and private lessons. Get in touch today.',
   },
 };
 
 const PORTFOLIO_SEO: { de: RouteSEO; en: RouteSEO } = {
   de: {
-    title: 'Portfolio – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse',
+    title: 'Projekte – JoyWanna | Visuelle Arbeiten, Live-Auftritte & Presse',
     description:
-      'Portfolio von JoyWanna (Jovana Kokor): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.',
+      'Projekte von JoyWanna (Jovana Kokor): visuelle Arbeiten, Live-Auftritte und Pressestimmen aus Deutschland und Europa. Jetzt Bühnenmomente entdecken.',
   },
   en: {
-    title: 'Portfolio – JoyWanna | Visual Work, Live Shows & Press',
+    title: 'Projects – JoyWanna | Visual Work, Live Shows & Press',
     description:
-      'Portfolio of JoyWanna (Jovana Kokor): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.',
+      'Projects of JoyWanna (Jovana Kokor): visual work, live shows and press features from Germany and Europe. Explore stage moments and recent highlights.',
   },
 };
 
 const CATEGORY_SEO: Record<PortfolioTab, { de: RouteSEO; en: RouteSEO }> = {
   visual: {
     de: {
-      title: 'Visuelle Arbeiten – Portfolio | JoyWanna · Jovana Kokor',
+      title: 'Fotoshooting – Projekte | JoyWanna · Jovana Kokor',
       description:
         'Visuelle Arbeiten von JoyWanna (Jovana Kokor): Bühnenmomente, Bandfotografie und Künstlerporträts aus Konzerten in Deutschland und Europa.',
     },
     en: {
-      title: 'Visual Work – Portfolio | JoyWanna · Jovana Kokor',
+      title: 'Photoshoot – Projects | JoyWanna · Jovana Kokor',
       description:
         'Visual work by JoyWanna (Jovana Kokor): stage moments, band photography and artist portraits from concerts across Germany and Europe.',
     },
   },
   shows: {
     de: {
-      title: 'Live-Auftritte – Portfolio | JoyWanna · Jovana Kokor',
+      title: 'Bühnenmomente – Projekte | JoyWanna · Jovana Kokor',
       description:
         'Live-Auftritte von JoyWanna – Solo, mit „The Spicy Jam" und in der „Reimagined"-Reihe für Stimme und Klavier. Konzertvideos & Highlights.',
     },
     en: {
-      title: 'Live Shows – Portfolio | JoyWanna · Jovana Kokor',
+      title: 'Stage Moments – Projects | JoyWanna · Jovana Kokor',
       description:
         'Live performances by JoyWanna – solo, with "The Spicy Jam" and in the "Reimagined" voice & piano series. Concert videos & highlights.',
     },
   },
   press: {
     de: {
-      title: 'Presse – Portfolio | JoyWanna · Jovana Kokor',
+      title: 'Presse – Projekte | JoyWanna · Jovana Kokor',
       description:
         'Presseberichte aus Zeitungen und Magazinen über JoyWanna (Jovana Kokor), ihre Konzerte und ihren musikalischen Werdegang in Deutschland und Europa.',
     },
     en: {
-      title: 'Press – Portfolio | JoyWanna · Jovana Kokor',
+      title: 'Press – Projects | JoyWanna · Jovana Kokor',
       description:
         'Press features from newspapers and magazines about JoyWanna (Jovana Kokor), her concerts and her musical journey across Germany and Europe.',
     },
@@ -214,27 +200,21 @@ export function useDynamicSEO() {
     const parsed = parseRoute(pathname);
 
     if (parsed.kind === 'portfolio-category') {
-      const dePath = `/de/portfolio/${PORTFOLIO_SLUGS[parsed.tab].de}`;
-      const enPath = `/en/portfolio/${PORTFOLIO_SLUGS[parsed.tab].en}`;
-      applySEO(origin, language, dePath, enPath, CATEGORY_SEO[parsed.tab]);
+      applySEO(
+        origin,
+        language,
+        buildCategoryPath(parsed.tab, 'de'),
+        buildCategoryPath(parsed.tab, 'en'),
+        CATEGORY_SEO[parsed.tab],
+      );
     } else if (parsed.kind === 'portfolio') {
       applySEO(origin, language, buildPortfolioPath('de'), buildPortfolioPath('en'), PORTFOLIO_SEO);
-    } else if (parsed.kind === 'section') {
-      applySEO(
-        origin,
-        language,
-        buildSectionPath(parsed.section, 'de'),
-        buildSectionPath(parsed.section, 'en'),
-        SECTION_SEO[parsed.section],
-      );
+    } else if (parsed.kind === 'contact') {
+      applySEO(origin, language, buildPagePath('contact', 'de'), buildPagePath('contact', 'en'), CONTACT_SEO);
+    } else if (parsed.kind === 'lessons') {
+      applySEO(origin, language, buildPagePath('lessons', 'de'), buildPagePath('lessons', 'en'), LESSONS_SEO);
     } else if (parsed.kind === 'home') {
-      applySEO(
-        origin,
-        language,
-        buildSectionPath('home', 'de'),
-        buildSectionPath('home', 'en'),
-        HOME_SEO,
-      );
+      applySEO(origin, language, buildPagePath('home', 'de'), buildPagePath('home', 'en'), HOME_SEO);
     } else if (pathname === '/impressum' || pathname === '/privacy') {
       const url = `${origin}${pathname}`;
       upsertLink('canonical', url);
@@ -257,6 +237,9 @@ export function useDynamicSEO() {
       clearHreflangs();
       upsertMeta('og:url', url);
     }
+
+    // Suppress unused-import warning
+    void PORTFOLIO_SLUGS;
 
     document.documentElement.setAttribute('lang', language);
   }, [pathname, language]);

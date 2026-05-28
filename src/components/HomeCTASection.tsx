@@ -12,7 +12,7 @@ export const HomeCTASection = () => {
           subtitle:
             "Verfügbar für Konzerte, Kollaborationen und Vocal Coaching. Schreib mir – ich freue mich auf deine Nachricht.",
           button: "Kontakt aufnehmen",
-          to: "/de/kontakt",
+          to: "/contact",
         }
       : {
           title: "Let's create something together",

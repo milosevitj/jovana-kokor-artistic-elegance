@@ -12,7 +12,7 @@ export const PortfolioCTASection = () => {
           subtitle:
             "Für Konzerte, Kollaborationen oder künstlerische Anfragen – ich freue mich, von dir zu hören.",
           button: "Kontakt aufnehmen",
-          to: "/de/kontakt",
+          to: "/contact",
         }
       : {
           title: "A project in mind?",

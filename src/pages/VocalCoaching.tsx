@@ -204,7 +204,7 @@ function VocalCoachingContent() {
               </p>
               <div className="pt-2">
                 <Link
-                  to={language === 'de' ? '/de/kontakt' : '/en/contact'}
+                  to={language === 'de' ? '/contact' : '/en/contact'}
                   className="btn-hero inline-flex items-center"
                 >
                   {language === 'de' ? 'Kontakt aufnehmen' : 'Get in touch'}

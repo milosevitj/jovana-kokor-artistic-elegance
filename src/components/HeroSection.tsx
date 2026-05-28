@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { buildSectionPath } from '@/lib/site-routes';
 import heroImage from '@/assets/joywanna-hero-3x.webp';
 
 export function HeroSection() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
+
+  const scrollToAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
 
   return (
     <section
@@ -57,9 +61,9 @@ export function HeroSection() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to={buildSectionPath('about', language)} className="btn-hero">
+              <a href="#about" onClick={scrollToAbout} className="btn-hero">
                 {t('hero.cta.secondary')}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
