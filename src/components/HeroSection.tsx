@@ -4,7 +4,7 @@ import { buildSectionPath } from '@/lib/site-routes';
 import heroImage from '@/assets/joywanna-hero-3x.webp';
 
 export function HeroSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section
