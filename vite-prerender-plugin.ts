@@ -272,6 +272,37 @@ for (const c of CATEGORY_PAGES) {
   });
 }
 
+// About Me — language-specific slugs.
+{
+  const dePath = "/ueber-mich";
+  const enPath = "/en/about-me";
+  const alternates = { de: dePath, en: enPath };
+  ROUTES.push({
+    path: dePath,
+    outDir: "ueber-mich",
+    lang: "de",
+    alternates,
+    title: "Über mich – Jovana Kokor (JoyWanna) | Sängerin & Pianistin",
+    description:
+      "Über Jovana Kokor (JoyWanna): Sängerin und Pianistin zwischen Jazz, Latin, NeoSoul und Pop – mit über 15 Jahren internationaler Bühnenerfahrung.",
+    h1: "Über mich – Jovana Kokor",
+    intro:
+      "Sängerin und Pianistin zwischen Jazz, Latin, NeoSoul, Groove und Pop – mit über 15 Jahren Bühnenerfahrung.",
+  });
+  ROUTES.push({
+    path: enPath,
+    outDir: "en/about-me",
+    lang: "en",
+    alternates,
+    title: "About Me – Jovana Kokor (JoyWanna) | Singer & Pianist",
+    description:
+      "About Jovana Kokor (JoyWanna): singer and pianist between Jazz, Latin, NeoSoul and Pop – with over 15 years of international stage experience.",
+    h1: "About Me – Jovana Kokor",
+    intro:
+      "Singer and pianist between Jazz, Latin, NeoSoul, Groove and Pop – with more than 15 years of stage experience.",
+  });
+}
+
 // Legal pages — DE-only canonical, same shell for both languages.
 ROUTES.push(
   {
