@@ -57,9 +57,9 @@ export function HeroSection() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#about" className="btn-hero">
+              <Link to={buildSectionPath('about', language)} className="btn-hero">
                 {t('hero.cta.secondary')}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
