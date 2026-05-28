@@ -374,10 +374,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // a user's explicit choice must always win.
   const getInitialLanguage = (): Language => {
     if (typeof window === "undefined") return "de";
-    // 1. URL path prefix (locale-prefixed routes are the strongest signal).
+    // 1. URL path prefix: /en/* → English, everything else → German default.
     const path = window.location.pathname;
-    if (path.startsWith("/en/") || path === "/en") return "en";
-    if (path.startsWith("/de/") || path === "/de") return "de";
+    if (path === "/en" || path.startsWith("/en/")) return "en";
+    if (path === "/de" || path.startsWith("/de/")) return "de"; // legacy
     // 2. ?lang= query param (legacy deep links).
     const param = new URLSearchParams(window.location.search).get("lang");
     if (param === "en" || param === "de") return param;
