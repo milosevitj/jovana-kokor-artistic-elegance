@@ -1,16 +1,23 @@
 /**
- * Site-wide localized routing map.
+ * Site-wide routing map.
  *
- * The site is technically a one-page React app (sections live on `/`), but
- * we expose dedicated, crawlable localized URLs for every section so search
- * engines see them as separate, indexable pages with proper hreflang
- * counterparts. Visiting one of these URLs loads the homepage and scrolls
- * to the matching section.
+ * Clean, SEO-friendly structure:
+ *   /                  → German home (default)
+ *   /en                → English home
+ *   /contact           → German contact
+ *   /en/contact        → English contact
+ *   /vocal-coaching    → German vocal coaching
+ *   /en/vocal-coaching → English vocal coaching
+ *   /projects          → German projects
+ *   /en/projects       → English projects
+ *
+ * The homepage is a one-page scroll experience; in-page sections (home,
+ * about) are reached via smooth-scroll, NOT via URL hash. They have no
+ * dedicated URLs.
  */
 
 import {
   PORTFOLIO_BASE,
-  PORTFOLIO_BASE_SEGMENTS,
   PORTFOLIO_SLUGS,
   PORTFOLIO_TABS,
   buildCategoryPath,
@@ -20,144 +27,108 @@ import {
 
 export type { Lang } from './portfolio-routes';
 
-/** Section ids used in the DOM (HeroSection has id="home", etc.) */
-export type SectionId = 'home' | 'about' | 'lessons' | 'contact';
+/** Section ids used in the DOM for in-page smooth-scroll. */
+export type SectionId = 'home' | 'about';
 
-/**
- * Localized URL segment per section per language.
- * Home = "" (i.e. /de/ or /en/).
- */
-export const SECTION_SLUGS: Record<SectionId, Record<Lang, string>> = {
-  home: { de: '', en: '' },
-  about: { de: 'ueber-mich', en: 'about-me' },
-  lessons: { de: 'vocal-coaching', en: 'vocal-coaching' },
-  contact: { de: 'kontakt', en: 'contact' },
+/** Top-level page kinds (each has its own URL). */
+export type PageId = 'home' | 'contact' | 'lessons' | 'projects';
+
+/** Localized URL segment per page per language. Home = "". */
+export const PAGE_SLUGS: Record<Exclude<PageId, 'home'>, string> = {
+  contact: 'contact',
+  lessons: 'vocal-coaching',
+  projects: 'projects',
 };
 
-/** Reverse lookup: localized slug -> SectionId (any language). */
-export const SLUG_TO_SECTION: Record<string, SectionId> = (() => {
-  const out: Record<string, SectionId> = {};
-  (Object.keys(SECTION_SLUGS) as SectionId[]).forEach((id) => {
-    const de = SECTION_SLUGS[id].de;
-    const en = SECTION_SLUGS[id].en;
-    if (de) out[de] = id;
-    if (en) out[en] = id;
-  });
-  return out;
-})();
-
-/** Build the localized URL for a section: /<lang>/<slug> (or /<lang>/ for home). */
-export function buildSectionPath(section: SectionId, lang: Lang): string {
-  const slug = SECTION_SLUGS[section][lang];
-  return slug ? `/${lang}/${slug}` : `/${lang}/`;
+/** Build the localized URL for a page. */
+export function buildPagePath(page: PageId, lang: Lang): string {
+  const prefix = lang === 'en' ? '/en' : '';
+  if (page === 'home') return prefix || '/';
+  return `${prefix}/${PAGE_SLUGS[page]}`;
 }
 
-/** "portfolio" landing (no category) per language. */
+/** Convenience: build path for the projects landing. */
 export function buildPortfolioPath(lang: Lang): string {
-  return `/${lang}/${PORTFOLIO_BASE[lang]}`;
+  return buildPagePath('projects', lang);
 }
 
 /**
  * Parse a pathname and return what it represents.
- * Handles localized portfolio base ("projekte"/"projects") plus the legacy
- * "/portfolio" segment so old links keep resolving.
  */
 export type ParsedRoute =
-  | { kind: 'home'; lang: Lang | null }
-  | { kind: 'section'; section: SectionId; lang: Lang }
-  | { kind: 'portfolio'; lang: Lang | null }
-  | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang | null }
-  | { kind: 'other'; lang: Lang | null };
-
-const baseAlt = PORTFOLIO_BASE_SEGMENTS.join('|');
+  | { kind: 'home'; lang: Lang }
+  | { kind: 'contact'; lang: Lang }
+  | { kind: 'lessons'; lang: Lang }
+  | { kind: 'portfolio'; lang: Lang }
+  | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang }
+  | { kind: 'other'; lang: Lang };
 
 export function parseRoute(pathname: string): ParsedRoute {
   const clean = pathname.replace(/\/+$/, '') || '/';
+  const isEn = clean === '/en' || clean.startsWith('/en/');
+  const lang: Lang = isEn ? 'en' : 'de';
+  // Strip /en prefix to normalise.
+  const stripped = isEn ? (clean === '/en' ? '/' : clean.slice(3)) : clean;
 
-  // /<lang>/<base>/<slug>
-  const localizedCategory = clean.match(
-    new RegExp(`^/(de|en)/(?:${baseAlt})/([^/]+)$`),
-  );
-  if (localizedCategory) {
-    const lang = localizedCategory[1] as Lang;
-    const slug = localizedCategory[2];
+  if (stripped === '/' || stripped === '') {
+    return { kind: 'home', lang };
+  }
+
+  // /projects, /projects/:slug (or legacy bases)
+  const baseAlt = ['projects', 'projekte', 'portfolio'].join('|');
+  const portfolioLanding = stripped.match(new RegExp(`^/(?:${baseAlt})$`));
+  if (portfolioLanding) return { kind: 'portfolio', lang };
+
+  const portfolioCategory = stripped.match(new RegExp(`^/(?:${baseAlt})/([^/]+)$`));
+  if (portfolioCategory) {
+    const slug = portfolioCategory[1];
     const tab = (Object.keys(PORTFOLIO_SLUGS) as PortfolioTab[]).find(
       (t) => PORTFOLIO_SLUGS[t].de === slug || PORTFOLIO_SLUGS[t].en === slug,
     );
     if (tab) return { kind: 'portfolio-category', tab, lang };
   }
 
-  // /<base>/<slug> (no language prefix, legacy)
-  const bareCategory = clean.match(new RegExp(`^/(?:${baseAlt})/([^/]+)$`));
-  if (bareCategory) {
-    const slug = bareCategory[1];
-    const tab = (Object.keys(PORTFOLIO_SLUGS) as PortfolioTab[]).find(
-      (t) => PORTFOLIO_SLUGS[t].de === slug || PORTFOLIO_SLUGS[t].en === slug,
-    );
-    if (tab) return { kind: 'portfolio-category', tab, lang: null };
+  if (stripped === '/contact' || stripped === '/kontakt') {
+    return { kind: 'contact', lang };
   }
 
-  // /<lang>/<base>
-  const localizedPortfolio = clean.match(new RegExp(`^/(de|en)/(?:${baseAlt})$`));
-  if (localizedPortfolio) {
-    return { kind: 'portfolio', lang: localizedPortfolio[1] as Lang };
-  }
-  if (PORTFOLIO_BASE_SEGMENTS.some((b) => clean === `/${b}`)) {
-    return { kind: 'portfolio', lang: null };
+  if (stripped === '/vocal-coaching' || stripped === '/unterricht' || stripped === '/lessons') {
+    return { kind: 'lessons', lang };
   }
 
-  // /<lang>/<slug> or /<lang> or /<lang>/
-  const localizedSection = clean.match(/^\/(de|en)(?:\/([^/]+))?$/);
-  if (localizedSection) {
-    const lang = localizedSection[1] as Lang;
-    const slug = localizedSection[2];
-    if (!slug) return { kind: 'home', lang };
-    const section = SLUG_TO_SECTION[slug];
-    if (section) return { kind: 'section', section, lang };
-    // Legacy lessons slugs
-    if (slug === 'unterricht' || slug === 'lessons') {
-      return { kind: 'section', section: 'lessons', lang };
-    }
-    return { kind: 'other', lang };
-  }
-
-  if (clean === '/') return { kind: 'home', lang: null };
-  return { kind: 'other', lang: null };
+  return { kind: 'other', lang };
 }
 
 /**
  * Given the current pathname and a target language, return the equivalent
- * pathname in that language. Falls back to `/${target}/` if no mapping.
+ * pathname in that language.
  */
 export function localizedCounterpart(pathname: string, target: Lang): string {
   const parsed = parseRoute(pathname);
   switch (parsed.kind) {
     case 'home':
-      return buildSectionPath('home', target);
-    case 'section':
-      return buildSectionPath(parsed.section, target);
+      return buildPagePath('home', target);
+    case 'contact':
+      return buildPagePath('contact', target);
+    case 'lessons':
+      return buildPagePath('lessons', target);
     case 'portfolio':
       return buildPortfolioPath(target);
     case 'portfolio-category':
       return buildCategoryPath(parsed.tab, target);
-    default: {
-      // For any other path: swap the /de or /en prefix if present,
-      // otherwise keep the path as-is so the user stays on the same page.
-      const swapped = pathname.replace(/^\/(de|en)(\/|$)/, `/${target}$2`);
-      if (swapped !== pathname) return swapped;
-      if (/^\/(de|en)(\/|$)/.test(pathname)) return pathname;
-      return pathname || `/${target}/`;
-    }
+    default:
+      // For impressum/privacy etc. — keep path as-is.
+      return pathname;
   }
 }
 
-/** Locale-prefixed paths for every section + portfolio + portfolio category, both languages. */
+/** All localized canonical paths (DE + EN counterparts). */
 export function allLocalizedPaths(): { de: string; en: string }[] {
-  const out: { de: string; en: string }[] = [];
-  (Object.keys(SECTION_SLUGS) as SectionId[]).forEach((s) => {
-    out.push({ de: buildSectionPath(s, 'de'), en: buildSectionPath(s, 'en') });
-  });
-  out.push({ de: buildPortfolioPath('de'), en: buildPortfolioPath('en') });
+  const pages: PageId[] = ['home', 'contact', 'lessons', 'projects'];
+  const out: { de: string; en: string }[] = pages.map((p) => ({
+    de: buildPagePath(p, 'de'),
+    en: buildPagePath(p, 'en'),
+  }));
   PORTFOLIO_TABS.forEach((entry) => {
     out.push({
       de: buildCategoryPath(entry.tab, 'de'),
@@ -166,3 +137,6 @@ export function allLocalizedPaths(): { de: string; en: string }[] {
   });
   return out;
 }
+
+// Re-exports for backwards compatibility.
+export { buildCategoryPath, PORTFOLIO_BASE };
