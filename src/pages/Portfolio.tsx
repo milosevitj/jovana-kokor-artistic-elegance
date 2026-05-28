@@ -4,7 +4,7 @@ import { useLanguage, LanguageProvider } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { ContactSection } from '@/components/ContactSection';
+import { PortfolioCTASection } from '@/components/PortfolioCTASection';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Play } from 'lucide-react';
 import {
