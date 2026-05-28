@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { buildSectionPath } from '@/lib/site-routes';
 import heroImage from '@/assets/joywanna-hero-3x.webp';
 
 export function HeroSection() {
