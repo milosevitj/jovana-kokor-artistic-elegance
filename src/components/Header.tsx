@@ -12,7 +12,7 @@ import {
 
 type NavItem =
   | { kind: 'scroll'; sectionId: 'home' | 'about'; label: string }
-  | { kind: 'page'; page: 'contact' | 'lessons' | 'projects'; label: string }
+  | { kind: 'page'; page: 'contact' | 'lessons' | 'projects' | 'about'; label: string }
   | { kind: 'custom'; key: string; href: string; label: string };
 
 export function Header() {
@@ -37,7 +37,7 @@ export function Header() {
 
   const navItems: NavItem[] = [
     { kind: 'scroll', sectionId: 'home', label: t('nav.home') },
-    { kind: 'scroll', sectionId: 'about', label: t('nav.about') },
+    { kind: 'page', page: 'about', label: t('nav.about') },
     { kind: 'page', page: 'lessons', label: t('nav.lessons') },
     { kind: 'page', page: 'projects', label: t('nav.gallery') },
     { kind: 'custom', key: 'reimagined', href: language === 'en' ? '/en/reimagined' : '/reimagined', label: 'Reimagined' },
