@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { buildSectionPath } from '@/lib/site-routes';
 import heroImage from '@/assets/joywanna-hero-3x.webp';
 
 export function HeroSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section
@@ -55,9 +57,9 @@ export function HeroSection() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#about" className="btn-hero">
+              <Link to={buildSectionPath('about', language)} className="btn-hero">
                 {t('hero.cta.secondary')}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
