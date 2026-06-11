@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Instagram, Mail, Heart } from 'lucide-react';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -63,7 +63,74 @@ const platforms: Platform[] = [
   },
 ];
 
+const content = {
+  de: {
+    subtitle: 'Voice & Piano',
+    tagline: 'Bekannte Songs neu gehört.',
+    introTitle: 'Vielen Dank, dass ihr Teil von „Reimagined" seid.',
+    introBody:
+      'Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.',
+    releaseTitle: 'Das Album erscheint in Kürze',
+    releaseBody:
+      'Die Veröffentlichung befindet sich aktuell in der finalen Bearbeitung. Sobald das Album online verfügbar ist, findet ihr hier alle Streaming-Links.',
+    soonLabel: 'Bald verfügbar',
+    videoTitle: 'Persönliche Videobotschaft',
+    videoPlaceholder: 'Eine persönliche Dankes-Botschaft folgt in Kürze.',
+    msg: [
+      'Hallo ihr Lieben,',
+      'danke, dass ihr dieses Projekt begleitet und unterstützt.',
+      '„Reimagined" ist für mich mehr als ein Album – es ist eine Sammlung von Songs, die mich über viele Jahre inspiriert haben und die ich auf meine eigene Weise neu erzählt habe.',
+      'Ich freue mich sehr, diese Musik mit euch zu teilen.',
+    ],
+    signoff: '♡ Jovana',
+    newsletterTitle: 'Keine Veröffentlichung verpassen',
+    newsletterBody: 'Trage dich in meinen Newsletter ein und erfahre als Erste*r von:',
+    newsletterList: ['neuen Konzerten', 'neuen Musikveröffentlichungen', 'besonderen Projekten'],
+    emailPlaceholder: 'deine@email.de',
+    subscribe: 'Anmelden',
+    toastTitle: 'Vielen Dank!',
+    toastBody: 'Du wirst informiert, sobald es Neuigkeiten gibt.',
+    supportTitle: 'Musik unterstützen',
+    supportBody:
+      'Wenn dir meine Musik gefällt und du zukünftige Aufnahmen, Konzerte und neue Projekte unterstützen möchtest, freue ich mich über deine Unterstützung.',
+    supportCta: 'Musik unterstützen',
+  },
+  en: {
+    subtitle: 'Voice & Piano',
+    tagline: 'Familiar songs, heard anew.',
+    introTitle: 'Thank you for being part of "Reimagined".',
+    introBody:
+      'This album is a deeply personal collection of songs that have accompanied me for many years and that I have reinterpreted for voice and piano.',
+    releaseTitle: 'The album is coming soon',
+    releaseBody:
+      'The release is currently in its final stages. Once the album is available online, you will find all streaming links here.',
+    soonLabel: 'Coming soon',
+    videoTitle: 'Personal video message',
+    videoPlaceholder: 'A personal thank-you message will follow shortly.',
+    msg: [
+      'Hello dear ones,',
+      'thank you for following and supporting this project.',
+      '"Reimagined" is more than an album to me – it is a collection of songs that have inspired me for many years and that I have retold in my own way.',
+      'I am so happy to share this music with you.',
+    ],
+    signoff: '♡ Jovana',
+    newsletterTitle: 'Never miss a release',
+    newsletterBody: 'Sign up for my newsletter and be the first to know about:',
+    newsletterList: ['new concerts', 'new music releases', 'special projects'],
+    emailPlaceholder: 'your@email.com',
+    subscribe: 'Subscribe',
+    toastTitle: 'Thank you!',
+    toastBody: 'You will be notified as soon as there is news.',
+    supportTitle: 'Support the music',
+    supportBody:
+      'If you enjoy my music and would like to support future recordings, concerts and new projects, I would be grateful for your contribution.',
+    supportCta: 'Support the music',
+  },
+} as const;
+
 function ReimaginedContent() {
+  const { language } = useLanguage();
+  const t = content[language];
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -79,12 +146,8 @@ function ReimaginedContent() {
     e.preventDefault();
     if (!email) return;
     setSubmitting(true);
-    // Newsletter provider integration to be added later
     setTimeout(() => {
-      toast({
-        title: 'Vielen Dank!',
-        description: 'Du wirst informiert, sobald es Neuigkeiten gibt.',
-      });
+      toast({ title: t.toastTitle, description: t.toastBody });
       setEmail('');
       setSubmitting(false);
     }, 600);
@@ -111,36 +174,23 @@ function ReimaginedContent() {
                 JoyWanna – Reimagined
               </h1>
               <p className="text-xl md:text-2xl text-primary font-serif italic mb-4">
-                Voice & Piano
+                {t.subtitle}
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Bekannte Songs neu gehört.
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">{t.tagline}</p>
             </div>
           </div>
 
-          {/* Intro text */}
           <div className="max-w-2xl mx-auto mt-16 md:mt-20 space-y-6 text-center">
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              Vielen Dank, dass ihr Teil von „Reimagined" seid.
-            </p>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre
-              begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.
-            </p>
+            <p className="text-lg text-foreground/90 leading-relaxed">{t.introTitle}</p>
+            <p className="text-base text-muted-foreground leading-relaxed">{t.introBody}</p>
           </div>
         </section>
 
-        {/* Release notice + streaming */}
+        {/* Release + streaming */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-20 md:mt-28">
           <div className="max-w-md mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">
-              Das Album erscheint in Kürze
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-10">
-              Die Veröffentlichung befindet sich aktuell in der finalen Bearbeitung. Sobald das
-              Album online verfügbar ist, findet ihr hier alle Streaming-Links.
-            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t.releaseTitle}</h2>
+            <p className="text-muted-foreground leading-relaxed mb-10">{t.releaseBody}</p>
 
             <div className="bg-secondary/30 rounded-2xl border border-border overflow-hidden">
               {platforms.map((p, i) => (
@@ -161,7 +211,7 @@ function ReimaginedContent() {
                     <span className="font-medium text-foreground truncate">{p.name}</span>
                   </div>
                   <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-2 rounded-full border border-foreground/30 text-sm font-medium text-muted-foreground">
-                    Bald verfügbar
+                    {t.soonLabel}
                   </span>
                 </a>
               ))}
@@ -174,9 +224,7 @@ function ReimaginedContent() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <div className="w-16 h-px bg-primary mx-auto mb-6" />
-              <h2 className="font-serif text-3xl md:text-4xl font-medium">
-                Persönliche Videobotschaft
-              </h2>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium">{t.videoTitle}</h2>
             </div>
 
             <div className="aspect-video w-full rounded-2xl border border-border bg-secondary/30 flex items-center justify-center overflow-hidden">
@@ -186,22 +234,15 @@ function ReimaginedContent() {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <p className="text-muted-foreground text-sm">
-                  Eine persönliche Dankes-Botschaft folgt in Kürze.
-                </p>
+                <p className="text-muted-foreground text-sm">{t.videoPlaceholder}</p>
               </div>
             </div>
 
             <div className="mt-10 space-y-5 text-foreground/90 leading-relaxed">
-              <p>Hallo ihr Lieben,</p>
-              <p>danke, dass ihr dieses Projekt begleitet und unterstützt.</p>
-              <p>
-                „Reimagined" ist für mich mehr als ein Album – es ist eine Sammlung von Songs, die
-                mich über viele Jahre inspiriert haben und die ich auf meine eigene Weise neu
-                erzählt habe.
-              </p>
-              <p>Ich freue mich sehr, diese Musik mit euch zu teilen.</p>
-              <p className="font-serif italic text-primary">♡ Jovana</p>
+              {t.msg.map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+              <p className="font-serif italic text-primary">{t.signoff}</p>
             </div>
           </div>
         </section>
@@ -211,15 +252,13 @@ function ReimaginedContent() {
           <div className="max-w-xl mx-auto text-center">
             <div className="w-16 h-px bg-primary mx-auto mb-6" />
             <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">
-              Keine Veröffentlichung verpassen
+              {t.newsletterTitle}
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Trage dich in meinen Newsletter ein und erfahre als Erste*r von:
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">{t.newsletterBody}</p>
             <ul className="text-muted-foreground space-y-1 mb-8 inline-block text-left">
-              <li>• neuen Konzerten</li>
-              <li>• neuen Musikveröffentlichungen</li>
-              <li>• besonderen Projekten</li>
+              {t.newsletterList.map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
             </ul>
 
             <form
@@ -229,13 +268,13 @@ function ReimaginedContent() {
               <Input
                 type="email"
                 required
-                placeholder="deine@email.de"
+                placeholder={t.emailPlaceholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1"
               />
               <button type="submit" disabled={submitting} className="btn-hero">
-                {submitting ? '...' : 'Anmelden'}
+                {submitting ? '...' : t.subscribe}
               </button>
             </form>
           </div>
@@ -245,11 +284,8 @@ function ReimaginedContent() {
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-24 md:mt-32">
           <div className="max-w-xl mx-auto text-center">
             <div className="w-16 h-px bg-primary mx-auto mb-6" />
-            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">Musik unterstützen</h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Wenn dir meine Musik gefällt und du zukünftige Aufnahmen, Konzerte und neue Projekte
-              unterstützen möchtest, freue ich mich über deine Unterstützung.
-            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t.supportTitle}</h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">{t.supportBody}</p>
             <a
               href="https://ko-fi.com/joywanna"
               target="_blank"
@@ -257,7 +293,7 @@ function ReimaginedContent() {
               className="btn-hero inline-flex items-center gap-2"
             >
               <Heart className="h-4 w-4" />
-              Musik unterstützen
+              {t.supportCta}
             </a>
           </div>
         </section>
