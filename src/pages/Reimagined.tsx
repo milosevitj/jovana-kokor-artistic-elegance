@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import coverAsset from '@/assets/reimagined-cover.png.asset.json';
 
 const BANDCAMP_URL = 'https://joywanna.bandcamp.com/album/reimagined';
