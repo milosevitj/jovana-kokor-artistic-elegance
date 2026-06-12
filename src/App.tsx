@@ -16,7 +16,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Reimagined = lazy(() => import("./pages/Reimagined"));
 const Contact = lazy(() => import("./pages/Contact"));
 const About = lazy(() => import("./pages/About"));
-const AdminNewsletter = lazy(() => import("./pages/AdminNewsletter"));
+
 
 const queryClient = new QueryClient();
 
@@ -66,8 +66,6 @@ const App = () => (
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
 
-            {/* Admin */}
-            <Route path="/admin/newsletter" element={<AdminNewsletter />} />
 
             {/* Legacy redirects: /de/* → new clean paths */}
             <Route path="/de" element={<Navigate to="/" replace />} />
