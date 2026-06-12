@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import coverAsset from '@/assets/reimagined-cover.png.asset.json';
 
 const BANDCAMP_URL = 'https://joywanna.bandcamp.com/album/reimagined';
@@ -79,15 +80,45 @@ function ReimaginedContent() {
     };
   }, []);
 
-  const handleNewsletter = (e: React.FormEvent) => {
+  const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || submitting) return;
     setSubmitting(true);
-    setTimeout(() => {
-      toast({ title: t.toastTitle, description: t.toastBody });
-      setEmail('');
+    try {
+      const { data, error } = await supabase.functions.invoke('newsletter-subscribe', {
+        body: { email, source: 'reimagined', language },
+      });
+      const result = (data ?? {}) as { success?: boolean; message?: string };
+      if (error || !result.success) {
+        const msg = result.message ?? (language === 'de' ? 'Etwas ist schiefgelaufen.' : 'Something went wrong.');
+        toast({
+          title: language === 'de' ? 'Fehler' : 'Error',
+          description:
+            msg === 'Email already subscribed'
+              ? language === 'de'
+                ? 'Diese E-Mail ist bereits angemeldet.'
+                : 'This email is already subscribed.'
+              : msg === 'Invalid email address'
+              ? language === 'de'
+                ? 'Ungültige E-Mail-Adresse.'
+                : 'Invalid email address.'
+              : msg,
+          variant: 'destructive',
+        });
+      } else {
+        toast({ title: t.toastTitle, description: t.toastBody });
+        setEmail('');
+      }
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: language === 'de' ? 'Fehler' : 'Error',
+        description: language === 'de' ? 'Etwas ist schiefgelaufen.' : 'Something went wrong.',
+        variant: 'destructive',
+      });
+    } finally {
       setSubmitting(false);
-    }, 600);
+    }
   };
 
   return (
