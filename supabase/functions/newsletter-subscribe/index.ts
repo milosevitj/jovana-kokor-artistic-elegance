@@ -1,16 +1,13 @@
-import { createClient } from 'npm:@supabase/supabase-js@2';
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
 };
 
+const RECIPIENT_EMAIL = 'contact@joywanna.com';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
-  if (req.method !== 'POST') return json({ success: false, message: 'Method not allowed' }, 405);
 
   try {
     const body = await req.json().catch(() => ({}));
@@ -20,18 +17,28 @@ Deno.serve(async (req) => {
       return json({ success: false, message: 'Invalid email address' }, 400);
     }
 
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL')!,
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
-    );
-
-    const { error } = await supabase.from('newsletter_subscribers').insert({ email });
-
-    if (error) {
-      if ((error as any).code === '23505') {
-        return json({ success: false, message: 'Email already subscribed' }, 409);
+    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+    if (RESEND_API_KEY) {
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: 'JoyWanna Website <onboarding@resend.dev>',
+          to: [RECIPIENT_EMAIL],
+          subject: `[Newsletter Signup] ${email}`,
+          html: `<h2>New Newsletter Signup</h2><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><em>Submitted via the website newsletter form.</em></p>`,
+          reply_to: email,
+        }),
+      });
+      if (!res.ok) {
+        console.error('Resend error:', await res.text());
+        throw new Error(`Email send failed: ${res.status}`);
       }
-      throw error;
+    } else {
+      console.log('Newsletter signup (no email service configured):', { email, recipient: RECIPIENT_EMAIL });
     }
 
     return json({ success: true, message: 'Successfully subscribed' }, 200);
@@ -46,4 +53,13 @@ function json(body: unknown, status: number) {
     status,
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   });
+}
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
