@@ -1,67 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Instagram, Mail, Heart } from 'lucide-react';
+import { Instagram, Mail, Heart, ExternalLink } from 'lucide-react';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import coverAsset from '@/assets/reimagined-cover.jpeg.asset.json';
+import coverAsset from '@/assets/reimagined-cover.png.asset.json';
+
+const BANDCAMP_URL = 'https://joywanna.bandcamp.com/album/reimagined';
 
 const albumConfig = {
   artistName: 'JoyWanna',
   albumTitle: 'Reimagined',
   coverImage: coverAsset.url,
-  links: {
-    spotify: '#',
-    deezer: '#',
-  },
 };
-
-type PlatformKey = keyof typeof albumConfig.links;
-
-type Platform = {
-  key: PlatformKey;
-  name: string;
-  logo: JSX.Element;
-};
-
-const platforms: Platform[] = [
-  {
-    key: 'spotify',
-    name: 'Spotify',
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
-        <circle cx="12" cy="12" r="12" fill="#1DB954" />
-        <path
-          fill="#fff"
-          d="M17.6 16.4a.7.7 0 0 1-1 .2c-2.6-1.6-5.9-2-9.8-1.1a.7.7 0 1 1-.3-1.4c4.3-1 8 0 10.9 1.7a.7.7 0 0 1 .2 1zm1.4-2.9a.9.9 0 0 1-1.2.3c-3-1.8-7.5-2.4-11-1.3a.9.9 0 1 1-.5-1.7c4-1.2 9-.6 12.4 1.5a.9.9 0 0 1 .3 1.2zm.1-3c-3.5-2.1-9.4-2.3-12.8-1.3a1.1 1.1 0 1 1-.6-2.1c3.9-1.1 10.4-.9 14.5 1.5a1.1 1.1 0 1 1-1.1 1.9z"
-        />
-      </svg>
-    ),
-  },
-  {
-    key: 'deezer',
-    name: 'Deezer',
-    logo: (
-      <svg viewBox="0 0 64 32" className="h-5 w-auto" aria-hidden="true">
-        <g>
-          <rect x="48" y="4" width="16" height="4" fill="#A238FF" />
-          <rect x="32" y="11" width="16" height="4" fill="#FF0092" />
-          <rect x="48" y="11" width="16" height="4" fill="#FFCC00" />
-          <rect x="0" y="18" width="16" height="4" fill="#00C7F2" />
-          <rect x="16" y="18" width="16" height="4" fill="#00CF56" />
-          <rect x="32" y="18" width="16" height="4" fill="#FF6184" />
-          <rect x="48" y="18" width="16" height="4" fill="#FF0000" />
-          <rect x="0" y="25" width="16" height="4" fill="#B47AEF" />
-          <rect x="16" y="25" width="16" height="4" fill="#FF8E00" />
-          <rect x="32" y="25" width="16" height="4" fill="#F12E51" />
-          <rect x="48" y="25" width="16" height="4" fill="#2D2D2D" />
-        </g>
-      </svg>
-    ),
-  },
-];
 
 const content = {
   de: {
@@ -70,19 +23,11 @@ const content = {
     introTitle: 'Vielen Dank, dass ihr Teil von „Reimagined" seid.',
     introBody:
       'Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.',
-    releaseTitle: 'Das Album erscheint in Kürze',
+    releaseTitle: 'Jetzt auf Bandcamp',
     releaseBody:
-      'Die Veröffentlichung befindet sich aktuell in der finalen Bearbeitung. Sobald das Album online verfügbar ist, findet ihr hier alle Streaming-Links.',
-    soonLabel: 'Bald verfügbar',
-    videoTitle: 'Persönliche Videobotschaft',
-    videoPlaceholder: 'Eine persönliche Dankes-Botschaft folgt in Kürze.',
-    msg: [
-      'Hallo ihr Lieben,',
-      'danke, dass ihr dieses Projekt begleitet und unterstützt.',
-      '„Reimagined" ist für mich mehr als ein Album – es ist eine Sammlung von Songs, die mich über viele Jahre inspiriert haben und die ich auf meine eigene Weise neu erzählt habe.',
-      'Ich freue mich sehr, diese Musik mit euch zu teilen.',
-    ],
-    signoff: '♡ Jovana',
+      'Das Album ist jetzt exklusiv auf Bandcamp verfügbar. In Kürze wird „Reimagined" auch auf allen großen Streaming-Plattformen erscheinen.',
+    releaseHint: 'Bis dahin könnt ihr das Album bereits hier anhören und als Download erwerben:',
+    bandcampCta: 'Auf Bandcamp anhören',
     newsletterTitle: 'Keine Veröffentlichung verpassen',
     newsletterBody: 'Trage dich in meinen Newsletter ein und erfahre als Erste*r von:',
     newsletterList: ['neuen Konzerten', 'neuen Musikveröffentlichungen', 'besonderen Projekten'],
@@ -100,31 +45,23 @@ const content = {
     tagline: 'Familiar songs, heard anew.',
     introTitle: 'Thank you for being part of "Reimagined".',
     introBody:
-      'This album is a deeply personal collection of songs that have accompanied me for many years and that I have reinterpreted for voice and piano.',
-    releaseTitle: 'The album is coming soon',
+      'This album is a very personal collection of songs that have accompanied me over many years, which I have reinterpreted for voice and piano.',
+    releaseTitle: 'Now on Bandcamp',
     releaseBody:
-      'The release is currently in its final stages. Once the album is available online, you will find all streaming links here.',
-    soonLabel: 'Coming soon',
-    videoTitle: 'Personal video message',
-    videoPlaceholder: 'A personal thank-you message will follow shortly.',
-    msg: [
-      'Hello dear ones,',
-      'thank you for following and supporting this project.',
-      '"Reimagined" is more than an album to me – it is a collection of songs that have inspired me for many years and that I have retold in my own way.',
-      'I am so happy to share this music with you.',
-    ],
-    signoff: '♡ Jovana',
-    newsletterTitle: 'Never miss a release',
+      'The album is now exclusively available on Bandcamp. Soon, "Reimagined" will also be released on all major streaming platforms.',
+    releaseHint: 'Until then, you can already listen to and purchase the album here:',
+    bandcampCta: 'Listen on Bandcamp',
+    newsletterTitle: "Don't miss any release",
     newsletterBody: 'Sign up for my newsletter and be the first to know about:',
     newsletterList: ['new concerts', 'new music releases', 'special projects'],
     emailPlaceholder: 'your@email.com',
-    subscribe: 'Subscribe',
+    subscribe: 'Sign up',
     toastTitle: 'Thank you!',
     toastBody: 'You will be notified as soon as there is news.',
     supportTitle: 'Support the music',
     supportBody:
-      'If you enjoy my music and would like to support future recordings, concerts and new projects, I would be grateful for your contribution.',
-    supportCta: 'Support the music',
+      'If you enjoy my music and would like to support future recordings, concerts and projects, I would greatly appreciate it.',
+    supportCta: 'Support music',
   },
 } as const;
 
@@ -186,68 +123,24 @@ function ReimaginedContent() {
           </div>
         </section>
 
-        {/* Release + streaming */}
+        {/* Release / Bandcamp */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-20 md:mt-28">
-          <div className="max-w-md mx-auto text-center">
+          <div className="max-w-xl mx-auto text-center">
+            <div className="w-16 h-px bg-primary mx-auto mb-6" />
             <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t.releaseTitle}</h2>
-            <p className="text-muted-foreground leading-relaxed mb-10">{t.releaseBody}</p>
-
-            <div className="bg-secondary/30 rounded-2xl border border-border overflow-hidden">
-              {platforms.map((p, i) => (
-                <a
-                  key={p.key}
-                  href={albumConfig.links[p.key]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-disabled={albumConfig.links[p.key] === '#'}
-                  className={`flex items-center justify-between gap-4 px-5 py-4 hover:bg-secondary/60 transition-colors ${
-                    i !== platforms.length - 1 ? 'border-b border-border' : ''
-                  }`}
-                >
-                  <div className="flex items-center gap-4 min-w-0">
-                    <span className="flex-shrink-0 flex items-center justify-center w-10">
-                      {p.logo}
-                    </span>
-                    <span className="font-medium text-foreground truncate">{p.name}</span>
-                  </div>
-                  <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-2 rounded-full border border-foreground/30 text-sm font-medium text-muted-foreground">
-                    {t.soonLabel}
-                  </span>
-                </a>
-              ))}
-            </div>
+            <p className="text-muted-foreground leading-relaxed mb-4">{t.releaseBody}</p>
+            <p className="text-muted-foreground leading-relaxed mb-8">{t.releaseHint}</p>
+            <a
+              href={BANDCAMP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-hero inline-flex items-center gap-2"
+            >
+              {t.bandcampCta}
+              <ExternalLink className="h-4 w-4" />
+            </a>
           </div>
         </section>
-
-        {/* Personal video message */}
-        <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-24 md:mt-32">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <div className="w-16 h-px bg-primary mx-auto mb-6" />
-              <h2 className="font-serif text-3xl md:text-4xl font-medium">{t.videoTitle}</h2>
-            </div>
-
-            <div className="aspect-video w-full rounded-2xl border border-border bg-secondary/30 flex items-center justify-center overflow-hidden">
-              <div className="text-center px-6">
-                <div className="mx-auto mb-4 h-14 w-14 rounded-full border border-primary/40 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-primary" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-muted-foreground text-sm">{t.videoPlaceholder}</p>
-              </div>
-            </div>
-
-            <div className="mt-10 space-y-5 text-foreground/90 leading-relaxed">
-              {t.msg.map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
-              <p className="font-serif italic text-primary">{t.signoff}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Newsletter */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-24 md:mt-32">
           <div className="max-w-xl mx-auto text-center">
             <div className="w-16 h-px bg-primary mx-auto mb-6" />
