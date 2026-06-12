@@ -136,8 +136,8 @@ function ReimaginedContent() {
                 loading="eager"
               />
             </div>
-            <div>
-              <div className="w-16 h-px bg-primary mb-6" />
+            <div className="text-center md:text-left">
+              <div className="w-16 h-px bg-primary mb-6 mx-auto md:mx-0" />
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium mb-3">
                 JoyWanna – Reimagined
               </h1>
