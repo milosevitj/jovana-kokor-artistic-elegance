@@ -123,68 +123,24 @@ function ReimaginedContent() {
           </div>
         </section>
 
-        {/* Release + streaming */}
+        {/* Release / Bandcamp */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-20 md:mt-28">
-          <div className="max-w-md mx-auto text-center">
+          <div className="max-w-xl mx-auto text-center">
+            <div className="w-16 h-px bg-primary mx-auto mb-6" />
             <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t.releaseTitle}</h2>
-            <p className="text-muted-foreground leading-relaxed mb-10">{t.releaseBody}</p>
-
-            <div className="bg-secondary/30 rounded-2xl border border-border overflow-hidden">
-              {platforms.map((p, i) => (
-                <a
-                  key={p.key}
-                  href={albumConfig.links[p.key]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-disabled={albumConfig.links[p.key] === '#'}
-                  className={`flex items-center justify-between gap-4 px-5 py-4 hover:bg-secondary/60 transition-colors ${
-                    i !== platforms.length - 1 ? 'border-b border-border' : ''
-                  }`}
-                >
-                  <div className="flex items-center gap-4 min-w-0">
-                    <span className="flex-shrink-0 flex items-center justify-center w-10">
-                      {p.logo}
-                    </span>
-                    <span className="font-medium text-foreground truncate">{p.name}</span>
-                  </div>
-                  <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-2 rounded-full border border-foreground/30 text-sm font-medium text-muted-foreground">
-                    {t.soonLabel}
-                  </span>
-                </a>
-              ))}
-            </div>
+            <p className="text-muted-foreground leading-relaxed mb-4">{t.releaseBody}</p>
+            <p className="text-muted-foreground leading-relaxed mb-8">{t.releaseHint}</p>
+            <a
+              href={BANDCAMP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-hero inline-flex items-center gap-2"
+            >
+              {t.bandcampCta}
+              <ExternalLink className="h-4 w-4" />
+            </a>
           </div>
         </section>
-
-        {/* Personal video message */}
-        <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-24 md:mt-32">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <div className="w-16 h-px bg-primary mx-auto mb-6" />
-              <h2 className="font-serif text-3xl md:text-4xl font-medium">{t.videoTitle}</h2>
-            </div>
-
-            <div className="aspect-video w-full rounded-2xl border border-border bg-secondary/30 flex items-center justify-center overflow-hidden">
-              <div className="text-center px-6">
-                <div className="mx-auto mb-4 h-14 w-14 rounded-full border border-primary/40 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-primary" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-muted-foreground text-sm">{t.videoPlaceholder}</p>
-              </div>
-            </div>
-
-            <div className="mt-10 space-y-5 text-foreground/90 leading-relaxed">
-              {t.msg.map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
-              <p className="font-serif italic text-primary">{t.signoff}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Newsletter */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-24 md:mt-32">
           <div className="max-w-xl mx-auto text-center">
             <div className="w-16 h-px bg-primary mx-auto mb-6" />
