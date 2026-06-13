@@ -34,7 +34,10 @@ interface RouteMeta {
   description: string;
   h1: string;
   intro: string;
+  /** Optional absolute URL to override og:image / twitter:image. */
+  ogImage?: string;
 }
+
 
 const SITE_ORIGIN = "https://jovana-kokor-stage-art.lovable.app";
 
@@ -47,7 +50,10 @@ interface LocalizedPage {
   description: { de: string; en: string };
   h1: { de: string; en: string };
   intro: { de: string; en: string };
+  /** Optional absolute URL to override og:image / twitter:image. */
+  ogImage?: string;
 }
+
 
 const PAGES: LocalizedPage[] = [
   {
@@ -133,19 +139,21 @@ const PAGES: LocalizedPage[] = [
     outBase: "reimagined",
     enOutBase: "reimagined",
     title: {
-      de: "Reimagined – Jovana Kokor (JoyWanna) | Album streamen",
-      en: "Reimagined – Jovana Kokor (JoyWanna) | Stream the Album",
+      de: "JoyWanna – Reimagined",
+      en: "JoyWanna – Reimagined",
     },
     description: {
-      de: 'Höre „Reimagined" von Jovana Kokor (JoyWanna) auf Spotify, Apple Music, Deezer, YouTube Music, Tidal und Amazon Music.',
-      en: 'Listen to "Reimagined" by Jovana Kokor (JoyWanna) on Spotify, Apple Music, Deezer, YouTube Music, Tidal and Amazon Music.',
+      de: "Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.",
+      en: "This album is a very personal collection of songs that have accompanied me over many years, which I have reinterpreted for voice and piano.",
     },
     h1: { de: "Reimagined – Jovana Kokor", en: "Reimagined – Jovana Kokor" },
     intro: {
       de: 'Wähle deinen bevorzugten Streaming-Dienst, um „Reimagined" anzuhören.',
       en: 'Choose your preferred streaming service to listen to "Reimagined".',
     },
+    ogImage: `${SITE_ORIGIN}/reimagined-cover.png`,
   },
+
 ];
 
 interface CategoryPage {
@@ -232,6 +240,7 @@ for (const p of PAGES) {
     description: p.description.de,
     h1: p.h1.de,
     intro: p.intro.de,
+    ogImage: p.ogImage,
   });
   ROUTES.push({
     path: enPath,
@@ -242,8 +251,10 @@ for (const p of PAGES) {
     description: p.description.en,
     h1: p.h1.en,
     intro: p.intro.en,
+    ogImage: p.ogImage,
   });
 }
+
 
 for (const c of CATEGORY_PAGES) {
   const dePath = `/projects/${c.slug}`;
@@ -336,7 +347,7 @@ function escapeHtml(s: string): string {
 }
 
 function rewriteHtml(template: string, route: RouteMeta): string {
-  const { title, description, h1, intro, lang, alternates } = route;
+  const { title, description, h1, intro, lang, alternates, ogImage } = route;
   const canonicalUrl = `${SITE_ORIGIN}${alternates[lang]}`;
   const deUrl = `${SITE_ORIGIN}${alternates.de}`;
   const enUrl = `${SITE_ORIGIN}${alternates.en}`;
@@ -370,6 +381,17 @@ function rewriteHtml(template: string, route: RouteMeta): string {
     `<meta property="og:locale" content="${lang === "en" ? "en_US" : "de_DE"}">`,
   );
 
+  if (ogImage) {
+    html = html.replace(
+      /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
+      `<meta property="og:image" content="${ogImage}">`,
+    );
+    html = html.replace(
+      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
+      `<meta name="twitter:image" content="${ogImage}">`,
+    );
+  }
+
   html = html
     .replace(/<link\s+rel="canonical"[^>]*>\s*/gi, "")
     .replace(/<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*>\s*/gi, "")
@@ -390,6 +412,7 @@ function rewriteHtml(template: string, route: RouteMeta): string {
 
   return html;
 }
+
 
 export function prerenderPlugin(): Plugin {
   return {
