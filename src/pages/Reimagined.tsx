@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Instagram, Mail, Heart, ExternalLink } from 'lucide-react';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { SEOManager } from '@/components/SEOManager';
@@ -72,14 +72,6 @@ function ReimaginedContent() {
   const t = content[language];
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
-
-  useEffect(() => {
-    const prev = document.title;
-    document.title = `${albumConfig.albumTitle} – ${albumConfig.artistName} | JoyWanna`;
-    return () => {
-      document.title = prev;
-    };
-  }, []);
 
   const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();

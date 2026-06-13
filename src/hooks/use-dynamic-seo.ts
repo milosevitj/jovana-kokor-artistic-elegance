@@ -41,6 +41,9 @@ function clearHreflangs() {
     .forEach((el) => el.remove());
 }
 
+const DEFAULT_OG_IMAGE =
+  'https://storage.googleapis.com/gpt-engineer-file-uploads/Uj8tLOBDxYhmqVtsQfEa4HeyhTf1/social-images/social-1776667433602-joywanna28.webp';
+
 type RouteSEO = { title: string; description: string };
 
 const HOME_SEO: { de: RouteSEO; en: RouteSEO } = {
@@ -170,6 +173,19 @@ const LEGAL_SEO: Record<'/impressum' | '/privacy', { de: RouteSEO; en: RouteSEO 
   },
 };
 
+const REIMAGINED_SEO: { de: RouteSEO; en: RouteSEO } = {
+  de: {
+    title: 'JoyWanna – Reimagined',
+    description:
+      'Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.',
+  },
+  en: {
+    title: 'JoyWanna – Reimagined',
+    description:
+      'This album is a very personal collection of songs that have accompanied me over many years, which I have reinterpreted for voice and piano.',
+  },
+};
+
 function setTitle(title: string) {
   if (document.title !== title) document.title = title;
 }
@@ -180,6 +196,7 @@ function applySEO(
   dePath: string,
   enPath: string,
   seo: { de: RouteSEO; en: RouteSEO },
+  imageUrl?: string,
 ) {
   const deUrl = `${origin}${dePath}`;
   const enUrl = `${origin}${enPath}`;
@@ -201,6 +218,12 @@ function applySEO(
   upsertMeta('og:description', copy.description);
   upsertMeta('twitter:title', copy.title, true);
   upsertMeta('twitter:description', copy.description, true);
+
+  const finalImage = imageUrl || DEFAULT_OG_IMAGE;
+  upsertMeta('og:image', finalImage);
+  upsertMeta('og:image:alt', copy.title);
+  upsertMeta('twitter:image', finalImage, true);
+  upsertMeta('twitter:image:alt', copy.title, true);
 }
 
 export function useDynamicSEO() {
@@ -246,6 +269,15 @@ export function useDynamicSEO() {
       upsertMeta('og:description', copy.description);
       upsertMeta('twitter:title', copy.title, true);
       upsertMeta('twitter:description', copy.description, true);
+    } else if (pathname === '/reimagined') {
+      applySEO(
+        origin,
+        language,
+        '/reimagined',
+        '/reimagined',
+        REIMAGINED_SEO,
+        `${origin}/reimagined-cover.png`,
+      );
     } else {
       const url = `${origin}${pathname}`;
       upsertLink('canonical', url);
