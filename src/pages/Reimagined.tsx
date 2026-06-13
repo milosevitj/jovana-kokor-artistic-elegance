@@ -6,8 +6,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import coverImage from '@/assets/reimagined-cover.png';
+
+const WEB3FORMS_KEY = 'c9a75166-953d-48b7-8f96-9b200665d2ab';
 
 const BANDCAMP_URL = 'https://joywanna.bandcamp.com/album/reimagined';
 
