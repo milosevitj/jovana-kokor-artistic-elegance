@@ -6,8 +6,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import coverImage from '@/assets/reimagined-cover.png';
+
+const WEB3FORMS_KEY = 'c9a75166-953d-48b7-8f96-9b200665d2ab';
 
 const BANDCAMP_URL = 'https://joywanna.bandcamp.com/album/reimagined';
 
@@ -84,33 +85,31 @@ function ReimaginedContent() {
     e.preventDefault();
     if (!email || submitting) return;
     setSubmitting(true);
+
+    const payload = new FormData();
+    payload.append('access_key', WEB3FORMS_KEY);
+    payload.append('name', 'Newsletter Subscriber');
+    payload.append('email', email);
+    payload.append('subject', '[Newsletter Signup]');
+    payload.append('message', `Newsletter signup from the JoyWanna website.\n\nEmail: ${email}`);
+    payload.append('from_name', 'JoyWanna Website');
+    payload.append('replyto', email);
+    payload.append('botcheck', '');
+
     try {
-      const { data, error } = await supabase.functions.invoke('newsletter-subscribe', {
-        body: { email, source: 'reimagined', language },
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: payload,
       });
-      const result = (data ?? {}) as { success?: boolean; message?: string };
-      if (error || !result.success) {
-        const msg = result.message ?? (language === 'de' ? 'Etwas ist schiefgelaufen.' : 'Something went wrong.');
-        toast({
-          title: language === 'de' ? 'Fehler' : 'Error',
-          description:
-            msg === 'Email already subscribed'
-              ? language === 'de'
-                ? 'Diese E-Mail ist bereits angemeldet.'
-                : 'This email is already subscribed.'
-              : msg === 'Invalid email address'
-              ? language === 'de'
-                ? 'Ungültige E-Mail-Adresse.'
-                : 'Invalid email address.'
-              : msg,
-          variant: 'destructive',
-        });
-      } else {
-        toast({ title: t.toastTitle, description: t.toastBody });
-        setEmail('');
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data?.message || 'Submission failed');
       }
+      toast({ title: t.toastTitle, description: t.toastBody });
+      setEmail('');
     } catch (err) {
-      console.error(err);
+      console.error('Newsletter form error:', err);
       toast({
         title: language === 'de' ? 'Fehler' : 'Error',
         description: language === 'de' ? 'Etwas ist schiefgelaufen.' : 'Something went wrong.',
