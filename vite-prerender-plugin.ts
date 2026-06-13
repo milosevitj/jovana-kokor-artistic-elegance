@@ -240,6 +240,7 @@ for (const p of PAGES) {
     description: p.description.de,
     h1: p.h1.de,
     intro: p.intro.de,
+    ogImage: p.ogImage,
   });
   ROUTES.push({
     path: enPath,
@@ -250,8 +251,10 @@ for (const p of PAGES) {
     description: p.description.en,
     h1: p.h1.en,
     intro: p.intro.en,
+    ogImage: p.ogImage,
   });
 }
+
 
 for (const c of CATEGORY_PAGES) {
   const dePath = `/projects/${c.slug}`;
@@ -344,7 +347,7 @@ function escapeHtml(s: string): string {
 }
 
 function rewriteHtml(template: string, route: RouteMeta): string {
-  const { title, description, h1, intro, lang, alternates } = route;
+  const { title, description, h1, intro, lang, alternates, ogImage } = route;
   const canonicalUrl = `${SITE_ORIGIN}${alternates[lang]}`;
   const deUrl = `${SITE_ORIGIN}${alternates.de}`;
   const enUrl = `${SITE_ORIGIN}${alternates.en}`;
@@ -378,6 +381,17 @@ function rewriteHtml(template: string, route: RouteMeta): string {
     `<meta property="og:locale" content="${lang === "en" ? "en_US" : "de_DE"}">`,
   );
 
+  if (ogImage) {
+    html = html.replace(
+      /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
+      `<meta property="og:image" content="${ogImage}">`,
+    );
+    html = html.replace(
+      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
+      `<meta name="twitter:image" content="${ogImage}">`,
+    );
+  }
+
   html = html
     .replace(/<link\s+rel="canonical"[^>]*>\s*/gi, "")
     .replace(/<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*>\s*/gi, "")
@@ -398,6 +412,7 @@ function rewriteHtml(template: string, route: RouteMeta): string {
 
   return html;
 }
+
 
 export function prerenderPlugin(): Plugin {
   return {
