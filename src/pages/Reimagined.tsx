@@ -10,13 +10,54 @@ import coverImage from '@/assets/reimagined-cover.png';
 
 const WEB3FORMS_KEY = 'c9a75166-953d-48b7-8f96-9b200665d2ab';
 
-const BANDCAMP_URL = 'https://joywanna.bandcamp.com/album/reimagined';
-
 const albumConfig = {
   artistName: 'JoyWanna',
   albumTitle: 'Reimagined',
   coverImage,
 };
+
+const STREAMING_LINKS = [
+  {
+    name: 'Bandcamp',
+    url: 'https://joywanna.bandcamp.com/album/reimagined',
+    color: '#1DA0C3',
+    icon: (
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M0 18.75l7.437-13.5h9.126l-7.437 13.5H0zM15.563 5.25L24 18.75h-7.437L9.126 5.25h6.437z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Spotify',
+    url: 'https://open.spotify.com/album/5aO2J7QX4985CnyrMpie4g',
+    color: '#1DB954',
+    icon: (
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Deezer',
+    url: 'https://www.deezer.com/album/1006152911',
+    color: '#FEAA2D',
+    icon: (
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M0 16.608h3.96v3.96H0zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zM0 11.928h3.96v3.96H0zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zM0 7.248h3.96v3.96H0zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zM0 2.568h3.96v3.96H0zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96zm5.172 0h3.96v3.96h-3.96z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Tidal',
+    url: 'http://www.tidal.com/album/533631287',
+    color: '#0C67F1',
+    icon: (
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996 4.004 12l4.004-4.004L12.012 12l-4.004 4.004 4.004 4.004 4.004-4.004L12.012 12l4.004-4.004-4.004-4.004zM16.042 7.996l3.976-3.976L24 7.996l-3.982 3.982zM12.012 19.982l-3.988-3.988-3.988 3.988L0 16.004l3.988-3.988 4.024 4.024 3.988-3.988 3.976 3.976z" />
+      </svg>
+    ),
+  },
+];
 
 const content = {
   de: {
@@ -25,11 +66,9 @@ const content = {
     introTitle: 'Vielen Dank, dass ihr Teil von „Reimagined" seid.',
     introBody:
       'Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.',
-    releaseTitle: 'Jetzt auf Bandcamp',
-    releaseBody:
-      'Das Album ist jetzt exklusiv auf Bandcamp verfügbar. In Kürze wird „Reimagined" auch auf allen großen Streaming-Plattformen erscheinen.',
-    releaseHint: 'Bis dahin könnt ihr das Album bereits hier anhören und als Download erwerben:',
-    bandcampCta: 'Auf Bandcamp anhören',
+    listenTitle: 'Reimagined anhören',
+    additionalPlatforms:
+      'Das Album ist außerdem auf weiteren Streaming-Plattformen wie Audiomack, Anghami und iHeartRadio verfügbar.\nIch hoffe, es bald auch auf Apple Music, Amazon Music und YouTube Music verfügbar machen zu können.',
     newsletterTitle: 'Keine Veröffentlichung verpassen',
     newsletterBody: 'Trage dich in meinen Newsletter ein und erfahre als Erste*r von:',
     newsletterList: ['neuen Konzerten', 'neuen Musikveröffentlichungen', 'besonderen Projekten'],
@@ -48,11 +87,9 @@ const content = {
     introTitle: 'Thank you for being part of "Reimagined".',
     introBody:
       'This album is a very personal collection of songs that have accompanied me over many years, which I have reinterpreted for voice and piano.',
-    releaseTitle: 'Now on Bandcamp',
-    releaseBody:
-      'The album is now exclusively available on Bandcamp. Soon, "Reimagined" will also be released on all major streaming platforms.',
-    releaseHint: 'Until then, you can already listen to and purchase the album here:',
-    bandcampCta: 'Listen on Bandcamp',
+    listenTitle: 'Listen to Reimagined',
+    additionalPlatforms:
+      'The album is also available on additional streaming platforms such as Audiomack, Anghami, and iHeartRadio.\nI hope to make it available on Apple Music, Amazon Music, and YouTube Music soon.',
     newsletterTitle: "Don't miss any release",
     newsletterBody: 'Sign up for my newsletter and be the first to know about:',
     newsletterList: ['new concerts', 'new music releases', 'special projects'],
@@ -145,24 +182,35 @@ function ReimaginedContent() {
           </div>
         </section>
 
-        {/* Release / Bandcamp */}
+        {/* Streaming Links */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-20 md:mt-28">
           <div className="max-w-xl mx-auto text-center">
             <div className="w-16 h-px bg-primary mx-auto mb-6" />
-            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t.releaseTitle}</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">{t.releaseBody}</p>
-            <p className="text-muted-foreground leading-relaxed mb-8">{t.releaseHint}</p>
-            <a
-              href={BANDCAMP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-hero inline-flex items-center gap-2"
-            >
-              {t.bandcampCta}
-              <ExternalLink className="h-4 w-4" />
-            </a>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-8">{t.listenTitle}</h2>
+            <div className="space-y-3">
+              {STREAMING_LINKS.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-card/30 hover:bg-card/60 hover:border-primary/40 transition-all duration-300 group"
+                >
+                  <span style={{ color: link.color }} className="flex-shrink-0">
+                    <span className="block h-6 w-6">{link.icon}</span>
+                  </span>
+                  <span className="flex-1 text-left font-medium">{link.name}</span>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </a>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed mt-6 whitespace-pre-line">
+              {t.additionalPlatforms}
+            </p>
           </div>
         </section>
+
+        {/* Newsletter */}
         <section className="container mx-auto px-6 md:px-12 lg:px-20 mt-24 md:mt-32">
           <div className="max-w-xl mx-auto text-center">
             <div className="w-16 h-px bg-primary mx-auto mb-6" />
@@ -226,11 +274,11 @@ function ReimaginedContent() {
               @joywannamusic
             </a>
             <a
-              href="mailto:kontakt@joywanna.com"
+              href="mailto:contact@joywanna.com"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="h-4 w-4" />
-              kontakt@joywanna.com
+              contact@joywanna.com
             </a>
           </div>
         </section>
