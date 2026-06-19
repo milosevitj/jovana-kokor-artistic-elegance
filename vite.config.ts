@@ -14,10 +14,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [
-    react(),
-    mode === "development" && componentTagger(),
-    mode !== "development" && prerenderPlugin(),
-  ].filter(Boolean),
+  react(),
+  mode === "development" && componentTagger(),
+  // mode !== "development" && prerenderPlugin(),
+].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
