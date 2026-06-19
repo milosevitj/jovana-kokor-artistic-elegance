@@ -66,6 +66,8 @@ const content = {
     introTitle: 'Vielen Dank, dass ihr Teil von „Reimagined" seid.',
     introBody:
       'Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.',
+    introAvailable: 'Jetzt verfügbar',
+    introCta: 'Wählt eure bevorzugte Streaming-Plattform und hört „Reimagined".',
     listenTitle: 'Reimagined anhören',
     additionalPlatforms:
       'Das Album ist außerdem auf weiteren Streaming-Plattformen wie Audiomack, Anghami und iHeartRadio verfügbar.\nIch hoffe, es bald auch auf Apple Music, Amazon Music und YouTube Music verfügbar machen zu können.',
@@ -87,6 +89,8 @@ const content = {
     introTitle: 'Thank you for being part of "Reimagined".',
     introBody:
       'This album is a very personal collection of songs that have accompanied me over many years, which I have reinterpreted for voice and piano.',
+    introAvailable: 'Now available',
+    introCta: 'Choose your preferred streaming platform and listen to "Reimagined".',
     listenTitle: 'Listen to Reimagined',
     additionalPlatforms:
       'The album is also available on additional streaming platforms such as Audiomack, Anghami, and iHeartRadio.\nI hope to make it available on Apple Music, Amazon Music, and YouTube Music soon.',
@@ -179,6 +183,8 @@ function ReimaginedContent() {
           <div className="max-w-2xl mx-auto mt-16 md:mt-20 space-y-6 text-center">
             <p className="text-lg text-foreground/90 leading-relaxed">{t.introTitle}</p>
             <p className="text-base text-muted-foreground leading-relaxed">{t.introBody}</p>
+            <p className="text-lg text-foreground/90 leading-relaxed">{t.introAvailable}</p>
+            <p className="text-base text-muted-foreground leading-relaxed">{t.introCta}</p>
           </div>
         </section>
 
