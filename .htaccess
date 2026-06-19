@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /
+
+# 1. FORCE www → non-www (MORA BITI PRVO)
+RewriteCond %{HTTP_HOST} ^www\.joywanna\.com [NC]
+RewriteRule ^(.*)$ https://joywanna.com/$1 [L,R=301]
+
+# 2. ne diraj realne fajlove/foldere
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 3. SPA fallback
+RewriteRule ^ index.html [L]

@@ -70,7 +70,7 @@ const content = {
     introCta: 'Wählt eure bevorzugte Streaming-Plattform und hört „Reimagined".',
     listenTitle: 'Reimagined anhören',
     additionalPlatforms:
-      'Ich hoffe, es bald auch auf Apple Music, Amazon Music und YouTube Music verfügbar machen zu können.',
+      'Das Album ist außerdem auf weiteren Streaming-Plattformen wie Audiomack, Anghami und iHeartRadio verfügbar. Weitere große Streaming-Plattformen werden hoffentlich bald folgen.',
     newsletterTitle: 'Keine Veröffentlichung verpassen',
     newsletterBody: 'Trage dich in meinen Newsletter ein und erfahre als Erste*r von:',
     newsletterList: ['neuen Konzerten', 'neuen Musikveröffentlichungen', 'besonderen Projekten'],
@@ -93,7 +93,7 @@ const content = {
     introCta: 'Choose your preferred streaming platform and listen to "Reimagined".',
     listenTitle: 'Listen to Reimagined',
     additionalPlatforms:
-      'I hope to make it available on Apple Music, Amazon Music, and YouTube Music soon.',
+      'The album is also available on additional streaming platforms such as Audiomack, Anghami, and iHeartRadio. Hopefully, more major streaming platforms will follow soon.',
     newsletterTitle: "Don't miss any release",
     newsletterBody: 'Sign up for my newsletter and be the first to know about:',
     newsletterList: ['new concerts', 'new music releases', 'special projects'],
