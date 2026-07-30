@@ -51,10 +51,10 @@ const upcomingGigs: Gig[] = [
   {
     id: "sage-und-schreibe",
     date: "2026-10-24",
-    venue: 'Kreativformat „sage & schreibe"',
-    city: "Lesung · Klavierbegleitung",
-    titleDe: "Lesung · Klavierbegleitung",
-    titleEn: "Reading · Piano Accompaniment",
+    venue: "Lesung · Klavierbegleitung",
+    city: "Oldenburg",
+    titleDe: 'Kreativformat „sage & schreibe"',
+    titleEn: 'Creative format "sage & schreibe"',
   },
   {
     id: "haus-der-kultur",
