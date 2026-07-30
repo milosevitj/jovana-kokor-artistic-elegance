@@ -127,7 +127,8 @@ export function GigsSection() {
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <MapPin className="w-4 h-4" />
                         <span>
-                          {gig.venue}, {gig.city}
+                          {language === "de" ? (gig.venueDe ?? gig.venue) : (gig.venueEn ?? gig.venue)},{" "}
+                          {language === "de" ? (gig.cityDe ?? gig.city) : (gig.cityEn ?? gig.city)}
                         </span>
                       </div>
                     </div>
