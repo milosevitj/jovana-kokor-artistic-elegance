@@ -12,7 +12,11 @@ interface Gig {
   date: string;
   time?: string;
   venue: string;
+  venueDe?: string;
+  venueEn?: string;
   city: string;
+  cityDe?: string;
+  cityEn?: string;
   titleDe: string;
   titleEn: string;
   ticketUrl?: string;
@@ -23,33 +27,80 @@ interface Gig {
 
 const upcomingGigs: Gig[] = [
   {
-    id: "reimagined-release",
-    date: "2026-06-14",
+    id: "tiny-terrasse",
+    date: "2026-08-01",
     time: "20:00",
-    venue: "Wilhelm 13",
-    city: "Oldenburg",
-    titleDe: '„Reimagined" – Konzert & Albumrelease',
-    titleEn: '"Reimagined" – Concert & Album Release',
-    eventUrl: "https://wilhelm13.de/programm/joywanna-reimagined-bekannte-songs-neu-gehoert/",
-    modal: "reimagined",
+    venue: "Tiny Terrasse Concert",
+    venueDe: "Tiny Terrasse Concert",
+    venueEn: "Tiny Terrasse Concert",
+    city: "Oldenburg · Private Veranstaltung",
+    cityDe: "Oldenburg · Private Veranstaltung",
+    cityEn: "Oldenburg · Private Event",
+    titleDe: "JoyWanna & The Spicy Jam",
+    titleEn: "JoyWanna & The Spicy Jam",
   },
   {
-    id: "just-voice-piano",
-    date: "2026-07-24",
-    venue: "Stadtgärtchen, Mainkai",
-    city: "97828 Marktheidenfeld",
-    titleDe: "Just Voice & Piano mit Esther Filly",
-    titleEn: "Just Voice & Piano with Esther Filly",
-    ticketUrl: "https://www.eventim-light.com/de/a/5c73ef5bd2c0670001e0d190/e/6936b7866fe9085f50247cf7",
+    id: "privatkonzert-aug",
+    date: "2026-08-14",
+    venue: "Privatkonzert",
+    venueDe: "Privatkonzert",
+    venueEn: "Private Concert",
+    city: "Oldenburg",
+    cityDe: "Oldenburg",
+    cityEn: "Oldenburg",
+    titleDe: "Privatkonzert",
+    titleEn: "Private Concert",
   },
   {
     id: "some-sing-special",
     date: "2026-09-24",
     venue: "Wilhelm 13",
+    venueDe: "Wilhelm 13",
+    venueEn: "Wilhelm 13",
     city: "Oldenburg",
+    cityDe: "Oldenburg",
+    cityEn: "Oldenburg",
     titleDe: '"Some Sing Special" – JoyWanna & The Spicy Jam',
     titleEn: '"Some Sing Special" – JoyWanna & The Spicy Jam',
     eventUrl: "https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/",
+  },
+  {
+    id: "sage-und-schreibe",
+    date: "2026-10-24",
+    venue: "Lesung · Klavierbegleitung",
+    venueDe: "Lesung · Klavierbegleitung",
+    venueEn: "Reading · Piano Accompaniment",
+    city: "Oldenburg",
+    cityDe: "Oldenburg",
+    cityEn: "Oldenburg",
+    titleDe: 'Kreativformat „sage & schreibe"',
+    titleEn: 'Creative format "sage & schreibe"',
+  },
+  {
+    id: "haus-der-kultur",
+    date: "2026-11-07",
+    time: "20:00",
+    venue: "Haus der Kultur",
+    venueDe: "Haus der Kultur",
+    venueEn: "Haus der Kultur",
+    city: "Rhauderfehn",
+    cityDe: "Rhauderfehn",
+    cityEn: "Rhauderfehn",
+    titleDe: "JoyWanna & The Spicy Jam",
+    titleEn: "JoyWanna & The Spicy Jam",
+  },
+  {
+    id: "christmas-gala",
+    date: "2026-12-15",
+    venue: "Kulturzentrum PFL",
+    venueDe: "Kulturzentrum PFL",
+    venueEn: "Kulturzentrum PFL",
+    city: "Oldenburg",
+    cityDe: "Oldenburg",
+    cityEn: "Oldenburg",
+    titleDe: "Die Christmas Gala – Esther Filly & JoyWanna – Just Voice & Piano",
+    titleEn: "The Christmas Gala – Esther Filly & JoyWanna – Just Voice & Piano",
+    ticketUrl: "https://www.eventim-light.com/de/a/63650739d2c2fd7ad1d49e0e/e/69e616c7a0dffb398745e571?fbclid=IwY2xjawTYF_lleHRuA2FlbQIxMABicmlkETE0WlEzZ2g4dXFoVVpTcVdFc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHissoAqHTBDixnHRWmDtJOLrCyqgRQ-f1XIvIZ1xDICs6XyDJrMcEeXj3-pr_aem_TwCdnaTDzYHlYpb-0E7OdA",
   },
 ];
 
@@ -100,7 +151,8 @@ export function GigsSection() {
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <MapPin className="w-4 h-4" />
                         <span>
-                          {gig.venue}, {gig.city}
+                          {language === "de" ? (gig.venueDe ?? gig.venue) : (gig.venueEn ?? gig.venue)},{" "}
+                          {language === "de" ? (gig.cityDe ?? gig.city) : (gig.cityEn ?? gig.city)}
                         </span>
                       </div>
                     </div>
