@@ -12,7 +12,11 @@ interface Gig {
   date: string;
   time?: string;
   venue: string;
+  venueDe?: string;
+  venueEn?: string;
   city: string;
+  cityDe?: string;
+  cityEn?: string;
   titleDe: string;
   titleEn: string;
   ticketUrl?: string;
