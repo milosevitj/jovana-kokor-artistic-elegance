@@ -73,7 +73,7 @@ const upcomingGigs: Gig[] = [
     city: "Oldenburg",
     cityDe: "Oldenburg",
     cityEn: "Oldenburg",
-    titleDe: 'Kreativformat „sage & schreibe"',
+    titleDe: 'Kreativformat „Sage & Schreibe"',
     titleEn: 'Creative format "sage & schreibe"',
   },
   {
