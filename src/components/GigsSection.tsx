@@ -98,8 +98,8 @@ const upcomingGigs: Gig[] = [
     city: "Oldenburg",
     cityDe: "Oldenburg",
     cityEn: "Oldenburg",
-    titleDe: "Die Christmas Gala – Esther Filly & JoyWanna – Just Voice & Piano",
-    titleEn: "The Christmas Gala – Esther Filly & JoyWanna – Just Voice & Piano",
+    titleDe: "Die Christmas Gala – Esther Filly & JoyWanna – Just Voice&Piano",
+    titleEn: "The Christmas Gala – Esther Filly & JoyWanna – Just Voice&Piano",
     ticketUrl: "https://www.eventim-light.com/de/a/63650739d2c2fd7ad1d49e0e/e/69e616c7a0dffb398745e571?fbclid=IwY2xjawTYF_lleHRuA2FlbQIxMABicmlkETE0WlEzZ2g4dXFoVVpTcVdFc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHissoAqHTBDixnHRWmDtJOLrCyqgRQ-f1XIvIZ1xDICs6XyDJrMcEeXj3-pr_aem_TwCdnaTDzYHlYpb-0E7OdA",
   },
 ];
