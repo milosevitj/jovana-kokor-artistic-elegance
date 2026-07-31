@@ -74,7 +74,11 @@ const upcomingGigs: Gig[] = [
     cityDe: "Oldenburg",
     cityEn: "Oldenburg",
     titleDe: 'Kreativformat „Sage & Schreibe"',
+<<<<<<< HEAD
     titleEn: 'Creative format "Sage & Schreibe"',
+=======
+    titleEn: 'Creative format "sage & schreibe"',
+>>>>>>> 08451341040888309cfa66110f9c57a2549770ab
   },
   {
     id: "haus-der-kultur",
