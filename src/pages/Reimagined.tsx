@@ -106,9 +106,8 @@ const content = {
     introTitle: 'Vielen Dank, dass ihr Teil von „Reimagined" seid.',
     introBody:
       'Dieses Album ist eine sehr persönliche Sammlung von Songs, die mich über viele Jahre begleitet haben und die ich für Stimme und Klavier neu interpretiert habe.',
-    listenTitle: 'Reimagined anhören',
-    additionalPlatforms:
-      'Das Album ist außerdem auf weiteren Streaming-Plattformen wie Audiomack, Anghami und iHeartRadio verfügbar. Weitere große Streaming-Plattformen werden hoffentlich bald folgen.',
+    listenTitle: 'Jetzt anhören',
+    additionalPlatforms: 'Ich wünsche euch viel Freude beim Hören. ❤️',
     newsletterTitle: 'Keine Veröffentlichung verpassen',
     newsletterBody: 'Trage dich in meinen Newsletter ein und erfahre als Erste*r von:',
     newsletterList: ['neuen Konzerten', 'neuen Musikveröffentlichungen', 'besonderen Projekten'],
@@ -127,9 +126,8 @@ const content = {
     introTitle: 'Thank you for being part of "Reimagined".',
     introBody:
       'This album is a very personal collection of songs that have accompanied me over many years, which I have reinterpreted for voice and piano.',
-    listenTitle: 'Listen to Reimagined',
-    additionalPlatforms:
-      'The album is also available on additional streaming platforms such as Audiomack, Anghami, and iHeartRadio. Hopefully, more major streaming platforms will follow soon.',
+    listenTitle: 'Listen now',
+    additionalPlatforms: 'I hope you enjoy listening. ❤️',
     newsletterTitle: "Don't miss any release",
     newsletterBody: 'Sign up for my newsletter and be the first to know about:',
     newsletterList: ['new concerts', 'new music releases', 'special projects'],
