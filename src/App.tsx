@@ -49,6 +49,12 @@ const App = () => (
             <Route path="/ueber-mich" element={<About />} />
             <Route path="/en/about-me" element={<About />} />
 
+            {/* Band page */}
+            <Route path="/thespicyjam" element={<TheSpicyJam />} />
+            <Route path="/en/thespicyjam" element={<TheSpicyJam />} />
+
+
+
             {/* Vocal Coaching */}
             <Route path="/vocal-coaching" element={<VocalCoaching />} />
             <Route path="/en/vocal-coaching" element={<VocalCoaching />} />
