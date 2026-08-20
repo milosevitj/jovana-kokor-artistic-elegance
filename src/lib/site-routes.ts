@@ -129,6 +129,8 @@ export function localizedCounterpart(pathname: string, target: Lang): string {
       return buildPortfolioPath(target);
     case 'portfolio-category':
       return buildCategoryPath(parsed.tab, target);
+    case 'thespicyjam':
+      return target === 'en' ? '/en/thespicyjam' : '/thespicyjam';
     default:
       // For impressum/privacy etc. — keep path as-is.
       return pathname;
