@@ -186,6 +186,19 @@ const REIMAGINED_SEO: { de: RouteSEO; en: RouteSEO } = {
   },
 };
 
+const THESPICYJAM_SEO: { de: RouteSEO; en: RouteSEO } = {
+  de: {
+    title: 'JoyWanna & The Spicy Jam',
+    description:
+      'JoyWanna & The Spicy Jam stehen für einen mitreißenden, genreübergreifenden Sound zwischen Jazz, Latin, Soul und Pop.',
+  },
+  en: {
+    title: 'JoyWanna & The Spicy Jam',
+    description:
+      'JoyWanna & The Spicy Jam stand for a captivating, genre-crossing sound between jazz, Latin, soul and pop.',
+  },
+};
+
 function setTitle(title: string) {
   if (document.title !== title) document.title = title;
 }
@@ -277,6 +290,14 @@ export function useDynamicSEO() {
         '/reimagined',
         REIMAGINED_SEO,
         `${origin}/reimagined-cover.png`,
+      );
+    } else if (pathname === '/thespicyjam' || pathname === '/en/thespicyjam') {
+      applySEO(
+        origin,
+        language,
+        '/thespicyjam',
+        '/en/thespicyjam',
+        THESPICYJAM_SEO,
       );
     } else {
       const url = `${origin}${pathname}`;
