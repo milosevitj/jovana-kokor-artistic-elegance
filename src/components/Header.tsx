@@ -41,6 +41,7 @@ export function Header() {
     { kind: 'page', page: 'lessons', label: t('nav.lessons') },
     { kind: 'page', page: 'projects', label: t('nav.gallery') },
     { kind: 'custom', key: 'reimagined', href: language === 'en' ? '/en/reimagined' : '/reimagined', label: 'Reimagined' },
+    { kind: 'custom', key: 'thespicyjam', href: language === 'en' ? '/en/thespicyjam' : '/thespicyjam', label: 'The Spicy Jam' },
     { kind: 'page', page: 'contact', label: t('nav.contact') },
   ];
 

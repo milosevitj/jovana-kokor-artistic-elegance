@@ -77,6 +77,14 @@ export function Footer() {
                 {t('nav.contact')}
               </Link>
             </li>
+            <li>
+              <Link
+                to={language === 'en' ? '/en/thespicyjam' : '/thespicyjam'}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                The Spicy Jam
+              </Link>
+            </li>
           </ul>
         </nav>
 
