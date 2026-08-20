@@ -16,7 +16,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Reimagined = lazy(() => import("./pages/Reimagined"));
 const Contact = lazy(() => import("./pages/Contact"));
 const About = lazy(() => import("./pages/About"));
-const TheSpicyJam = lazy(() => import("./pages/TheSpicyJam"));
 
 
 const queryClient = new QueryClient();
@@ -48,12 +47,6 @@ const App = () => (
             {/* About Me */}
             <Route path="/ueber-mich" element={<About />} />
             <Route path="/en/about-me" element={<About />} />
-
-            {/* Band page */}
-            <Route path="/thespicyjam" element={<TheSpicyJam />} />
-            <Route path="/en/thespicyjam" element={<TheSpicyJam />} />
-
-
 
             {/* Vocal Coaching */}
             <Route path="/vocal-coaching" element={<VocalCoaching />} />
