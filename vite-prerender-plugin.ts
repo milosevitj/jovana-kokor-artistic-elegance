@@ -153,6 +153,24 @@ const PAGES: LocalizedPage[] = [
     },
     ogImage: `${SITE_ORIGIN}/reimagined-cover.png`,
   },
+  {
+    slug: "thespicyjam",
+    outBase: "thespicyjam",
+    enOutBase: "thespicyjam",
+    title: {
+      de: "JoyWanna & The Spicy Jam",
+      en: "JoyWanna & The Spicy Jam",
+    },
+    description: {
+      de: "JoyWanna & The Spicy Jam stehen für einen mitreißenden, genreübergreifenden Sound zwischen Jazz, Latin, Soul und Pop.",
+      en: "JoyWanna & The Spicy Jam stand for a captivating, genre-crossing sound between jazz, Latin, soul and pop.",
+    },
+    h1: { de: "JoyWanna & The Spicy Jam", en: "JoyWanna & The Spicy Jam" },
+    intro: {
+      de: "Ein mitreißender, genreübergreifender Sound zwischen Jazz, Latin, Soul und Pop – live und voller Spielfreude.",
+      en: "A captivating, genre-crossing sound between jazz, Latin, soul and pop – live and full of joy.",
+    },
+  },
 
 ];
 
