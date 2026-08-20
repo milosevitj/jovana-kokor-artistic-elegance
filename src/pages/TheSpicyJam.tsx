@@ -44,70 +44,76 @@ const content = {
   },
 };
 
-const TheSpicyJam = () => {
+function TheSpicyJamContent() {
   const { language } = useLanguage();
   const copy = content[language];
 
   return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main className="pt-24 md:pt-32">
+        {/* Hero / Introduction */}
+        <section className="section-padding">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <div className="order-2 lg:order-1 space-y-6">
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
+                  {copy.heading}
+                </h1>
+                <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                  {copy.intro.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="relative overflow-hidden rounded-sm shadow-2xl">
+                  <img
+                    src={spicyJamImage}
+                    alt="JoyWanna & The Spicy Jam"
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Live Video */}
+        <section className="section-padding border-t border-border">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-10">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
+                {copy.videoTitle}
+              </h2>
+            </div>
+            <div className="relative w-full overflow-hidden rounded-sm shadow-2xl aspect-video bg-card">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/snQoawnhl3Y"
+                title={copy.videoTitle}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+const TheSpicyJam = () => {
+  return (
     <LanguageProvider>
       <SEOManager />
       <LanguageSync />
-      <div className="min-h-screen bg-background text-foreground">
-        <Header />
-        <main className="pt-24 md:pt-32">
-          {/* Hero / Introduction */}
-          <section className="section-padding">
-            <div className="container mx-auto max-w-6xl">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1 space-y-6">
-                  <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
-                    {copy.heading}
-                  </h1>
-                  <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                    {copy.intro.map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-                <div className="order-1 lg:order-2">
-                  <div className="relative overflow-hidden rounded-sm shadow-2xl">
-                    <img
-                      src={spicyJamImage}
-                      alt="JoyWanna & The Spicy Jam"
-                      width={1200}
-                      height={800}
-                      className="w-full h-auto object-cover"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Live Video */}
-          <section className="section-padding border-t border-border">
-            <div className="container mx-auto max-w-5xl">
-              <div className="text-center mb-10">
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
-                  {copy.videoTitle}
-                </h2>
-              </div>
-              <div className="relative w-full overflow-hidden rounded-sm shadow-2xl aspect-video bg-card">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/snQoawnhl3Y"
-                  title={copy.videoTitle}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full border-0"
-                />
-              </div>
-            </div>
-          </section>
-        </main>
-        <Footer />
-      </div>
+      <TheSpicyJamContent />
     </LanguageProvider>
   );
 };
