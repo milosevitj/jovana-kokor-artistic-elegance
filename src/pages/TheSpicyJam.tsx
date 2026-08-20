@@ -6,13 +6,6 @@ import { Footer } from '@/components/Footer';
 import { SEOManager } from '@/components/SEOManager';
 import { parseRoute } from '@/lib/site-routes';
 
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
-
 /* Main Spicy Jam image */
 import spicyJamImage from '@/assets/joywanna-spicy-jam.webp';
 
@@ -22,7 +15,7 @@ import spicyJam36 from '@/assets/portfolio-new/joywanna-spicy-jam-in-our-element
 import spicyJam37 from '@/assets/portfolio-new/joywanna-spicy-jam-playful-side.webp';
 import spicyJam39 from '@/assets/portfolio-new/joywanna-some-sing-special-wilhelm13.webp';
 import spicyJam40 from '@/assets/portfolio-new/joywanna-jazzakademie-jade-concert.webp';
-import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp'
+import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
 
 
 function LanguageSync() {
@@ -58,9 +51,6 @@ const content = {
       'Freuen Sie sich auf ein Konzerterlebnis voller Lebensfreude, musikalischer Vielfalt und Crossover-Momenten.',
     ],
 
-    videoTitle:
-      'Live Medley – JoyWanna & The Spicy Jam | Concert Highlights',
-
     galleryEyebrow: 'Impressionen',
 
     galleryTitle: 'The Spicy Jam – Momente',
@@ -81,9 +71,6 @@ const content = {
 
       'Look forward to a concert experience full of joie de vivre, musical diversity and crossover moments.',
     ],
-
-    videoTitle:
-      'Live Medley – JoyWanna & The Spicy Jam | Concert Highlights',
 
     galleryEyebrow: 'Impressions',
 
@@ -222,320 +209,115 @@ const spicyJamGallery: GalleryItem[] = [
 ];
 
 
+const spicyJamSlides = [
+  {
+    src: spicyJamImage,
+    alt: {
+      de: 'JoyWanna & The Spicy Jam',
+      en: 'JoyWanna & The Spicy Jam',
+    },
+  },
+  ...spicyJamGallery,
+];
+
+
 function TheSpicyJamContent() {
   const { language } = useLanguage();
 
   const copy = content[language];
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  const [openItem, setOpenItem] =
-    useState<GalleryItem | null>(null);
+  const showPreviousSlide = () => {
+    setActiveSlide((current) =>
+      current === 0 ? spicyJamSlides.length - 1 : current - 1
+    );
+  };
 
+  const showNextSlide = () => {
+    setActiveSlide((current) =>
+      current === spicyJamSlides.length - 1 ? 0 : current + 1
+    );
+  };
+
+  const currentSlide = spicyJamSlides[activeSlide];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-
       <Header />
 
-      <main className="pt-24 md:pt-32">
-
+      <main className="pt-16 md:pt-20 lg:pt-24">
         {/* =====================================================
-            HERO / INTRODUCTION
+            HERO / IMAGE CAROUSEL + INTRODUCTION
         ====================================================== */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 lg:pb-20">
+          <div className="container mx-auto max-w-7xl">
+            <div className="relative overflow-hidden rounded-sm shadow-2xl bg-card">
+              <img
+                src={currentSlide.src}
+                alt={currentSlide.alt[language]}
+                width={1600}
+                height={1000}
+                className="block w-full h-auto max-h-[82vh] object-contain bg-background"
+                decoding="async"
+              />
 
-        <section className="section-padding">
+              <button
+                type="button"
+                onClick={showPreviousSlide}
+                aria-label={language === 'de' ? 'Vorheriges Bild' : 'Previous image'}
+                className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-background/80 text-foreground text-3xl shadow-lg backdrop-blur-sm transition hover:bg-background"
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
 
-          <div className="container mx-auto max-w-6xl">
+              <button
+                type="button"
+                onClick={showNextSlide}
+                aria-label={language === 'de' ? 'Nächstes Bild' : 'Next image'}
+                className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-background/80 text-foreground text-3xl shadow-lg backdrop-blur-sm transition hover:bg-background"
+              >
+                <span aria-hidden="true">›</span>
+              </button>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-
-              <div className="order-2 lg:order-1 space-y-6">
-
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
-                  {copy.heading}
-                </h1>
-
-                <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-
-                  {copy.intro.map((paragraph, index) => (
-                    <p key={index}>
-                      {paragraph}
-                    </p>
-                  ))}
-
-                </div>
-
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-background/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm">
+                {activeSlide + 1} / {spicyJamSlides.length}
               </div>
-
-
-              <div className="order-1 lg:order-2">
-
-                <div className="relative overflow-hidden rounded-sm shadow-2xl">
-
-                  <img
-                    src={spicyJamImage}
-                    alt="JoyWanna & The Spicy Jam"
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto object-cover"
-                    decoding="async"
-                  />
-
-                </div>
-
-              </div>
-
             </div>
 
+            <div className="mt-7 md:mt-9 max-w-4xl mx-auto text-center space-y-5">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
+                {copy.heading}
+              </h1>
+
+              <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                {copy.intro.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
           </div>
-
         </section>
-
 
         {/* =====================================================
             LIVE VIDEO
         ====================================================== */}
-
         <section className="section-padding border-t border-border">
-
           <div className="container mx-auto max-w-5xl">
-
-            <div className="text-center mb-10">
-
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
-                {copy.videoTitle}
-              </h2>
-
-            </div>
-
-
             <div className="relative w-full overflow-hidden rounded-sm shadow-2xl aspect-video bg-card">
-
               <iframe
                 src="https://www.youtube-nocookie.com/embed/snQoawnhl3Y"
-                title={copy.videoTitle}
+                title="JoyWanna & The Spicy Jam live video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 loading="lazy"
                 className="absolute inset-0 w-full h-full border-0"
               />
-
             </div>
-
           </div>
-
         </section>
-
-
-        {/* =====================================================
-            SPICY JAM GALLERY
-        ====================================================== */}
-
-        <section className="section-padding border-t border-border">
-
-          <div className="container mx-auto max-w-6xl">
-
-            {/* Gallery heading */}
-
-            <header className="text-center mb-10 md:mb-14">
-
-              <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4">
-                {copy.galleryEyebrow}
-              </p>
-
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl">
-                {copy.galleryTitle}
-              </h2>
-
-            </header>
-
-
-            {/* Gallery grid */}
-
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
-
-              {spicyJamGallery.map((item, index) => (
-
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setOpenItem(item)}
-                  aria-label={
-                    language === 'de'
-                      ? item.title.de
-                      : item.title.en
-                  }
-                  className="w-full mb-4 break-inside-avoid bg-card block text-left rounded-sm overflow-hidden"
-                >
-
-                  <div className="group relative">
-
-                    <img
-                      src={item.src}
-                      alt={
-                        language === 'de'
-                          ? item.alt.de
-                          : item.alt.en
-                      }
-                      title={
-                        language === 'de'
-                          ? item.title.de
-                          : item.title.en
-                      }
-                      loading="lazy"
-                      decoding="async"
-                      className="block w-full h-auto object-cover"
-                    />
-
-
-                    {/* Desktop hover overlay */}
-
-                    <div
-                      aria-hidden="true"
-                      className="
-                        hidden md:flex
-                        absolute inset-0
-                        bg-background/70
-                        opacity-0
-                        group-hover:opacity-100
-                        transition-opacity duration-300
-                        pointer-events-none
-                        flex-col
-                        items-center
-                        justify-center
-                        text-center
-                        p-5
-                      "
-                    >
-
-                      <p className="font-serif text-lg md:text-xl text-foreground">
-
-                        {language === 'de'
-                          ? item.title.de
-                          : item.title.en}
-
-                      </p>
-
-
-                      <p className="mt-2 text-xs md:text-sm text-muted-foreground line-clamp-3 max-w-[90%]">
-
-                        {language === 'de'
-                          ? item.description.de
-                          : item.description.en}
-
-                      </p>
-
-                    </div>
-
-                  </div>
-
-
-                  {/* Mobile title */}
-
-                  <div className="md:hidden p-4">
-
-                    <p className="font-serif text-lg">
-
-                      {language === 'de'
-                        ? item.title.de
-                        : item.title.en}
-
-                    </p>
-
-                  </div>
-
-                </button>
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </section>
-
       </main>
 
-
       <Footer />
-
-
-      {/* =====================================================
-          GALLERY LIGHTBOX
-      ====================================================== */}
-
-      <Dialog
-        open={!!openItem}
-        onOpenChange={(open) => {
-          if (!open) {
-            setOpenItem(null);
-          }
-        }}
-      >
-
-        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-card border-border">
-
-          {openItem && (
-            <>
-
-              <DialogTitle className="sr-only">
-
-                {language === 'de'
-                  ? openItem.title.de
-                  : openItem.title.en}
-
-              </DialogTitle>
-
-
-              <DialogDescription className="sr-only">
-
-                {language === 'de'
-                  ? openItem.description.de
-                  : openItem.description.en}
-
-              </DialogDescription>
-
-
-              <img
-                src={openItem.src}
-                alt={
-                  language === 'de'
-                    ? openItem.alt.de
-                    : openItem.alt.en
-                }
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto max-h-[70vh] object-contain bg-background"
-              />
-
-
-              <div className="p-6 md:p-8">
-
-                <h3 className="font-serif text-2xl md:text-3xl mb-2">
-
-                  {language === 'de'
-                    ? openItem.title.de
-                    : openItem.title.en}
-
-                </h3>
-
-
-                <p className="text-muted-foreground leading-relaxed">
-
-                  {language === 'de'
-                    ? openItem.description.de
-                    : openItem.description.en}
-
-                </p>
-
-              </div>
-
-            </>
-          )}
-
-        </DialogContent>
-
-      </Dialog>
-
     </div>
   );
 }
