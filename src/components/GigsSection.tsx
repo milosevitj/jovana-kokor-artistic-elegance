@@ -26,31 +26,8 @@ interface Gig {
 }
 
 const upcomingGigs: Gig[] = [
-  {
-    id: "tiny-terrasse",
-    date: "2026-08-01",
-    time: "20:00",
-    venue: "Tiny Terrasse Concert",
-    venueDe: "Tiny Terrasse Concert",
-    venueEn: "Tiny Terrasse Concert",
-    city: "Oldenburg · Private Veranstaltung",
-    cityDe: "Oldenburg · Private Veranstaltung",
-    cityEn: "Oldenburg · Private Event",
-    titleDe: "JoyWanna & The Spicy Jam",
-    titleEn: "JoyWanna & The Spicy Jam",
-  },
-  {
-    id: "privatkonzert-aug",
-    date: "2026-08-14",
-    venue: "Privatkonzert",
-    venueDe: "Privatkonzert",
-    venueEn: "Private Concert",
-    city: "Oldenburg",
-    cityDe: "Oldenburg",
-    cityEn: "Oldenburg",
-    titleDe: "Privatkonzert",
-    titleEn: "Private Concert",
-  },
+  
+ 
   {
     id: "some-sing-special",
     date: "2026-09-24",
