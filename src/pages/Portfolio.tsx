@@ -39,6 +39,10 @@ import jw44 from '@/assets/portfolio-new/joywanna-aida-onboard-dennie-blessing.w
 import jw45 from '@/assets/portfolio-new/joywanna-just-voice-piano-esther-filly.webp';
 import jw46 from '@/assets/portfolio-new/joywanna-jazz-vocal-studies-belgrade.webp';
 import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
+import jw48 from '@/assets/portfolio-new/joywanna-reimagined1.webp';
+import jw49 from '@/assets/portfolio-new/joywanna-reimagined2.webp';
+
+
 // Press clippings (newspaper & magazine features) – sourced from joywanna-press
 import press1 from '@/assets/press/joywanna-press-1.webp';
 import press2 from '@/assets/press/joywanna-press-2.webp';
@@ -46,6 +50,7 @@ import press3 from '@/assets/press/joywanna-press-3.webp';
 import press4 from '@/assets/press/joywanna-press-4.webp';
 import press5 from '@/assets/press/joywanna-press-5.webp';
 import press6 from '@/assets/press/joywanna-press-6.webp';
+import press7 from '@/assets/press/joywanna-press-7.webp';
 
 type PhotoEntry = {
   num: number;
@@ -85,6 +90,32 @@ const photoDimensions: Record<number, { w: number; h: number }> = {
 };
 
 const galleryPhotos: PhotoEntry[] = [
+  {
+    num: 48,
+    src: jw48,
+    title: { de: 'Reimagined – Ein besonderer Abend', en: 'Reimagined – A Special Evening' },
+    description: {
+      de: 'Mein Album-Release-Konzert „Reimagined“ im Wilhelm 13 in Oldenburg – dieses Lächeln sagt eigentlich alles. :) Danke an Gerd Schütt von MiO Made in Oldenburg für die wunderschönen Erinnerungen. ',
+      en: 'My album release concert “Reimagined” at Wilhelm 13 in Oldenburg – I think this smile says it all. :) Thank you to Gerd Schütt from MiO Made in Oldenburg for capturing these beautiful memories.',
+    },
+    alt: {
+      de: 'JoyWanna lächelnd beim Album-Release-Konzert „Reimagined“ im Wilhelm 13 in Oldenburg',
+      en: 'JoyWanna smiling at the “Reimagined” album release concert at Wilhelm 13 in Oldenburg',
+    },
+  },
+  {
+    num: 49,
+    src: jw49,
+    title: { de: 'Reimagined – Album-Release-Konzert', en: 'Reimagined – Album Release Concert' },
+    description: {
+      de: 'Album-Release-Konzert „Reimagined“ im Wilhelm 13 in Oldenburg – ganz in der Musik und in diesem besonderen Abend versunken. Foto: Gerd Schütt, MiO Made in Oldenburg. ',
+      en: 'Album release concert “Reimagined” at Wilhelm 13 in Oldenburg – completely immersed in the music and in this special evening. Photo: Gerd Schütt, MiO Made in Oldenburg.',
+    },
+    alt: {
+      de: 'JoyWanna beim Album-Release-Konzert „Reimagined“ im Wilhelm 13 in Oldenburg',
+      en: 'JoyWanna performing at the “Reimagined” album release concert at Wilhelm 13 in Oldenburg',
+    },
+  },
   {
     num: 1,
     src: jw1,
@@ -403,6 +434,26 @@ type PressEntry = {
 };
 
 const pressClippings: PressEntry[] = [
+
+  {
+    num: 7,
+    src: press7,
+    width: 1124,
+    height: 1638,
+    title: {
+      de: 'Reimagined in der Nordwest-Zeitung',
+      en: 'Reimagined in the Nordwest-Zeitung',
+    },
+    description: {
+      de: 'Ankündigung meines „Reimagined“-Konzerts in der Nordwest-Zeitung – bekannte Jazz- und Popsongs, neu interpretiert und ganz auf meine Weise.',
+      en: 'Announcement of my “Reimagined” concert in the Nordwest-Zeitung – familiar jazz and pop songs, reinterpreted and presented in my own unique way.',
+    },
+    alt: {
+      de: 'Ankündigung meines „Reimagined“-Konzerts in der Nordwest-Zeitung – bekannte Jazz- und Popsongs, neu interpretiert und ganz auf meine Weise.',
+      en: 'Announcement of my “Reimagined” concert in the Nordwest-Zeitung – familiar jazz and pop songs, reinterpreted and presented in my own unique way.',
+    },
+  },
+  
   {
     num: 1,
     src: press1,
@@ -511,6 +562,7 @@ const pressClippings: PressEntry[] = [
       en: '"People & Lifestyle" newspaper edition featuring JoyWanna in the "Nachgefragt" Q&A section',
     },
   },
+
 ];
 
 type Category = 'all' | 'live' | 'band' | 'reimagined' | 'press';
