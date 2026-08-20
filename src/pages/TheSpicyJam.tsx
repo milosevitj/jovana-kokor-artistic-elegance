@@ -1,10 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEOManager } from '@/components/SEOManager';
 import { parseRoute } from '@/lib/site-routes';
+import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 
 /* Main Spicy Jam image */
 import spicyJamImage from '@/assets/joywanna-spicy-jam.webp';
@@ -54,6 +62,19 @@ const content = {
     galleryEyebrow: 'Impressionen',
 
     galleryTitle: 'The Spicy Jam – Momente',
+
+    bandEyebrow: 'Die Band',
+    bandTitle: 'The Spicy Jam',
+    bandIntro: 'Lernen Sie die Musikerinnen und Musiker hinter The Spicy Jam kennen.',
+    learnMore: 'Mehr erfahren',
+    aboutMe: 'Über mich',
+
+    showsEyebrow: 'Live',
+    showsTitle: 'Kommende Auftritte',
+    buyTickets: 'Tickets kaufen',
+    ticketsSoon: 'Tickets demnächst verfügbar',
+    bookingText: 'Ihr möchtet JoyWanna & The Spicy Jam live erleben? Ob Festival, Club, Kulturveranstaltung oder besonderes Event – wir bringen Jazz, Soul, Latin und jede Menge Spicy Vibes auf die Bühne.',
+    bookingButton: 'BOOKING & KONTAKT',
   },
 
   en: {
@@ -75,6 +96,19 @@ const content = {
     galleryEyebrow: 'Impressions',
 
     galleryTitle: 'The Spicy Jam – Moments',
+
+    bandEyebrow: 'The Band',
+    bandTitle: 'Meet The Spicy Jam',
+    bandIntro: 'Meet the musicians behind The Spicy Jam.',
+    learnMore: 'Learn more',
+    aboutMe: 'About me',
+
+    showsEyebrow: 'Live',
+    showsTitle: 'Upcoming Shows',
+    buyTickets: 'Buy Tickets',
+    ticketsSoon: 'Tickets coming soon',
+    bookingText: 'Would you like to experience JoyWanna & The Spicy Jam live? Whether festival, club, cultural event or a special occasion – we bring jazz, soul, Latin and plenty of Spicy Vibes to the stage.',
+    bookingButton: 'BOOKING & CONTACT',
   },
 };
 
@@ -135,25 +169,6 @@ const spicyJamGallery: GalleryItem[] = [
     alt: {
       de: 'JoyWanna & The Spicy Jam live auf der Bühne – gemeinsam in ihrem Element',
       en: 'JoyWanna & The Spicy Jam live on stage – together in their element',
-    },
-  },
-
-  {
-    src: spicyJam37,
-
-    title: {
-      de: 'Verspielte Seite',
-      en: 'Playful Side',
-    },
-
-    description: {
-      de: "Mit meinen Spicy Jam-ers wird's selten langweilig – meine verspielte Seite inklusive. :)",
-      en: "It's rarely boring with my Spicy Jam-ers – my playful side included. :)",
-    },
-
-    alt: {
-      de: 'Verspielter Bandmoment von JoyWanna & The Spicy Jam',
-      en: 'Playful band moment of JoyWanna & The Spicy Jam',
     },
   },
 
@@ -221,11 +236,88 @@ const spicyJamSlides = [
 ];
 
 
+type BandMember = {
+  name: string;
+  instrument: {
+    de: string;
+    en: string;
+  };
+  bio: {
+    de: string;
+    en: string;
+  };
+  image?: string;
+};
+
+/*
+  Replace the placeholder names, instruments, bios and image fields below
+  when the final band photos/texts arrive.
+
+  Example:
+  import memberPhoto from '@/assets/band/member-name.webp';
+  ...
+  image: memberPhoto,
+*/
+const bandMembers: BandMember[] = [
+  
+  {
+    name: 'Band Member 2',
+    instrument: { de: 'Instrument', en: 'Instrument' },
+    bio: {
+      de: 'Kurzer Text über dieses Bandmitglied folgt.',
+      en: 'A short text about this band member will follow.',
+    },
+  },
+  {
+    name: 'JoyWanna',
+    instrument: { de: 'Gesang', en: 'Vocals' },
+    bio: {
+      de: 'Hier kann später ein kurzer persönlicher Text über JoyWanna stehen.',
+      en: 'A short personal text about JoyWanna can go here later.',
+    },
+    image: spicyJam37,
+  },
+  {
+    name: 'Band Member 3',
+    instrument: { de: 'Instrument', en: 'Instrument' },
+    bio: {
+      de: 'Kurzer Text über dieses Bandmitglied folgt.',
+      en: 'A short text about this band member will follow.',
+    },
+  },
+  {
+    name: 'Band Member 4',
+    instrument: { de: 'Instrument', en: 'Instrument' },
+    bio: {
+      de: 'Kurzer Text über dieses Bandmitglied folgt.',
+      en: 'A short text about this band member will follow.',
+    },
+  },
+  {
+    name: 'Band Member 5',
+    instrument: { de: 'Instrument', en: 'Instrument' },
+    bio: {
+      de: 'Kurzer Text über dieses Bandmitglied folgt.',
+      en: 'A short text about this band member will follow.',
+    },
+  },
+  {
+    name: 'Band Member 6',
+    instrument: { de: 'Instrument', en: 'Instrument' },
+    bio: {
+      de: 'Kurzer Text über dieses Bandmitglied folgt.',
+      en: 'A short text about this band member will follow.',
+    },
+  },
+];
+
+
 function TheSpicyJamContent() {
   const { language } = useLanguage();
 
   const copy = content[language];
   const [activeSlide, setActiveSlide] = useState(0);
+  const [selectedMember, setSelectedMember] = useState<BandMember | null>(null);
 
   const showPreviousSlide = () => {
     setActiveSlide((current) =>
@@ -251,6 +343,13 @@ function TheSpicyJamContent() {
         ====================================================== */}
         <section className="px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 lg:pb-20">
           <div className="container mx-auto max-w-7xl">
+            {/* Page title above gallery */}
+            <div className="text-center mb-8 md:mb-10">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
+                {copy.heading}
+              </h1>
+            </div>
+
             <div className="relative overflow-hidden rounded-sm shadow-2xl bg-card">
               <img
                 src={currentSlide.src}
@@ -284,11 +383,7 @@ function TheSpicyJamContent() {
               </div>
             </div>
 
-            <div className="mt-7 md:mt-9 max-w-4xl mx-auto text-center space-y-5">
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
-                {copy.heading}
-              </h1>
-
+            <div className="mt-7 md:mt-9 max-w-4xl mx-auto text-center">
               <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
                 {copy.intro.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
@@ -315,7 +410,239 @@ function TheSpicyJamContent() {
             </div>
           </div>
         </section>
+
+        {/* =====================================================
+            BAND MEMBERS
+        ====================================================== */}
+        <section className="border-t border-border px-4 sm:px-6 lg:px-8 py-14 md:py-16 lg:py-20">
+          <div className="container mx-auto max-w-6xl">
+            <header className="mx-auto mb-10 md:mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-xs md:text-sm tracking-[0.28em] uppercase text-primary">
+                {copy.bandEyebrow}
+              </p>
+
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl">
+                {copy.bandTitle}
+              </h2>
+
+              <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                {copy.bandIntro}
+              </p>
+            </header>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-9 md:gap-x-7 md:gap-y-11">
+              {bandMembers.map((member) => {
+                const card = (
+                  <>
+                    <div className="group relative aspect-square overflow-hidden rounded-sm bg-card shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={`${member.name} – ${member.instrument[language]}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-muted/50 px-4 text-center">
+                          <span className="font-serif text-xl md:text-2xl text-muted-foreground/70">
+                            Photo
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="absolute inset-0 hidden md:flex items-end justify-center bg-background/0 p-5 opacity-0 transition-all duration-300 group-hover:bg-background/35 group-hover:opacity-100">
+                        <span className="rounded-full bg-background/90 px-4 py-2 text-xs font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm">
+                          {copy.learnMore}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 text-center">
+                      <h3 className="font-serif text-lg md:text-xl leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {member.instrument[language]}
+                      </p>
+                    </div>
+                  </>
+                );
+
+                return (
+                  <button
+                    key={member.name}
+                    type="button"
+                    onClick={() => setSelectedMember(member)}
+                    className="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    aria-label={`${member.name} – ${copy.learnMore}`}
+                  >
+                    {card}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            UPCOMING SHOWS + BOOKING — matches Home GigsSection
+        ====================================================== */}
+        <section className="section-padding bg-card">
+          <div className="container mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
+                {copy.showsTitle}
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                {language === 'de'
+                  ? 'JoyWanna & The Spicy Jam live erleben.'
+                  : 'Experience JoyWanna & The Spicy Jam live.'}
+              </p>
+              <div className="w-20 h-px bg-primary mx-auto mt-8" />
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-6">
+              <article className="group bg-background border border-border rounded-sm p-6 md:p-8 card-hover">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  <div className="flex items-start gap-4 md:w-1/4">
+                    <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">
+                        {language === 'de' ? '24. September 2026' : 'September 24, 2026'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="font-serif text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors">
+                      “Some Sing Special” – JoyWanna & The Spicy Jam
+                    </h3>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="w-4 h-4" />
+                      <span>Wilhelm 13, Oldenburg</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-start md:items-end gap-2">
+                    <a
+                      href="https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                    >
+                      {copy.buyTickets}
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article className="group bg-background border border-border rounded-sm p-6 md:p-8 card-hover">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  <div className="flex items-start gap-4 md:w-1/4">
+                    <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">
+                        {language === 'de' ? '7. November 2026' : 'November 7, 2026'}
+                      </p>
+                      <p className="text-muted-foreground text-sm">20:00</p>
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="font-serif text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors">
+                      JoyWanna & The Spicy Jam
+                    </h3>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="w-4 h-4" />
+                      <span>Haus der Kultur, Rhauderfehn</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-start md:items-end gap-2">
+                    <span className="text-sm italic text-muted-foreground">
+                      {copy.ticketsSoon}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </section>
+
+        {/* =====================================================
+            BOOKING CTA — matches HomeCTASection
+        ====================================================== */}
+        <section
+          id="booking"
+          className="py-24 md:py-32 bg-background"
+          aria-labelledby="booking-title"
+        >
+          <div className="container mx-auto px-6">
+            <div className="max-w-2xl mx-auto text-center space-y-8">
+              <h2
+                id="booking-title"
+                className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight text-foreground"
+              >
+                {language === 'de' ? 'Booking & Kontakt' : 'Booking & Contact'}
+              </h2>
+
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
+                {copy.bookingText}
+              </p>
+
+              <div className="pt-2">
+                <Button asChild size="lg" className="px-10">
+                  <Link to={language === 'de' ? '/contact' : '/en/contact'}>
+                    {copy.bookingButton}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
+
+
+      <Dialog
+        open={!!selectedMember}
+        onOpenChange={(open) => {
+          if (!open) setSelectedMember(null);
+        }}
+      >
+        <DialogContent className="max-w-lg overflow-hidden border-border bg-card p-0">
+          {selectedMember && (
+            <>
+              {selectedMember.image && (
+                <div className="aspect-square max-h-[48vh] w-full overflow-hidden bg-muted">
+                  <img
+                    src={selectedMember.image}
+                    alt={`${selectedMember.name} – ${selectedMember.instrument[language]}`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              )}
+
+              <div className="p-6 md:p-8">
+                <DialogTitle className="font-serif text-2xl md:text-3xl">
+                  {selectedMember.name}
+                </DialogTitle>
+
+                <p className="mt-1 text-sm text-primary">
+                  {selectedMember.instrument[language]}
+                </p>
+
+                <DialogDescription className="mt-5 text-sm md:text-base leading-relaxed text-muted-foreground">
+                  {selectedMember.bio[language]}
+                </DialogDescription>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
