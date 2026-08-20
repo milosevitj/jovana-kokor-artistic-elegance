@@ -178,6 +178,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/reimagined" />
   </url>
 
+  <!-- The Spicy Jam -->
+  <url>
+    <loc>https://joywanna.com/thespicyjam</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/thespicyjam" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/thespicyjam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/thespicyjam" />
+  </url>
+  <url>
+    <loc>https://joywanna.com/en/thespicyjam</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://joywanna.com/thespicyjam" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://joywanna.com/en/thespicyjam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joywanna.com/thespicyjam" />
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://joywanna.com/impressum</loc>
