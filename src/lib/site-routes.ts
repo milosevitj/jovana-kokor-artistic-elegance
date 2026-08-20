@@ -63,6 +63,7 @@ export type ParsedRoute =
   | { kind: 'about'; lang: Lang }
   | { kind: 'portfolio'; lang: Lang }
   | { kind: 'portfolio-category'; tab: PortfolioTab; lang: Lang }
+  | { kind: 'thespicyjam'; lang: Lang }
   | { kind: 'other'; lang: Lang };
 
 export function parseRoute(pathname: string): ParsedRoute {
@@ -100,6 +101,10 @@ export function parseRoute(pathname: string): ParsedRoute {
 
   if (stripped === '/ueber-mich' || stripped === '/about-me' || stripped === '/about') {
     return { kind: 'about', lang };
+  }
+
+  if (stripped === '/thespicyjam') {
+    return { kind: 'thespicyjam', lang };
   }
 
   return { kind: 'other', lang };

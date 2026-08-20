@@ -16,6 +16,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Reimagined = lazy(() => import("./pages/Reimagined"));
 const Contact = lazy(() => import("./pages/Contact"));
 const About = lazy(() => import("./pages/About"));
+const TheSpicyJam = lazy(() => import("./pages/TheSpicyJam"));
 
 
 const queryClient = new QueryClient();
@@ -61,6 +62,10 @@ const App = () => (
             {/* Album smart link */}
             <Route path="/reimagined" element={<Reimagined />} />
             <Route path="/en/reimagined" element={<Reimagined />} />
+
+            {/* The Spicy Jam */}
+            <Route path="/thespicyjam" element={<TheSpicyJam />} />
+            <Route path="/en/thespicyjam" element={<TheSpicyJam />} />
 
             {/* Legal */}
             <Route path="/impressum" element={<Impressum />} />
