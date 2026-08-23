@@ -215,6 +215,24 @@ const spicyJamGallery: GalleryItem[] = [
     },
   },
   {
+    src: bandRooftopAsset.url,
+
+    title: {
+      de: 'Open-Air-Konzert auf der Dachterrasse',
+      en: 'Open-Air Concert on the Rooftop Terrace',
+    },
+
+    description: {
+      de: 'Ein sommerlicher Open-Air-Abend mit meinen Spicy Jam-ers – ganz nah am Publikum, im warmen Licht des Sonnenuntergangs.',
+      en: 'A summery open-air evening with my Spicy Jam-ers – right up close to the audience, in the warm light of sunset.',
+    },
+
+    alt: {
+      de: 'JoyWanna & The Spicy Jam bei einem Open-Air-Konzert auf einer Dachterrasse im Sonnenuntergang',
+      en: 'JoyWanna & The Spicy Jam at an open-air concert on a rooftop terrace at sunset',
+    },
+  },
+  {
     src: jw47,
     title: { de: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven', en: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven' },
     description: {
