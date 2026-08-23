@@ -288,6 +288,7 @@ const bandMembers: BandMember[] = [
       de: 'Frank ist seit vielen Jahren Teil der Oldenburger Jazzszene und in unterschiedlichsten Formationen zwischen Jazz, Soul, Funk und Fusion zu Hause.\n\nMit seinem ausdrucksstarken Saxophonspiel und seiner großen musikalischen Erfahrung bringt er Farbe, Spontaneität und jede Menge Spielfreude in den Spicy Jam.',
       en: 'Frank has been part of the Oldenburg jazz scene for many years and is at home in a wide variety of formations spanning jazz, soul, funk and fusion.\n\nWith his expressive saxophone playing and vast musical experience, he brings colour, spontaneity and plenty of joy of playing to Spicy Jam.',
     },
+    image: band3Asset.url,
   },
   {
     name: 'Carsten Heinecke',
