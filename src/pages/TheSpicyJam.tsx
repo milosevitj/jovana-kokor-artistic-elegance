@@ -24,6 +24,11 @@ import spicyJam37 from '@/assets/portfolio-new/joywanna-spicy-jam-playful-side.w
 import spicyJam39 from '@/assets/portfolio-new/joywanna-some-sing-special-wilhelm13.webp';
 import spicyJam40 from '@/assets/portfolio-new/joywanna-jazzakademie-jade-concert.webp';
 import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
+import band1Asset from '@/assets/band-1.webp.asset.json';
+import band3Asset from '@/assets/band-3.webp.asset.json';
+import band4Asset from '@/assets/band-4.webp.asset.json';
+import band5Asset from '@/assets/band-5.webp.asset.json';
+import band6Asset from '@/assets/band-6.webp.asset.json';
 
 
 function LanguageSync() {
