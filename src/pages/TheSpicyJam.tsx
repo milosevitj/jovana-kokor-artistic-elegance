@@ -297,6 +297,7 @@ const bandMembers: BandMember[] = [
       de: 'Carsten ist in der Oldenburger Musikszene in verschiedenen Formationen unterwegs und war unter anderem mit Jazz-, R&B- und Motown-Programmen zu hören.\n\nIm Spicy Jam sorgt er am Bass für das Fundament, auf dem es sich wunderbar grooven lässt.',
       en: 'Carsten is active in the Oldenburg music scene in various formations and has been heard in jazz, R&B and Motown programmes, among others.\n\nIn Spicy Jam he provides the bass foundation that makes grooving feel wonderful.',
     },
+    image: band4Asset.url,
   },
   {
     name: 'Georges Onguene',
