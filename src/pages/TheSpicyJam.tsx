@@ -634,7 +634,25 @@ function TheSpicyJamContent() {
                 </p>
 
                 <DialogDescription className="mt-5 text-sm md:text-base leading-relaxed text-muted-foreground">
-                  {selectedMember.bio[language]}
+                  <span className="block space-y-4">
+                    {String(selectedMember.bio[language])
+                      .split('\n\n')
+                      .map((paragraph, index) => (
+                        <span key={index} className="block">
+                          {paragraph}
+                        </span>
+                      ))}
+                  </span>
+
+                  {selectedMember.aboutLink && (
+                    <Link
+                      to={language === 'de' ? '/ueber-mich' : '/en/about-me'}
+                      className="inline-block mt-6 text-primary font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                      onClick={() => setSelectedMember(null)}
+                    >
+                      {selectedMember.aboutLink[language]}
+                    </Link>
+                  )}
                 </DialogDescription>
               </div>
             </>
