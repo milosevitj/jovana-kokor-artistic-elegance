@@ -243,70 +243,68 @@ type BandMember = {
     en: string;
   };
   bio: {
+    de: ReactNode;
+    en: ReactNode;
+  };
+  image?: string;
+  aboutLink?: {
     de: string;
     en: string;
   };
-  image?: string;
 };
 
-/*
-  Replace the placeholder names, instruments, bios and image fields below
-  when the final band photos/texts arrive.
-
-  Example:
-  import memberPhoto from '@/assets/band/member-name.webp';
-  ...
-  image: memberPhoto,
-*/
 const bandMembers: BandMember[] = [
-  
   {
-    name: 'Band Member 2',
-    instrument: { de: 'Instrument', en: 'Instrument' },
+    name: 'Jakob Drefs',
+    instrument: { de: 'Piano & Keys', en: 'Piano & Keys' },
     bio: {
-      de: 'Kurzer Text über dieses Bandmitglied folgt.',
-      en: 'A short text about this band member will follow.',
+      de: 'Jakob bewegt sich musikalisch zwischen Jazz, Rock und Fusion und ist unter anderem Initiator der Oldenburger Band Odd Buddies.\n\nIm Spicy Jam prägt er nicht nur mit seinem vielseitigen Spiel und seinem Gespür für Klangfarben den Sound der Band, sondern schreibt auch einen großen Teil unserer Arrangements.',
+      en: 'Jakob moves musically between jazz, rock and fusion, and is among other things the initiator of the Oldenburg band Odd Buddies.\n\nIn Spicy Jam he not only shapes the band’s sound with his versatile playing and feel for tone colours, but also writes a large part of our arrangements.',
     },
   },
   {
-    name: 'JoyWanna',
-    instrument: { de: 'Gesang', en: 'Vocals' },
+    name: 'JoyWanna (Jovana Kokor)',
+    instrument: { de: 'Vocals', en: 'Vocals' },
     bio: {
-      de: 'Hier kann später ein kurzer persönlicher Text über JoyWanna stehen.',
-      en: 'A short personal text about JoyWanna can go here later.',
+      de: 'JoyWanna ist Sängerin, Pianistin und Songwriterin und das kreative Herz hinter The Spicy Jam.\n\nMit Wurzeln im Jazz und einer großen Liebe zu Latin, Soul und Groove verbindet sie unterschiedliche musikalische Welten zu ihrem ganz eigenen Sound.\n\nDabei geht es ihr nicht nur um die Musik selbst, sondern vor allem um das, was auf der Bühne zwischen den Musiker:innen und dem Publikum entsteht: Energie, Spielfreude und echte Verbindung.',
+      en: 'JoyWanna is a singer, pianist and songwriter, and the creative heart behind The Spicy Jam.\n\nWith roots in jazz and a deep love of Latin, soul and groove, she connects different musical worlds into a sound all her own.\n\nFor her it is not just about the music itself, but above all about what happens on stage between the musicians and the audience: energy, joy of playing and genuine connection.',
     },
     image: spicyJam37,
-  },
-  {
-    name: 'Band Member 3',
-    instrument: { de: 'Instrument', en: 'Instrument' },
-    bio: {
-      de: 'Kurzer Text über dieses Bandmitglied folgt.',
-      en: 'A short text about this band member will follow.',
+    aboutLink: {
+      de: 'Mehr über JoyWanna →',
+      en: 'More about JoyWanna →',
     },
   },
   {
-    name: 'Band Member 4',
-    instrument: { de: 'Instrument', en: 'Instrument' },
+    name: 'Frank Schmidt',
+    instrument: { de: 'Saxophon', en: 'Saxophone' },
     bio: {
-      de: 'Kurzer Text über dieses Bandmitglied folgt.',
-      en: 'A short text about this band member will follow.',
+      de: 'Frank ist seit vielen Jahren Teil der Oldenburger Jazzszene und in unterschiedlichsten Formationen zwischen Jazz, Soul, Funk und Fusion zu Hause.\n\nMit seinem ausdrucksstarken Saxophonspiel und seiner großen musikalischen Erfahrung bringt er Farbe, Spontaneität und jede Menge Spielfreude in den Spicy Jam.',
+      en: 'Frank has been part of the Oldenburg jazz scene for many years and is at home in a wide variety of formations spanning jazz, soul, funk and fusion.\n\nWith his expressive saxophone playing and vast musical experience, he brings colour, spontaneity and plenty of joy of playing to Spicy Jam.',
     },
   },
   {
-    name: 'Band Member 5',
-    instrument: { de: 'Instrument', en: 'Instrument' },
+    name: 'Carsten Heinecke',
+    instrument: { de: 'Bass', en: 'Bass' },
     bio: {
-      de: 'Kurzer Text über dieses Bandmitglied folgt.',
-      en: 'A short text about this band member will follow.',
+      de: 'Carsten ist in der Oldenburger Musikszene in verschiedenen Formationen unterwegs und war unter anderem mit Jazz-, R&B- und Motown-Programmen zu hören.\n\nIm Spicy Jam sorgt er am Bass für das Fundament, auf dem es sich wunderbar grooven lässt.',
+      en: 'Carsten is active in the Oldenburg music scene in various formations and has been heard in jazz, R&B and Motown programmes, among others.\n\nIn Spicy Jam he provides the bass foundation that makes grooving feel wonderful.',
     },
   },
   {
-    name: 'Band Member 6',
-    instrument: { de: 'Instrument', en: 'Instrument' },
+    name: 'Georges Onguene',
+    instrument: { de: 'Percussion', en: 'Percussion' },
     bio: {
-      de: 'Kurzer Text über dieses Bandmitglied folgt.',
-      en: 'A short text about this band member will follow.',
+      de: 'Georges bringt mit Congas und Percussion eine ganz eigene rhythmische Farbe in den Spicy Jam.\n\nSeine Grooves geben besonders den Latin-Einflüssen der Band ihren Charakter und machen aus dem Rhythmus mehr als nur Begleitung: einen wesentlichen Teil unseres Sounds.',
+      en: 'Georges brings a very own rhythmic colour to Spicy Jam with congas and percussion.\n\nHis grooves give the band’s Latin influences their character and turn rhythm into more than just accompaniment: an essential part of our sound.',
+    },
+  },
+  {
+    name: 'Melanie Geserick',
+    instrument: { de: 'Drums', en: 'Drums' },
+    bio: {
+      de: 'Melanie ist Schlagzeugerin der Oldenburger Jazzszene und bringt Erfahrung aus unterschiedlichen musikalischen Projekten mit.\n\nMit ihrem dynamischen und zugleich feinfühligen Spiel gibt sie dem Spicy Jam seinen Puls – mal zurückhaltend, mal mit ordentlich Schub.',
+      en: 'Melanie is a drummer in the Oldenburg jazz scene and brings experience from a variety of musical projects.\n\nWith her dynamic yet sensitive playing she gives Spicy Jam its pulse – sometimes restrained, sometimes with plenty of drive.',
     },
   },
 ];
