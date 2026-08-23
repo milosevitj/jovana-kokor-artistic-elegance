@@ -315,6 +315,7 @@ const bandMembers: BandMember[] = [
       de: 'Melanie ist Schlagzeugerin der Oldenburger Jazzszene und bringt Erfahrung aus unterschiedlichen musikalischen Projekten mit.\n\nMit ihrem dynamischen und zugleich feinfühligen Spiel gibt sie dem Spicy Jam seinen Puls – mal zurückhaltend, mal mit ordentlich Schub.',
       en: 'Melanie is a drummer in the Oldenburg jazz scene and brings experience from a variety of musical projects.\n\nWith her dynamic yet sensitive playing she gives Spicy Jam its pulse – sometimes restrained, sometimes with plenty of drive.',
     },
+    image: band6Asset.url,
   },
 ];
 
