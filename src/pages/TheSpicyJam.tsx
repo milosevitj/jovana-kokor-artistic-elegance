@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { Header } from '@/components/Header';
