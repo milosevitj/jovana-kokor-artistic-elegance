@@ -306,6 +306,7 @@ const bandMembers: BandMember[] = [
       de: 'Georges bringt mit Congas und Percussion eine ganz eigene rhythmische Farbe in den Spicy Jam.\n\nSeine Grooves geben besonders den Latin-Einflüssen der Band ihren Charakter und machen aus dem Rhythmus mehr als nur Begleitung: einen wesentlichen Teil unseres Sounds.',
       en: 'Georges brings a very own rhythmic colour to Spicy Jam with congas and percussion.\n\nHis grooves give the band’s Latin influences their character and turn rhythm into more than just accompaniment: an essential part of our sound.',
     },
+    image: band5Asset.url,
   },
   {
     name: 'Melanie Geserick',
