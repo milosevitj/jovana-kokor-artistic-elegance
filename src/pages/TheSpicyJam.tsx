@@ -266,6 +266,7 @@ const bandMembers: BandMember[] = [
       de: 'Jakob bewegt sich musikalisch zwischen Jazz, Rock und Fusion und ist unter anderem Initiator der Oldenburger Band Odd Buddies.\n\nIm Spicy Jam prägt er nicht nur mit seinem vielseitigen Spiel und seinem Gespür für Klangfarben den Sound der Band, sondern schreibt auch einen großen Teil unserer Arrangements.',
       en: 'Jakob moves musically between jazz, rock and fusion, and is among other things the initiator of the Oldenburg band Odd Buddies.\n\nIn Spicy Jam he not only shapes the band’s sound with his versatile playing and feel for tone colours, but also writes a large part of our arrangements.',
     },
+    image: band1Asset.url,
   },
   {
     name: 'JoyWanna (Jovana Kokor)',
