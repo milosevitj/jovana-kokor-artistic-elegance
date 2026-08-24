@@ -25,11 +25,11 @@ import spicyJam40 from '@/assets/portfolio-new/joywanna-jazzakademie-jade-concer
 import spicyJam41 from '@/assets/portfolio-new/joywanna-spicyjam-terrace.webp';
 import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
 
-import band1Asset from '@/assets/band-1.webp.asset.json';
-import band3Asset from '@/assets/band-3.webp.asset.json';
-import band4Asset from '@/assets/band-4.webp.asset.json';
-import band5Asset from '@/assets/band-5.webp.asset.json';
-import band6Asset from '@/assets/band-6.webp.asset.json';
+import band1 from '@/assets/band-1.webp';
+import band3 from '@/assets/band-3.webp';
+import band4 from '@/assets/band-4.webp';
+import band5 from '@/assets/band-5.webp';
+import band6 from '@/assets/band-6.webp';
 
 function LanguageSync() {
   const { pathname } = useLocation();
@@ -321,7 +321,7 @@ const bandMembers: BandMember[] = [
       en: 'Jakob moves musically between jazz, rock and fusion, and is among other things the initiator of the Oldenburg band Odd Buddies.\n\nIn Spicy Jam he not only shapes the band’s sound with his versatile playing and feel for tone colours, but also writes a large part of our arrangements.',
     },
 
-    image: band1Asset.url,
+    image: band1,
   },
 
   {
@@ -360,7 +360,7 @@ const bandMembers: BandMember[] = [
       en: 'Frank has been part of the Oldenburg jazz scene for many years and is at home in a wide variety of formations spanning jazz, soul, funk and fusion.\n\nWith his expressive saxophone playing and vast musical experience, he brings colour, spontaneity and plenty of joy of playing to Spicy Jam.',
     },
 
-    image: band3Asset.url,
+    image: band3,
   },
 
   {
@@ -377,7 +377,7 @@ const bandMembers: BandMember[] = [
       en: 'Carsten is active in the Oldenburg music scene in various formations and has been heard in jazz, R&B and Motown programmes, among others.\n\nIn Spicy Jam he provides the bass foundation that makes grooving feel wonderful.',
     },
 
-    image: band4Asset.url,
+    image: band4,
   },
 
   {
@@ -394,7 +394,7 @@ const bandMembers: BandMember[] = [
       en: 'Georges brings a very own rhythmic colour to Spicy Jam with congas and percussion.\n\nHis grooves give the band’s Latin influences their character and turn rhythm into more than just accompaniment: an essential part of our sound.',
     },
 
-    image: band5Asset.url,
+    image: band5,
   },
 
   {
@@ -411,7 +411,7 @@ const bandMembers: BandMember[] = [
       en: 'Melanie is a drummer in the Oldenburg jazz scene and brings experience from a variety of musical projects.\n\nWith her dynamic yet sensitive playing she gives Spicy Jam its pulse – sometimes restrained, sometimes with plenty of drive.',
     },
 
-    image: band6Asset.url,
+    image: band6,
   },
 ];
 
