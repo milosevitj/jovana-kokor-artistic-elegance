@@ -19,17 +19,17 @@ import spicyJamImage from '@/assets/joywanna-spicy-jam.webp';
 
 /* Existing band images from Portfolio Gallery */
 import spicyJam2 from '@/assets/portfolio-new/joywanna-spicy-jam-photoshoot-wilhelm13.webp';
-import spicyJam36 from '@/assets/portfolio-new/joywanna-spicy-jam-in-our-element.webp';
 import spicyJam37 from '@/assets/portfolio-new/joywanna-spicy-jam-playful-side.webp';
 import spicyJam39 from '@/assets/portfolio-new/joywanna-some-sing-special-wilhelm13.webp';
 import spicyJam40 from '@/assets/portfolio-new/joywanna-jazzakademie-jade-concert.webp';
+import spicyJam41 from '@/assets/portfolio-new/joywanna-spicyjam-terrace.webp';
 import jw47 from '@/assets/portfolio-new/joywanna-jade-jazz-jam-pumpwerk.webp';
+
 import band1Asset from '@/assets/band-1.webp.asset.json';
 import band3Asset from '@/assets/band-3.webp.asset.json';
 import band4Asset from '@/assets/band-4.webp.asset.json';
 import band5Asset from '@/assets/band-5.webp.asset.json';
 import band6Asset from '@/assets/band-6.webp.asset.json';
-
 
 function LanguageSync() {
   const { pathname } = useLocation();
@@ -65,12 +65,12 @@ const content = {
     ],
 
     galleryEyebrow: 'Impressionen',
-
     galleryTitle: 'The Spicy Jam – Momente',
 
     bandEyebrow: 'Die Band',
     bandTitle: 'The Spicy Jam',
-    bandIntro: 'Lernen Sie die Musikerinnen und Musiker hinter The Spicy Jam kennen.',
+    bandIntro:
+      'Lernen Sie die Musikerinnen und Musiker hinter The Spicy Jam kennen.',
     learnMore: 'Mehr erfahren',
     aboutMe: 'Über mich',
 
@@ -78,7 +78,10 @@ const content = {
     showsTitle: 'Kommende Auftritte',
     buyTickets: 'Tickets kaufen',
     ticketsSoon: 'Tickets demnächst verfügbar',
-    bookingText: 'Ihr möchtet JoyWanna & The Spicy Jam live erleben? Ob Festival, Club, Kulturveranstaltung oder besonderes Event – wir bringen Jazz, Soul, Latin und jede Menge Spicy Vibes auf die Bühne.',
+
+    bookingText:
+      'Ihr möchtet JoyWanna & The Spicy Jam live erleben? Ob Festival, Club, Kulturveranstaltung oder besonderes Event – wir bringen Jazz, Soul, Latin und jede Menge Spicy Vibes auf die Bühne.',
+
     bookingButton: 'BOOKING & KONTAKT',
   },
 
@@ -99,7 +102,6 @@ const content = {
     ],
 
     galleryEyebrow: 'Impressions',
-
     galleryTitle: 'The Spicy Jam – Moments',
 
     bandEyebrow: 'The Band',
@@ -112,7 +114,10 @@ const content = {
     showsTitle: 'Upcoming Shows',
     buyTickets: 'Buy Tickets',
     ticketsSoon: 'Tickets coming soon',
-    bookingText: 'Would you like to experience JoyWanna & The Spicy Jam live? Whether festival, club, cultural event or a special occasion – we bring jazz, soul, Latin and plenty of Spicy Vibes to the stage.',
+
+    bookingText:
+      'Would you like to experience JoyWanna & The Spicy Jam live? Whether festival, club, cultural event or a special occasion – we bring jazz, soul, Latin and plenty of Spicy Vibes to the stage.',
+
     bookingButton: 'BOOKING & CONTACT',
   },
 };
@@ -127,8 +132,8 @@ type GalleryItem = {
   };
 
   description: {
-    de: string;
-    en: string;
+    de: ReactNode;
+    en: ReactNode;
   };
 
   alt: {
@@ -148,32 +153,27 @@ const spicyJamGallery: GalleryItem[] = [
     },
 
     description: {
-      de: 'Mit meinen liebenswerten Spicy Jam-ers beim Fotoshooting im Wilhelm 13, Oldenburg · Foto: Patrick Nagel.',
-      en: 'With my lovely Spicy Jam-ers at the photoshoot at Wilhelm 13, Oldenburg · Photo: Patrick Nagel.',
+      de: (
+        <>
+          Fotoshooting im Wilhelm 13. Ein bisschen verrückt und ganz schön
+          Spicy – so sind wir eben.
+          <br />
+          Foto: Patrick Nagel.
+        </>
+      ),
+
+      en: (
+        <>
+          A little crazy and pretty Spicy – that’s just who we are.
+          <br />
+          Photo: Patrick Nagel.
+        </>
+      ),
     },
 
     alt: {
       de: 'Jovana Kokor mit JoyWanna & The Spicy Jam beim Bandfotoshooting im Wilhelm 13, Oldenburg',
       en: 'Jovana Kokor with JoyWanna & The Spicy Jam at a band photoshoot at Wilhelm 13, Oldenburg',
-    },
-  },
-
-  {
-    src: spicyJam36,
-
-    title: {
-      de: 'In unserem Element',
-      en: 'In Our Element',
-    },
-
-    description: {
-      de: 'Meine wunderbaren Spicy Jam-ers und ich – gemeinsam in unserem Element.',
-      en: 'My wonderful Spicy Jam-ers and I – together in our element.',
-    },
-
-    alt: {
-      de: 'JoyWanna & The Spicy Jam live auf der Bühne – gemeinsam in ihrem Element',
-      en: 'JoyWanna & The Spicy Jam live on stage – together in their element',
     },
   },
 
@@ -214,8 +214,28 @@ const spicyJamGallery: GalleryItem[] = [
       en: 'JoyWanna & The Spicy Jam live at the Jazz Academy concert on the North Sea in Jade',
     },
   },
+
   {
-    src: bandRooftopAsset.url,
+    src: jw47,
+
+    title: {
+      de: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven',
+      en: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven',
+    },
+
+    description: {
+      de: 'Jade Jazz Jam – live open air am Pumpwerk in Wilhelmshaven. Einfach ein schöner Moment, in dem ich ganz im Zuhören versinke, während mein Pianist Jakob sein Solo spielt. Foto: Bert Bergner',
+      en: 'Jade Jazz Jam – live open air at Pumpwerk in Wilhelmshaven. Simply a beautiful moment in which I sink completely into listening while my pianist Jakob plays his solo. Photo: Bert Bergner',
+    },
+
+    alt: {
+      de: 'JoyWanna live open air beim Jade Jazz Jam am Pumpwerk in Wilhelmshaven, lauschend während Pianist Jakob ein Solo spielt',
+      en: 'JoyWanna live open air at the Jade Jazz Jam at Pumpwerk in Wilhelmshaven, listening as pianist Jakob plays a solo',
+    },
+  },
+
+  {
+    src: spicyJam41,
 
     title: {
       de: 'Open-Air-Konzert auf der Dachterrasse',
@@ -232,107 +252,165 @@ const spicyJamGallery: GalleryItem[] = [
       en: 'JoyWanna & The Spicy Jam at an open-air concert on a rooftop terrace at sunset',
     },
   },
-  {
-    src: jw47,
-    title: { de: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven', en: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven' },
-    description: {
-      de: 'Jade Jazz Jam – live open air am Pumpwerk in Wilhelmshaven. Einfach ein schöner Moment, in dem ich ganz im Zuhören versinke, während mein Pianist Jakob sein Solo spielt. Foto: Bert Bergner',
-      en: 'Jade Jazz Jam – live open air at Pumpwerk in Wilhelmshaven. Simply a beautiful moment in which I sink completely into listening while my pianist Jakob plays his solo. Photo: Bert Bergner',
-    },
-    alt: {
-      de: 'JoyWanna live open air beim Jade Jazz Jam am Pumpwerk in Wilhelmshaven, lauschend während Pianist Jakob ein Solo spielt',
-      en: 'JoyWanna live open air at the Jade Jazz Jam at Pumpwerk in Wilhelmshaven, listening as pianist Jakob plays a solo',
-    },
-  },
 ];
 
 
-const spicyJamSlides = [
+/*
+ * ALL slides are now GalleryItems.
+ * This means EVERY image can be clicked and opened in the modal,
+ * including the first image.
+ */
+const spicyJamSlides: GalleryItem[] = [
   {
     src: spicyJamImage,
+
+    title: {
+      de: 'JoyWanna & The Spicy Jam',
+      en: 'JoyWanna & The Spicy Jam',
+    },
+
+    description: {
+      de: 'JoyWanna & The Spicy Jam stehen für einen mitreißenden Sound zwischen Jazz, Latin, Soul und Pop – voller Spielfreude, Energie und musikalischer Vielfalt.',
+      en: 'JoyWanna & The Spicy Jam stand for a captivating sound between jazz, Latin, soul and pop – full of joy, energy and musical variety.',
+    },
+
     alt: {
       de: 'JoyWanna & The Spicy Jam',
       en: 'JoyWanna & The Spicy Jam',
     },
   },
+
   ...spicyJamGallery,
 ];
 
 
 type BandMember = {
   name: string;
+
   instrument: {
     de: string;
     en: string;
   };
+
   bio: {
     de: ReactNode;
     en: ReactNode;
   };
+
   image?: string;
+
   aboutLink?: {
     de: string;
     en: string;
   };
 };
 
+
 const bandMembers: BandMember[] = [
   {
     name: 'Jakob Drefs',
-    instrument: { de: 'Piano & Keys', en: 'Piano & Keys' },
+
+    instrument: {
+      de: 'Piano & Keys',
+      en: 'Piano & Keys',
+    },
+
     bio: {
       de: 'Jakob bewegt sich musikalisch zwischen Jazz, Rock und Fusion und ist unter anderem Initiator der Oldenburger Band Odd Buddies.\n\nIm Spicy Jam prägt er nicht nur mit seinem vielseitigen Spiel und seinem Gespür für Klangfarben den Sound der Band, sondern schreibt auch einen großen Teil unserer Arrangements.',
+
       en: 'Jakob moves musically between jazz, rock and fusion, and is among other things the initiator of the Oldenburg band Odd Buddies.\n\nIn Spicy Jam he not only shapes the band’s sound with his versatile playing and feel for tone colours, but also writes a large part of our arrangements.',
     },
+
     image: band1Asset.url,
   },
+
   {
     name: 'JoyWanna (Jovana Kokor)',
-    instrument: { de: 'Vocals', en: 'Vocals' },
+
+    instrument: {
+      de: 'Vocals',
+      en: 'Vocals',
+    },
+
     bio: {
       de: 'JoyWanna ist Sängerin, Pianistin und Songwriterin und das kreative Herz hinter The Spicy Jam.\n\nMit Wurzeln im Jazz und einer großen Liebe zu Latin, Soul und Groove verbindet sie unterschiedliche musikalische Welten zu ihrem ganz eigenen Sound.\n\nDabei geht es ihr nicht nur um die Musik selbst, sondern vor allem um das, was auf der Bühne zwischen den Musiker:innen und dem Publikum entsteht: Energie, Spielfreude und echte Verbindung.',
+
       en: 'JoyWanna is a singer, pianist and songwriter, and the creative heart behind The Spicy Jam.\n\nWith roots in jazz and a deep love of Latin, soul and groove, she connects different musical worlds into a sound all her own.\n\nFor her it is not just about the music itself, but above all about what happens on stage between the musicians and the audience: energy, joy of playing and genuine connection.',
     },
+
     image: spicyJam37,
+
     aboutLink: {
       de: 'Mehr über JoyWanna →',
       en: 'More about JoyWanna →',
     },
   },
+
   {
     name: 'Frank Schmidt',
-    instrument: { de: 'Saxophon', en: 'Saxophone' },
+
+    instrument: {
+      de: 'Saxophon',
+      en: 'Saxophone',
+    },
+
     bio: {
       de: 'Frank ist seit vielen Jahren Teil der Oldenburger Jazzszene und in unterschiedlichsten Formationen zwischen Jazz, Soul, Funk und Fusion zu Hause.\n\nMit seinem ausdrucksstarken Saxophonspiel und seiner großen musikalischen Erfahrung bringt er Farbe, Spontaneität und jede Menge Spielfreude in den Spicy Jam.',
+
       en: 'Frank has been part of the Oldenburg jazz scene for many years and is at home in a wide variety of formations spanning jazz, soul, funk and fusion.\n\nWith his expressive saxophone playing and vast musical experience, he brings colour, spontaneity and plenty of joy of playing to Spicy Jam.',
     },
+
     image: band3Asset.url,
   },
+
   {
     name: 'Carsten Heinecke',
-    instrument: { de: 'Bass', en: 'Bass' },
+
+    instrument: {
+      de: 'Bass',
+      en: 'Bass',
+    },
+
     bio: {
       de: 'Carsten ist in der Oldenburger Musikszene in verschiedenen Formationen unterwegs und war unter anderem mit Jazz-, R&B- und Motown-Programmen zu hören.\n\nIm Spicy Jam sorgt er am Bass für das Fundament, auf dem es sich wunderbar grooven lässt.',
+
       en: 'Carsten is active in the Oldenburg music scene in various formations and has been heard in jazz, R&B and Motown programmes, among others.\n\nIn Spicy Jam he provides the bass foundation that makes grooving feel wonderful.',
     },
+
     image: band4Asset.url,
   },
+
   {
     name: 'Georges Onguene',
-    instrument: { de: 'Percussion', en: 'Percussion' },
+
+    instrument: {
+      de: 'Percussion',
+      en: 'Percussion',
+    },
+
     bio: {
       de: 'Georges bringt mit Congas und Percussion eine ganz eigene rhythmische Farbe in den Spicy Jam.\n\nSeine Grooves geben besonders den Latin-Einflüssen der Band ihren Charakter und machen aus dem Rhythmus mehr als nur Begleitung: einen wesentlichen Teil unseres Sounds.',
+
       en: 'Georges brings a very own rhythmic colour to Spicy Jam with congas and percussion.\n\nHis grooves give the band’s Latin influences their character and turn rhythm into more than just accompaniment: an essential part of our sound.',
     },
+
     image: band5Asset.url,
   },
+
   {
     name: 'Melanie Geserick',
-    instrument: { de: 'Drums', en: 'Drums' },
+
+    instrument: {
+      de: 'Drums',
+      en: 'Drums',
+    },
+
     bio: {
       de: 'Melanie ist Schlagzeugerin der Oldenburger Jazzszene und bringt Erfahrung aus unterschiedlichen musikalischen Projekten mit.\n\nMit ihrem dynamischen und zugleich feinfühligen Spiel gibt sie dem Spicy Jam seinen Puls – mal zurückhaltend, mal mit ordentlich Schub.',
+
       en: 'Melanie is a drummer in the Oldenburg jazz scene and brings experience from a variety of musical projects.\n\nWith her dynamic yet sensitive playing she gives Spicy Jam its pulse – sometimes restrained, sometimes with plenty of drive.',
     },
+
     image: band6Asset.url,
   },
 ];
@@ -340,91 +418,254 @@ const bandMembers: BandMember[] = [
 
 function TheSpicyJamContent() {
   const { language } = useLanguage();
-
   const copy = content[language];
+
   const [activeSlide, setActiveSlide] = useState(0);
-  const [selectedMember, setSelectedMember] = useState<BandMember | null>(null);
+
+  const [selectedMember, setSelectedMember] =
+    useState<BandMember | null>(null);
+
+  const [selectedGalleryItem, setSelectedGalleryItem] =
+    useState<GalleryItem | null>(null);
+
 
   const showPreviousSlide = () => {
     setActiveSlide((current) =>
-      current === 0 ? spicyJamSlides.length - 1 : current - 1
+      current === 0
+        ? spicyJamSlides.length - 1
+        : current - 1
     );
   };
+
 
   const showNextSlide = () => {
     setActiveSlide((current) =>
-      current === spicyJamSlides.length - 1 ? 0 : current + 1
+      current === spicyJamSlides.length - 1
+        ? 0
+        : current + 1
     );
   };
 
+
+  /*
+   * No more currentSlideIsGalleryItem.
+   * Every slide is a GalleryItem.
+   */
   const currentSlide = spicyJamSlides[activeSlide];
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+
       <Header />
 
+
       <main className="pt-16 md:pt-20 lg:pt-24">
+
         {/* =====================================================
             HERO / IMAGE CAROUSEL + INTRODUCTION
         ====================================================== */}
+
         <section className="px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 lg:pb-20">
+
           <div className="container mx-auto max-w-7xl">
-            {/* Page title above gallery */}
+
             <div className="text-center mb-8 md:mb-10">
+
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
                 {copy.heading}
               </h1>
+
             </div>
 
+
+            {/* CAROUSEL */}
+
             <div className="relative overflow-hidden rounded-sm shadow-2xl bg-card">
-              <img
-                src={currentSlide.src}
-                alt={currentSlide.alt[language]}
-                width={1600}
-                height={1000}
-                className="block w-full h-auto max-h-[82vh] object-contain bg-background"
-                decoding="async"
-              />
+
+
+              {/* CLICKABLE CURRENT IMAGE */}
+
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectedGalleryItem(currentSlide)
+                }
+                aria-label={
+                  language === 'de'
+                    ? `Mehr über ${currentSlide.title.de}`
+                    : `More about ${currentSlide.title.en}`
+                }
+                className="
+                  group relative block w-full
+                  cursor-pointer
+                  focus:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-primary
+                  focus-visible:ring-inset
+                "
+              >
+
+                <img
+                  src={currentSlide.src}
+                  alt={currentSlide.alt[language]}
+                  width={1600}
+                  height={1000}
+                  className="block w-full h-auto max-h-[82vh] object-contain bg-background"
+                  decoding="async"
+                />
+
+
+                {/* Hover indicator */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute inset-0
+                    hidden md:flex
+                    items-end justify-center
+                    p-7
+                    opacity-0
+                    transition-opacity duration-300
+                    group-hover:opacity-100
+                    pointer-events-none
+                  "
+                >
+
+                  <span className="rounded-full bg-background/90 px-5 py-2 text-xs font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm">
+                    {copy.learnMore}
+                  </span>
+
+                </div>
+
+              </button>
+
+
+              {/* Previous */}
 
               <button
                 type="button"
                 onClick={showPreviousSlide}
-                aria-label={language === 'de' ? 'Vorheriges Bild' : 'Previous image'}
-                className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-background/80 text-foreground text-3xl shadow-lg backdrop-blur-sm transition hover:bg-background"
+                aria-label={
+                  language === 'de'
+                    ? 'Vorheriges Bild'
+                    : 'Previous image'
+                }
+                className="
+                  absolute
+                  left-3 md:left-5
+                  top-1/2
+                  -translate-y-1/2
+                  z-10
+                  flex
+                  h-11 w-11
+                  md:h-12 md:w-12
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-background/80
+                  text-foreground
+                  text-3xl
+                  shadow-lg
+                  backdrop-blur-sm
+                  transition
+                  hover:bg-background
+                "
               >
                 <span aria-hidden="true">‹</span>
               </button>
 
+
+              {/* Next */}
+
               <button
                 type="button"
                 onClick={showNextSlide}
-                aria-label={language === 'de' ? 'Nächstes Bild' : 'Next image'}
-                className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-background/80 text-foreground text-3xl shadow-lg backdrop-blur-sm transition hover:bg-background"
+                aria-label={
+                  language === 'de'
+                    ? 'Nächstes Bild'
+                    : 'Next image'
+                }
+                className="
+                  absolute
+                  right-3 md:right-5
+                  top-1/2
+                  -translate-y-1/2
+                  z-10
+                  flex
+                  h-11 w-11
+                  md:h-12 md:w-12
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-background/80
+                  text-foreground
+                  text-3xl
+                  shadow-lg
+                  backdrop-blur-sm
+                  transition
+                  hover:bg-background
+                "
               >
                 <span aria-hidden="true">›</span>
               </button>
 
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-background/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm">
+
+              {/* Counter */}
+
+              <div
+                className="
+                  absolute
+                  bottom-3
+                  left-1/2
+                  -translate-x-1/2
+                  z-10
+                  rounded-full
+                  bg-background/80
+                  px-3 py-1
+                  text-xs
+                  text-muted-foreground
+                  backdrop-blur-sm
+                  pointer-events-none
+                "
+              >
                 {activeSlide + 1} / {spicyJamSlides.length}
               </div>
+
             </div>
 
+
+            {/* Introduction */}
+
             <div className="mt-7 md:mt-9 max-w-4xl mx-auto text-center">
+
               <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+
                 {copy.intro.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                  <p key={index}>
+                    {paragraph}
+                  </p>
                 ))}
+
               </div>
+
             </div>
+
           </div>
+
         </section>
+
 
         {/* =====================================================
             LIVE VIDEO
         ====================================================== */}
+
         <section className="section-padding border-t border-border">
+
           <div className="container mx-auto max-w-5xl">
+
             <div className="relative w-full overflow-hidden rounded-sm shadow-2xl aspect-video bg-card">
+
               <iframe
                 src="https://www.youtube-nocookie.com/embed/snQoawnhl3Y"
                 title="JoyWanna & The Spicy Jam live video"
@@ -433,16 +674,24 @@ function TheSpicyJamContent() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full border-0"
               />
+
             </div>
+
           </div>
+
         </section>
+
 
         {/* =====================================================
             BAND MEMBERS
         ====================================================== */}
+
         <section className="border-t border-border px-4 sm:px-6 lg:px-8 py-14 md:py-16 lg:py-20">
+
           <div className="container mx-auto max-w-6xl">
+
             <header className="mx-auto mb-10 md:mb-12 max-w-2xl text-center">
+
               <p className="mb-3 text-xs md:text-sm tracking-[0.28em] uppercase text-primary">
                 {copy.bandEyebrow}
               </p>
@@ -454,248 +703,450 @@ function TheSpicyJamContent() {
               <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                 {copy.bandIntro}
               </p>
+
             </header>
 
+
             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-9 md:gap-x-7 md:gap-y-11">
-              {bandMembers.map((member) => {
-                const card = (
-                  <>
-                    <div className="group relative aspect-square overflow-hidden rounded-sm bg-card shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-                      {member.image ? (
-                        <img
-                          src={member.image}
-                          alt={`${member.name} – ${member.instrument[language]}`}
-                          loading="lazy"
-                          decoding="async"
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-muted/50 px-4 text-center">
-                          <span className="font-serif text-xl md:text-2xl text-muted-foreground/70">
-                            Photo
-                          </span>
-                        </div>
-                      )}
 
-                      <div className="absolute inset-0 hidden md:flex items-end justify-center bg-background/0 p-5 opacity-0 transition-all duration-300 group-hover:bg-background/35 group-hover:opacity-100">
-                        <span className="rounded-full bg-background/90 px-4 py-2 text-xs font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm">
-                          {copy.learnMore}
+              {bandMembers.map((member) => (
+
+                <button
+                  key={member.name}
+                  type="button"
+                  onClick={() => setSelectedMember(member)}
+                  className="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                  aria-label={`${member.name} – ${copy.learnMore}`}
+                >
+
+                  <div className="group relative aspect-square overflow-hidden rounded-sm bg-card shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                    {member.image ? (
+
+                      <img
+                        src={member.image}
+                        alt={`${member.name} – ${member.instrument[language]}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+
+                    ) : (
+
+                      <div className="flex h-full w-full items-center justify-center bg-muted/50 px-4 text-center">
+
+                        <span className="font-serif text-xl md:text-2xl text-muted-foreground/70">
+                          Photo
                         </span>
+
                       </div>
+
+                    )}
+
+
+                    <div className="absolute inset-0 hidden md:flex items-end justify-center bg-background/0 p-5 opacity-0 transition-all duration-300 group-hover:bg-background/35 group-hover:opacity-100">
+
+                      <span className="rounded-full bg-background/90 px-4 py-2 text-xs font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm">
+                        {copy.learnMore}
+                      </span>
+
                     </div>
 
-                    <div className="pt-4 text-center">
-                      <h3 className="font-serif text-lg md:text-xl leading-tight">
-                        {member.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {member.instrument[language]}
-                      </p>
-                    </div>
-                  </>
-                );
+                  </div>
 
-                return (
-                  <button
-                    key={member.name}
-                    type="button"
-                    onClick={() => setSelectedMember(member)}
-                    className="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
-                    aria-label={`${member.name} – ${copy.learnMore}`}
-                  >
-                    {card}
-                  </button>
-                );
-              })}
+
+                  <div className="pt-4 text-center">
+
+                    <h3 className="font-serif text-lg md:text-xl leading-tight">
+                      {member.name}
+                    </h3>
+
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {member.instrument[language]}
+                    </p>
+
+                  </div>
+
+                </button>
+
+              ))}
+
             </div>
+
           </div>
+
         </section>
 
+
         {/* =====================================================
-            UPCOMING SHOWS + BOOKING — matches Home GigsSection
+            UPCOMING SHOWS
         ====================================================== */}
+
         <section className="section-padding bg-card">
+
           <div className="container mx-auto">
+
             <div className="text-center mb-16">
+
               <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
                 {copy.showsTitle}
               </h2>
+
               <p className="text-muted-foreground text-lg max-w-xl mx-auto">
                 {language === 'de'
                   ? 'JoyWanna & The Spicy Jam live erleben.'
                   : 'Experience JoyWanna & The Spicy Jam live.'}
               </p>
+
               <div className="w-20 h-px bg-primary mx-auto mt-8" />
+
             </div>
 
+
             <div className="max-w-4xl mx-auto space-y-6">
+
+              {/* September 24 */}
+
               <article className="group bg-background border border-border rounded-sm p-6 md:p-8 card-hover">
+
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+
                   <div className="flex items-start gap-4 md:w-1/4">
+
                     <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+
                     <div>
                       <p className="font-medium">
-                        {language === 'de' ? '24. September 2026' : 'September 24, 2026'}
+                        {language === 'de'
+                          ? '24. September 2026'
+                          : 'September 24, 2026'}
                       </p>
                     </div>
+
                   </div>
 
+
                   <div className="flex-1">
+
                     <h3 className="font-serif text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors">
                       “Some Sing Special” – JoyWanna & The Spicy Jam
                     </h3>
+
                     <div className="flex items-center gap-2 text-muted-foreground">
+
                       <MapPin className="w-4 h-4" />
-                      <span>Wilhelm 13, Oldenburg</span>
+
+                      <span>
+                        Wilhelm 13, Oldenburg
+                      </span>
+
                     </div>
+
                   </div>
 
+
                   <div className="flex flex-col items-start md:items-end gap-2">
+
                     <a
                       href="https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                     >
+
                       {copy.buyTickets}
+
                       <ExternalLink className="w-4 h-4" />
+
                     </a>
+
                   </div>
+
                 </div>
+
               </article>
 
+
+              {/* November 7 */}
+
               <article className="group bg-background border border-border rounded-sm p-6 md:p-8 card-hover">
+
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+
                   <div className="flex items-start gap-4 md:w-1/4">
+
                     <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+
                     <div>
+
                       <p className="font-medium">
-                        {language === 'de' ? '7. November 2026' : 'November 7, 2026'}
+                        {language === 'de'
+                          ? '7. November 2026'
+                          : 'November 7, 2026'}
                       </p>
-                      <p className="text-muted-foreground text-sm">20:00</p>
+
+                      <p className="text-muted-foreground text-sm">
+                        20:00
+                      </p>
+
                     </div>
+
                   </div>
 
+
                   <div className="flex-1">
+
                     <h3 className="font-serif text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors">
                       JoyWanna & The Spicy Jam
                     </h3>
+
                     <div className="flex items-center gap-2 text-muted-foreground">
+
                       <MapPin className="w-4 h-4" />
-                      <span>Haus der Kultur, Rhauderfehn</span>
+
+                      <span>
+                        Haus der Kultur, Rhauderfehn
+                      </span>
+
                     </div>
+
                   </div>
 
+
                   <div className="flex flex-col items-start md:items-end gap-2">
+
                     <span className="text-sm italic text-muted-foreground">
                       {copy.ticketsSoon}
                     </span>
+
                   </div>
+
                 </div>
+
               </article>
+
             </div>
 
           </div>
+
         </section>
 
+
         {/* =====================================================
-            BOOKING CTA — matches HomeCTASection
+            BOOKING CTA
         ====================================================== */}
+
         <section
           id="booking"
           className="py-24 md:py-32 bg-background"
           aria-labelledby="booking-title"
         >
+
           <div className="container mx-auto px-6">
+
             <div className="max-w-2xl mx-auto text-center space-y-8">
+
               <h2
                 id="booking-title"
                 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight text-foreground"
               >
-                {language === 'de' ? 'Booking & Kontakt' : 'Booking & Contact'}
+                {language === 'de'
+                  ? 'Booking & Kontakt'
+                  : 'Booking & Contact'}
               </h2>
+
 
               <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
                 {copy.bookingText}
               </p>
 
+
               <div className="pt-2">
-                <Button asChild size="lg" className="px-10">
-                  <Link to={language === 'de' ? '/contact' : '/en/contact'}>
+
+                <Button
+                  asChild
+                  size="lg"
+                  className="px-10"
+                >
+
+                  <Link
+                    to={
+                      language === 'de'
+                        ? '/contact'
+                        : '/en/contact'
+                    }
+                  >
                     {copy.bookingButton}
                   </Link>
+
                 </Button>
+
               </div>
+
             </div>
+
           </div>
+
         </section>
 
       </main>
 
 
+      {/* =====================================================
+          BAND MEMBER MODAL
+      ====================================================== */}
+
       <Dialog
         open={!!selectedMember}
         onOpenChange={(open) => {
-          if (!open) setSelectedMember(null);
+          if (!open) {
+            setSelectedMember(null);
+          }
         }}
       >
+
         <DialogContent className="max-w-lg overflow-hidden border-border bg-card p-0">
+
           {selectedMember && (
             <>
+
               {selectedMember.image && (
+
                 <div className="aspect-square max-h-[48vh] w-full overflow-hidden bg-muted">
+
                   <img
                     src={selectedMember.image}
                     alt={`${selectedMember.name} – ${selectedMember.instrument[language]}`}
                     className="h-full w-full object-cover"
                   />
+
                 </div>
+
               )}
 
+
               <div className="p-6 md:p-8">
+
                 <DialogTitle className="font-serif text-2xl md:text-3xl">
                   {selectedMember.name}
                 </DialogTitle>
+
 
                 <p className="mt-1 text-sm text-primary">
                   {selectedMember.instrument[language]}
                 </p>
 
+
                 <DialogDescription className="mt-5 text-sm md:text-base leading-relaxed text-muted-foreground">
+
                   <span className="block space-y-4">
+
                     {String(selectedMember.bio[language])
                       .split('\n\n')
                       .map((paragraph, index) => (
-                        <span key={index} className="block">
+
+                        <span
+                          key={index}
+                          className="block"
+                        >
                           {paragraph}
                         </span>
+
                       ))}
+
                   </span>
 
+
                   {selectedMember.aboutLink && (
+
                     <Link
-                      to={language === 'de' ? '/ueber-mich' : '/en/about-me'}
+                      to={
+                        language === 'de'
+                          ? '/ueber-mich'
+                          : '/en/about-me'
+                      }
                       className="inline-block mt-6 text-primary font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                       onClick={() => setSelectedMember(null)}
                     >
                       {selectedMember.aboutLink[language]}
                     </Link>
+
                   )}
+
                 </DialogDescription>
+
               </div>
+
             </>
           )}
+
         </DialogContent>
+
       </Dialog>
 
+
+      {/* =====================================================
+          GALLERY IMAGE MODAL
+      ====================================================== */}
+
+      <Dialog
+        open={!!selectedGalleryItem}
+        onOpenChange={(open) => {
+          if (!open) {
+            setSelectedGalleryItem(null);
+          }
+        }}
+      >
+
+        <DialogContent className="max-w-4xl overflow-hidden border-border bg-card p-0">
+
+          {selectedGalleryItem && (
+            <>
+
+              <div className="w-full bg-background">
+
+                <img
+                  src={selectedGalleryItem.src}
+                  alt={selectedGalleryItem.alt[language]}
+                  className="block w-full h-auto max-h-[70vh] object-contain bg-background"
+                />
+
+              </div>
+
+
+              <div className="p-6 md:p-8">
+
+                <DialogTitle className="font-serif text-2xl md:text-3xl">
+                  {selectedGalleryItem.title[language]}
+                </DialogTitle>
+
+
+                <DialogDescription
+                  asChild
+                >
+                  <div className="mt-4 text-sm md:text-base leading-relaxed text-muted-foreground">
+                    {selectedGalleryItem.description[language]}
+                  </div>
+                </DialogDescription>
+
+              </div>
+
+            </>
+          )}
+
+        </DialogContent>
+
+      </Dialog>
+
+
       <Footer />
+
     </div>
   );
 }
 
 
 const TheSpicyJam = () => {
-
   return (
     <LanguageProvider>
 
