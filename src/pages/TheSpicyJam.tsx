@@ -707,7 +707,7 @@ function TheSpicyJamContent() {
             </header>
 
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-9 md:gap-x-7 md:gap-y-11">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-12 md:gap-x-7 md:gap-y-11">
 
               {bandMembers.map((member) => (
 
@@ -719,7 +719,7 @@ function TheSpicyJamContent() {
                   aria-label={`${member.name} – ${copy.learnMore}`}
                 >
 
-                  <div className="group relative aspect-square overflow-hidden rounded-sm bg-card shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="group relative w-full max-w-[150px] md:max-w-none mx-auto aspect-square overflow-hidden rounded-sm bg-card shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
 
                     {member.image ? (
 
@@ -757,9 +757,11 @@ function TheSpicyJamContent() {
 
                   <div className="pt-4 text-center">
 
-                    <h3 className="font-serif text-lg md:text-xl leading-tight">
-                      {member.name}
-                    </h3>
+                    <div className="min-h-[48px] flex items-center justify-center">
+                      <h3 className="font-serif text-lg md:text-xl leading-tight">
+                        {member.name}
+                      </h3>
+                    </div>
 
                     <p className="mt-1 text-sm text-muted-foreground">
                       {member.instrument[language]}
