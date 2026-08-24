@@ -132,8 +132,8 @@ type GalleryItem = {
   };
 
   description: {
-    de: ReactNode;
-    en: ReactNode;
+    de: string;
+    en: string;
   };
 
   alt: {
@@ -153,27 +153,13 @@ const spicyJamGallery: GalleryItem[] = [
     },
 
     description: {
-      de: (
-        <>
-          Fotoshooting im Wilhelm 13. Ein bisschen verrückt und ganz schön
-          Spicy – so sind wir eben.
-          <br />
-          Foto: Patrick Nagel.
-        </>
-      ),
-
-      en: (
-        <>
-          A little crazy and pretty Spicy – that’s just who we are.
-          <br />
-          Photo: Patrick Nagel.
-        </>
-      ),
+      de: 'Fotoshooting im Wilhelm 13 Ein bisschen verrückt und ganz schön Spicy – so sind wir eben. \nFoto: Patrick Nagel.',
+      en: 'Photoshoot at Wilhelm 13. A little crazy and pretty Spicy – that’s just who we are.\nPhoto: Patrick Nagel.',    
     },
 
     alt: {
-      de: 'Jovana Kokor mit JoyWanna & The Spicy Jam beim Bandfotoshooting im Wilhelm 13, Oldenburg',
-      en: 'Jovana Kokor with JoyWanna & The Spicy Jam at a band photoshoot at Wilhelm 13, Oldenburg',
+      de: 'JoyWanna & The Spicy Jam beim Band-Fotoshooting im Wilhelm 13 in Oldenburg',
+      en: 'JoyWanna & The Spicy Jam during a band photoshoot at Wilhelm 13 in Oldenburg',
     },
   },
 
@@ -186,13 +172,13 @@ const spicyJamGallery: GalleryItem[] = [
     },
 
     description: {
-      de: 'Some Sing Special – Teil der gleichnamigen Konzertreihe im Wilhelm 13, gemeinsam mit meinen wunderbaren Spicy Jam-ers. Ein Abend, der einfach ganz wir war.',
-      en: 'Some Sing Special – part of the concert series of the same name at Wilhelm 13, together with my wonderful Spicy Jam-ers. An evening that was simply all us.',
+      de: 'Teil der gleichnamigen Konzertreihe im Wilhelm 13 in Oldenburg. Ein Abend, der einfach ganz wir war.',
+      en: 'Part of the concert series of the same name at Wilhelm 13 in Oldenburg. An evening that simply felt completely like us.',
     },
 
     alt: {
-      de: 'JoyWanna & The Spicy Jam beim Konzert „Some Sing Special" im Wilhelm 13, Oldenburg',
-      en: 'JoyWanna & The Spicy Jam at the "Some Sing Special" concert at Wilhelm 13, Oldenburg',
+      de: 'JoyWanna & The Spicy Jam bei der Konzertreihe Some Sing Special im Wilhelm 13 in Oldenburg',
+      en: 'JoyWanna & The Spicy Jam performing at the Some Sing Special concert series at Wilhelm 13 in Oldenburg',
     },
   },
 
@@ -200,37 +186,37 @@ const spicyJamGallery: GalleryItem[] = [
     src: spicyJam40,
 
     title: {
-      de: 'Jazzakademie Jade',
-      en: 'Jazz Academy Jade',
-    },
+     de: 'Jazzakademie Jade',
+     en: 'Jazz Academy Jade',
+  },
 
     description: {
-      de: 'Mit meinen großartigen Spicy Jam-ers bei einem besonderen Konzert der Jazzakademie an der Nordsee in Jade – ein Abend voller Musik, Wachstum und gemeinsamer Energie.',
-      en: 'With my amazing Spicy Jam-ers at a special concert of the Jazz Academy on the North Sea in Jade – an evening full of music, growth and shared energy.',
-    },
+     de: 'Live bei der Jazzakademie an der Nordsee in Jade. Einfach ein richtig schöner Abend mit viel Musik und Spielfreude.',
+     en: 'Live at the Jazz Academy by the North Sea in Jade. Simply a wonderful evening filled with music and the joy of playing together.',
+  },
 
     alt: {
-      de: 'JoyWanna & The Spicy Jam live beim Konzert der Jazzakademie an der Nordsee in Jade',
-      en: 'JoyWanna & The Spicy Jam live at the Jazz Academy concert on the North Sea in Jade',
-    },
+     de: 'JoyWanna & The Spicy Jam live bei der Jazzakademie an der Nordsee in Jade',
+     en: 'JoyWanna & The Spicy Jam performing live at the Jazz Academy by the North Sea in Jade',
+  },
   },
 
   {
     src: jw47,
 
     title: {
-      de: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven',
-      en: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven',
+     de: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven',
+     en: 'Jade Jazz Jam – Pumpwerk Wilhelmshaven',
     },
 
     description: {
-      de: 'Jade Jazz Jam – live open air am Pumpwerk in Wilhelmshaven. Einfach ein schöner Moment, in dem ich ganz im Zuhören versinke, während mein Pianist Jakob sein Solo spielt. Foto: Bert Bergner',
-      en: 'Jade Jazz Jam – live open air at Pumpwerk in Wilhelmshaven. Simply a beautiful moment in which I sink completely into listening while my pianist Jakob plays his solo. Photo: Bert Bergner',
+     de: 'Live open air am Pumpwerk in Wilhelmshaven. Einfach ein schöner Moment, in dem ich ganz im Zuhören versinke, während unser Pianist Jakob sein Solo spielt.\nFoto: Bert Bergner.',
+     en: 'Live open air at the Pumpwerk in Wilhelmshaven. A beautiful moment where I’m completely immersed in the music while our pianist Jakob plays his solo.\nPhoto: Bert Bergner.',
     },
 
     alt: {
-      de: 'JoyWanna live open air beim Jade Jazz Jam am Pumpwerk in Wilhelmshaven, lauschend während Pianist Jakob ein Solo spielt',
-      en: 'JoyWanna live open air at the Jade Jazz Jam at Pumpwerk in Wilhelmshaven, listening as pianist Jakob plays a solo',
+     de: 'JoyWanna & The Spicy Jam live beim Jade Jazz Jam am Pumpwerk in Wilhelmshaven, während Pianist Jakob sein Solo spielt',
+     en: 'JoyWanna & The Spicy Jam live at the Jade Jazz Jam at Pumpwerk Wilhelmshaven while pianist Jakob plays his solo',
     },
   },
 
@@ -238,18 +224,18 @@ const spicyJamGallery: GalleryItem[] = [
     src: spicyJam41,
 
     title: {
-      de: 'Open-Air-Konzert auf der Dachterrasse',
-      en: 'Open-Air Concert on the Rooftop Terrace',
+     de: 'Tiny Terrace Concert',
+     en: 'Tiny Terrace Concert',
     },
 
     description: {
-      de: 'Ein sommerlicher Open-Air-Abend mit meinen Spicy Jam-ers – ganz nah am Publikum, im warmen Licht des Sonnenuntergangs.',
-      en: 'A summery open-air evening with my Spicy Jam-ers – right up close to the audience, in the warm light of sunset.',
+     de: 'Unser selbst organisiertes Privatkonzert auf meiner Terrasse – ganz nah am Publikum und für unsere Lieblingsmenschen.',
+     en: 'Our self-organized private concert on my terrace – up close to the audience and performed for our favorite people.',
     },
 
     alt: {
-      de: 'JoyWanna & The Spicy Jam bei einem Open-Air-Konzert auf einer Dachterrasse im Sonnenuntergang',
-      en: 'JoyWanna & The Spicy Jam at an open-air concert on a rooftop terrace at sunset',
+     de: 'JoyWanna & The Spicy Jam bei einem privaten Tiny Terrace Concert auf einer Terrasse',
+     en: 'JoyWanna & The Spicy Jam performing at a private Tiny Terrace Concert on a terrace',
     },
   },
 ];
@@ -1126,7 +1112,7 @@ function TheSpicyJamContent() {
                 <DialogDescription
                   asChild
                 >
-                  <div className="mt-4 text-sm md:text-base leading-relaxed text-muted-foreground">
+                  <div className="mt-4 text-sm md:text-base leading-relaxed text-muted-foreground whitespace-pre-line">
                     {selectedGalleryItem.description[language]}
                   </div>
                 </DialogDescription>
