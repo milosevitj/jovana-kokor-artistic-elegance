@@ -24,8 +24,8 @@ const About = () => {
       <LanguageSync />
       <div className="min-h-screen bg-background text-foreground">
         <Header />
-        <main className="pt-24 md:pt-32">
-          <AboutSection />
+        <main className="pt-16 md:pt-20">
+          <AboutSection className="!pt-10 md:!pt-14" />
         </main>
         <Footer />
       </div>
