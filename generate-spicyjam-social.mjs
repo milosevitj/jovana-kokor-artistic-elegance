@@ -5,38 +5,8 @@ const root = process.cwd();
 const distDir = path.join(root, 'dist');
 const indexPath = path.join(distDir, 'index.html');
 
-/*
- * Existing Spicy Jam image from the project.
- *
- * If your real location is:
- * src/portfolio-new/joywanna-spicy-jam-in-our-element.webp
- *
- * instead of:
- * src/assets/portfolio-new/...
- *
- * then only change this path.
- */
-const sourceImagePath = path.join(
-  root,
-  'src',
-  'assets',
-  'portfolio-new',
-  'joywanna-spicy-jam-in-our-element.webp'
-);
-
-/*
- * We copy the image into dist with a stable public filename.
- * Social media crawlers need a real public URL.
- */
-const socialImageFilename = 'joywanna-spicy-jam-social.webp';
-const socialImageOutputPath = path.join(
-  distDir,
-  socialImageFilename
-);
-
 const socialImageUrl =
-  `https://joywanna.com/${socialImageFilename}`;
-
+   'https://joywanna.com/joywanna-spicy-jam-social-v2.jpg';
 
 /* -------------------------------------------------------
    CHECK BUILD
@@ -46,32 +16,31 @@ if (!fs.existsSync(indexPath)) {
   console.error(
     'ERROR: dist/index.html was not found. Run vite build first.'
   );
-
   process.exit(1);
 }
-
 
 /* -------------------------------------------------------
-   COPY SOCIAL IMAGE
+   CHECK SOCIAL IMAGE
 ------------------------------------------------------- */
 
-if (!fs.existsSync(sourceImagePath)) {
-  console.error(
-    `ERROR: Spicy Jam image was not found:\n${sourceImagePath}`
-  );
+const socialImagePath = path.join(
+  distDir,
+  'joywanna-spicy-jam-social-v2.jpg'
+);
 
+if (!fs.existsSync(socialImagePath)) {
+  console.error(
+    'ERROR: joywanna-spicy-jam-social.jpg was not found in dist.'
+  );
+  console.error(
+    'Make sure the image exists in public/joywanna-spicy-jam-social-v2.jpg'
+  );
   process.exit(1);
 }
 
-fs.copyFileSync(
-  sourceImagePath,
-  socialImageOutputPath
-);
-
 console.log(
-  `Copied social image → /${socialImageFilename}`
+  'Social image found → /joywanna-spicy-jam-social-v2.jpg'
 );
-
 
 /* -------------------------------------------------------
    READ ORIGINAL VITE HTML
@@ -82,9 +51,8 @@ const originalHtml = fs.readFileSync(
   'utf8'
 );
 
-
 /* -------------------------------------------------------
-   SEO DATA
+   THE SPICY JAM SEO DATA
 ------------------------------------------------------- */
 
 const pages = [
@@ -101,9 +69,6 @@ const pages = [
 
     canonical:
       'https://joywanna.com/thespicyjam',
-
-    alternate:
-      'https://joywanna.com/en/thespicyjam',
 
     locale: 'de_DE',
 
@@ -124,15 +89,11 @@ const pages = [
     canonical:
       'https://joywanna.com/en/thespicyjam',
 
-    alternate:
-      'https://joywanna.com/thespicyjam',
-
     locale: 'en_US',
 
     alternateLocale: 'de_DE',
   },
 ];
-
 
 /* -------------------------------------------------------
    HELPERS
@@ -146,23 +107,24 @@ function escapeHtml(value) {
     .replaceAll('>', '&gt;');
 }
 
-
 function removeExistingMeta(html) {
-  /*
-   * Remove title.
-   */
   html = html.replace(
     /<title>[\s\S]*?<\/title>/gi,
     ''
   );
 
-
-  /*
-   * Remove descriptions that may already exist
-   * in the global index.html.
-   */
   html = html.replace(
     /<meta[^>]+name=["']description["'][^>]*>/gi,
+    ''
+  );
+
+  html = html.replace(
+    /<meta[^>]+property=["']og:type["'][^>]*>/gi,
+    ''
+  );
+
+  html = html.replace(
+    /<meta[^>]+property=["']og:site_name["'][^>]*>/gi,
     ''
   );
 
@@ -192,12 +154,27 @@ function removeExistingMeta(html) {
   );
 
   html = html.replace(
+    /<meta[^>]+property=["']og:image:width["'][^>]*>/gi,
+    ''
+  );
+
+  html = html.replace(
+    /<meta[^>]+property=["']og:image:height["'][^>]*>/gi,
+    ''
+  );
+
+  html = html.replace(
     /<meta[^>]+property=["']og:locale["'][^>]*>/gi,
     ''
   );
 
   html = html.replace(
     /<meta[^>]+property=["']og:locale:alternate["'][^>]*>/gi,
+    ''
+  );
+
+  html = html.replace(
+    /<meta[^>]+name=["']twitter:card["'][^>]*>/gi,
     ''
   );
 
@@ -222,15 +199,6 @@ function removeExistingMeta(html) {
   );
 
   html = html.replace(
-    /<meta[^>]+name=["']twitter:card["'][^>]*>/gi,
-    ''
-  );
-
-
-  /*
-   * Remove existing canonical and language links.
-   */
-  html = html.replace(
     /<link[^>]+rel=["']canonical["'][^>]*>/gi,
     ''
   );
@@ -243,32 +211,29 @@ function removeExistingMeta(html) {
   return html;
 }
 
+/* -------------------------------------------------------
+   URLs
+------------------------------------------------------- */
+
+const germanUrl =
+  'https://joywanna.com/thespicyjam';
+
+const englishUrl =
+  'https://joywanna.com/en/thespicyjam';
 
 /* -------------------------------------------------------
-   GENERATE EACH ROUTE
+   GENERATE ROUTE-SPECIFIC HTML
 ------------------------------------------------------- */
 
 for (const page of pages) {
-  let html = removeExistingMeta(
-    originalHtml
-  );
+  let html = removeExistingMeta(originalHtml);
 
+  /* Correct document language */
 
-  /*
-   * Correct <html lang="">
-   */
   html = html.replace(
     /<html([^>]*)lang=["'][^"']*["']([^>]*)>/i,
     `<html$1lang="${page.lang}"$2>`
   );
-
-
-  const germanUrl =
-    'https://joywanna.com/thespicyjam';
-
-  const englishUrl =
-    'https://joywanna.com/en/thespicyjam';
-
 
   const seoTags = `
 
@@ -350,8 +315,18 @@ for (const page of pages) {
     />
 
     <meta
+      property="og:image:width"
+      content="1200"
+    />
+
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+
+    <meta
       property="og:image:alt"
-      content="JoyWanna & The Spicy Jam"
+      content="JoyWanna & The Spicy Jam live on stage"
     />
 
 
@@ -379,29 +354,19 @@ for (const page of pages) {
 
     <meta
       name="twitter:image:alt"
-      content="JoyWanna & The Spicy Jam"
+      content="JoyWanna & The Spicy Jam live on stage"
     />
 
     <!-- END THE SPICY JAM SEO -->
 
   `;
 
-
   html = html.replace(
     '</head>',
     `${seoTags}\n</head>`
   );
 
-
-  /*
-   * Create:
-   *
-   * dist/thespicyjam/index.html
-   *
-   * and
-   *
-   * dist/en/thespicyjam/index.html
-   */
+  /* Create route directory */
 
   const outputDirectory = path.join(
     distDir,
@@ -415,12 +380,12 @@ for (const page of pages) {
     }
   );
 
+  /* Write index.html */
 
   const outputFile = path.join(
     outputDirectory,
     'index.html'
   );
-
 
   fs.writeFileSync(
     outputFile,
@@ -428,12 +393,10 @@ for (const page of pages) {
     'utf8'
   );
 
-
   console.log(
     `Generated → /${page.outputPath}/index.html`
   );
 }
-
 
 console.log('');
 console.log(
@@ -442,4 +405,4 @@ console.log(
 console.log('');
 console.log(
   `Social image: ${socialImageUrl}`
-);
+)
