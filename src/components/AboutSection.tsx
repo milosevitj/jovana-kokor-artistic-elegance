@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { cn } from '@/lib/utils';
 import portraitOriginal from '@/assets/jovana-portrait-hq.webp?url';
 import bandImage from '@/assets/joywanna-spicy-jam.webp';
 
 
-export function AboutSection() {
+export function AboutSection({ className }: { className?: string }) {
   const { t } = useLanguage();
   const [bandModalOpen, setBandModalOpen] = useState(false);
 
   return (
-    <section id="about" className="section-padding">
+    <section id="about" className={cn("section-padding", className)}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
