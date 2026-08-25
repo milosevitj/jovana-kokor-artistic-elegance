@@ -251,18 +251,18 @@ const spicyJamSlides: GalleryItem[] = [
     src: spicyJamImage,
 
     title: {
-      de: 'JoyWanna & The Spicy Jam',
-      en: 'JoyWanna & The Spicy Jam',
+      de: 'In unserem Element',
+      en: 'In Our Element',
     },
 
     description: {
-      de: 'JoyWanna & The Spicy Jam stehen für einen mitreißenden Sound zwischen Jazz, Latin, Soul und Pop – voller Spielfreude, Energie und musikalischer Vielfalt.',
-      en: 'JoyWanna & The Spicy Jam stand for a captivating sound between jazz, Latin, soul and pop – full of joy, energy and musical variety.',
+      de: 'Genau da, wo wir am liebsten sind – gemeinsam auf der Bühne.',
+      en: 'Right where we love to be most – together on stage.',
     },
 
     alt: {
-      de: 'JoyWanna & The Spicy Jam',
-      en: 'JoyWanna & The Spicy Jam',
+      de: 'JoyWanna & The Spicy Jam gemeinsam live auf der Bühne',
+      en: 'JoyWanna & The Spicy Jam performing live together on stage',
     },
   },
 
@@ -289,6 +289,11 @@ type BandMember = {
     de: string;
     en: string;
   };
+
+  alt: {
+    de: string;
+    en: string;
+  };
 };
 
 
@@ -302,12 +307,17 @@ const bandMembers: BandMember[] = [
     },
 
     bio: {
-      de: 'Jakob bewegt sich musikalisch zwischen Jazz, Rock und Fusion und ist unter anderem Initiator der Oldenburger Band Odd Buddies. \n\n\ Im Spicy Jam prägt er nicht nur mit seinem vielseitigen Spiel und seinem Gespür für Klangfarben den Sound der Band, sondern schreibt auch einen großen Teil unserer Arrangements.',
+      de: 'Jakob bewegt sich musikalisch zwischen Jazz, Fusion und Pop und war langjähriges Mitglied der Oldenburger M-Band. \n\n\ Im Spicy Jam prägt er nicht nur mit seinem vielseitigen Spiel und seinem Gespür für Klangfarben den Sound der Band, sondern schreibt auch einen großen Teil unserer Arrangements.',
 
-      en: 'Jakob moves musically between jazz, rock and fusion, and is among other things the initiator of the Oldenburg band Odd Buddies.\n\n In The Spicy Jam, he not only shapes the band’s sound with his versatile playing and keen sense of tonal colors, but also writes a large part of our arrangements.',
+      en: 'Jakob moves musically between jazz, fusion, and pop and was a long-time member of Oldenburg’s M-Band.\n\n In The Spicy Jam, he not only shapes the band’s sound with his versatile playing and keen sense of tone and texture, but also writes a large part of our arrangements.',
     },
 
     image: band1,
+
+    alt: {
+      de: 'Jakob Drefs, Pianist und Keyboarder bei JoyWanna & The Spicy Jam',
+      en: 'Jakob Drefs, pianist and keyboardist with JoyWanna & The Spicy Jam',
+    },
   },
 
   {
@@ -330,6 +340,11 @@ const bandMembers: BandMember[] = [
       de: 'Mehr über JoyWanna →',
       en: 'More about JoyWanna →',
     },
+
+    alt: {
+      de: 'JoyWanna (Jovana Kokor), Sängerin von JoyWanna & The Spicy Jam',
+      en: 'JoyWanna (Jovana Kokor), vocalist of JoyWanna & The Spicy Jam',
+    },
   },
 
   {
@@ -347,6 +362,11 @@ const bandMembers: BandMember[] = [
     },
 
     image: band3,
+
+    alt: {
+      de: 'Frank Schmidt, Saxophonist bei JoyWanna & The Spicy Jam',
+      en: 'Frank Schmidt, saxophonist with JoyWanna & The Spicy Jam',
+    },
   },
 
   {
@@ -364,6 +384,11 @@ const bandMembers: BandMember[] = [
     },
 
     image: band4,
+
+    alt: {
+      de: 'Carsten Heinecke, Bassist bei JoyWanna & The Spicy Jam',
+      en: 'Carsten Heinecke, bassist with JoyWanna & The Spicy Jam',
+    },
   },
 
   {
@@ -381,6 +406,11 @@ const bandMembers: BandMember[] = [
     },
 
     image: band5,
+
+    alt: {
+      de: 'Georges Onguene, Percussionist bei JoyWanna & The Spicy Jam',
+      en: 'Georges Onguene, percussionist with JoyWanna & The Spicy Jam',
+},
   },
 
   {
@@ -398,7 +428,13 @@ const bandMembers: BandMember[] = [
     },
 
     image: band6,
+
+    alt: {
+      de: 'Melanie Geserick, Schlagzeugerin bei JoyWanna & The Spicy Jam',
+      en: 'Melanie Geserick, drummer with JoyWanna & The Spicy Jam',
+    },
   },
+  
 ];
 
 
