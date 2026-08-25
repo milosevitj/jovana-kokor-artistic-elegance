@@ -1029,7 +1029,7 @@ function TheSpicyJamContent() {
         }}
       >
 
-        <DialogContent className="max-w-lg overflow-hidden border-border bg-card p-0">
+        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto border-border bg-card p-0">
 
           {selectedMember && (
             <>
