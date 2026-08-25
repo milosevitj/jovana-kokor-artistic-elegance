@@ -1029,14 +1029,14 @@ function TheSpicyJamContent() {
         }}
       >
 
-        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto border-border bg-card p-0">
+        <DialogContent className="flex max-h-[90vh] max-w-lg flex-col overflow-hidden border-border bg-card p-0">
 
           {selectedMember && (
             <>
 
               {selectedMember.image && (
 
-                <div className="aspect-square max-h-[48vh] w-full overflow-hidden bg-muted">
+                <div className="aspect-[4/3] max-h-[34vh] w-full shrink-0 overflow-hidden bg-muted">
 
                   <img
                     src={selectedMember.image}
@@ -1049,7 +1049,8 @@ function TheSpicyJamContent() {
               )}
 
 
-              <div className="p-6 md:p-8">
+              <div className="min-h-0 flex-1 overflow-y-auto p-6 pb-8 md:p-8 md:pb-10">
+
 
                 <DialogTitle className="font-serif text-2xl md:text-3xl">
                   {selectedMember.name}
