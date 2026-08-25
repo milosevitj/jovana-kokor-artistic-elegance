@@ -39,7 +39,7 @@ const upcomingGigs: Gig[] = [
     cityEn: "Oldenburg",
     titleDe: '"Some Sing Special" – JoyWanna & The Spicy Jam',
     titleEn: '"Some Sing Special" – JoyWanna & The Spicy Jam',
-    eventUrl: "https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/",
+    eventUrl: "https://wilhelm13.de/reservieren.php?eventid=1200",
   },
   {
     id: "sage-und-schreibe",

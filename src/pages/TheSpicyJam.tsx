@@ -872,7 +872,7 @@ function TheSpicyJamContent() {
                   <div className="flex flex-col items-start md:items-end gap-2">
 
                     <a
-                      href="https://wilhelm13.de/programm/some-sing-special-joywanna-the-spicy-jam/"
+                      href="https://wilhelm13.de/reservieren.php?eventid=1200"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
